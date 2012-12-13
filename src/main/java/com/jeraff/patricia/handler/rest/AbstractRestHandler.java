@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.handler.rest;
 
 import org.eclipse.jetty.server.Request;
 import org.eclipse.jetty.server.handler.AbstractHandler;
@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public abstract class PatriciaHandler<K, V> extends AbstractHandler {
+public abstract class AbstractRestHandler<K, V> extends AbstractHandler {
     public static final String CONTENT_TYPE_HTML = "text/html;charset=utf-8";
 
     protected PatriciaTrie<K, V> patriciaTrie;
 
-    public PatriciaHandler(PatriciaTrie<K, V> patriciaTrie) {
+    public AbstractRestHandler(PatriciaTrie<K, V> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
     }
 
-    public void handle(String s, Request request, HttpServletRequest httpServletRequest,
+    public void handle(String target, Request request, HttpServletRequest httpServletRequest,
                        HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType(CONTENT_TYPE_HTML);

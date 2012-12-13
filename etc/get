@@ -8,7 +8,7 @@ import urllib2
 pp = args.args()
 res = []
 
-url = "%s/?%s" % (pp.host, urllib.urlencode({"key": " ".join(pp.keys)}))
+url = "%s?%s" % (pp.host, urllib.urlencode({"s": " ".join(pp.keys)}))
 req = urllib2.Request(url)
 response = urllib2.urlopen(req)
 data = json.loads(response.read(), encoding="UTF-8")

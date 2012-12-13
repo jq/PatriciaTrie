@@ -9,7 +9,7 @@ pp = args.args()
 res = {}
 
 for k in pp.keys:
-    req = urllib2.Request(pp.host, urllib.urlencode({"key": k}))
+    req = urllib2.Request(pp.host, urllib.urlencode({"s": k}))
     response = urllib2.urlopen(req)
     data = json.loads(response.read())
     res.update(data)

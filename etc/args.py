@@ -22,4 +22,6 @@ def args():
     if not pp.host.startswith("http://") and not pp.host.startswith("https://"):
         pp.host = "http://%s" % pp.host
 
+    pp.host = "%s/api/" % pp.host
+
     return pp
