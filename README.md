@@ -21,7 +21,8 @@ Quick Start
 Run it and add stuff
 ---
 
-`make run
+`
+make run
 cd etc
 ./put "A Nightmare on Elm Street"
 ./put "30 Days of Night"
