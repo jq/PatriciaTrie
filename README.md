@@ -7,7 +7,7 @@ more info at: http://code.google.com/p/google-collections/issues/detail?id=5
 
 The goal is to provide an http interface for pseudo-prefix searches (aka type-head, aka auto-complete).
 
-I say "pseudo-prefix" b/c we break the initial string into chunks to enable kinda-sorta-partial-pseudo-prefix type searches.
+I say "pseudo-prefix" b/c we break the initial string into chunks (chop off previous token over & over again) to enable kinda-sorta-partial-pseudo-prefix type searches.
 Essentially: for a string like "A Nightmare on Elm Street" we want queries such as:
 
 - elm
