@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class RestHandler extends AbstractRestHandler<String, String> {
+    public static final String HEADER_TOTAL = "X-Patricia-Total";
+
     public RestHandler(PatriciaTrie<String, String> patriciaTrie) {
         super(patriciaTrie);
     }
@@ -23,17 +25,24 @@ public class RestHandler extends AbstractRestHandler<String, String> {
 
         final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(key));
         List<String> result = null;
+        HashMap<String, Object> headers = null;
 
         if (prefixedBy.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         } else {
             result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
-            if (result.size() > 25) {
+            final int total = result.size();
+
+            headers = new HashMap<String, Object>(){{
+                put(HEADER_TOTAL, total);
+            }};
+
+            if (total > 25) {
                 result = result.subList(0, 25);
             }
         }
 
-        write(response, result);
+        write(response, headers, result);
     }
 
     public void putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -81,11 +90,21 @@ public class RestHandler extends AbstractRestHandler<String, String> {
     }
 
     private void write(HttpServletResponse response, Object o) throws IOException {
+        write(response, null, o);
+    }
+
+    private void write(HttpServletResponse response, HashMap<String, Object> headers, Object o) throws IOException {
         if (o != null) {
             final Gson gson = new Gson();
             final String json = gson.toJson(o);
             response.setContentLength(json.getBytes().length);
             response.getWriter().print(json);
+        }
+
+        if (headers != null) {
+            for (Map.Entry<String, Object> header : headers.entrySet()) {
+                response.addHeader(header.getKey(), header.getValue().toString());
+            }
         }
 
         response.setContentType("application/json");
