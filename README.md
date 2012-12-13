@@ -31,19 +31,22 @@ Run it and add stuff
 Get stuff out
 ---
 
-- `./get night`
+`./get night`
 
-result:
-
-`
-{
+`{
      "night": [
          "A Nightmare on Elm Street",
          "Silent Night Deadly Night",
          "The Nightmare Before Christmas"
      ]
-}
-`
+}`
+
+`./get elm`
+`{
+     "elm": [
+         "A Nightmare on Elm Street"
+     ]
+ }`
 
 
 URL's etc
