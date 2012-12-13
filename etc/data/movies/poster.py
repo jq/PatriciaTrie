@@ -1,6 +1,3 @@
-import json
-import urllib
-import urllib2
 import sys
 from subprocess import call
 
@@ -12,5 +9,5 @@ for line in sys.stdin:
 		continue
 		
 	l = s.replace("[edit]", "").rstrip(':')
-	return_code = call(["curl", "localhost:8666/", "-d", ("key=%s" % l)])
+	return_code = call(["curl", "localhost:8666/api/", "-d", ("s=%s" % l)])
 	print return_code

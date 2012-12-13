@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import json
+import pprint
 import urllib
 import urllib2
 import args
@@ -14,4 +15,4 @@ for k in pp.keys:
     data = json.loads(response.read())
     res.update(data)
 
-print json.dumps(res, indent=4)
+pprint.pprint(res)

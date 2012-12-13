@@ -4,6 +4,7 @@ import json
 import args
 import urllib
 import urllib2
+import pprint
 
 pp = args.args()
 res = []
@@ -14,4 +15,4 @@ response = urllib2.urlopen(req)
 data = json.loads(response.read(), encoding="UTF-8")
 res.append(data)
     
-print json.dumps(data, indent=4, encoding="UTF-8", ensure_ascii=False)
+pprint.pprint(data)
