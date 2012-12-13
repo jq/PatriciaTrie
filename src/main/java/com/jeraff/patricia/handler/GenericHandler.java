@@ -33,15 +33,19 @@ public class GenericHandler extends PatriciaHandler<String, String> {
     public void putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String[] keys = params.keys;
         final int length = keys.length;
-        final HashMap<String, String> result = new HashMap<String, String>(length);
+        final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
         for (int i = 0; i < length; i++) {
-            final String key = keys[0];
+            final String key = keys[i];
             final ArrayList<String> grams = WordUtil.getGramsFormPut(key);
+            final ArrayList<String> strings = new ArrayList<String>();
+
             for (String gram : grams) {
                 final String put = patriciaTrie.put(WordUtil.clean(gram), key);
-                result.put(key, put);
+                strings.add(gram);
             }
+
+            result.put(key, strings);
         }
 
         write(response, result);
