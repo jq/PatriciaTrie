@@ -34,8 +34,14 @@ public class WordUtil {
         return stripStopWords(s).toLowerCase();
     }
 
-    public static ArrayList<String> getGramsFormPut(String s) {
+    public static ArrayList<String> getGramsFormPut(final String s) {
         final String[] st = StringUtils.split(clean(s));
+        if (st.length == 1) {
+            return new ArrayList<String>(){{
+                add(s);
+            }};
+        }
+
         final ArrayList<String> list = new ArrayList<String>(Arrays.asList(st));
         final ArrayList<String> res = new ArrayList<String>();
         final int size = list.size();

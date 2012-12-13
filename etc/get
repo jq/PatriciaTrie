@@ -1,29 +1,11 @@
 #!/usr/bin/env python
 
-import argparse
 import json
-import httplib
-import sys
+import args
 import urllib
 import urllib2
 
-parser = argparse.ArgumentParser(
-    add_help=False,
-    description="Add a string")
-
-parser.add_argument("-host",
-    type=str,
-    help="Machine's hostname",
-    dest='host',
-    default="http://localhost:8666",
-    required=False)
-
-parser.add_argument("keys",
-    type=str,
-    help="Keys to add",
-    nargs='+')
-
-pp = parser.parse_args(sys.argv[1:])
+pp = args.args()
 res = {}
 
 for k in pp.keys:
