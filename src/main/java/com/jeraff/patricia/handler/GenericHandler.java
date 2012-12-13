@@ -21,7 +21,7 @@ public class GenericHandler extends PatriciaHandler<String, String> {
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
         for (String key : keys) {
-            final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(key, params.offset, params.limit);
+            final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(key.toLowerCase());
             final Collection<String> values = prefixedBy.values();
             result.put(key, new ArrayList<String>(values));
         }
@@ -36,7 +36,7 @@ public class GenericHandler extends PatriciaHandler<String, String> {
 
         for (int i = 0; i < length; i++) {
             final String key = keys[0];
-            result.put(key, patriciaTrie.put(key, key));
+            result.put(key.toLowerCase(), patriciaTrie.put(key, key));
         }
 
         write(response, result);
@@ -79,7 +79,6 @@ public class GenericHandler extends PatriciaHandler<String, String> {
     @Override
     public void handle(String s, Request request, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException, ServletException {
         final String method = request.getMethod();
-        final StringBuilder sb = new StringBuilder();
 
         Params params = new Params(httpServletRequest.getParameterMap());
 
