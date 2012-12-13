@@ -22,12 +22,15 @@ public class GenericHandler extends PatriciaHandler<String, String> {
         final String key = keys[0];
 
         final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(key));
-        ArrayList<String> result = null;
+        List<String> result = null;
 
         if (prefixedBy.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         } else {
             result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
+            if (result.size() > 25) {
+                result = result.subList(0, 25);
+            }
         }
 
         write(response, result);
@@ -86,6 +89,7 @@ public class GenericHandler extends PatriciaHandler<String, String> {
         }
 
         response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
         response.getWriter().close();
     }
 

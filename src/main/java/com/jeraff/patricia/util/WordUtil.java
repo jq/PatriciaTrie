@@ -2,6 +2,7 @@ package com.jeraff.patricia.util;
 
 import org.apache.commons.lang.StringUtils;
 
+import java.io.UnsupportedEncodingException;
 import java.util.*;
 
 public class WordUtil {
@@ -29,7 +30,11 @@ public class WordUtil {
     }
 
     public static String clean(String s) {
-        return stripStopWords(s.replaceAll("[^A-Za-z0-9 ]", "")).toLowerCase();
+        try {
+            return new String(stripStopWords(s.replaceAll("[^A-Za-z0-9 ]", "")).toLowerCase().getBytes("UTF-8"), "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            return null;
+        }
     }
 
     public static HashSet<String> getGramsFormPut(final String s) {

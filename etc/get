@@ -8,11 +8,10 @@ import urllib2
 pp = args.args()
 res = []
 
-for k in pp.keys:
-    url = "%s/?%s" % (pp.host, urllib.urlencode({"key": k}))
-    req = urllib2.Request(url)
-    response = urllib2.urlopen(req)
-    data = json.loads(response.read())
-    res.append(data)
+url = "%s/?%s" % (pp.host, urllib.urlencode({"key": " ".join(pp.keys)}))
+req = urllib2.Request(url)
+response = urllib2.urlopen(req)
+data = json.loads(response.read(), encoding="UTF-8")
+res.append(data)
     
-print json.dumps(data, indent=4)
+print json.dumps(data, indent=4, encoding="UTF-8", ensure_ascii=False)
