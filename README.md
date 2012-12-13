@@ -35,7 +35,6 @@ Get stuff out
 ---
 
     ./get night
-
     {
          "night": [
              "A Nightmare on Elm Street",
@@ -45,13 +44,18 @@ Get stuff out
     }
 
     ./get elm
-
     {
          "elm": [
              "A Nightmare on Elm Street"
          ]
     }
 
+    ./get e
+    {
+        "e": [
+            "A Nightmare on Elm Street"
+        ]
+    }
 
 URL's etc
 ===
