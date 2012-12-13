@@ -16,7 +16,7 @@
                 source: "/api",
                 autoFocus: true,
                 delay: 10,
-                minLength: 2,
+                minLength: 1,
                 select: function (event, ui) {
                     alert(ui.item ?
                             "Selected: " + ui.item.value + " aka " + ui.item.id :
