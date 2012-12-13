@@ -9,10 +9,10 @@ import java.io.*;
 import java.net.URL;
 import java.util.HashMap;
 
-public abstract class BaseHandler extends AbstractHandler{
-    Configuration freemarkerConfig;
+public abstract class AbstractWebHandler extends AbstractHandler{
+    protected Configuration freemarkerConfig;
 
-    public BaseHandler() {
+    public AbstractWebHandler() {
         freemarkerConfig = new Configuration();
 
         try {
@@ -23,22 +23,23 @@ public abstract class BaseHandler extends AbstractHandler{
         }
     }
 
-    void renderTemplate(HttpServletResponse response, String template, HashMap<String, Object> rootMap) {
-        StringWriter sw = new StringWriter();
-        final Template t;
+    String renderTemplate(HttpServletResponse response, String templateName, HashMap<String, Object> rootMap) {
         try {
-            t = freemarkerConfig.getTemplate(template);
-            t.process(rootMap, sw);
-            final String out = sw.toString().trim();
-            response.getWriter().print(out);
-        } catch (Exception e) {
-            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            final Template template;
+            final StringWriter sw = new StringWriter();
 
-            try {
-                e.printStackTrace(response.getWriter());
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
+            template = freemarkerConfig.getTemplate(templateName);
+            template.process(rootMap, sw);
+
+            return sw.toString().trim();
+        } catch (Exception e) {
+            final StringWriter sw = new StringWriter();
+            final PrintWriter pw = new PrintWriter(sw);
+
+            response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
+            e.printStackTrace(pw);
+
+            return sw.toString();
         }
     }
 }

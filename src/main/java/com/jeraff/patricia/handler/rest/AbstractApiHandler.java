@@ -9,12 +9,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public abstract class AbstractRestHandler<K, V> extends AbstractHandler {
+public abstract class AbstractApiHandler<K, V> extends AbstractHandler {
     public static final String CONTENT_TYPE_HTML = "text/html;charset=utf-8";
 
     protected PatriciaTrie<K, V> patriciaTrie;
 
-    public AbstractRestHandler(PatriciaTrie<K, V> patriciaTrie) {
+    public AbstractApiHandler(PatriciaTrie<K, V> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
     }
 

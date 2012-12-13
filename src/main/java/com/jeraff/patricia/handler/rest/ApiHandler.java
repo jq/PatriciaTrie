@@ -12,10 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-public class RestHandler extends AbstractRestHandler<String, String> {
+public class ApiHandler extends AbstractApiHandler<String, String> {
     public static final String HEADER_TOTAL = "X-Patricia-Total";
 
-    public RestHandler(PatriciaTrie<String, String> patriciaTrie) {
+    public ApiHandler(PatriciaTrie<String, String> patriciaTrie) {
         super(patriciaTrie);
     }
 
@@ -142,7 +142,7 @@ public class RestHandler extends AbstractRestHandler<String, String> {
 
     private void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {
         response.setStatus(validationError.code);
-        write(response, validationError);
+        write(response, validationError.getErrorMap());
     }
 
 }

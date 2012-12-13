@@ -1,0 +1,23 @@
+BODY {
+    font-family: Verdana;
+    font-size: 14px;
+    margin: 100px;
+    background-color: #f5fffd;
+}
+
+.center {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 32pt;
+}
+
+input {
+    font-size: 40pt;
+    width: 75%;
+    border: 1px solid #3e93e8;
+}

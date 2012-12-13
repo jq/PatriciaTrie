@@ -1,8 +1,7 @@
 package com.jeraff.patricia;
 
-import com.jeraff.patricia.handler.rest.RestHandler;
-import com.jeraff.patricia.handler.webui.freemarker.Balls;
-import com.jeraff.patricia.handler.webui.freemarker.WebUIHandler;
+import com.jeraff.patricia.handler.rest.ApiHandler;
+import com.jeraff.patricia.handler.webui.freemarker.WebHandler;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
@@ -15,16 +14,14 @@ public class PatriciaServer {
         final PatriciaTrie<String, String> patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
         final Server server = new Server(8666);
 
-        new Balls();
-
         final ContextHandler restHandler = new ContextHandler("/api");
         restHandler.setResourceBase(".");
-        restHandler.setHandler(new RestHandler(patriciaTrie));
+        restHandler.setHandler(new ApiHandler(patriciaTrie));
         restHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         final ContextHandler webUIHandler = new ContextHandler("/webui");
         webUIHandler.setResourceBase(".");
-        webUIHandler.setHandler(new WebUIHandler(patriciaTrie));
+        webUIHandler.setHandler(new WebHandler(patriciaTrie));
         webUIHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();
