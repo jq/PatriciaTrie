@@ -2,9 +2,7 @@ package com.jeraff.patricia.util;
 
 import org.apache.commons.lang.StringUtils;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class WordUtil {
     public static final String SPACE = " ";
@@ -31,31 +29,34 @@ public class WordUtil {
     }
 
     public static String clean(String s) {
-        return stripStopWords(s).toLowerCase();
+        return stripStopWords(s.replaceAll("[^A-Za-z0-9 ]", "")).toLowerCase();
     }
 
-    public static ArrayList<String> getGramsFormPut(final String s) {
-        final String[] st = StringUtils.split(clean(s));
-        if (st.length == 1) {
-            return new ArrayList<String>(){{
+    public static HashSet<String> getGramsFormPut(final String s) {
+        final String clean = clean(s);
+        final String[] st = StringUtils.split(clean);
+
+        if (st.length == 0) {
+            return new HashSet<String>(0);
+        } else if (st.length == 1) {
+            return new HashSet<String>() {{
                 add(clean(s));
             }};
         }
 
         final ArrayList<String> list = new ArrayList<String>(Arrays.asList(st));
-        final ArrayList<String> res = new ArrayList<String>();
-        final int size = list.size();
+        final HashSet<String> res = new HashSet<String>();
+        final Iterator<String> iterator = list.iterator();
 
-        for (int i = -1; i < size; i++) {
-            if (i >= 0 && i < list.size()) {
-                list.remove(i);
-            }
-
-            if (list.size() != 1) {
+        while (iterator.hasNext()) {
+            iterator.next();
+            iterator.remove();
+            if (!list.isEmpty()) {
                 res.add(StringUtils.join(list, " "));
             }
         }
 
+        res.add(clean);
         return res;
     }
 }

@@ -13,10 +13,6 @@ import java.io.IOException;
 import java.util.*;
 
 public class GenericHandler extends PatriciaHandler<String, String> {
-    public static final String METHOD_GET = "METHOD_GET";
-    public static final String METHOD_DELETE = "METHOD_DELETE";
-    public static final String METHOD_HEAD = "METHOD_HEAD";
-
     public GenericHandler(PatriciaTrie<String, String> patriciaTrie) {
         super(patriciaTrie);
     }
@@ -44,7 +40,7 @@ public class GenericHandler extends PatriciaHandler<String, String> {
 
         for (int i = 0; i < length; i++) {
             final String key = keys[i];
-            final ArrayList<String> grams = WordUtil.getGramsFormPut(key);
+            final HashSet<String> grams = WordUtil.getGramsFormPut(key);
             final ArrayList<String> strings = new ArrayList<String>();
 
             for (String gram : grams) {
