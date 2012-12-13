@@ -21,20 +21,20 @@ Quick Start
 Run it and add stuff
 ---
 
-    make run
+    $ make run
 
 *switch to an other terminal window*
 
-    cd etc
-    ./put "A Nightmare on Elm Street"
-    ./put "30 Days of Night"
-    ./put "Silent Night Deadly Night"
-    ./put "The Nightmare Before Christmas"
+    $ cd etc
+    $ ./put "A Nightmare on Elm Street"
+    $ ./put "30 Days of Night"
+    $ ./put "Silent Night Deadly Night"
+    $ ./put "The Nightmare Before Christmas"
 
 Get stuff out
 ---
 
-    ./get night
+    $ ./get night
     {
          "night": [
              "A Nightmare on Elm Street",
@@ -43,14 +43,14 @@ Get stuff out
          ]
     }
 
-    ./get elm
+    $ ./get elm
     {
          "elm": [
              "A Nightmare on Elm Street"
          ]
     }
 
-    ./get e
+    $ ./get e
     {
         "e": [
             "A Nightmare on Elm Street"
