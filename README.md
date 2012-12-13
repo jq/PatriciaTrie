@@ -43,11 +43,11 @@ Get stuff out
 
     ./get elm
 
-    `{
+    {
          "elm": [
              "A Nightmare on Elm Street"
          ]
-     }
+    }
 
 
 URL's etc
