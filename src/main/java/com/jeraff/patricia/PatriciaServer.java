@@ -1,34 +1,17 @@
 package com.jeraff.patricia;
 
-import com.jeraff.patricia.handler.GetHandler;
-import com.jeraff.patricia.handler.PutHandler;
-import org.eclipse.jetty.server.Handler;
+import com.jeraff.patricia.handler.GenericHandler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandler;
-import org.eclipse.jetty.server.handler.ContextHandlerCollection;
+import org.limewire.collection.CharSequenceKeyAnalyzer;
+import org.limewire.collection.PatriciaTrie;
 
 public class PatriciaServer {
-
     public static void main(String[] args) throws Exception {
-        Server server = new Server(8666);
+        final PatriciaTrie<String, String> patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
+        final Server server = new Server(8666);
 
-        ContextHandler get = new ContextHandler();
-        get.setContextPath("/get");
-        get.setClassLoader(Thread.currentThread().getContextClassLoader());
-        get.setHandler(new GetHandler());
-
-        ContextHandler put = new ContextHandler();
-        put.setContextPath("/put");
-        put.setClassLoader(Thread.currentThread().getContextClassLoader());
-        put.setHandler(new PutHandler());
-
-        ContextHandlerCollection handlerCollection = new ContextHandlerCollection();
-        handlerCollection.setHandlers(new Handler[]{get, put});
-
-        server.setHandler(handlerCollection);
-
+        server.setHandler(new GenericHandler(patriciaTrie));
         server.start();
         server.join();
     }
-
 }

@@ -14,6 +14,10 @@ public abstract class PatriciaHandler<K, V> extends AbstractHandler {
 
     protected PatriciaTrie<K, V> patriciaTrie;
 
+    public PatriciaHandler(PatriciaTrie<K, V> patriciaTrie) {
+        this.patriciaTrie = patriciaTrie;
+    }
+
     public void handle(String s, Request request, HttpServletRequest httpServletRequest,
                        HttpServletResponse response) throws IOException, ServletException {
 
