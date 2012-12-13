@@ -35,13 +35,15 @@ Get stuff out
 
 result:
 
-`{
+`
+{
      "night": [
          "A Nightmare on Elm Street",
          "Silent Night Deadly Night",
          "The Nightmare Before Christmas"
      ]
-}`
+}
+`
 
 
 URL's etc
