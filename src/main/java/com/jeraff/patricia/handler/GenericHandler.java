@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.util.*;
 
 public class GenericHandler extends PatriciaHandler<String, String> {
+    public static final String METHOD_GET = "METHOD_GET";
+    public static final String METHOD_DELETE = "METHOD_DELETE";
+    public static final String METHOD_HEAD = "METHOD_HEAD";
+
     public GenericHandler(PatriciaTrie<String, String> patriciaTrie) {
         super(patriciaTrie);
     }
@@ -91,11 +95,11 @@ public class GenericHandler extends PatriciaHandler<String, String> {
 
         Params params = new Params(httpServletRequest.getParameterMap());
 
-        if ("GET".equals(method)) {
+        if (METHOD_GET.equals(method)) {
             get(params, httpServletRequest, response);
-        } else if ("DELETE".equals(method)) {
+        } else if (METHOD_DELETE.equals(method)) {
             delete(params, httpServletRequest, response);
-        } else if (("HEAD".equals(method))) {
+        } else if ((METHOD_HEAD.equals(method))) {
             head(params, httpServletRequest, response);
         } else {
             putPost(params, httpServletRequest, response);
