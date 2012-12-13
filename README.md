@@ -21,27 +21,27 @@ Quick Start
 Run it and add stuff
 ---
 
-- `make run`
-- `cd etc`
-- `./put "A Nightmare on Elm Street"`
-- `./put "30 Days of Night"`
-- `./put "Silent Night Deadly Night"`
-- `./put "The Nightmare Before Christmas"`
+`make run
+cd etc
+./put "A Nightmare on Elm Street"
+./put "30 Days of Night"
+./put "Silent Night Deadly Night"
+./put "The Nightmare Before Christmas"`
 
 Get stuff out
 ---
 
-`./get night`
+`./get night
 
-`{
+{
      "night": [
          "A Nightmare on Elm Street",
          "Silent Night Deadly Night",
          "The Nightmare Before Christmas"
      ]
-}`
+}
 
-`./get elm`
+./get elm
 `{
      "elm": [
          "A Nightmare on Elm Street"
