@@ -17,13 +17,13 @@ etc to return "A Nightmare on Elm Street" as a result
 
 Quick Start
 ===
-`make run`
-`cd etc`
-`./put "A Nightmare on Elm Street"`
-`./put "30 Days of Night"`
-`./put "Silent Night Deadly Night"`
-`./put "The Nightmare Before Christmas"`
-`./get night`
+- `make run`
+- `cd etc`
+- `./put "A Nightmare on Elm Street"`
+- `./put "30 Days of Night"`
+- `./put "Silent Night Deadly Night"`
+- `./put "The Nightmare Before Christmas"`
+- `./get night`
 
 result:
 
