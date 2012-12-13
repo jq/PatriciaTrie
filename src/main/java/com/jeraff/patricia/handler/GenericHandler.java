@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
+import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -21,8 +22,8 @@ public class GenericHandler extends PatriciaHandler<String, String> {
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
         for (String key : keys) {
-            final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(key.toLowerCase());
-            final Collection<String> values = prefixedBy.values();
+            final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(key));
+            final SortedSet<String> values = new TreeSet<String>(prefixedBy.values());
             result.put(key, new ArrayList<String>(values));
         }
 
@@ -36,7 +37,11 @@ public class GenericHandler extends PatriciaHandler<String, String> {
 
         for (int i = 0; i < length; i++) {
             final String key = keys[0];
-            result.put(key.toLowerCase(), patriciaTrie.put(key, key));
+            final ArrayList<String> grams = WordUtil.getGramsFormPut(key);
+            for (String gram : grams) {
+                final String put = patriciaTrie.put(WordUtil.clean(gram), key);
+                result.put(key, put);
+            }
         }
 
         write(response, result);
