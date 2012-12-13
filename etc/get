@@ -6,13 +6,13 @@ import urllib
 import urllib2
 
 pp = args.args()
-res = {}
+res = []
 
 for k in pp.keys:
     url = "%s/?%s" % (pp.host, urllib.urlencode({"key": k}))
     req = urllib2.Request(url)
     response = urllib2.urlopen(req)
     data = json.loads(response.read())
-    res.update(data)
+    res.append(data)
     
 print json.dumps(data, indent=4)

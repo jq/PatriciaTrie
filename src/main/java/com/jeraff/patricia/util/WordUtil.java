@@ -38,7 +38,7 @@ public class WordUtil {
         final String[] st = StringUtils.split(clean(s));
         if (st.length == 1) {
             return new ArrayList<String>(){{
-                add(s);
+                add(clean(s));
             }};
         }
 
