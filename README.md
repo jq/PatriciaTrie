@@ -1,16 +1,24 @@
-Simple in-memory prefix search
+Simple in-memory pseudo-prefix search
 =============
 
 This is an experimental project.
 It's a simple http server on top of LimeWire's PatriciaTrie implementation.
 more info at: http://code.google.com/p/google-collections/issues/detail?id=5
 
-The goal is to provide an http interface for prefix searches (aka type-head, aka auto-complete)
+The goal is to provide an http interface for pseudo-prefix searches (aka type-head, aka auto-complete).
+
+I say "pseudo-prefix" b/c we break the initial string into chunks to enable kinda-sorta-partial-pseudo-prefix type searches.
+Essentially: for a string like "A Nightmare on Elm Street" we want queries such as:
+
+- elm
+- on elm
+
+etc to return "A Nightmare on Elm Street" as a result
 
 URL's etc
 ===
 
-The whole thing's "REST" based & does stuff based on the HTTP verb you use.
+The whole thing's "REST" based & does stuff based on the HTTP verb you use (the path doesn't matter at all).
 Currently GET and PUT/POST are the only ones i've bothered with.
 
 FYI: There's no config yet & this thing's hard coded to listen on http://localhost:8666
@@ -20,12 +28,12 @@ PUT
 
 This will add a string to the PatriciaTrie:
 
-`curl localhost:8666 -d key="some string"`
+`curl localhost:8666/ -d key="some string"`
 
 
 You can `PUT` multiple strings at once by specifying the `key` parameter multiple times:
 
-`curl localhost:8666 -d key="some string" -d key="some other string"`
+`curl localhost:8666/ -d key="some string" -d key="some other string"`
 
 The server will spit out some JSON telling you what prefixes it extracted for each `key` you sent it.
 
