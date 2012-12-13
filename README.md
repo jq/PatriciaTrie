@@ -22,7 +22,7 @@ Run it and add stuff
 ---
 
     make run
-    _switch to other terminal window_
+    *switch to other terminal window*
     cd etc
     ./put "A Nightmare on Elm Street"
     ./put "30 Days of Night"
