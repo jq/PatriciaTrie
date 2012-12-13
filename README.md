@@ -15,6 +15,27 @@ Essentially: for a string like "A Nightmare on Elm Street" we want queries such 
 
 etc to return "A Nightmare on Elm Street" as a result
 
+Quick Start
+===
+`make run`
+`cd etc`
+`./put "A Nightmare on Elm Street"`
+`./put "30 Days of Night"`
+`./put "Silent Night Deadly Night"`
+`./put "The Nightmare Before Christmas"`
+`./get night`
+
+result:
+
+`{
+     "night": [
+         "A Nightmare on Elm Street",
+         "Silent Night Deadly Night",
+         "The Nightmare Before Christmas"
+     ]
+}`
+
+
 URL's etc
 ===
 
