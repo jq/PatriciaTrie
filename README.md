@@ -145,8 +145,8 @@ Shit's free...
 I have no clue what the official license is for LimeWire's code.
 On http://code.google.com/p/google-collections/issues/detail?id=5 they state:
 
-`The files can be licensed as necessary (we own the copyright and can
- change/transfer the license).  I'm not sure what license, if any, these
- would need to be for inclusion.`
+    The files can be licensed as necessary (we own the copyright and can
+    change/transfer the license).  I'm not sure what license, if any, these
+    would need to be for inclusion.
 
 As far as Jeraff, Inc's concerned have at it but don't blame us if shit breaks, is slow, sucks or looks ugly
