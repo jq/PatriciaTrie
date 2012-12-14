@@ -58,7 +58,7 @@ URL's etc
 The whole thing's "REST" based & does stuff based on the HTTP verb you use (the path doesn't matter at all).
 Currently GET and PUT/POST are the only ones i've bothered with.
 
-FYI: There's no config yet & this thing's hard coded to listen on http://localhost:8666
+FYI: There's no config yet & this thing's hard coded to listen on port 8666
 
 PUT
 ---
