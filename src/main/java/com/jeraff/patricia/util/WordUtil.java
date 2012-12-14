@@ -11,8 +11,7 @@ public class WordUtil {
             "a", "an", "and", "as", "at", "be", "by",
             "if", "in", "is", "it",
             "of", "on", "or",
-            "the",
-            "to"});
+            "the", "to"});
 
     public static String stripStopWords(String s) {
         final String[] split = StringUtils.split(s);
