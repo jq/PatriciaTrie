@@ -144,7 +144,7 @@ To load the movie titles just do this:
 Web UI for Testing
 ===
 
-Cruise on over to http://localhost:8666/webui/ for a simple web ui. Just start typing to see auto-complete suggestions.
+Cruise on over to http://localhost:8666/ for a simple web ui. Just start typing to see auto-complete suggestions.
 If you're just fucking around you'll probably wanna load in the movie data
 (instructions in the previous section).
 

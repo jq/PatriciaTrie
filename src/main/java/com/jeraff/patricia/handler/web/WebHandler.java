@@ -13,7 +13,7 @@ import java.util.HashMap;
 public class WebHandler extends AbstractWebHandler {
     private static final String ACTION_INDEX = "";
     public static final String TEMPLATE_INDEX = "index.ftl";
-    public static final String CONTEXT_PATH = "/webui";
+    public static final String CONTEXT_PATH = "/";
 
     protected PatriciaTrie<String, String> patriciaTrie;
 
