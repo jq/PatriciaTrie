@@ -22,6 +22,8 @@ public class PatriciaServer {
         connector0.setRequestHeaderSize(8192);
         connector0.setAcceptors(20);
         connector0.setAcceptQueueSize(100);
+        connector0.setLowResourcesMaxIdleTime(5000);
+        connector0.setLowResourcesConnections(100);
 
         final ContextHandler restHandler = new ContextHandler("/api");
         restHandler.setResourceBase(".");
