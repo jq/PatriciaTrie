@@ -37,27 +37,21 @@ Get stuff out
 ---
 
     $ ./get night
-    {
-         "night": [
-             "A Nightmare on Elm Street",
-             "Silent Night Deadly Night",
-             "The Nightmare Before Christmas"
-         ]
-    }
+    [
+        "A Nightmare on Elm Street",
+        "Silent Night Deadly Night",
+        "The Nightmare Before Christmas"
+    ]
 
     $ ./get elm
-    {
-         "elm": [
-             "A Nightmare on Elm Street"
-         ]
-    }
+    [
+        "A Nightmare on Elm Street"
+    ]
 
     $ ./get e
-    {
-        "e": [
-            "A Nightmare on Elm Street"
-        ]
-    }
+    [
+        "A Nightmare on Elm Street"
+    ]
 
 URL's etc
 ===
