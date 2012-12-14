@@ -16,7 +16,7 @@ parser.add_argument("-host",
     required=False)
 
 pp = parser.parse_args(sys.argv[1:])
-
+                            k
 for line in sys.stdin:
 	s = line.strip()
 

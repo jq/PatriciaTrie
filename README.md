@@ -27,7 +27,7 @@ Run it and add stuff
 
 *switch to an other terminal window*
 
-    $ cd etc
+    $ cd ./bin
     $ ./put "A Nightmare on Elm Street"
     $ ./put "30 Days of Night"
     $ ./put "Silent Night Deadly Night"
@@ -137,8 +137,8 @@ as such there's some garbage or mangled titles in there but it's good enough.
 
 To load the movie titles just do this:
 
-    $ cd etc/data/movies
-    $ cat *.txt | python import.py
+    $ cd ./bin
+    $ cat etc/data/movies/*.txt | import_stdin
 
 
 Web UI for Testing
@@ -154,8 +154,9 @@ Useful stuff
 
 - `make run` runs it on http://localhost:8666
 - `make jar` assembles an exeutable jar
-- `etc/get` is a convenience script to perform a query
-- `etc/put` is a convenience script to add strings
+- `bin/get` is a convenience script to perform a query
+- `bin/put` is a convenience script to add strings
+- `bin/import_stdin` is a convenience script to import lines from stdin
 
 
 Licence
