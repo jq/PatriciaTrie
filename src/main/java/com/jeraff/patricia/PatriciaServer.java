@@ -1,5 +1,6 @@
 package com.jeraff.patricia;
 
+import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.handler.rest.ApiHandler;
 import com.jeraff.patricia.handler.web.WebHandler;
 import org.eclipse.jetty.server.Connector;
@@ -12,18 +13,15 @@ import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
 public class PatriciaServer {
+    public static final String SYSTEM_PROP_CONFIG = "";
+
     public static void main(String[] args) throws Exception {
         final PatriciaTrie<String, String> patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
         final Server server = new Server();
+        final Config config = new Config(System.getProperties());
 
         final SelectChannelConnector connector0 = new SelectChannelConnector();
-        connector0.setPort(8666);
-        connector0.setMaxIdleTime(3000);
-        connector0.setRequestHeaderSize(8192);
-        connector0.setAcceptors(20);
-        connector0.setAcceptQueueSize(100);
-        connector0.setLowResourcesMaxIdleTime(5000);
-        connector0.setLowResourcesConnections(100);
+        config.configConnector(connector0);
 
         final ContextHandler apiHandler = new ContextHandler(ApiHandler.CONTEXT_PATH);
         apiHandler.setResourceBase(".");

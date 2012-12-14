@@ -1,0 +1,11 @@
+{
+    "connector": {
+        "port": 8666,
+        "maxIdleTime": 3000,
+        "requestHeaderSize": 8192,
+        "acceptors": 20,
+        "acceptQueueSize": 100,
+        "lowResourcesMaxIdleTime": 5000,
+        "lowResourcesConnections": 100
+    }
+}
