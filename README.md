@@ -27,28 +27,27 @@ Run it and add stuff
 
 *switch to an other terminal window*
 
-    $ cd ./bin
-    $ ./put "A Nightmare on Elm Street"
-    $ ./put "30 Days of Night"
-    $ ./put "Silent Night Deadly Night"
-    $ ./put "The Nightmare Before Christmas"
+    $ ./bin/put "A Nightmare on Elm Street"
+    $ ./bin/put "30 Days of Night"
+    $ ./bin/put "Silent Night Deadly Night"
+    $ ./bin/put "The Nightmare Before Christmas"
 
 Get stuff out
 ---
 
-    $ ./get night
+    $ ./bin/get night
     [
         "A Nightmare on Elm Street",
         "Silent Night Deadly Night",
         "The Nightmare Before Christmas"
     ]
 
-    $ ./get elm
+    $ ./bin/get elm
     [
         "A Nightmare on Elm Street"
     ]
 
-    $ ./get e
+    $ ./bin/get e
     [
         "A Nightmare on Elm Street"
     ]
