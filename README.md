@@ -70,14 +70,14 @@ PUT
 
 This will add a string to the PatriciaTrie:
 
-`curl localhost:8666/ -d key="some string"`
+`curl localhost:8666/ -d s="some string"`
 
 
-You can `PUT` multiple strings at once by specifying the `key` parameter multiple times:
+You can `PUT` multiple strings at once by specifying the `s` parameter multiple times:
 
-`curl localhost:8666/ -d key="some string" -d key="some other string"`
+`curl localhost:8666/ -d s="some string" -d s="some other string"`
 
-The server will spit out some JSON telling you what prefixes it extracted for each `key` you sent it.
+The server will spit out some JSON telling you what prefixes it extracted for each `s` you sent it.
 
     {
          "some string": [
@@ -124,16 +124,33 @@ GET
 
 This will get strings from the server for a given prefix:
 
-`curl localhost:8666/?key=some`
+`curl localhost:8666/?s=some`
 
 output's gonna be...
 
-    {
-         "some": [
-             "some other string",
-             "some string"
-         ]
-    }
+     [
+         "some other string",
+         "some string"
+     ]
+
+Test Data - Free of Charge
+===
+
+`etc/data/movies` has a ton of movie names in it. I copy pasted a shit ton of stuff from wikipedia;
+as such there's some garbage or mangled titles in there but it's good enough.
+
+To load the movie titles just do this:
+
+    $ cd etc/data/movies
+    $ cat *.txt | python import.py
+
+
+Web UI for Testing
+===
+
+Cruise on over to http://localhost:8666/webui/ for a simple web ui. Just start typing to see auto-complete suggestions.
+If you're just fucking around you'll probably wanna load in the movie data
+(instructions in the previous section).
 
 
 Useful stuff
