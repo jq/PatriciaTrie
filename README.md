@@ -66,12 +66,12 @@ PUT
 
 This will add a string to the PatriciaTrie:
 
-`curl localhost:8666/ -d s="some string"`
+`curl localhost:8666/api/ -d s="some string"`
 
 
 You can `PUT` multiple strings at once by specifying the `s` parameter multiple times:
 
-`curl localhost:8666/ -d s="some string" -d s="some other string"`
+`curl localhost:8666/api/ -d s="some string" -d s="some other string"`
 
 The server will spit out some JSON telling you what prefixes it extracted for each `s` you sent it.
 
@@ -120,7 +120,7 @@ GET
 
 This will get strings from the server for a given prefix:
 
-`curl localhost:8666/?s=some`
+`curl localhost:8666/api/?s=some`
 
 output's gonna be...
 
