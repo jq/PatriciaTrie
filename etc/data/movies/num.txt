@@ -13,7 +13,7 @@ One Night with the King
 One Night of Love
 The 1 Second Film
 One Way Passage
-One Week:
+One Week
 One of Our Dinosaurs Is Missing
 10
 10 Items or Less
@@ -91,7 +91,7 @@ Two for the Money
 2 or 3 Things I Know About Her
 20 Dates
 20 Million Miles to Earth
-20,000 Leagues Under the Sea:
+20,000 Leagues Under the Sea
 20,000 Years in Sing Sing
 200 Cigarettes
 200 Motels
@@ -122,7 +122,7 @@ Catch-22
 [edit]3
 Three Amigos
 Three Coins in the Fountain
-Three Colors series:
+Three Colors 
 Three Colors: Blue
 Three Colors: Red
 Three Colors: White
@@ -140,7 +140,7 @@ Three Kings
 Three on a Match
 Three Men and a Baby
 Three Men and a Little Lady
-The Three Musketeers:
+The Three Musketeers
 3 Ring Circus
 Three for the Road
 Three Sisters
@@ -162,9 +162,9 @@ The 300 Spartans
 360
 The 36th Chamber of Shaolin
 36th Precinct
-The 39 Steps:
+The 39 Steps
 3: The Dale Earnhardt Story
-3:10 to Yuma:
+3:10 to Yuma
 The Third Man
 Thr3e
 Three
@@ -173,7 +173,7 @@ Three... Extremes
 [edit]4
 Four Brothers
 Four Daughters
-Four Feathers:
+Four Feathers
 Four Flies on Grey Velvet
 Four Horsemen of the Apocalypse
 Four Lions
@@ -248,7 +248,7 @@ Seven Up!
 The Seven Year Itch
 Seven Years in Tibet
 7:35 in the Morning
-Seventh Heaven:
+Seventh Heaven
 The Seventh Seal
 The Seventh Sign
 Se7en
@@ -261,7 +261,7 @@ Eight Men Out
 8 Million Ways to Die
 8 Seconds
 8 Women
-84 Charing Cross Road:
+84 Charing Cross Road
 88 Minutes
 8: The Mormon Proposition
 8mm
@@ -269,7 +269,7 @@ Eight Men Out
 8½
 8½ Women
 [edit]9
-9:
+9
 Nine
 Nine to Five
 Nine Lives
@@ -293,7 +293,7 @@ One More Time
 One Night of Love
 One of Our Dinosaurs is Missing
 The 1 Second Film
-One Week:
+One Week
 One-Way Ticket to Mombasa
 2 Days in New York
 2 Fast 2 Furious
@@ -320,7 +320,7 @@ Three Kings
 Three on a Match
 Three Men and a Baby
 Three Men and a Little Lady
-The Three Musketeers:
+The Three Musketeers
 3 Ring Circus
 Three for the Road
 3,2,1... Frankie Go Boom
@@ -328,7 +328,7 @@ Three for the Road
 [edit]4-6
 4D Man
 Four Daughters
-Four Feathers:
+Four Feathers
 Four Horsemen of the Apocalypse
 4 Months, 3 Weeks and 2 Days
 The Four Musketeers
@@ -360,7 +360,7 @@ Seven Up!
 The Seven Samurai
 7 Women
 The Seven Year Itch
-Seventh Heaven:
+Seventh Heaven
 The Seventh Seal
 The Seventh Sign
 Seven Years in Tibet
@@ -376,7 +376,7 @@ Eight Men Out
 8mm 2
 8½
 8½ Women
-9:
+9
 9/11
 9½ Weeks
 The Nines
@@ -432,7 +432,7 @@ The Number 23
 30 Minutes or Less
 35 Shots of Rum
 35 up
-The 39 Steps:
+The 39 Steps
 40 Days and 40 Nights
 The 40-Year-Old Virgin
 42 up
@@ -445,7 +445,7 @@ The 40-Year-Old Virgin
 The 51st State
 52 Pick-Up
 61*
-84 Charing Cross Road:
+84 Charing Cross Road
 [edit]100-999
 One Hundred Men and a Girl
 101 Dalmatians

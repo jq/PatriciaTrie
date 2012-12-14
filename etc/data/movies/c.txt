@@ -3,19 +3,19 @@ C.H.U.D.
 C-Man
 C Me Dance
 C.R.A.Z.Y.
-[edit]Ca
-[edit]Ca-Cap
+Ca
+Ca-Cap
 Ca-bau-kan
 Cabaret
 Cabaret Paradis
 Cabin Boy
-Cabin Fever series:
+Cabin Fever 
 Cabin Fever
 Cabin Fever 2: Spring Fever
 The Cabin in the Cotton
 Cabin in the Sky
 The Cabin in the Woods
-The Cabinet of Dr. Caligari:
+The Cabinet of Dr. Caligari
 Cabiria
 The Cable Guy
 Cacería
@@ -49,7 +49,7 @@ Calamity Anne's Beauty
 Calamity Anne's Inheritance
 Calamity Jane
 The Calcium Kid
-Calendar Girl:
+Calendar Girl
 Calendar Girls
 California Suite
 Caligula
@@ -59,7 +59,7 @@ Call Me Bwana
 Call Me Madam
 Call Me Mister
 Call Northside 777
-The Call of the Wild:
+The Call of the Wild
 Calle 54
 Calling Dr. Death
 Calmi Couri Appassionati
@@ -78,7 +78,7 @@ Canadian Bacon
 Canadian Pacific
 The Candidate
 Candleshoe
-Candy:
+Candy
 Candyman
 Cannery Row
 Cannibal Apocalypse
@@ -104,7 +104,7 @@ The Canterbury Tales
 The Canterville Ghost
 Can't Hardly Wait
 Can't Stop the Music
-Cape Fear:
+Cape Fear
 Capitalism: A Love Story
 Capote
 Captain America
@@ -118,13 +118,13 @@ Captains of the Clouds
 The Captive Heart
 Captivity
 Capturing the Friedmans
-[edit]Car-Caz
+Car-Caz
 Car Babes
 Car Wash
 Caravan of Courage: An Ewok Adventure
 Carbon Copy
 Cardboard Cavalier
-Care Bears series:
+Care Bears 
 The Care Bears Adventure in Wonderland
 The Care Bears' Big Wish Movie
 Care Bears: Journey to Joke-a-lot
@@ -137,17 +137,17 @@ Carlito's Way
 Carlos
 Carmen Jones
 Carmencita
-Carnage:
+Carnage
 Carnal Knowledge
 Carnival in Flanders
 Carnival of Souls
 Carolina
 Carousel
-Carrie:
-Carried Away:
+Carrie
+Carried Away
 Carriers
 Carrington V.C.
-Carry On series:
+Carry On 
 Carry On Cruising
 Carry On Doctor
 Carry On Girls
@@ -173,13 +173,13 @@ The Case
 Case 39
 The Case of Charles Peace
 The Case of the Mukkinese Battle Horn
-Cash:
+Cash
 Cash and Carry
 Cash McCall
 Cashback
 Casino
-Casino Royale:
-Casper series:
+Casino Royale
+Casper 
 Casper
 Casper Meets Wendy
 Casper: A Spirited Beginning
@@ -192,7 +192,7 @@ Cast a Dark Shadow
 Cast a Giant Shadow
 Cast Away
 Castaway
-The Castle of the Monsters:
+The Castle of the Monsters
 The Castle
 Castle in the Sky
 Castro Street
@@ -204,11 +204,11 @@ The Cat Concerto
 The Cat from Outer Space
 The Cat in the Hat
 Cat on a Hot Tin Roof
-Cat People:
+Cat People
 Cat's Eye
 The Cat's Meow
 Cat-Tails for Two
-Catacombs:
+Catacombs
 Catch a Fire
 Catch and Release
 Catch Me If You Can
@@ -221,7 +221,7 @@ Cats & Dogs
 Cats Don't Dance
 Catty Cornered
 Catwoman
-Caught:
+Caught
 Caught in the Draft
 Cause for Alarm!
 Cavalcade
@@ -230,7 +230,7 @@ Cave of Forgotten Dreams
 Caveman
 The Caveman's Valentine
 Cazuza - Time Don't Stop
-[edit]Cb-Ce
+Cb-Ce
 CB4
 Cecil B. Demented
 Cedar Rapids
@@ -246,8 +246,8 @@ Central do Brasil
 Century Hotel
 Le Cercle rouge
 Certified Copy
-[edit]Ch
-[edit]Cha-Che
+Ch
+Cha-Che
 Chad Vader - Day Shift Manager
 Chai Lai
 Chain of Fools
@@ -261,7 +261,7 @@ Chameli
 The Champ
 Champagne
 Champagne for Caesar
-Champion:
+Champion
 Chan Is Missing
 Chance
 The Chancellor Manuscript
@@ -284,7 +284,7 @@ The Chaplin Revue
 Chappaqua
 Chapter 27
 Charade
-The Charge of the Light Brigade:
+The Charge of the Light Brigade
 Chariots of Fire
 Charley Varrick
 Charlie and the Chocolate Factory
@@ -297,7 +297,7 @@ Charlie's Angels: Full Throttle
 Charlotte Gray
 Charlotte et son Jules
 Charlotte Sometimes
-Charlotte's Web:
+Charlotte's Web
 Charro!
 The Chase
 The Chaser
@@ -312,7 +312,7 @@ Chatham
 Chattahoochee
 Che: Part One
 Che: Part Two
-Cheaper by the Dozen:
+Cheaper by the Dozen
 Cheaper by the Dozen 2
 The Cheat
 Cheaters
@@ -332,9 +332,9 @@ Cherry 2000
 Chesty Anderson, USN
 Cheyenne Autumn
 The Cheyenne Social Club
-[edit]Chi-Chu
+Chi-Chu
 Chica de Río
-Chicago:
+Chicago
 Chicago 10
 Chicken
 Chicken Little
@@ -342,13 +342,13 @@ Chicken Ranch
 Chicken Rice War
 Chicken Run
 Chilbeontong sosageon
-Child's Play series:
+Child's Play 
 Child's Play
 Child's Play 2: Chucky's Back
 Child's Play 3: Look Who's Stalking
 Childhood Days
 The Children Are Watching Us
-Children of the Corn series:
+Children of the Corn 
 Children of the Corn
 Children of the Corn II: The Final Sacrifice
 Children of the Corn III: Urban Harvest
@@ -360,7 +360,7 @@ Children of the Dark
 Children of a Lesser God
 Children of the Living Dead
 Children of Men
-Children of the Night:
+Children of the Night
 Children of Paradise
 Children Shouldn't Play with Dead Things
 The Children's Hour
@@ -369,7 +369,7 @@ Childstar
 Chill Factor
 Chimes at Midnight
 Chimpanzee
-China Gate:
+China Gate
 The China Syndrome
 China 9, Liberty 37
 Chinaman
@@ -384,7 +384,7 @@ Chirusoku no natsu
 Chisum
 Chitty Chitty Bang Bang
 Chi-hwa-seon
-Chocolat:
+Chocolat
 Chocolate
 Chokher Bali
 Choke Canyon
@@ -400,7 +400,7 @@ Chota Mumbai
 Christ Stopped at Eboli
 Christine
 Christmas in August
-A Christmas Carol:
+A Christmas Carol
 Christmas Carol: The Movie
 Christmas Child
 Christmas Holiday
@@ -411,7 +411,7 @@ A Christmas Tale
 Christmas in Tattertown
 Christopher Strong
 Chronicle
-The Chronicles of Narnia series:
+The Chronicles of Narnia 
 The Chronicles of Narnia: The Lion, the Witch and the Wardrobe
 The Chronicles of Narnia: Prince Caspian
 The Chronicles of Narnia: The Voyage of the Dawn Treader
@@ -428,11 +428,11 @@ Chup Chup Ke
 Church Ball
 Churchill: The Hollywood Years
 Chutney Popcorn
-[edit]Ci-Cl
+Ci-Cl
 El Cid
 The Cider House Rules
-Cimarron:
-Cinderella:
+Cimarron
+Cinderella
 Cinderella Man
 A Cinderella Story
 Cinderella II: Dreams Come True
@@ -442,7 +442,7 @@ Cindy: The Doll Is Mine
 The Circle
 Circuit no Ōkami
 The Circus
-Circus:
+Circus
 Circus World
 Cirque du Freak
 Cirque du Freak: The Vampire's Assistant
@@ -455,7 +455,7 @@ The City
 City of Angels
 City of Damnation
 City of Ember
-City on Fire:
+City on Fire
 City of God
 City Hall
 City Heat
@@ -478,7 +478,7 @@ The Clairvoyant
 Clambake
 Clara's Heart
 Clash by Night
-Clash of the Titans:
+Clash of the Titans
 Clash of the Wolves
 Class
 Class Action
@@ -487,7 +487,7 @@ Class of 1984
 A Class to Remember
 Classe tous risques
 Classmates
-Claustrophobia:
+Claustrophobia
 Clay Pigeons
 A Claymation Christmas Celebration
 Clean
@@ -497,11 +497,11 @@ Cleaner
 Clear and Present Danger
 The Clearing
 Cléo from 5 to 7
-Cleopatra:
+Cleopatra
 Clerks
 Clerks II
 Click
-The Client:
+The Client
 Cliffhanger
 Clifford's Really Big Movie
 Cloaca
@@ -531,8 +531,8 @@ Club Paradise
 Clubland
 Clue
 Clueless
-[edit]Co
-[edit]Coa-Con
+Co
+Coa-Con
 Coach Carter
 Coal Black and de Sebben Dwarfs
 Coal Miner's Daughter
@@ -566,12 +566,12 @@ Collaborator
 Collateral
 Collateral Damage
 La Collectionneuse
-The Collector:
+The Collector
 College
 College Road Trip
 Cologne: From the Diary of Ray and Esther
 Colombiana
-The Colonel:
+The Colonel
 Color of a Brisk and Leaping Day
 The Color of Money
 Color of Night
@@ -596,12 +596,12 @@ Come See The Paradise
 Come September
 The Comebacks
 Comes a Horseman
-Comfort and Joy:
+Comfort and Joy
 Comic Book: The Movie
 Comic-Con Episode IV: A Fan's Hope
 Coming to America
-Coming Home:
-Coming Out:
+Coming Home
+Coming Out
 Coming Soon
 Commandments
 Commando
@@ -620,7 +620,7 @@ The Computer Wore Tennis Shoes
 Compliance
 Comrades: Almost a Love Story
 Con Air
-Conan the Barbarian:
+Conan the Barbarian
 Conan the Destroyer
 The Concorde ... Airport '79
 Concrete
@@ -637,7 +637,7 @@ Confessions of a Shopaholic
 Confessions of a Teenage Drama Queen
 Confessions of a Window Cleaner
 Confetti
-Confidence:
+Confidence
 Confidentially Yours
 Conflict
 Confucius
@@ -662,7 +662,7 @@ Contact
 Contagion
 Contempt
 Continental Divide
-Contraband:
+Contraband
 The Contract
 Control
 Control Room
@@ -670,8 +670,8 @@ Control
 The Conversation
 A Conversation with Norman
 Convict 13
-Convoy:
-[edit]Coo-Coy
+Convoy
+Coo-Coy
 Coogan's Bluff
 The Cook
 The Cook, the Thief, His Wife & Her Lover
@@ -719,16 +719,16 @@ The Cotton Club
 The Couch Trip
 Counsellor at Law
 Count Dracula
-The Count of Monte Cristo:
+The Count of Monte Cristo
 Count Three and Pray
-Countdown:
+Countdown
 Countdown to Looking Glass
 The Counterfeiters
 A Countess from Hong Kong
 Country
 The Country Bears
 Country Strong
-Coup de Grâce:
+Coup de Grâce
 Coup de Torchon
 Couples Retreat
 Courage Under Fire
@@ -751,7 +751,7 @@ The Cowboy Way
 The Cowboys
 Cowboys & Aliens
 Coyote Ugly
-[edit]Cq-Cz
+Cq-Cz
 CQ
 A Crack in the Floor
 Crack-Up
@@ -764,11 +764,11 @@ The Craft
 The Cranes Are Flying
 Crank
 Crank: High Voltage
-Crash:
+Crash
 Crash Landing
 Crayon
 Crazed Fruit
-Crazy:
+Crazy
 Crazy As Hell
 Crazy/Beautiful
 Crazy English
@@ -780,7 +780,7 @@ Creature from the Black Lagoon
 Creature from the Haunted Sea
 Creep
 Creepozoids
-Creepshow series:
+Creepshow 
 Creepshow
 Creepshow 2
 Creepshow 3
@@ -806,14 +806,14 @@ Criss Cross
 CrissCross
 Cristo si è fermato a Eboli
 Critic's Choice
-Critters series:
+Critters 
 Critters
 Critters 2: The Main Course
 Critters 3
 Critters 4
 Crocodile
 Crocodile 2: Death Swamp
-Crocodile Dundee series:
+Crocodile Dundee 
 Crocodile Dundee
 Crocodile Dundee II
 Crocodile Dundee in Los Angeles
@@ -831,12 +831,12 @@ Crossing the Bridge: The Sound of Istanbul
 Crossing Delancey
 The Crossing Guard
 Crossing Over
-Crossover:
-Crossroads:
+Crossover
+Crossroads
 Crouching Tiger, Hidden Dragon
 Croupier
 Crowned and Dangerous
-The Crow series:
+The Crow 
 The Crow
 The Crow: City of Angels
 The Crow: Salvation
@@ -845,7 +845,7 @@ The Crowd
 Crows and Sparrows
 Crude
 Crude Oil
-Cruel Intentions series:
+Cruel Intentions 
 Cruel Intentions
 Cruel Intentions 2
 Cruel Intentions 3
@@ -860,19 +860,19 @@ Crush
 Crush and Blush
 Crustacés et coquillages
 Cry of the Banshee
-Cry, the Beloved Country:
+Cry, the Beloved Country
 Cry of the City
 Cry Danger
 A Cry in the Dark
 Cry Freedom
 Cry Me a River
 Cry of the Werewolf
-Cry Wolf:
+Cry Wolf
 Cry Woman
 The Crying Game
 Cry-Baby
 Cuban Rebel Girls
-Cube series:
+Cube 
 Cube
 Cube 2: Hypercube
 Cube Zero
@@ -880,7 +880,7 @@ Cuckoo
 Cul-de-Sac
 The Cup
 Curdled
-The Cure:
+The Cure
 The Curiosity of Chance
 Curiosity Kills the Cat
 The Curious Case of Benjamin Button
@@ -889,20 +889,20 @@ The Curse of the Cat People
 Curse of the Fly
 The Curse of the Jade Scorpion
 Curse of the Pink Panther
-Cursed:
+Cursed
 The Cut
 Cutter's Way
 Cutting Class
 The Cutting Edge
 Cutthroat Island
 Cyberman
-Cyborg series:
+Cyborg 
 Cyborg
 Cyborg 2
 Cyborg 3: The Recycler
 Cyborg 2087
 Cyclomania
 Cypher
-Cyrano de Bergerac:
+Cyrano de Bergerac
 Czech Dream
 Czechoslovakia 1968

@@ -20,7 +20,7 @@ Kaho Naa... Pyaar Hai
 Kain XVIII
 Kaise Kahoon Ke... Pyaar Hai
 Kal Ho Naa Ho
-Kaleidoscope:
+Kaleidoscope
 Kalifornia
 Kameradschaft
 Kamillions
@@ -35,7 +35,7 @@ Kanggeonneo maeul
 Kannathil Muthamittal
 Kansas City
 Kansas City Confidential
-The Karate Kid series:
+The Karate Kid 
 The Karate Kid
 The Karate Kid, Part II
 The Karate Kid, Part III
@@ -82,21 +82,21 @@ Khoey Ho Tum Kahan
 Ki
 Kick the Moon
 Kick-Ass
-Kickboxer series:
+Kickboxer 
 Kickboxer
 Kickboxer 4: The Aggressor
-Kicking and Screaming:
-The Kid:
+Kicking and Screaming
+The Kid
 Kid Auto Races at Venice
 The Kid Brother
-Kid Galahad:
+Kid Galahad
 The Kid & I
 A Kid in King Arthur's Court
 Kid Millions
 The Kid Stays in the Picture
 A Kid for Two Farthings
 Kidco
-Kidnapped:
+Kidnapped
 Kids
 Kids in America
 Kika
@@ -112,7 +112,7 @@ Killer
 The Killer
 A Killer Among Us
 Killer Bash
-Killer Diller:
+Killer Diller
 Killer Joe
 Killer Klowns from Outer Space
 Killer Nun
@@ -121,7 +121,7 @@ The Killer Shrews
 Killer Tattoo
 Killer's Kiss
 Killers
-The Killers:
+The Killers
 Killers Three
 The Killing
 The Killing Fields
@@ -147,9 +147,9 @@ King of Hearts
 King of the Hill
 The King and I
 King for a Day
-The King of Kings:
+The King of Kings
 King of Kings
-King Kong:
+King Kong
 King Kong Escapes
 King Kong vs. Godzilla
 King Kong Lives
@@ -175,11 +175,11 @@ Kipps
 Kippur
 Kirikou and the Sorceress
 Kirikou et les bêtes sauvages
-The Kiss:
+The Kiss
 Kiss the Blood Off My Hands
-Kiss of Death:
+Kiss of Death
 Kiss of the Dragon
-Kiss the Bride:
+Kiss the Bride
 Kiss the Girls
 Kiss Kiss
 Kiss Kiss Bang Bang

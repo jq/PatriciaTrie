@@ -5,7 +5,7 @@ H.M. Pulham, Esq.
 H.M.S. Defiant
 The H-Man
 H.O.T.S.
-H2O:
+H2O
 Ha
 Hab-Han
 Hababam sinifi
@@ -30,7 +30,7 @@ Hair High
 Hair-Raising Hare
 The Hairdresser's Husband
 Hairshirt
-Hairspray:
+Hairspray
 The Hairy Bird
 Halber Mensch
 Half Baked
@@ -49,9 +49,9 @@ Hallam Foe
 The Hallelujah Trail
 Hallelujah!
 Hallelujah, I'm a Bum
-Halloween series:
-Halloween:
-Halloween II:
+Halloween 
+Halloween
+Halloween II
 Halloween III: Season of the Witch
 Halloween 4: The Return of Michael Myers
 Halloween 5: The Revenge of Michael Myers
@@ -59,7 +59,7 @@ Halloween 6: The Curse of Michael Myers
 Halloween H20: 20 Years Later
 Halloween: Resurrection
 Halloween is Grinch Night
-Halloweentown series:
+Halloweentown 
 Halloweentown
 Halloweentown II: Kalabar's Revenge
 Halloweentown High
@@ -67,7 +67,7 @@ Halloweentown: Witch U.
 Halls of Montezuma
 Hamam
 Hamburger Hill
-Hamlet:
+Hamlet
 Hamlet 2
 Hamlet A.D.D.
 Hammerboy
@@ -100,10 +100,10 @@ Hansel and Gretel
 Hanuman
 Hanussen
 Hap-Haz
-The Happening:
+The Happening
 The Happiest Days of Your Life
 The Happiest Millionaire
-Happily Ever After:
+Happily Ever After
 Happily N'Ever After
 Happiness
 Happiness is in the Field
@@ -135,10 +135,10 @@ Hard Men
 Hard Rain
 Hard Target
 Hard Times
-The Hard Way:
+The Hard Way
 Hardball
 Hardbodies
-Hardcore:
+Hardcore
 The Harder They Come
 The Harder They Fall
 Hardly Working
@@ -164,7 +164,7 @@ Harriet the Spy
 Harrison's Flowers
 Harry Brown
 Harry and the Hendersons
-Harry Potter series:
+Harry Potter 
 Harry Potter and the Philosopher's Stone
 Harry Potter and the Chamber of Secrets
 Harry Potter and the Prisoner of Azkaban
@@ -191,7 +191,7 @@ Hating Alison Ashley
 Hatred
 Hats Off
 Hatter's Castle
-Haunted:
+Haunted
 Haunted Honeymoon
 The Haunted House
 Haunted Lighthouse
@@ -199,7 +199,7 @@ The Haunted Mansion
 The Haunted Palace
 The Haunted Strangler
 The Haunted World of El Superbeasto
-The Haunting:
+The Haunting
 The Haunting in Connecticut
 Haunting Me
 The Haunting of Molly Hartley
@@ -236,7 +236,7 @@ Head Above Water
 Head in the Clouds
 Head Games
 Head Office
-Head Over Heels:
+Head Over Heels
 Head of State
 Head-On
 Headhunters
@@ -254,10 +254,10 @@ The Heart Is a Lonely Hunter
 Heart and Souls
 The Heart's Cry
 Heartaches
-The Heartbreak Kid:
+The Heartbreak Kid
 Heartbreak Ridge
 Heartbreaker
-Heartbreakers:
+Heartbreakers
 Heartburn
 Heartland
 Heartless
@@ -266,12 +266,12 @@ Hearts in Atlantis
 Hearts of Darkness: A Filmmaker's Apocalypse
 Hearts and Minds
 Hearts of the World
-Heat:
+Heat
 Heat and Dust
 Heathers
 Heaven
-Heaven Can Wait:
-Heaven and Earth:
+Heaven Can Wait
+Heaven and Earth
 Heaven and Earth Magic
 Heaven Knows, Mr. Allison
 Heaven's Burning
@@ -314,7 +314,7 @@ Hellcats of the Navy
 Hellfighters
 Hello Again
 Hello, Dolly!
-Hellraiser series:
+Hellraiser 
 Hellraiser
 Hellbound: Hellraiser II
 Hellraiser III: Hell on Earth
@@ -332,19 +332,19 @@ Helter Skelter
 Henry & June
 Henry Fool
 Henry Poole Is Here
-Henry V:
+Henry V
 Henry's Crime
 Henry: Portrait Of A Serial Killer
 Her Alibi
 Hera Pheri
 Herb
-Herbie series:
+Herbie 
 Herbie Goes Bananas
 Herbie Goes to Monte Carlo
 Herbie Rides Again
 Herbie: Fully Loaded
 The Love Bug
-Hercules:
+Hercules
 Hercules Against the Moon Men
 Hercules in New York
 Hercules and the Queen of Lydia
@@ -357,7 +357,7 @@ Here Comes Peter Cottontail
 Here Comes Peter Cottontail: The Movie
 Here on Earth
 Hereafter
-Hero:
+Hero
 Hero and the Terror
 Heroes
 Heroes for Sale
@@ -416,7 +416,7 @@ High Time
 High Voltage
 High Wall
 Higher Learning
-Highlander series:
+Highlander 
 Highlander
 Highlander II: The Quickening
 Highlander III: The Sorcerer
@@ -433,8 +433,8 @@ Hilary and Jackie
 The Hill
 A Hill in Korea
 Hillbilly Hare
-The Hills Have Eyes series:
-The Hills Have Eyes:
+The Hills Have Eyes 
+The Hills Have Eyes
 The Hills Have Eyes 2
 The Hills Have Eyes Part II
 The Hills Run Red
@@ -460,16 +460,16 @@ History of the World, Part I
 The Hit
 Hit the Deck
 Hit the Ice
-Hit and Run:
+Hit and Run
 Hitch
 The Hitch-Hiker
 Hitchcock
-The Hitcher:
+The Hitcher
 The Hitcher II: I've Been Waiting
 The Hitchhiker's Guide to the Galaxy
 Hitler Youth Quex
 Hitler: The Rise of Evil
-Hitman:
+Hitman
 Hitman City
 Ho
 Hoa-Hoo
@@ -487,11 +487,11 @@ Hold Everything
 Hold the Lion, Please
 Hold That Ghost
 Hold You Tight
-The Hole:
+The Hole
 A Hole in the Head
 A Hole in My Heart
 Holes
-Holiday:
+Holiday
 The Holiday
 Holiday Affair
 Holiday Inn
@@ -518,12 +518,12 @@ The Holy Mountain
 Holy Smoke!
 Hombre
 Home
-Home Alone series:
+Home Alone 
 Home Alone
 Home Alone 2: Lost in New York
 Home Alone 3
 Home Alone 4
-Home of the Brave:
+Home of the Brave
 A Home at the End of the World
 Home Fries
 Home of the Giants
@@ -531,7 +531,7 @@ Home from the Hill
 Home for the Holidays
 Home on the Range
 Home Room
-Homecoming:
+Homecoming
 The Homecoming
 Homegrown
 The Homeless
@@ -547,7 +547,7 @@ L'Homme de Rio
 Hondo
 Honey
 Honey Glaze
-Honey, I Shrunk... series:
+Honey, I Shrunk... 
 Honey, I Blew Up the Kid
 Honey, I Shrunk the Audience
 Honey, I Shrunk the Kids
@@ -575,7 +575,7 @@ Hop, Look and Listen
 Hopalong Casualty
 Hope Floats
 Hope and Glory
-Hope Springs:
+Hope Springs
 Hopscotch
 The Horde
 The Horn Blows at Midnight
@@ -630,8 +630,8 @@ Hour of the Gun
 Hour of the Wolf
 The Hours
 The Hours and Times
-House:
-House series:
+House
+House 
 House
 House II: The Second Story
 House III: The Horror Show
@@ -657,12 +657,12 @@ House of Flying Daggers
 House of Fools
 House of Frankenstein
 House of Games
-House on Haunted Hill:
+House on Haunted Hill
 House II: The Second Story
 The House with Laughing Windows
 The House in the Middle
 The House of Mirth
-House Party series:
+House Party 
 House Party
 House Party 2
 House Party 3
@@ -675,7 +675,7 @@ The House on Sorority Row
 The House of the Spirits
 House of Strangers
 The House That Dripped Blood
-House of Wax:
+House of Wax
 The House of Yes
 House!
 Houseboat
@@ -691,7 +691,7 @@ How Do You Know
 How to Eat Fried Worms
 How to Get Ahead in Advertising
 How Green Was My Valley
-How the Grinch Stole Christmas:
+How the Grinch Stole Christmas
 How High
 How I Got Into College
 How I Won the War
@@ -722,7 +722,7 @@ Howards End
 The Howards of Virginia
 Howl
 Howl's Moving Castle
-Howling series:
+Howling 
 The Howling
 Howling II: Stirba - Werewolf Bitch
 Howling III: The Marsupials
@@ -746,10 +746,10 @@ Hum Aapke Hain Kaun
 Hum Dil De Chuke Sanam
 Hum Tum
 Hum Tumhare Hain Sanam
-The Human Centipede series:
+The Human Centipede 
 The Human Centipede
 The Human Centipede 2
-The Human Condition series:
+The Human Condition 
 The Human Condition I: No Greater Love
 The Human Condition II: Road to Eternity
 The Human Condition III: A Soldier's Prayer
@@ -766,20 +766,20 @@ Humor Risk
 Humoresque
 Humorous Phases of Funny Faces
 Humpday
-The Hunchback of Notre Dame:
+The Hunchback of Notre Dame
 The Hunger
-Hunger:
+Hunger
 The Hunger Games
 Hunk
 The Hunt for Red October
 The Hunted
 Hunted
 The Hunted
-The Hunter:
+The Hunter
 The Hunting Party
 The Hunting of the President
 Hurlyburly
-The Hurricane:
+The Hurricane
 Hurricane Streets
 Hurry Sundown
 The Hurt Locker
@@ -794,5 +794,5 @@ Hwasango
 Hyde Park on Hudson
 Hyderabad Blues
 Hype!
-Hysteria:
+Hysteria
 Hysterical Blindness

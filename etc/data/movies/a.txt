@@ -12,13 +12,13 @@ Aadhi
 Aadhi Haqeeqat, Aadha Fasana
 Aadhi Mimansa
 Aadmi Khilona Hai
-Aag:
+Aag
 Aag Aandhi Aur Toofan
 Aag Aur Chingari
 Aag Ka Gola
 Aag Ka Toofan
 Aag Laga Do Sawan Ko
-Aaina:
+Aaina
 Aaj Ka Arjun
 Aakhree Raasta
 Aalvar
@@ -26,7 +26,7 @@ Aan
 Aanaval Mothiram
 Aandhi
 Aankh Michouli
-Aankhen:
+Aankhen
 Aao Pyaar Karen
 Aapathbandhavudu
 Aapo
@@ -43,12 +43,12 @@ Aaye Din Bahar Ke
 Aayitha Ezhuthu
 Aayushkalam
 Abandon
-Abandoned:
-The Abandoned:
+Abandoned
+The Abandoned
 The Abandonment
 ABBA: The Movie
 ABHAAS
-Abbott and Costello series:
+Abbott and Costello 
 Abbott and Costello in the Foreign Legion
 Abbott and Costello Go to Mars
 Abbott and Costello in Hollywood
@@ -68,7 +68,7 @@ Aberdeen
 Aberration
 Abhijan
 Abhimaan
-Abhimanyu:
+Abhimanyu
 Abnormal Family: Older Brother's Bride
 The Abominable Dr. Phibes
 The Abominable Snowman
@@ -79,7 +79,7 @@ About Schmidt
 Above the Law
 Above the Mountains
 Above the Rim
-Above Suspicion:
+Above Suspicion
 Abraham
 Abraham and Eugenia: Stories from Jewish Cuba
 Abraham Lincoln: Vampire Hunter
@@ -95,25 +95,25 @@ The Abyss
 Acacia
 Accattone
 Accepted
-Accident:
+Accident
 The Accidental Husband
 The Accidental Spy
 The Accidental Tourist
 Acción mutante
 The Accompanist
 Accumulator 1
-The Accused:
+The Accused
 Accused
 Accused of Murder
 The Accused Uncle Shangang
 Ace Drummond
-Ace High:
+Ace High
 Ace in the Hole
-Ace Ventura series:
+Ace Ventura 
 Ace Ventura: Pet Detective
 Ace Ventura: When Nature Calls
 Ace Ventura, Jr.
-Aces Go Place series:
+Aces Go Place 
 Aces Go Places
 Aces Go Places 2
 Aces Go Places 3
@@ -137,22 +137,22 @@ Actor
 Ad Fundum
 Ad-lib Night
 Adada
-Adam:
+Adam
 Adam & Steve
 Adam's Apples
 Adam's Rib
 Adanggaman
 Adaptation.
-The Addams Family series:
+The Addams Family 
 The Addams Family
 Addams Family Reunion
 Addams Family Values
-Addicted:
+Addicted
 Addicted to Love
 The Addiction
 Addiction
 Addio Zio Tom
-Address Unknown:
+Address Unknown
 Adharam
 Adharm
 Adiós, Sabata
@@ -168,7 +168,7 @@ The Adventure of Sudsakorn
 Adventure for Two
 Adventureland
 The Adventurer
-The Adventurers:
+The Adventurers
 Adventures in Babysitting
 The Adventures of Baron Munchausen
 The Adventures of Barry McKenzie
@@ -182,7 +182,7 @@ The Adventures of Ford Fairlane
 The Adventures of Huck Finn
 The Adventures of Ichabod and Mr. Toad
 The Adventures of Kathlyn
-The Adventures of Mary-Kate & Ashley series:
+The Adventures of Mary-Kate & Ashley 
 The Adventures of Mary-Kate & Ashley: The Case of the Christmas Caper
 The Adventures of Mary-Kate & Ashley: The Case of the Fun House Mystery
 The Adventures of Mary-Kate & Ashley: The Case of the Hotel Who-Done-It
@@ -260,7 +260,7 @@ Agantuk
 Agatha
 The Age of Consent
 Age of Consent
-The Age of Innocence:
+The Age of Innocence
 The Age of Insects
 Age of Success
 Agent Cody Banks
@@ -281,13 +281,13 @@ Ah, Wilderness!
 Ahingsa-Jikko mee gam
 Ahí está el detalle
 Ai-Fak
-Aida:
+Aida
 Aileen Wuornos: The Selling of a Serial Killer
 Aileen: Life and Death of a Serial Killer
 Aimée & Jaguar
 Aina
 Air America
-Air Bud series:
+Air Bud 
 Air Bud
 Air Bud Spikes Back
 Air Buddies
@@ -299,7 +299,7 @@ Air Force One
 The Air I Breathe
 Air Raid Wardens
 The Air Up There
-Airborne:
+Airborne
 Airheads
 Airplane II: The Sequel
 Airplane!
@@ -332,7 +332,7 @@ Al Haram
 Al-Kompars
 Al-Lail
 Ala-Arriba!
-Aladdin series:
+Aladdin 
 Aladdin
 Aladdin
 Aladdin and His Wonderful Lamp
@@ -343,7 +343,7 @@ Alaipayuthey
 Alam Ara
 Alambrado
 Alambrista!
-The Alamo:
+The Alamo
 The Alamo: Thirteen Days to Glory
 Alan and Naomi
 An Alan Smithee Film: Burn Hollywood Burn
@@ -359,14 +359,14 @@ Aletta Jacobs: Het Hoogste Streven
 Alex Cross
 Alex and Emma
 Alexander
-Alexander the Great:
+Alexander the Great
 Alexander Nevsky
 Alexander Popov
 Alexander's Ragtime Band
 Alexandra's Project
 Alexandria
 Alfalfa's Aunt
-Alfie:
+Alfie
 Algiers
 Algol: Tragedy of Power
 Ali
@@ -377,18 +377,18 @@ Ali Zaoua: Prince of the Streets
 Ali: Fear Eats the Soul
 Alias Jesse James
 The Alibi
-Alibi:
-Alice:
+Alibi
+Alice
 Alice Adams
 Alice in the Cities
 Alice Doesn't Live Here Anymore
 Alice and Martin
-Alice in Wonderland:
+Alice in Wonderland
 Alice of Wonderland in Paris
-Alice's Adventures in Wonderland:
+Alice's Adventures in Wonderland
 Alice's Restaurant
 Alice, Sweet Alice
-Alien series:
+Alien 
 Alien
 Aliens
 Alien 3
@@ -402,7 +402,7 @@ The Alien Encounters
 Alien Hunter
 Alien Intruder
 Alien Lockdown
-Alien Nation series:
+Alien Nation 
 Alien Nation
 Alien Nation: Body and Soul
 Alien Nation: Dark Horizon
@@ -416,7 +416,7 @@ Aliens in the Attic
 Aliens of the Deep
 Alila
 Alissa in Concert
-Alive:
+Alive
 Alive: 20 Years Later
 All About Anna
 All About the Benjamins
@@ -437,19 +437,19 @@ All Hell Broke Loose
 All I Want
 All I Want for Christmas
 All the Invisible Children
-All the King's Men:
-All of Me:
+All the King's Men
+All of Me
 All Men Are Mortal
 All Monsters Attack
 All My Babies
-All Night Long:
+All Night Long
 All or Nothing
 All Over the Guy
 All Over Me
 All the President's Men
 All the Pretty Horses
 All the Queen's Men
-All Quiet on the Western Front:
+All Quiet on the Western Front
 All the Real Girls
 All the Right Moves
 All Souls Day
@@ -479,7 +479,7 @@ Almost An Angel
 Almost Famous
 Almost Heroes
 Almost Love
-Alone in the Dark:
+Alone in the Dark
 Along Came Polly
 Along Came a Spider
 L'Alpagueur
@@ -488,13 +488,13 @@ Alpha and Omega
 The Alphabet Killer
 Alphaville, a Strange Adventure of Lemmy Caution
 The Alps
-Alraune:
+Alraune
 Alraune, die Henkerstochter, genannt die rote Hanne
 Altered
 Altered Species
 Altered States
 Alucarda
-Alvin and the Chipmunks seres:
+Alvin and the Chipmunks seres
 Alvin and the Chipmunks
 Alvin and the Chipmunks Meet Frankenstein
 Alvin and the Chipmunks Meet the Wolfman
@@ -531,13 +531,13 @@ The Ambushers
 Amelia
 Amen
 Amen.
-America:
+America
 America America
 America Screams
 America's Sweethearts
 America, America
 America: From Freedom to Fascism
-The American:
+The American
 The American Astronaut
 American Beauty
 American Boy: A Profile of Steven Prince
@@ -569,7 +569,7 @@ American Kickboxer
 American Kickboxer 2
 American Me
 American Movie
-American Ninja series :
+American Ninja  
 American Ninja
 American Ninja 2: The Confrontation
 American Ninja 3: Blood Hunt
@@ -577,7 +577,7 @@ American Ninja 4: The Annihilation
 American Ninja V
 American Outlaws
 An American in Paris
-American Pie series:
+American Pie 
 American Pie
 American Pie 2
 American Pie 3: American Wedding
@@ -593,7 +593,7 @@ American Psycho 2: All American Girl
 An American Rhapsody
 American Shaolin
 American Splendor
-An American Tail series:
+An American Tail 
 An American Tail
 An American Tail: Fievel Goes West
 An American Tail: The Mystery of the Night Monster
@@ -608,8 +608,8 @@ Americathon
 Amigo
 Amigomío
 Amistad
-The Amityville Horror series:
-The Amityville Horror:
+The Amityville Horror 
+The Amityville Horror
 Amityville II: The Possession
 Amityville 3-D
 Amityville 4: The Evil Escapes
@@ -632,7 +632,7 @@ The Amy Fisher Story
 Amélie
 Les Amants de Montparnasse
 An
-Anaconda series:
+Anaconda 
 Anaconda
 Anacondas: The Hunt for the Blood Orchid
 Anaconda 3: Offspring
@@ -640,24 +640,24 @@ Anacondas: Trail of Blood
 Anahat
 Analyze That
 Analyze This
-Anamika:
-Anand:
+Anamika
+Anand
 The Anarchist Cookbook
 Anarchists
-Anari:
-Anastasia:
+Anari
+Anastasia
 Anatomy
 Anatomy 2
 Anatomy of Hell
 Anatomy of a Murder
-Anbe Aaruyire:
+Anbe Aaruyire
 Anbe Sivam
 Anchoress
 Anchorman: The Legend of Ron Burgundy
 Anchors Aweigh
 And the Band Played On
 And Everything is Going Fine
-And God Created Woman:
+And God Created Woman
 And Now My Love
 And Now For Something Completely Different
 And Now... Ladies and Gentlemen
@@ -669,7 +669,7 @@ And You Thought Your Parents Were Weird
 Andaaz
 An Andalusian Dog
 Andarivaadu
-Andaz:
+Andaz
 Andaz Apna Apna
 The Anderson Tapes
 Andhrawala
@@ -682,12 +682,12 @@ Android
 The Andromeda Nebula
 The Andromeda Strain
 Ang Tanging Ina
-Angel:
+Angel
 The Angel
-Angel Baby:
+Angel Baby
 Angel and the Badman
 Angel Eyes
-Angel Face:
+Angel Face
 Angel Heart
 Angel in My Pocket
 Angel on My Shoulder
@@ -697,19 +697,19 @@ Angel Square
 Angel's Egg
 The Angel's Egg
 Angel-A
-Angela:
+Angela
 Angela's Ashes
 Angelfist
-Angels:
+Angels
 Angels & Demons
 Angels & Insects
 Angels with Dirty Faces
 Angels in the Endzone
 Angels in the Infield
-Angels in the Outfield:
+Angels in the Outfield
 The Angels Wash Their Faces
 Anger Management
-Angie:
+Angie
 Anglo-Saxon Attitudes
 Angoor
 Angora Love
@@ -720,17 +720,17 @@ Angulimala
 Angus
 Angus, Thongs and Perfect Snogging
 Anima Mundi
-Animal:
+Animal
 The Animal
 Animal Crackers
 Animal Factory
-Animal Farm:
+Animal Farm
 Animal House
 Animal Kingdom
 Animals Are Beautiful People
 Animalympics
-The Animatrix collection (2003):
-The Animatrix series:
+The Animatrix collection (2003)
+The Animatrix 
 Beyond
 A Detective Story
 Final Flight of the Osiris
@@ -740,16 +740,16 @@ Program
 The Second Renaissance
 World Record
 Anjaam
-Anjaane:
+Anjaane
 Anjali
 Anjaneya
-Ankahee:
+Ankahee
 Ankuram
 Anmol
-Anna:
+Anna
 Anna Christie
 Anna Karamazoff
-Anna Karenina:
+Anna Karenina
 Anna and the King
 Anna and the King of Siam
 Anna In Kungfuland
@@ -759,15 +759,15 @@ Annamayya
 Annapolis
 Anne Frank Remembered
 Anne Frank: The Whole Story
-Anne of Green Gables:
+Anne of Green Gables
 Anne no Nikki
 Anne of the Thousand Days
-Annie:
+Annie
 Annie Get Your Gun
 Annie Hall
 Annie's Coming Out
 Annie: A Royal Adventure!
-The Anniversary:
+The Anniversary
 The Anniversary Party
 Anniyan
 Anonymous
@@ -808,7 +808,7 @@ Antz
 Anupama
 Anvil! The Story of Anvil
 Any Bonds Today?
-Any Day Now:
+Any Day Now
 Any Given Sunday
 Any Way the Wind Blows
 Any Which Way You Can
@@ -839,7 +839,7 @@ The Apostle
 The Appaloosa
 Appaloosa
 The Apparition
-The Apple:
+The Apple
 The Apple Dumpling Gang
 The Apple Dumpling Gang Rides Again
 Apple Trees
@@ -850,7 +850,7 @@ L'Appât
 April 1, 2000
 April 1st Vidudhala
 April Bride
-April Fool's Day:
+April Fool's Day
 April Snow
 April Story
 APT
@@ -859,10 +859,10 @@ Apur Sansar
 The Aqua Teen Hunger Force Colon Movie Film for Theaters
 Aquamarine
 Arabesque
-Arabian Nights:
+Arabian Nights
 Arachnid
 Arachnophobia
-Aradhana:
+Aradhana
 Araf
 Aragami
 Arahan
@@ -874,39 +874,39 @@ Ararat
 Arbitrage
 L'Arbre, le maire et la médiathèque
 Arcade
-Arch of Triumph:
+Arch of Triumph
 Archangel
 The Archangel
 Arctic Blue
 Are We Done Yet?
 Are We There Yet?
 Are You Scared?
-The Arena:
-Arena:
-L'Argent:
+The Arena
+Arena
+L'Argent
 Argo
 Argument About Basia
 Aria
 Arinthum Ariyamalum
-Arirang:
+Arirang
 Arirang 3
 Arirang Geuhu Iyagi
 Arisan!
 The Aristocats
 The Aristocrats
 Arizona Dream
-Arjun:
+Arjun
 Ark
 Arlington Road
-Armaan:
-Armageddon:
+Armaan
+Armageddon
 L'armata Brancaleone
-Armed and Dangerous:
+Armed and Dangerous
 Armed and Innocent
 Armitage III: Poly-Matrix
 Armored
 Armored Car Robbery
-Armour of God series:
+Armour of God 
 Armour of God
 Armour of God II: Operation Condor
 Army of Darkness
@@ -914,7 +914,7 @@ Army of Shadows
 L'Armée des ombres
 Arn: The Knight Templar
 Around the Bend
-Around the World in 80 Days:
+Around the World in 80 Days
 Around the World Under the Sea
 The Arrangement
 The Arrival
@@ -931,7 +931,7 @@ The Arsonist
 Arsène Lupin
 Art & Copy
 Art Deco Detective
-Art of the Devil series:
+Art of the Devil 
 Art of the Devil
 Art of the Devil 2
 Art of the Devil 3
@@ -943,8 +943,8 @@ Art School Confidential
 The Art of Seduction
 The Art of War
 Artemisia
-Arthur:
-Arthur series:
+Arthur
+Arthur 
 Arthur and the Invisibles
 Arthur and the Revenge of Maltazard
 Arthur 3: The War of the Two Worlds
@@ -954,12 +954,12 @@ Artie Lange's Beer League
 Artificial Intelligence: A.I.
 Artificial Paradise
 The Artist
-Artists and Models:
+Artists and Models
 Aru yo no Tonosama
 Arul
-Arya:
+Arya
 Arya 2
-Aryan:
+Aryan
 The Aryan
 As-Az
 As Good as It Gets
@@ -969,7 +969,7 @@ As Tears Go By
 As You Like It
 The Ascent
 Ashani Sanket
-Ashanti:
+Ashanti
 Ashes and Diamonds
 Ashes of Time
 Ashok
@@ -977,7 +977,7 @@ Ashokan
 Asian Stories
 Ask the Dust
 Ask A Policeman
-Asoka:
+Asoka
 Aspen Extreme
 The Asphalt Jungle
 The Assassin of the Tsar
@@ -987,12 +987,12 @@ The Assassination of Jesse James by the Coward Robert Ford
 The Assassination of Richard Nixon
 Assassination Tango
 Assassins
-Assault on Precinct 13:
+Assault on Precinct 13
 Assembly
 Assia and the Hen with the Golden Eggs
 The Assignment
 Assunta Spina
-Asterix series:
+Asterix 
 Asterix and the Big Fight
 Asterix in Britain
 Asterix and Cleopatra
@@ -1006,7 +1006,7 @@ Astro Boy
 The Astro-Zombies
 The Astronaut Farmer
 The Astronaut's Wife
-Asylum:
+Asylum
 At First Sight
 At the Circus
 At Close Range
@@ -1065,7 +1065,7 @@ Au Revoir, UFO
 Audition
 Audrey Rose
 August Rush
-August Underground series:
+August Underground 
 August Underground
 August Underground's Mordum
 August Underground's Penance
@@ -1074,7 +1074,7 @@ Auntie Mame
 El Aura
 Aurora: Operation Intercept
 Aurore
-Austin Powers series:
+Austin Powers 
 Austin Powers in Goldmember
 Austin Powers: International Man of Mystery
 Austin Powers: The Spy Who Shagged Me
@@ -1093,10 +1093,10 @@ Autumn in New York
 Autumn Sonata
 Autumn Tale
 Avalanche Alley
-Avalon:
+Avalon
 Avanti!
 Avatar
-The Avengers:
+The Avengers
 Avenging Angelo
 Aventure Malgache
 The Aviator

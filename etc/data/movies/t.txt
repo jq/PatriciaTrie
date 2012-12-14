@@ -14,8 +14,8 @@ Tail Lights Fade
 Tail Sting
 The Tailor of Panama
 Tai-Pan
-The Take:
-Take Me Home:
+The Take
+Take Me Home
 Take Me Home Tonight
 Take the Lead
 Take the Money and Run
@@ -37,9 +37,9 @@ The Tale of the Fox
 Tale of the Mummy
 The Tale of the Priest and of His Workman Balda
 Tale of Tales
-A Tale of Two Cities:
+A Tale of Two Cities
 A Tale of Two Kitties
-A Tale of Two Sisters:
+A Tale of Two Sisters
 The Talented Mr. Ripley
 Tales From the Crypt
 Tales From the Darkside: The Movie
@@ -64,7 +64,7 @@ Talladega Nights: The Ballad of Ricky Bobby
 Tamala 2010: A Punk Cat in Space
 Tampopo
 Tanga - Deu no New York Times?
-Tangled:
+Tangled
 Tango, no me dejes nunca
 Tango & Cash
 The Tango Lesson
@@ -83,11 +83,11 @@ Taris, roi de l'eau
 Tarnation
 Tart
 Tartarin de Tarascon
-Tarzan series:
+Tarzan 
 Tarzan
 Tarzan II
 Tarzan and the Amazons
-Tarzan the Ape Man:
+Tarzan the Ape Man
 Tarzan of the Apes
 Tarzan Escapes
 Tarzan and the Huntress
@@ -105,7 +105,7 @@ Taste of Cherry
 A Taste of Honey
 Tatie Danielle
 Taxi
-Taxi series:
+Taxi 
 Taxi
 Taxi 2
 Taxi 3
@@ -116,7 +116,7 @@ Te
 Te doy mis ojos
 Tea and Sympathy
 Teachers
-Teacher's Pet:
+Teacher's Pet
 Teaching Mrs. Tingle
 The Teahouse of the August Moon
 Team America: World Police
@@ -130,8 +130,8 @@ Teen Wolf
 Teen Wolf Too
 Teenage Cave Man
 Teenage Caveman
-Teenage Mutant Ninja Turtles series:
-Teenage Mutant Ninja Turtles:
+Teenage Mutant Ninja Turtles 
+Teenage Mutant Ninja Turtles
 Teenage Mutant Ninja Turtles II: The Secret of the Ooze
 Teenage Mutant Ninja Turtles III
 Teenage Zombies
@@ -152,7 +152,7 @@ The Temptress
 Temptress Moon
 Ten 'til Noon
 Ten Canoes
-The Ten Commandments:
+The Ten Commandments
 Ten Little Indians
 Ten Minutes Older
 Ten Zan: The Ultimate Mission
@@ -173,7 +173,7 @@ Tetsujin Nijūhachi-gō: Hakuchū no Zangetsu
 The Terminal
 Terminal Station
 Terminal Velocity
-Terminator series:
+Terminator 
 The Terminator
 Terminator 2: Judgment Day
 Terminator 3: Rise of the Machines
@@ -192,13 +192,13 @@ Test Pilot
 Testament
 The Testament of Dr. Mabuse
 Testament of Orpheus
-Tetsuo series:
+Tetsuo 
 Tetsuo: The Iron Man
 Tetsuo II: Body Hammer
 Tetsuo: The Bullet Man
 Tevye
-The Texas Chainsaw Massacre series:
-The Texas Chainsaw Massacre:
+The Texas Chainsaw Massacre 
+The Texas Chainsaw Massacre
 The Texas Chainsaw Massacre 2
 Leatherface: The Texas Chainsaw Massacre III
 The Texas Chainsaw Massacre: The Beginning
@@ -208,20 +208,20 @@ Texasville
 Th
 Tha-Tho
 Thank You for Smoking
-That Darn Cat:
+That Darn Cat
 That Hamilton Woman
 That Night in Varennes
 That Obscure Object of Desire
 That Thing You Do!
 That Touch of Mink
 That Uncertain Feeling
-That's Entertainment! series:
+That's Entertainment! 
 That's Dancing!
 That's Entertainment!
 That's Entertainment, Part II
 That's Entertainment! III
-That's My Boy:
-That's My Wife:
+That's My Boy
+That's My Wife
 Theatre of Blood
 Their Own Desire
 Their Purple Moment
@@ -260,10 +260,10 @@ They Shoot Horses, Don't They?
 They Still Call Me Bruce
 They Were Expendable
 They're a Weird Mob
-Thicker than Water:
+Thicker than Water
 Thief
 The Thief
-The Thief of Baghdad:
+The Thief of Baghdad
 The Thief and the Cobbler
 The Thief Lord'
 Thieves Like Us
@@ -272,8 +272,8 @@ The Thin Blue Line
 Thin Ice
 The Thin Man
 The Thin Man Goes Home
-The Thin Red Line:
-The Thing:
+The Thin Red Line
+The Thing
 The Thing About My Folks
 The Thing from Another World
 The Thing with Two Heads
@@ -292,7 +292,7 @@ Thirteen
 The Thirteen Chairs
 Thirteen Conversations About One Thing
 Thirteen Days
-Thirteen Ghosts:
+Thirteen Ghosts
 Thirteen Princess Trees
 Thirteen Women
 The Thirteenth Floor
@@ -321,7 +321,7 @@ This is Not a Love Song
 This Property is Condemned
 This Is Spinal Tap
 This Sporting Life
-The Thomas Crown Affair:
+The Thomas Crown Affair
 Thomas and the Magic Railroad
 Thor
 The Thorn
@@ -333,7 +333,7 @@ The Thousand Eyes of Dr. Mabuse
 A Thousand Words
 Thousands Cheer
 Those Magnificent Men in Their Flying Machines
-Those Were the Days:
+Those Were the Days
 Those Were Wonderful Days
 Thou Shalt Honor Thy Wife
 Thoughtcrimes
@@ -345,7 +345,7 @@ Three Businessmen
 Three from Buttermilk Village
 The Three Caballeros
 Three Coins in the Fountain
-Three Colors series:
+Three Colors 
 Three Colors: Blue
 Three Colors: Red
 Three Colors: White
@@ -365,7 +365,7 @@ The Three Marias
 Three on a Match
 Three Men and a Baby
 Three Men and a Little Lady
-The Three Musketeers:
+The Three Musketeers
 Three on a Couch
 Three O'Clock High
 Three Outlaw Samurai
@@ -377,14 +377,14 @@ Three Sisters
 Three Sisters
 Three Sisters
 Three Smart Girls
-The Three Stooges series:
+The Three Stooges 
 The Three Stooges
 The Three Stooges Go Around the World in a Daze
 The Three Stooges Meet Hercules
 The Three Stooges in Orbit
 Three to Tango
 Three Times
-Three Women:
+Three Women
 The Threepenny Opera
 Threesome
 Three... Extremes
@@ -394,7 +394,7 @@ Through a Glass Darkly
 Thoroughly Modern Millie
 Throw Momma from the Train
 Thru the Mirror
-Thumbelina:
+Thumbelina
 Thumbsucker
 Thunder Bay
 Thunder Road
@@ -402,7 +402,7 @@ Thunderball
 Thunderbird 6
 Thunderbirds
 Thunderbirds Are Go
-Thunderbolt:
+Thunderbolt
 Thunderbolt and Lightfoot
 Thunderheart
 Thunderpants
@@ -431,7 +431,7 @@ Til Death
 'Til There Was You
 Tilaï
 Till the Clouds Roll By
-Till There Was You:
+Till There Was You
 Tillamook Treasure
 Tillie's Punctured Romance
 Tim
@@ -444,7 +444,7 @@ Time Changer
 A Time for Burning
 A Time for Drunken Horses
 A Time for Miracles
-The Time Machine:
+The Time Machine
 Time of Favor
 Time of the Gypsies
 Time Regained
@@ -471,7 +471,7 @@ Tin Toy
 The Tingler
 Tinker Bell
 Tinker Tailor Soldier Spy
-Tintin series:
+Tintin 
 Tintin and I
 Tintin and the Blue Oranges
 Tintin and the Golden Fleece
@@ -485,7 +485,7 @@ Tirana Year Zero
 Tirant lo Blanc
 Tit for Tat
 Titan A.E.
-Titanic:
+Titanic
 Titanic II
 Titanic Town
 The Titfield Thunderbolt
@@ -496,11 +496,11 @@ Titus
 Tk-To
 Tko pjeva zlo ne misli
 TMNT
-To Be or Not to Be:
+To Be or Not to Be
 To Beep or Not to Beep
 To Catch a Thief
 To the Devil a Daughter
-To Die For:
+To Die For
 To Each His Own
 To End All Wars
 To Fly!
@@ -517,13 +517,13 @@ To Live in Peace
 To Paint or Make Love
 To Rome with Love
 To Shoot an Elephant
-To Sir, with Love:
+To Sir, with Love
 To Wong Foo, Thanks for Everything! Julie Newmar
 The Toast of New Orleans
 Tobacco Road
 Tobruk
 Today You Die
-Together:
+Together
 Together Alone
 Tokyo Drifter
 Tokyo Fist
@@ -542,7 +542,7 @@ Tom Horn
 Tom & Huck
 Tom and Jerry: The Magic Ring
 Tom Jones
-Tom Sawyer:
+Tom Sawyer
 Tom White
 The Tomb of Ligeia
 Tomb of the Werewolf
@@ -554,7 +554,7 @@ Tombstone, the Town Too Tough to Die
 Tomcats
 Tommy
 Tommy Boy
-Tomorrow:
+Tomorrow
 Tomorrow Is Forever
 Tomorrow Never Dies
 Tomorrow, When the War Began
@@ -577,7 +577,7 @@ Top Gun
 Top Hat
 Top Secret!
 Top of the World
-Topaz:
+Topaz
 Topkapi
 El Topo
 Topper
@@ -593,12 +593,12 @@ Torrente, el brazo tonto de la ley
 Torrente 2: Misión en Marbella
 Torso
 Tortilla Flaps
-The Tortoise and the Hare:
+The Tortoise and the Hare
 Torture Garden
 Tosun Pasa
 Total Balalaika Show
 Total Eclipse
-Total Recall:
+Total Recall
 Touch
 The Touch
 A Touch of Class
@@ -620,13 +620,13 @@ The Towering Inferno
 Town & Country
 A Town Called Panic
 A Town Like Alice
-The Toxic Avenger series:
+The Toxic Avenger 
 The Toxic Avenger
 The Toxic Avenger Part II
 The Toxic Avenger Part III: The Last Temptation of Toxie
 The Toy
 Toy Soldiers
-Toy Story series:
+Toy Story 
 Toy Story
 Toy Story 2
 Toy Story 3
@@ -657,7 +657,7 @@ Trance and Dance in Bali
 Trancers
 Transamerica
 Transfer
-Transformers film series:
+Transformers film 
 Transformers
 Transmorphers: Fall of Man
 Transformers: Revenge of the Fallen
@@ -667,15 +667,15 @@ Transparent Man
 The Transporter
 Transporter 2
 Transporter 3
-Transylvania 6-5000:
+Transylvania 6-5000
 A Trap for Santa Claus
-Trapped:
+Trapped
 Trapped in Paradise
 Trash
-Trauma:
+Trauma
 Travels with My Aunt
 Travellers and Magicians
-Treasure Island:
+Treasure Island
 Treasure Planet
 The Treasure of the Sierra Madre
 The Treatment
@@ -686,18 +686,18 @@ A Tree of Palme
 The Tree of Wooden Clogs
 Trees Lounge
 Trekkies
-Tremors series:
+Tremors 
 Tremors
 Tremors 2: Aftershocks
 Tremors 3: Back to Perfection
 Tremors 4: The Legend Begins
-Trespass:
+Trespass
 The Trespasser
-The Trial:
+The Trial
 Trial and Error
-Tribute:
+Tribute
 Trick
-Trick or Treat:
+Trick or Treat
 Tricky Brains
 Trigun: Badlands Rumble
 Trilogy of Terror
@@ -711,7 +711,7 @@ Tripfall
 Triple Trouble
 The Triplets of Belleville
 Triplex
-Trishna:
+Trishna
 Tristram Shandy: A Cock and Bull Story
 Tristan & Isolde
 Tristana
@@ -723,7 +723,7 @@ Trog
 Trois hommes et un couffin
 Trojan War
 Trojan Warrior
-Troll:
+Troll
 Troll
 Troll 2
 Troll 3
@@ -758,7 +758,7 @@ Truck Turner
 Trudell
 True Confessions
 True Crime
-True Grit:
+True Grit
 True Lies
 True Love
 True Romance
@@ -787,7 +787,7 @@ Tucker: The Man and His Dream
 Tuff Turf
 Tulips Shall Grow
 Tulsa
-Tumbleweeds:
+Tumbleweeds
 Tumko Na Bhool Paayenge
 The Tune
 Tunes of Glory
@@ -800,7 +800,7 @@ Turkish Delight
 Turn It Up
 Turn Left, Turn Right
 Turner & Hooch
-The Turning Point:
+The Turning Point
 Turtles Can Fly
 Tuvalu
 The Tuxedo
@@ -819,10 +819,10 @@ Twentieth Century
 Twenty Bucks
 Twenty-Four Eyes
 Twenty Minutes of Love
-Twice Upon a Time:
+Twice Upon a Time
 Twice Upon a Yesterday
-The Twilight Saga series:
-Twilight:
+The Twilight Saga 
+Twilight
 The Twilight Saga: New Moon
 The Twilight Saga: Eclipse
 The Twilight Saga: Breaking Dawn - Part 1
@@ -835,7 +835,7 @@ Twilight's Last Gleaming
 Twin Dragons
 Twin Falls Idaho
 Twin Peaks: Fire Walk with Me
-Twin Sisters:
+Twin Sisters
 Twin Town
 Twinkle, Twinkle Lucky Stars
 Twins
@@ -863,7 +863,7 @@ Two Great Sheep
 Two Hands
 Two If by Sea
 The Two Jakes
-Two of a Kind:
+Two of a Kind
 Two Men and a Wardrobe
 Two for the Money
 Two Moon Junction
@@ -879,11 +879,11 @@ Two Stage Sisters
 Two Tars
 Two Thousand Maniacs!
 Two or Three Things I Know About Her
-Two of Us:
+Two of Us
 The Two of Us
 Two Weeks
 Two Weeks Notice
-Two Women:
+Two Women
 The Twonky
 Two-Lane Blacktop
 Two-Minute Warning

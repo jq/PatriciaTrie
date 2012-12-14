@@ -21,7 +21,7 @@ Rachel and the Stranger
 Rachel, Rachel
 Racing with the Moon
 Racing Stripes
-The Racket:
+The Racket
 Racketeer Rabbit
 Radio
 Radio Days
@@ -37,16 +37,16 @@ Raiders of the Lost Ark
 The Railroad
 Railroaded!
 The Railway Children
-Rain:
+Rain
 Rain Clouds over Wushan
 Rain Man
 The Rain People
-Rainbow:
+Rainbow
 The Rainbow
 Rainbow Bird and Monster Man
 Rainbow Brite and the Star Stealer
 Rainbow Song
-The Rainmaker:
+The Rainmaker
 The Rains Came
 Raintree County
 Raise the Red Lantern
@@ -59,7 +59,7 @@ Raising Cain
 Raising Helen
 Raja Harishchandra
 Rally 'Round the Flag, Boys!
-Rambo series:
+Rambo 
 First Blood
 Rambo: First Blood Part II
 Rambo III
@@ -89,12 +89,12 @@ Ratcatcher
 Rated X
 El Ratón Pérez
 Rattle and Hum
-The Raven:
+The Raven
 Ravenous
-The Raven:
-Raw Deal:
+The Raven
+Raw Deal
 Ray
-The Razor's Edge:
+The Razor's Edge
 Re
 Re-Animator
 Reach for the Sky
@@ -102,7 +102,7 @@ Read It and Weep
 Ready to Rumble
 The Real Blonde
 Real Genius
-Real Life:
+Real Life
 The Real McCoy
 Real Steel
 Reality Bites
@@ -110,7 +110,7 @@ Reap the Wild Wind
 The Reaping
 Rear Window
 Rebecca
-Rebecca of Sunnybrook Farm:
+Rebecca of Sunnybrook Farm
 The Rebel
 The Rebel Rousers
 Rebel Without a Cause
@@ -123,16 +123,16 @@ The Reckoning
 The Record
 The Record of a Tenement Gentleman
 The Recruit
-Red:
+Red
 The Red Awn
 The Red Badge of Courage
 The Red Balloon
 The Red Baron
 Red Beard
 Red Cherry
-Red Cliff:
+Red Cliff
 Red Corner
-Red Dawn:
+Red Dawn
 Red Desert
 Red Dragon
 Red Dust
@@ -145,13 +145,13 @@ The Red House
 Red Planet
 The Red Pony
 Red River
-Red River Valley:
+Red River Valley
 Red Road
 Red Rock West
 The Red Shoes
 Red Sonja
 Red Sorghum
-Red State:
+Red State
 Red Tails
 Red-Headed Woman
 Redbelt
@@ -161,7 +161,7 @@ Redline
 Redneck Zombies
 Reds
 Redskin
-Reefer Madness:
+Reefer Madness
 The Ref
 Reflections in a Golden Eye
 Regarding Henry
@@ -200,7 +200,7 @@ Requiem for a Heavyweight
 The Rescuers
 The Rescuers Down Under
 Reservoir Dogs
-Resident Evil series:
+Resident Evil 
 Resident Evil
 Resident Evil: Apocalypse
 Resident Evil: Extinction
@@ -223,7 +223,7 @@ Return to Innocence
 The Return of Jafar
 Return of the Jedi
 The Return of the King
-Return of the Living Dead series:
+Return of the Living Dead 
 The Return of the Living Dead
 Return of the Living Dead Part II
 Return of the Living Dead 3
@@ -246,30 +246,30 @@ Returner
 Reuben, Reuben
 Revanche
 Reveille with Beverly
-Revenge:
+Revenge
 The Revenge
 Revenge: A Love Story
 The Revenge of Frankenstein
-Revenge of the Nerds series:
+Revenge of the Nerds 
 Revenge of the Nerds
 Revenge of the Nerds II: Nerds in Paradise
 Revenge of the Nerds III: The Next Generation
 Revenge of the Nerds IV: Nerds in Love
 Revenge of the Pink Panther
-Reversal of Fortune:
+Reversal of Fortune
 Revolt of the Zombies
 Revolution
 Revolution OS
 The Revolution Will Not Be Televised
-Revolver:
+Revolver
 Rh-Ri
 Rhapsody Rabbit
 Rhinestone
 Rhubarb
 Rhubarb Rhubarb
 Rice Rhapsody
-Rich and Famous:
-Richard III:
+Rich and Famous
+Richard III
 Ri¢hie Ri¢h
 Ricky 6
 Ride a Crooked Trail
@@ -289,7 +289,7 @@ Righteous Kill
 Righteous Ties
 Rififi
 Ring
-The Ring:
+The Ring
 Ring 0: Birthday
 Ring of Darkness
 A Ring of Endless Light
@@ -308,9 +308,9 @@ Rise of the Planet of the Apes
 Rising Sun
 Risky Business
 Rita, Sue and Bob Too
-The Rite:
+The Rite
 Ritual
-The River:
+The River
 A River Made to Drown In
 A River Runs Through It
 River Without Buoys
@@ -341,7 +341,7 @@ Robbery
 The Robe
 Roberta
 Robin and the 7 Hoods
-Robin Hood:
+Robin Hood
 Robin Hood Daffy
 Robin Hood: Men in Tights
 Robin Hood: Prince of Thieves
@@ -349,7 +349,7 @@ Robin and Marian
 Robin of Locksley
 Robinson Crusoe
 Robinson Crusoe on Mars
-RoboCop series:
+RoboCop 
 RoboCop
 RoboCop 2
 RoboCop 3
@@ -361,7 +361,7 @@ Robot Taekwon V
 Robots
 Rocco and His Brothers
 The Rock
-Rock of Ages:
+Rock of Ages
 Rock Around the Clock
 Rock & Rule
 Rock n' Roll Cops 2: The Adventure Begins
@@ -374,7 +374,7 @@ Rocket Man
 The Rocketeer
 Rocketship X-M
 Rockin' in the Rockies
-Rocky series:
+Rocky 
 Rocky
 Rocky II
 Rocky III
@@ -389,7 +389,7 @@ Rodney Rude Live Volume 1
 Rodora
 Roger Dodger
 Roger & Me
-Rogue:
+Rogue
 The Rogue Song
 Rok spokojnego slonca
 Rokk í Reykjavík
@@ -398,18 +398,18 @@ The Role of Her Life
 Roll Bounce
 The Roller Blade Seven
 Roller Boogie
-Rollerball:
+Rollerball
 Rollercoaster
 Rolling Kansas
 The Rolling Stones Rock and Roll Circus
 Rolling Thunder
 Rollover
-Roma:
+Roma
 Roman Candles
 Roman Holiday
 Roman Scandals
 The Roman Spring of Mrs. Stone
-Romance:
+Romance
 Romance & Cigarettes
 Romance in Manhattan
 Romance of the Western Chamber
@@ -418,17 +418,17 @@ The Romantic Englishwoman
 The Romantic President
 Rome, Open City
 Romeo is Bleeding
-Romeo and Juliet:
+Romeo and Juliet
 Romeo Must Die
 Romper Stomper
 Romy and Michele's High School Reunion
 La Ronde
 Ronin
-The Rookie:
+The Rookie
 Rookie of the Year
 A Room with a View
 Room 6
-Room Service:
+Room Service
 Room at the Top
 Rooster Cogburn
 The Roots of Heaven
@@ -444,7 +444,7 @@ Rosencrantz & Guildenstern Are Dead
 Rosetta
 Roswell
 Rouge
-Rough Cut:
+Rough Cut
 Rough Riders
 Rough Sea at Dover
 Round Midnight
@@ -480,27 +480,27 @@ The Rum Diary
 Rumble in the Bronx
 Rumble Fish
 Rumor Has It...
-Run:
+Run
 Run, Fatboy, Run
 Run Lola Run
 Run Ronnie Run
 Run Silent, Run Deep
-Runaway:
+Runaway
 Runaway Bride
 Runaway Jury
 Runaway Train
 Runaway!
 The Rundown
-Running on Empty:
+Running on Empty
 The Running Jumping & Standing Still Film
 Running on Karma
-The Running Man:
-Running Out of Time:
-Running Scared:
+The Running Man
+Running Out of Time
+Running Scared
 Running With Scissors
-Running Wild:
+Running Wild
 Rush
-Rush Hour series:
+Rush Hour 
 Rush Hour
 Rush Hour 2
 Rush Hour 3

@@ -9,7 +9,7 @@ Naked
 Naked Alibi
 The Naked City
 The Naked Feminist
-Naked Gun series:
+Naked Gun 
 The Naked Gun: From the Files of Police Squad!
 The Naked Gun 2½: The Smell of Fear
 Naked Gun 33⅓: The Final Insult
@@ -23,7 +23,7 @@ The Naked Prey
 The Naked Proof
 The Naked Runner
 The Naked Spur
-The Naked Truth:
+The Naked Truth
 Nala Damayanthi
 Nam's Angels
 Namak Haraam
@@ -39,7 +39,7 @@ The Nanny
 Nanny McPhee
 Nanook of the North
 Napló apámnak, anyámnak
-Napoléon:
+Napoléon
 Napoleon Dynamite
 Napoleon and Samantha
 Napoli violenta
@@ -49,7 +49,7 @@ The Narrow Margin
 Naruto the Movie: Snow Princess' Book of Ninja Arts
 Nashville
 The Nasty Girl
-National Lampoon series:
+National Lampoon 
 National Lampoon Goes to the Movies
 National Lampoon Presents Dorm Daze
 National Lampoon's Animal House
@@ -95,10 +95,10 @@ Near Dark
 The Nearsighted School Teacher
 Necessary Roughness
 Necronomicon
-Ned Kelly:
+Ned Kelly
 Needing You
 The Negotiator
-Neighbors:
+Neighbors
 Neil Young: Heart of Gold
 Nemesis Game
 The Neon Bible
@@ -117,7 +117,7 @@ Never a Dull Moment
 Never Give a Sucker an Even Break
 Never Say Never Again
 Never on Sunday
-Never Too Late:
+Never Too Late
 The Neverending Story
 The NeverEnding Story II: The Next Chapter
 The NeverEnding Story III
@@ -125,7 +125,7 @@ The New Adventures of Pippi Longstocking
 New Best Friend
 The New Guy
 The New Janitor
-New Moon:
+New Moon
 A New Leaf
 New Pillow Fight
 New Police Story
@@ -157,11 +157,11 @@ Nicholas and Alexandra
 A Night at the Roxbury
 The Night Before
 A Night in Casablanca
-Night and the City:
+Night and the City
 Night in the City
 Night of the Comet
 Night of the Creeps
-Night and Day:
+Night and Day
 Night on Earth
 Night and Fog
 The Night of the Following Day
@@ -171,7 +171,7 @@ Night of the Hunter
 The Night of the Iguana
 Night Inn
 The Night Listener
-Night of the Living Dead:
+Night of the Living Dead
 Night of the Living Dead 3D
 Night at the Museum
 Night at the Museum: Battle of the Smithsonian
@@ -184,15 +184,15 @@ The Night of the Shooting Stars
 Night Skies
 A Night in the Show
 The Night That Panicked America
-Night Train:
+Night Train
 Night Train to Munich
-Night Watch:
-The Night Watchman:
+Night Watch
+The Night Watchman
 The Night of the White Pants
 Nighthawks
-Nightmare:
+Nightmare
 The Nightmare Before Christmas
-A Nightmare on Elm Street series:
+A Nightmare on Elm Street 
 A Nightmare on Elm Street
 A Nightmare on Elm Street 2: Freddy's Revenge
 A Nightmare on Elm Street 3: Dream Warriors
@@ -226,7 +226,7 @@ No Escape
 No Highway in the Sky
 No Holds Barred
 No Impact Man
-No Man's Land:
+No Man's Land
 No Mercy
 No Mercy for the Rude
 No Name on the Bullet
@@ -239,17 +239,17 @@ No Retreat, No Surrender 2
 No Rules
 No Skin Off My Ass
 No Small Affair
-No Smoking:
+No Smoking
 No sos vos, soy yo
 No Strings Attached
 No Surrender
 No Time for Nuts
 No Time for Sergeants
-No Way Out:
+No Way Out
 Nobel Son
-Nobody Knows:
+Nobody Knows
 Nobody Walks
-Nobody's Fool:
+Nobody's Fool
 Noel
 Noirs et blancs en couleur
 Noises Off...
@@ -262,7 +262,7 @@ The Noose
 Nora's Hair Salon
 Norbit
 Norma Rae
-Normal:
+Normal
 Normais, Os - O Filme
 El Norte
 North
@@ -281,7 +281,7 @@ Not One Less
 Not as a Stranger
 Not Easily Broken
 Not Forgotten
-Not of This Earth:
+Not of This Earth
 The Notebook
 Nothing But the Best
 Nothing But Trouble
@@ -289,7 +289,7 @@ Nothing in Common
 Nothing Lasts Forever
 Nothing to Lose
 Nothing Sacred
-Notorious:
+Notorious
 The Notorious Bettie Page
 La notte
 Le Notti Bianche
@@ -302,7 +302,7 @@ Now You Know
 Now, Voyager
 Nowhere in Africa
 Nowhere to Hide
-Nowhere to Run:
+Nowhere to Run
 Nuan
 The Nude Bomb
 Nueve reinas
@@ -315,7 +315,7 @@ Nuovo Cinema Paradiso
 Nurse Betty
 Nurse Nancy
 Nuts
-The Nutty Professor:
+The Nutty Professor
 Nutty Professor II: The Klumps
 Nuvve Nuvve
 Nuvvu Naaku Nachav

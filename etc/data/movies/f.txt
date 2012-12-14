@@ -48,7 +48,7 @@ Falling Down
 Falling Hare
 Falling in Love
 False Hare
-Fame:
+Fame
 Family Business
 The Family Jewels
 The Family Man
@@ -60,12 +60,12 @@ The Family Way
 The Fan
 Fan Chan
 Fanaa
-Fanboys:
+Fanboys
 Fancy Pants
 Fandango
 Fando and Lis 
 Fando and Lis
-Fanfan la Tulipe:
+Fanfan la Tulipe
 Fanny
 Fanny and Alexander
 Fantasia
@@ -82,14 +82,14 @@ Far from Heaven
 Far from the Madding Crowd
 Faraway, So Close!
 Farce of the Penguins
-A Farewell to Arms:
+A Farewell to Arms
 Farewell to the King
 Farewell My Concubine
 Farewell, My Lovely
 Farewell, My Queen
 Fargo
 Farinelli
-The Farmer Takes a Wife:
+The Farmer Takes a Wife
 The Farmer's Daughter
 The Farmer's Wife
 Farsighted for Two Diopters
@@ -98,7 +98,7 @@ Fast Company
 Fast Food Nation
 Fast and Furious
 The Fast and the Furious
-The Fast and the Furious series:
+The Fast and the Furious 
 The Fast and the Furious
 2 Fast 2 Furious
 The Fast and the Furious: Tokyo Drift
@@ -110,7 +110,7 @@ Fast Getaway II
 Fast Times at Ridgemont High
 The Ex
 Fast, Cheap & Out of Control
-Faster:
+Faster
 Faster, Pussycat! Kill! Kill!
 The Fastest Guitar Alive
 Fat Albert
@@ -128,10 +128,10 @@ Fatal Fury: The Motion Picture
 Fatal Instinct
 Fate
 Fateless
-Father:
+Father
 Pedar
 The Father
-Father of the Bride:
+Father of the Bride
 Father of the Bride Part II
 Father Goose
 Father Sergius
@@ -141,17 +141,17 @@ Fatty Finn
 Fatty and Mabel Adrift
 Fatty's Tintype Tangle
 Fatwa
-Faust:
+Faust
 Faust: Love of the Damned
 The Armchair
 Le fauteuil
-The Favor:
+The Favor
 Fay Grim 
 Fay Grim
 
 
 The FBI Story
-Fear:
+Fear
 Fear of a Black Hat
 Fear and Desire
 Fear and Loathing in Las Vegas
@@ -159,7 +159,7 @@ Fear in the Night
 Fear and Trembling
 Fear X
 FeardotCom
-Fearless:
+Fearless
 The Fearless Hyena 
 The Fearless Hyena
 The Fearless Vampire Killers 
@@ -192,7 +192,7 @@ Festival
 Festival in Cannes
 Festival Express
 Fever Lake
-Fever Pitch:
+Fever Pitch
 A Few Good Men
 A Few Good Men
 Ffolkes
@@ -201,11 +201,11 @@ Ffolkes
 The First $20 Million Is Always the Hardest
 First Action Hero
 First Blood
-First Daughter:
+First Daughter
 First Descent
 First Knight
 First Man into Space
-The First Men in the Moon:
+The First Men in the Moon
 First Monday in October
 First on the Moon
 First Spaceship on Venus 
@@ -214,7 +214,7 @@ First Sunday
 The First Wives Club
 Five Came Back
 Five Corners
-Five Days, Five Nights:
+Five Days, Five Nights
 Five Deadly Venoms
 Five Easy Pieces
 Five Graves to Cairo
@@ -260,7 +260,7 @@ The Final Countdown
 Final Cut
 Final Cut
 The Final Cut
-Final Destination series:
+Final Destination 
 Final Destination
 Final Destination 2
 Final Destination 3
@@ -282,11 +282,11 @@ Fingers
 Finian's Rainbow
 The Finishing Touch
 Fire
-Fire Down Below:
+Fire Down Below
 Fire Festival
 Fire and Ice
 Fire Maidens from Outer Space
-Fire on the Mountain:
+Fire on the Mountain
 Fire Over England
 Fire in the Sky
 The Fire Within
@@ -331,7 +331,7 @@ The Flame and the Arrow
 Flaming Star
 Flamingo Road
 Flash of Genius
-Flash Gordon:
+Flash Gordon
 Flash Gordon Conquers the Universe
 Flash Gordon's Trip to Mars
 Flashback
@@ -354,14 +354,14 @@ Flesheater
 Fletch
 Fletch Lives
 Flicka
-Flight:
+Flight
 Flight 93
 Flight of the Intruder
 Flight of the Living Dead 
 Flight of the Living Dead
 Flight to Mars
 Flight of the Navigator
-The Flight of the Phoenix:
+The Flight of the Phoenix
 When the Raven Flies
 Flight of the Raven
 Flightplan
@@ -393,7 +393,7 @@ The Fluffer
 The Fluffer
 Fluke
 Flushed Away
-The Fly:
+The Fly
 Fly Away Home
 The Fly II
 Fly Me to the Moon
@@ -411,7 +411,7 @@ Flywheel
 Flåklypa Grand Prix
 FM
 Focus
-The Fog:
+The Fog
 The Fog of War: Eleven Lessons from the Life of Robert S. McNamara 
 The Fog of War: Eleven Lessons from the Life of Robert S. McNamara
 Follow the Fleet
@@ -423,14 +423,14 @@ The Food of the Gods
 Food, Inc.
 Foodfight!
 Fool for Love
-A Fool There Was:
+A Fool There Was
 Fool's Gold
 Foolproof
-Fools Rush In:
+Fools Rush In
 The Football Factory
 Football Under Cover
 Footlight Parade
-Footloose:
+Footloose
 Footnote
 Footrot Flats: The Dog's Tale
 For All Mankind
@@ -439,7 +439,7 @@ For Colored Girls
 For Colored Girls
 For Eternal Hearts
 For a Few Dollars More
-For the First Time:
+For the First Time
 For a Good Time, Call...
 For Heaven's Sake
 For a Lost Soldier
@@ -457,7 +457,7 @@ For Your Consideration
 For Your Eyes Only
 Forbidden
 Forbidden Forest
-Forbidden Fruit:
+Forbidden Fruit
 Forbidden Games
 The Forbidden Kingdom
 Forbidden Love: The Unashamed Stories of Lesbian Lives
@@ -473,7 +473,7 @@ A Foreign Affair
 Foreign Correspondent
 A Foreign Field
 The Foreigner
-The Forest:
+The Forest
 Forever Amber
 Forever Enthralled
 Forever Mine
@@ -483,7 +483,7 @@ Les Forgerons
 Forget Paris
 Forgetting Sarah Marshall
 The Forgiveness of Blood
-The Forgotten:
+The Forgotten
 The Forgotten Frontier
 Forgotten Silver
 Forklift Driver Klaus – The First Day on the Job
@@ -509,8 +509,8 @@ Four Brothers
 Four Christmases
 Four Daughters
 Four Days in September
-Four Feathers:
-Four Horsemen of the Apocalypse:
+Four Feathers
+Four Horsemen of the Apocalypse
 The Four Musketeers
 Four Rooms
 The Four Seasons
@@ -529,8 +529,6 @@ The Fox with Nine Tails
 Foxes
 Foxfire
 Foxy Brown
-
-
 The Devil's Brother
 Fra Diavolo
 Fracture
@@ -541,8 +539,8 @@ Frances
 Frank Film
 Frankenfish
 Frankenhooker
-Frankenstein series:
-*Frankenstein:
+Frankenstein 
+Frankenstein
 Frankenstein Conquers the World
 Frankenstein Created Woman
 Frankenstein Meets the Wolf Man
@@ -551,10 +549,11 @@ Frankenstein Must Be Destroyed
 Frankenstein Unbound
 Frankenstein: The True Story
 Frankenstein's Daughter
-Frankenweenie:
-Frankie and Johnny:
+Frankenweenie
+Frankie and Johnny
 Franklin and the Green Knight
-Franklin and the Turtle Lake Treasure]] akaFranklin and Granny's Secret
+Franklin and the Turtle Lake Treasure
+Franklin and Granny's Secret
 Franklin's Magic Christmas
 Franklyn
 Frantic
@@ -566,7 +565,7 @@ Frau im Mond
 Freak Talks About Sex
 Freaked
 Freaks
-Freaky Friday:
+Freaky Friday
 Fred Claus
 Fred Ott Holding a Bird
 Fred Ott's Sneeze
@@ -575,7 +574,7 @@ Freddy vs. Jason
 Freddy's Dead: The Final Nightmare
 Free Enterprise
 A Free Soul
-Free Willy series:
+Free Willy 
 Free Willy
 Free Willy 2: The Adventure Home
 Free Willy 3: The Rescue
@@ -602,11 +601,11 @@ Frequently Asked Questions About Time Travel
 Fresh
 Fresh Hare
 Fresh Horses
-The Freshman:
+The Freshman
 Frida
 Friday
 Friday the 13th (franchise)
-Friday the 13th series:
+Friday the 13th 
 Friday the 13th
 Friday the 13th
 Friday the 13th Part 2
@@ -623,9 +622,9 @@ Friday After Next
 Friday Night Lights
 Fried Green Tomatoes
 Friedemann Bach
-Friend:
+Friend
 Friendly Persuasion
-Friends:
+Friends
 Friends with Benefits
 The Friends of Eddie Coyle 
 The Friends of Eddie Coyle
@@ -645,7 +644,7 @@ From Beyond
 From Beyond the Grave 
 From Beyond the Grave
 From the Drain
-From Dusk Till Dawn series:
+From Dusk Till Dawn 
 From Dusk Till Dawn
 From Dusk Till Dawn 2: Texas Blood Money
 From Dusk Till Dawn 3: The Hangman's Daughter
@@ -655,7 +654,7 @@ From Here to Eternity
 From Justin to Kelly
 From the Life of the Marionettes
 From the Manger to the Cross
-From the Mixed-Up Files of Mrs. Basil E. Frankweiler:
+From the Mixed-Up Files of Mrs. Basil E. Frankweiler
 From Noon Till Three 
 From Noon Till Three
 From Paris with Love
@@ -664,13 +663,13 @@ From Soup to Nuts
 From Stump to Ship
 From the Terrace
 The Front
-The Front Page:
+The Front Page
 Frontier(s) 
 Frontier(s)
 Frost/Nixon
-Frostbite:
+Frostbite
 Frostbiter: Wrath of the Wendigo
-Frozen:
+Frozen
 Frozen with Fear
 Frozen River 
 Frozen River
@@ -704,7 +703,7 @@ Fullmetal Alchemist: The Sacred Star of Milos
 Fulltime Killer
 Fumō Chitai
 Fun in Acapulco
-Fun with Dick and Jane:
+Fun with Dick and Jane
 Fun Down There 
 Fun and Fancy Free
 Fun Size
@@ -730,7 +729,7 @@ Furry Vengeance
 The Fury
 Fury
 The Fury of the Wolfman
-Futurama series:
+Futurama 
 Futurama: Bender's Big Score
 Futurama: The Beast with a Billion Backs
 Futurama: Bender's Game

@@ -22,7 +22,7 @@ Quasi at the Quackadero
 The Quatermass Xperiment
 Quatermass 2
 Quatermass and the Pit
-Quebec:
+Quebec
 The Queen
 Queen of the Amazons
 The Queen and I
@@ -41,7 +41,7 @@ The Queen of the Night
 Queen of the Night Clubs
 Queen of Outer Space
 The Queen of Sheba's Pearls
-The Queen of Spades:
+The Queen of Spades
 Queen of Sports
 The Queen of Versailles
 Queen to Play
@@ -55,7 +55,7 @@ Quel maledetto treno blindato
 Quemar las Naves
 Querelle
 Quest
-The Quest:
+The Quest
 Quest for Camelot
 Quest of the Delta Knights
 Quest for Fire
@@ -67,12 +67,12 @@ The Quick and the Undead
 Quick Gun Murugun
 Quick Millions
 Quick Pick
-Quicksand:
+Quicksand
 Quicksilver
 Quicksilver Highway
 Quid Pro Quo
 The Quiet
-The Quiet American :
+The Quiet American 
 Quiet City
 Quiet Days in Hollywood
 The Quiet Duel
@@ -89,4 +89,4 @@ Quintet
 Quints
 Quitting
 Quiz Show
-Quo Vadis:
+Quo Vadis

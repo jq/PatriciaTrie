@@ -17,7 +17,7 @@ I Am a Sex Addict
 I Am Trying to Break Your Heart
 I as in Icarus
 I Bury the Living
-I Can Do Bad All By Myself:
+I Can Do Bad All By Myself
 I Can Get It for You Wholesale
 I Can Hear the Sea
 I Can't Go Home
@@ -53,7 +53,7 @@ I Love Beijing
 I Love a Man in Uniform
 I Love to Singa
 I Love Trouble
-I Love You:
+I Love You
 I Love You Again
 I Love You Baby
 I Love You, Beth Cooper
@@ -107,7 +107,7 @@ I Wish I Had a Wife
 I Woke Up Early the Day I Died
 I ♥ Huckabees
 I, Claudius
-I, the Jury:
+I, the Jury
 I, Monster
 I, Robot
 I, Zombie: A Chronicle of Pain
@@ -122,7 +122,7 @@ I'll Do Anything
 I'll Never Forget What's 'Isname
 I'll Never Heil Again
 I'll Remember April
-I'll See You in My Dreams:
+I'll See You in My Dreams
 I'll Sleep When I'm Dead
 I'm All Right Jack
 I'm Bout It
@@ -133,7 +133,7 @@ I'm Not Rappaport
 I'm Not Scared
 I've Heard the Mermaids Singing
 Ic-Im
-Ice Age series:
+Ice Age 
 Ice Age
 Ice Age: Dawn of the Dinosaurs
 Ice Age: The Meltdown
@@ -189,7 +189,7 @@ Imagine Me & You
 Imagine That
 Imagining Argentina
 Ima Hitotabi no
-Imitation of Life:
+Imitation of Life
 The Immigrant
 Immoral Tales
 Immortal Beloved
@@ -198,9 +198,9 @@ Immortel
 Impact
 The Importance of Being Earnest
 L'important c'est d'aimer
-The Impossible:
+The Impossible
 The Impossible Voyage
-The Imposter:
+The Imposter
 Impostor
 The Impostors
 Impromptu
@@ -212,7 +212,7 @@ In America
 In Bruges
 In Cold Blood
 In Country
-In Darkness:
+In Darkness
 In Dreams
 In Enemy Hands
 In God's Hands
@@ -277,23 +277,23 @@ The Independent
 Indestructible Man
 The Indian in the Cupboard
 Indian Summer
-Indiana Jones series:
+Indiana Jones 
 Raiders of the Lost Ark
 Indiana Jones and the Temple of Doom
 Indiana Jones and the Last Crusade
 Indiana Jones and the Kingdom of the Crystal Skull
 Indigènes
-Indiscreet:
+Indiscreet
 Indiscretion of an American Wife
 Indochine
 Indra
 Infamous
 Infection
-Infernal Affairs series:
+Infernal Affairs 
 Infernal Affairs
 Infernal Affairs II
 Infernal Affairs III
-Inferno:
+Inferno
 L'Inferno
 Infinity
 The Informant!
@@ -307,7 +307,7 @@ Initiation: Silent Night, Deadly Night 4
 Inland Empire
 Inkheart
 The Inkwell
-The In-Laws:
+The In-Laws
 The Inn of the Sixth Happiness
 Innerspace
 Innocence
@@ -325,7 +325,7 @@ Inside Monkey Zetterland
 Inside I'm Dancing
 The Insider
 Insignificance
-Insomnia:
+Insomnia
 An Inspector Calls
 Inspector Clouseau
 Inspector Gadget
@@ -358,17 +358,17 @@ The Intouchables
 The Intruder
 El Intruso
 Inuyasha the Movie: The Castle Beyond the Looking Glass
-Invaders from Mars:
+Invaders from Mars
 Invaders from Space
 Invasion
 Invasion of Astro-Monster
-Invasion of the Body Snatchers:
+Invasion of the Body Snatchers
 Invasion U.S.A.
 Inventing the Abbotts
 The Invention of Lying
 Investigating Sex
 Invictus
-Invincible:
+Invincible
 The Invincible Iron Man
 The Invisible
 Invisible Agent
@@ -384,14 +384,14 @@ Ipolochagos Natassa
 Irina Palm
 Iris
 Irma la Douce
-Iron Eagle series:
+Iron Eagle 
 Iron Eagle
 Iron Eagle II
 Aces: Iron Eagle III
 The Iron Giant
 Iron Man
 Iron Man 2
-Iron Monkey:
+Iron Monkey
 Iron Sky
 Ironweed
 Irony of Fate
@@ -403,9 +403,9 @@ I-San Special
 Ishq
 Ishq Vishk
 Ishtar
-The Island:
+The Island
 Island of Doomed Men
-The Island of Dr. Moreau:
+The Island of Dr. Moreau
 Island of Lost Souls
 Island in the Sky
 Island in the Sun
@@ -413,7 +413,7 @@ Island of Terror
 The Isle
 Isle of Flowers
 The Isle of the Dead
-It:
+It
 It Came from Beneath the Sea
 It Came from Hollywood
 It Came from Outer Space
@@ -431,7 +431,7 @@ It Might Get Loud
 It Runs in the Family
 It Should Happen to You
 It Started in Naples
-It Takes Two:
+It Takes Two
 It! The Terror from Beyond Space
 It's in the Air
 It's All About Love
@@ -450,7 +450,7 @@ It's a Wonderful Life
 It's a Wonderful World
 The Italian
 Italian for Beginners
-The Italian Job:
+The Italian Job
 Italianamerican
 Itsuka dokusho suruhi
 Ivan

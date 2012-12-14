@@ -12,10 +12,10 @@ Oberst Redl
 The Object of My Affection
 The Oblong Box
 Observe and Report
-Obsessed:
-Obsession:
+Obsessed
+Obsession
 The Ocean
-Ocean's Eleven:
+Ocean's Eleven
 Ocean's Twelve
 Ocean's Thirteen
 The Octagon
@@ -35,9 +35,9 @@ The Odd Life of Timothy Green
 Odd Man Out
 Odds Against Tomorrow
 Of Freaks and Men
-Of Human Bondage:
+Of Human Bondage
 Of Human Hearts
-Of Mice and Men:
+Of Mice and Men
 Off-Balance
 Off Limits
 The Off Season
@@ -57,7 +57,7 @@ Oh, God! You Devil
 Oh, Mr. Porter!
 Oh! My God
 Oh, My God
-Oh, What a Night:
+Oh, What a Night
 Oh! What a Lovely War
 Oh... Rosalinda!!
 The Oil, the Baby and the Transylvanians
@@ -82,18 +82,18 @@ Old School
 Old Yeller
 Oldboy
 Oliver & Company
-Oliver Twist:
+Oliver Twist
 Oliver!
 Oliver's Story
 Olivia
 Olivia
 Olly Olly Oxen Free
-Olympia:
+Olympia
 Om Jai Jagadish
 Omagh
 The Omega Man
-The Omen series:
-The Omen:
+The Omen 
+The Omen
 Omen II
 Omen III: The Final Conflict
 Omen IV: The Awakening
@@ -102,7 +102,7 @@ On-Oo
 On the 2nd Day of Christmas
 On Any Sunday
 On the Beach
-On the Beat:
+On the Beat
 On a Clear Day
 On a Clear Day You Can See Forever
 On Dangerous Ground
@@ -114,7 +114,7 @@ On Hostile Ground
 On the Job
 On Her Majesty's Secret Service
 On Line
-On the Line:
+On the Line
 On Moonlight Bay
 On the Green Carpet
 On the Nameless Height
@@ -131,14 +131,14 @@ Once Bitten
 Once a Cop
 Once in the Life
 Once in a Lifetime: The Extraordinary Story of the New York Cosmos
-Once a Thief:
+Once a Thief
 Once Upon a Girl
 Once Upon a Forest
-Once Upon a Honeymoon:
+Once Upon a Honeymoon
 Once Upon a Time
 Once Upon a Time in America
 Once Upon a Time in Anatolia
-Once Upon a Time in China series:
+Once Upon a Time in China 
 Once Upon a Time in China
 Once Upon a Time in China II
 Once Upon a Time in China III
@@ -201,7 +201,7 @@ One Shot
 One Touch of Venus
 One True Thing
 One Way Street
-One Week:
+One Week
 One Wonderful Sunday
 One 2 Ka 4
 One, Two, Three
@@ -213,11 +213,11 @@ Ong Bak 2
 Onibaba
 Only Angels Have Wings
 Only the Lonely
-The Only Son:
+The Only Son
 Only the Strong
 Only When I Larf
 Only When I Laugh
-Only Yesterday:
+Only Yesterday
 Onmyoji
 The Oogieloves in the Big Balloon Adventure
 Op-Os
@@ -248,7 +248,7 @@ The Oranges
 Orca
 The Orchid House
 Ordeal by Innocence
-The Order:
+The Order
 Ordet
 Ordinary Decent Criminal
 Ordinary People
@@ -264,7 +264,7 @@ Orphan's Benefit
 Orphée
 Orpheus
 Osama
-Oscar:
+Oscar
 Oscar Wilde
 Oslo, August 31st
 Osmosis Jones
@@ -273,12 +273,12 @@ Ossos
 The Osterman Weekend
 Ot-Oy
 Otesánek
-Othello:
+Othello
 The Other
 The Other Boleyn Girl
 The Other Final
 The Other Guys
-The Other Half:
+The Other Half
 Other People's Money
 The Other Side of the Bed
 The Other Side of Heaven
@@ -294,13 +294,13 @@ Our Man Flint
 Our Miss Brooks
 Our Relations
 Our Song
-Our Town:
+Our Town
 Our Wife
 Out 1
 Out of Africa
 Out of the Blue
 Out Cold
-Out of the Darkness:
+Out of the Darkness
 Out for Justice
 Out for a Kill
 Out of My Intention
@@ -320,9 +320,9 @@ The Outlaw Josey Wales
 The Outlaws Is Coming
 The Outrage
 Outrageous!
-Outsider:
+Outsider
 The Outsiders
-The Out-of-Towners:
+The Out-of-Towners
 Over Her Dead Body
 Over the Brooklyn Bridge
 Over the Edge

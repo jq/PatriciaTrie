@@ -15,7 +15,7 @@ Valentine
 Valentine's Day
 Valerie and Her Week of Wonders
 Valiant
-The Valiant:
+The Valiant
 Valiant Is the Word for Carrie
 Valkyrie
 The Valley of Decision
@@ -38,7 +38,7 @@ Vampire Journals
 The Vampire Lovers
 Vampire's Kiss
 Vampires
-Vampires series:
+Vampires 
 Vampires
 Vampires: Los Muertos
 Vampires: The Turning
@@ -54,9 +54,9 @@ Van Wilder
 Van Wilder 2: Rise of the Taj
 Vanaja
 Vanilla Sky
-The Vanishing:
+The Vanishing
 Vanishing Point
-Vanity Fair:
+Vanity Fair
 Vantage Point
 Vanya on 42nd Street
 Variety Lights
@@ -67,7 +67,7 @@ Vegas In Space
 Vegas Vacation
 Velvet Goldmine
 Velvet Smooth
-Vendetta:
+Vendetta
 Vendetta for the Saint
 Vengeance is Mine
 Venom
@@ -78,7 +78,7 @@ Vera Drake
 Verbena Tragica
 Verdens Undergang
 Verdict
-The Verdict:
+The Verdict
 Veronica Guerin
 Veronika Decides to Die
 Veronika Voss
@@ -90,12 +90,12 @@ A Very Brady Sequel
 A Very Harold & Kumar 3D Christmas
 Very Important Person
 A Very Long Engagement
-The Very Thought of You:
+The Very Thought of You
 Vessel of Wrath
 Vi-Vu
 Vibes
 Vice Squad
-Vice Versa:
+Vice Versa
 Vicki
 Vicky Cristina Barcelona
 Victim
@@ -114,13 +114,13 @@ The Vikings
 Villa Zone
 The Village
 The Village Barbershop
-Village of the Damned:
+Village of the Damned
 Village of the Giants
-Villain:
-The Villain:
+Villain
+The Villain
 Vincent
-Vinyl:
-Violent Cop:
+Vinyl
+Violent Cop
 Violette Nozière
 The Virgin Queen
 The Virgin Soldiers
@@ -128,7 +128,7 @@ The Virgin Spring
 Virgin Stripped Bare by Her Bachelors
 The Virgin Suicides
 Virgin Territory
-Virginia:
+Virginia
 Virginia City
 The Virginian
 Viridiana
@@ -139,11 +139,11 @@ Virus
 Vishwa Thulasi
 Vision Quest
 Visioneers
-The Visit:
+The Visit
 Visit to a Small Planet
 Les Visiteurs du Soir
 Visiting Hours
-The Visitor:
+The Visitor
 Visitor Q
 Visitors
 Vital
@@ -170,7 +170,7 @@ Volver
 Von Ryan's Express
 Voodoo Academy
 Voodoo Woman
-The Vow:
+The Vow
 Voyage to the Bottom of the Sea
 Voyage of the Damned
 Voyage to the Planet of Prehistoric Women

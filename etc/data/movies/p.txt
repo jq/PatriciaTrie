@@ -15,13 +15,13 @@ Painful Indifference
 Paint Your Wagon
 Painted Angels
 The Painted Desert
-The Painted Veil:
+The Painted Veil
 Paisà
 The Pajama Game
 Pajama Party
 Pale Flower
 Pale Rider
-The Paleface:
+The Paleface
 Palindromes
 The Pallbearer
 The Palm Beach Story
@@ -30,7 +30,7 @@ Panda! Go, Panda!
 Pandaemonium
 Pandemonium
 Pandora and the Flying Dutchman
-Pandora's Box:
+Pandora's Box
 Pandorum
 Panic
 The Panic in Needle Park
@@ -47,14 +47,14 @@ Paper Clips Project
 Paper Heart
 Paper Lion
 Paper Moon
-The Paperboy:
+The Paperboy
 Paperboys
 Papillon
 Pappa ante Portas
 Paprika
 Parade
 The Paradine Case
-Paradise:
+Paradise
 Paradise Canyon
 Paradise Lost: The Child Murders at Robin Hood Hills
 Paradise Lost 2: Revelations
@@ -65,7 +65,7 @@ Paradise, Hawaiian Style
 Paragraph 175
 The Parallax View
 Paranoia 1.0
-Paranormal Activity series:
+Paranormal Activity 
 Paranormal Activity
 Paranormal Activity 2
 Paranormal Activity 3
@@ -75,7 +75,7 @@ Pardes
 Pardners
 Pardon My Sarong
 Pardon Us
-The Parent Trap:
+The Parent Trap
 Parental Guidance
 Parenthood
 Parents
@@ -91,9 +91,9 @@ Parting Glances
 Partners
 Parts: The Clonus Horror
 The Party
-Party Girl:
+Party Girl
 Party at Kitty and Stud's
-Party Monster:
+Party Monster
 Pass the Gravy
 A Passage to India
 Passage to Marseille
@@ -124,10 +124,10 @@ Pather Panchali
 Pathfinder
 Paths of Glory
 Patlabor the Movie
-The Patriot:
+The Patriot
 Patriot Games
 Patriotism
-The Patsy:
+The Patsy
 Patti Smith: Dream of Life
 Patton
 Patty Hearst
@@ -138,9 +138,9 @@ Pauly Shore Is Dead
 Pauvre Pierrot
 The Pawnbroker
 The Pawnshop
-Pay Day:
+Pay Day
 Pay It Forward
-Payback:
+Payback
 Paycheck
 Payment on Demand
 Pc-Pe
@@ -153,7 +153,7 @@ The Peanut Butter Solution
 Pearl Harbor
 A Peasant on a Bicycle
 Peau d'Âne
-Peacock:
+Peacock
 The Pebble and the Penguin
 La Pêche aux poissons rouges
 Pecker
@@ -207,7 +207,7 @@ Perfume
 Perfume: The Story of a Murderer
 Perhaps Love
 The Perils of Gwendoline in the Land of the Yik-Yak
-The Perils of Pauline:
+The Perils of Pauline
 The Perks of Being a Wallflower
 Permanent Midnight
 Permanent Vacation
@@ -218,10 +218,10 @@ The Personal History, Adventures, Experience, and Observation of David Copperfie
 A Personal Journey with Martin Scorsese Through American Movies
 Personal Services
 Personal Velocity: Three Portraits
-The Pest:
+The Pest
 Pet Sematary
 Pet Sematary II
-Peter Pan:
+Peter Pan
 Peter and the Wolf
 Pete's Dragon
 Pete's Meteor
@@ -232,18 +232,18 @@ Le Peuple Migrateur
 Peyton Place
 Ph
 Phaedra
-Phantasm series:
+Phantasm 
 Phantasm
 Phantasm II
 Phantasm III: Lord of the Dead
 Phantasm IV: OblIVion
 Phantom
 The Phantom
-The Phantom Carriage:
+The Phantom Carriage
 Phantom Lady
 The Phantom of Liberty
 Phantom of the Megaplex
-The Phantom of the Opera:
+The Phantom of the Opera
 Phantom of the Paradise
 The Phantom Tollbooth
 The Phantom from 10,000 Leagues
@@ -266,7 +266,7 @@ The Photographical Congress Arrives in Lyon
 Photographing Fairies
 Pi-Pl
 Pi
-The Pianist:
+The Pianist
 The Piano
 A Piano for Mrs. Cimino
 The Piano Teacher
@@ -279,7 +279,7 @@ Pickup on South Street
 Picnic
 Picnic at Hanging Rock
 Picture Bride
-Picture Perfect:
+Picture Perfect
 A Piece of the Action
 Pieces
 Pieces of April
@@ -308,24 +308,24 @@ Pink Five Strikes Back
 Pink Flamingos
 Pink Floyd The Wall
 Pink Floyd: Live at Pompeii
-The Pink Panther:
+The Pink Panther
 The Pink Panther 2
 The Pink Panther Deux
 The Pink Panther Strikes Again
 Pinky
-Pinocchio:
+Pinocchio
 Pinocchio and the Emperor of the Night
 Pinocchio 3000
 Pippi Longstocking
-Piranha series
-Piranha:
+Piranha 
+Piranha
 Piranha II: The Spawning
 Piranha 3DD
 The Pirate
 The Pirate Movie
-Pirates:
+Pirates
 The Pirates! Band of Misfits
-Pirates of the Caribbean series:
+Pirates of the Caribbean 
 Pirates of the Caribbean: The Curse of the Black Pearl
 Pirates of the Caribbean: Dead Man's Chest
 Pirates of the Caribbean: At World's End
@@ -335,7 +335,7 @@ Pirates of Silicon Valley
 The Pirates Who Don't Do Anything: A VeggieTales Movie
 Pisaj
 Pistol Opera
-The Pit and the Pendulum:
+The Pit and the Pendulum
 Pitch Black
 Pitch Perfect
 Pitfall: 1948) &
@@ -364,9 +364,9 @@ Plan 9 from Outer Space
 Plane Crazy
 Planes, Trains & Automobiles
 Planet 51
-Planet of the Apes:
+Planet of the Apes
 Planet of the Vampires
-The Plank:
+The Plank
 A Plantation Act
 The Plastic Age
 Platform
@@ -377,11 +377,11 @@ Play It Again, Sam
 The Player
 The Players Club
 The Playhouse
-Playing for Keeps:
+Playing for Keeps
 Playtime
 Pleasantville
 Pleasure Factory
-The Pleasure Garden:
+The Pleasure Garden
 The Pledge
 The Plow That Broke the Plains
 Plunder of Peach and Plum
@@ -396,7 +396,7 @@ Point Break
 Point of No Return
 The Point!
 Poison
-Pokémon series:
+Pokémon 
 Pokémon: The First Movie
 Pokémon: The Movie 2000
 Pokémon 3: The Movie
@@ -417,7 +417,7 @@ Pokémon the Movie: Black - Victini and Reshiram
 Pokémon the Movie: Kyurem vs. the Sword of Justice
 Pokrovsky Gates
 The Polar Express
-Police Academy series:
+Police Academy 
 Police Academy
 Police Academy 2: Their First Assignment
 Police Academy 3: Back in Training
@@ -427,7 +427,7 @@ Police Academy 6: City Under Siege
 Polic Academy 7: Mission to Moscow
 Police Academy 8: 2007
 Pollock
-Poltergeist series:
+Poltergeist 
 Poltergeist
 Poltergeist II: The Other Side
 Poltergeist III
@@ -444,7 +444,7 @@ Popeye the Sailor Meets Ali Baba's Forty Thieves
 Popeye the Sailor Meets Sindbad the Sailor
 Porgy and Bess
 Porklips Now
-Porky's series:
+Porky's 
 Porky's
 Porky's II: The Next Day
 Porky's Revenge
@@ -455,16 +455,16 @@ Port of Shadows
 Portrait of a Beauty
 The Portrait of a Lady
 Poseidon
-The Poseidon Adventure:
+The Poseidon Adventure
 Possessed
-Possession:
+Possession
 The Possession
 Postal
 Post Grad
 The Postcard Bandit
 Postman
 The Postman
-The Postman Always Rings Twice:
+The Postman Always Rings Twice
 Postmen in the Mountains
 The Poughkeepsie Tapes
 Pound Puppies and the Legend of Big Paw
@@ -504,7 +504,7 @@ Prey
 Prey for Rock & Roll
 The Price of Milk
 The Price of Power
-Pride and Prejudice:
+Pride and Prejudice
 The Pride and the Passion
 Pride Divide
 Pride of the Bowery
@@ -540,7 +540,7 @@ The Principal
 El Principio de Arquímedes
 Prisoner of Honor
 The Prisoner of Second Avenue
-The Prisoner of Zenda:
+The Prisoner of Zenda
 Private
 Private Benjamin
 The Private Eyes
@@ -551,7 +551,7 @@ The Private Life of Henry VIII
 The Private Life of Sherlock Holmes
 The Private Lives of Elizabeth and Essex
 The Private Lives of Pippa Lee
-Private Parts:
+Private Parts
 Private Resort
 Private School
 Private's Progress
@@ -559,13 +559,13 @@ Priyamana Thozhi
 The Prize Winner of Defiance, Ohio
 The Prizefighter and the Lady
 Prizzi's Honor
-Problem Child series:
+Problem Child 
 Problem Child
 Problem Child 2
 Problem Child 3: Junior in Love
 A Problem with Fear
 Procès de Jeanne d'Arc
-The Producers:
+The Producers
 Le Professionnel
 The Professional
 The Professionals
@@ -575,19 +575,19 @@ The Program
 Project A Part II
 Project Grizzly
 Project Makeover
-Project X:
+Project X
 The Projected Man
 Prom Queen: The Marc Hall Story
-Prom Night:
+Prom Night
 La Promesse
 Prometheus
 The Promise
-Promised Land:
+Promised Land
 The Promised Land
-Proof:
+Proof
 Proof of Life
 The Proof of the Man
-The Prophecy series:
+The Prophecy 
 The Prophecy
 The Prophecy II
 The Prophecy 3: The Ascent
@@ -599,7 +599,7 @@ Protocol
 The Proud Valley
 The Prowler
 Ps-Py
-Psycho:
+Psycho
 P'tang, Yang, Kipperbang
 PTU
 Public Access
@@ -616,12 +616,12 @@ The Punch and Judy Man
 Punchline
 Punch-Drunk Love
 Punguna
-The Punisher:
+The Punisher
 Punisher: War Zone
 Punk Farm
 Punk Rock Holocaust
 The Punk Rock Movie
-Puppet Master series:
+Puppet Master 
 Puppet Master
 Puppet Master II
 Puppet Master III: Toulon's Revenge
@@ -642,8 +642,8 @@ Purple Sunset
 The Pursuit of D. B. Cooper
 The Pursuit of Happyness
 Push
-Pusher series:
-Pusher:
+Pusher 
+Pusher
 Pusher II
 Pusher III
 Pushing Hands

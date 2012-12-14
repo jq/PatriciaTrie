@@ -19,12 +19,12 @@ Galaxy Quest
 Galaxy of Terror
 Gallipoli
 Gambit
-The Game:
+The Game
 Game of Death
 Game of Death II
 Game Over
 The Game Plan
-The Game of Their Lives:
+The Game of Their Lives
 Gamer
 Gamera vs. Guiron
 Gamera vs. Gyaos
@@ -51,7 +51,7 @@ Garfield: A Tale of Two Kitties
 Garçon stupide
 Gas Food Lodging
 Gas!
-Gaslight:
+Gaslight
 Gasoline
 The Gate
 Gate of Flesh
@@ -65,10 +65,10 @@ Gay Purr-ee
 GeGeGe no Nyōbō
 A Geisha
 The Geisha Boy
-Gemini:
+Gemini
 The Gene Generation
 Gene-X
-The General:
+The General
 General della Rovere
 General Idi Amin Dada: A Self Portrait
 General Spanky
@@ -88,7 +88,7 @@ George Lucas in Love
 George Wallace
 George Washington
 George White's 1935 Scandals
-Georgia:
+Georgia
 Georgia Rule
 Georgy Girl
 Gerald McBoing-Boing
@@ -102,7 +102,7 @@ Gertie the Dinosaur
 Gertrud
 Gervaise
 Get on the Bus
-Get Carter:
+Get Carter
 Get Christie Love!
 Get a Clue
 Get the Gringo
@@ -116,7 +116,7 @@ Get Rich or Die Tryin'
 Get Shorty
 Get Smart
 Get Up!
-The Getaway:
+The Getaway
 Gettin' Square
 Getting Any?
 Getting Away with Murder
@@ -152,7 +152,7 @@ Ghost Rider: Spirit of Vengeance
 Ghost in the Shell
 Ghost in the Shell 2: Innocence
 The Ghost Ship
-Ghost Ship:
+Ghost Ship
 Ghost Station
 Ghost Story
 Ghost Town
@@ -189,7 +189,7 @@ Gilda
 Gimme Shelter
 Ginger and Fred
 Ginger in the Morning
-Ginger Snaps series:
+Ginger Snaps 
 Ginger Snaps
 Ginger Snaps Back: The Beginning
 Ginger Snaps 2: Unleashed
@@ -198,13 +198,13 @@ The Girl
 Girl 6
 Girl on the Bridge
 The Girl Can't Help It
-Girl Crazy:
-The Girl with The Dragon Tattoo:
+Girl Crazy
+The Girl with The Dragon Tattoo
 Girl in Gold Boots
 Girl Happy
 A Girl from Hunan
 The Girl from Monday
-The Girl Next Door:
+The Girl Next Door
 The Girl in the Park
 Girl with a Pearl Earring
 Girl Shy
@@ -244,11 +244,11 @@ Glory
 Glory Road
 Gnomeo & Juliet
 Go
-Go:
+Go
 Go Figure
-Go West:
+Go West
 The Go-Between
-Goal! series:
+Goal! 
 Goal! The Dream Begins
 Goal! 2: Living the Dream...
 Goal 3
@@ -263,9 +263,9 @@ God Told Me To
 God's Angry Man
 God's Army
 God's Little Acre
-The Goddess:
+The Goddess
 The Goddess of 1967
-The Godfather series:
+The Godfather 
 The Godfather
 The Godfather Part II
 The Godfather Part III
@@ -275,8 +275,8 @@ The Gods Must Be Crazy
 Godsend
 The Godson
 Godspell
-Godzilla series:
-Godzilla:
+Godzilla 
+Godzilla
 Godzilla Against Mechagodzilla
 Godzilla Raids Again
 Godzilla vs. Biollante
@@ -309,7 +309,7 @@ Goin' South
 Going Berserk
 Going by the Book
 Going for Broke
-Going the Distance:
+Going the Distance
 Going Hollywood
 Going to the Mat
 Going My Way
@@ -319,7 +319,7 @@ Going in Style
 Going Upriver: The Long War of John Kerry
 Gokulamlo Seetha
 Gol Maal
-Gold Diggers series:
+Gold Diggers 
 Gold Diggers of Broadway
 Gold Diggers of '49
 Gold Diggers of 1933
@@ -339,8 +339,8 @@ Goldfinger
 Goldwyn Follies
 The Golem: How He Came Into the World
 Gomorrah
-Gone:
-Gone in 60 Seconds:
+Gone
+Gone in 60 Seconds
 Gone Baby Gone
 Gone to Earth
 Gone Fishin'
@@ -379,14 +379,14 @@ A Good Woman
 A Good Year
 The Good, the Bad and the Ugly
 The Good, the Bad, the Weird
-Goodbye Again:
+Goodbye Again
 Goodbye Casanova
 The Goodbye Girl
 Goodbye Lover
 Goodbye South, Goodbye
 Goodbye, Columbus
 Goodbye, Dragon Inn
-Goodbye, Mr. Chips:
+Goodbye, Mr. Chips
 Goodfellas
 The Goods: Live Hard, Sell Hard
 A Goofy Movie
@@ -426,7 +426,7 @@ A Grand Day Out with Wallace and Gromit
 Grand Hotel
 Grand Illusion
 Grand Prix
-Grand Slam:
+Grand Slam
 Grand Theft Auto
 Grand Theft Parsons
 Le Grand Voyage
@@ -454,9 +454,9 @@ The Great Caruso
 The Great Debaters
 The Great Dictator
 The Great Escape
-Great Expectations:
+Great Expectations
 The Great Game
-The Great Gatsby:
+The Great Gatsby
 The Great Lie
 The Great Man
 The Great McGinty
@@ -471,12 +471,12 @@ The Great Rupert
 The Great Santini
 The Great Silence
 The Great St. Trinian's Train Robbery
-The Great Train Robbery:
+The Great Train Robbery
 The Great Waldo Pepper
 Great White
 The Great White Hope
 The Great Ziegfeld
-The Greatest:
+The Greatest
 The Greatest Game Ever Played
 The Greatest Show on Earth
 The Greatest Story Ever Told
@@ -528,7 +528,7 @@ Gross Anatomy
 Grosse Pointe Blank
 Groundhog Day
 Grown Ups
-The Grudge series:
+The Grudge 
 The Grudge
 The Grudge 2
 The Grudge 3
@@ -537,7 +537,7 @@ Grumpy Old Men
 Gu-Gy
 Guadalcanal Diary
 The Guard
-The Guardian:
+The Guardian
 Guarding Tess
 The Guatemalan Handshake
 Guddi
@@ -550,7 +550,7 @@ A Guide for the Married Man
 A Guide to Recognizing Your Saints
 The Guilt Trip
 Guilty
-The Guilty:
+The Guilty
 Guilty Bystander
 Guilty as Sin
 Guilty by Suspicion
@@ -558,7 +558,7 @@ Guinea Pig
 Guinevere
 The Gulf Between
 Gulliver Mickey
-Gulliver's Travels:
+Gulliver's Travels
 The Gumball Rally
 Gumby: The Movie
 Gummo

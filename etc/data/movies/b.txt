@@ -1,6 +1,6 @@
 B*A*P*S
-[edit]Ba
-[edit]Baa-Bam
+Ba
+Baa-Bam
 BA:BO
 BaadAsssss Cinema
 BAADASSSSS!
@@ -14,13 +14,13 @@ Babe: Pig in the City
 Babel
 Babes in Arms
 Babes on Broadway
-Babes in Toyland:
+Babes in Toyland
 Babette's Feast
 Baby on Board
 Baby Boom
 Baby Bottleneck
 Baby Boy
-Baby Doll:
+Baby Doll
 Baby Face
 Baby Geniuses
 Baby Huey's Great Easter Adventure
@@ -29,12 +29,12 @@ Baby the Rain Must Fall
 Baby Snakes
 Baby's Day Out
 The Baby-Sitters Club
-Babylon 5 series:
+Babylon 5 
 Babylon 5: In the Beginning
 Babylon 5: The Legend of the Rangers
 Babylon 5: Thirdspace
 Babylon A.D.
-The Bachelor:
+The Bachelor
 The Bachelor and the Bobby-Soxer
 Bachelor Mother
 Bachelor Party
@@ -43,7 +43,7 @@ Back to the Beach
 Back to the Future
 Back to the Future Part II
 Back to the Future Part III
-Back to the Future series
+Back to the Future 
 Back by Midnight
 Back Roads
 Back to School
@@ -51,14 +51,14 @@ Back to School with Franklin
 The Back-up Plan
 Backbeat
 Backdraft
-Backlash:
+Backlash
 BackWoods
 Bacon Grabbers
 The Bad and the Beautiful
 Bad Boy Bubby
-Bad Boys:
+Bad Boys
 Bad Boys II
-Bad Company:
+Bad Company
 Bad Day at Black Rock
 Bad Dreams
 Bad Education
@@ -71,7 +71,7 @@ The Bad Lands
 Bad Lieutenant
 The Bad Lieutenant: Port of Call New Orleans
 Bad Moon
-Bad News Bears:
+Bad News Bears
 The Bad News Bears Go to Japan
 Bad Santa
 The Bad Seed
@@ -91,8 +91,8 @@ Bah, Humduck! A Looney Tunes Christmas
 Baharen Phir Bhi Aayengi
 Baignade en mer
 Baiju Bawra
-Bait:
-The Bait:
+Bait
+The Bait
 Bajirao Mastani
 The Baker's Wife
 The Bakery Girl of Monceau
@@ -109,7 +109,7 @@ Ballot Box Bunny
 Balls of Fury
 Balthazar
 Baltic Storm
-Balto series:
+Balto 
 Balto
 Balto II: Wolf Quest
 Balto III: Wings of Change
@@ -119,7 +119,7 @@ Bambi
 Bambi II
 Bambi Meets Godzilla
 Bamboozled
-[edit]Ban-Bay
+Ban-Bay
 Bananas
 Band of Outsiders
 Band of the Hand
@@ -127,7 +127,7 @@ The Band Wagon
 Bandidas
 Bandini
 Bandit Queen
-Bandits:
+Bandits
 Bandolero!
 Bandslam
 Bang Bang You're Dead
@@ -135,7 +135,7 @@ Bang the Drum Slowly
 Bangaaradha Manushya
 The Banger Sisters
 Bangers
-Bangkok Dangerous:
+Bangkok Dangerous
 Bangkok Haunted
 Bangkok Loco
 Bangkok Love Story
@@ -152,7 +152,7 @@ Barb Wire
 Barbarella
 Barbershop
 Barbershop 2: Back in Business
-Barbie series:
+Barbie 
 Barbie: Fairytopia
 Barbie: Mermaidia
 Barbie in the Nutcracker
@@ -177,9 +177,9 @@ Barney's Great Adventure
 Barney's Version
 Baron Blood
 Barque sortant du port
-The Barretts of Wimpole Street:
+The Barretts of Wimpole Street
 Barry Lyndon
-Barsaat:
+Barsaat
 Barsaat Ki Ek Raat
 Bart Got a Room
 Bartok the Magnificent
@@ -191,21 +191,21 @@ Bashing
 Basic
 Basic Instinct
 Basic Instinct 2
-Basket Case series:
+Basket Case 
 Basket Case
 Basket Case 2
 Basket Case 3: The Progeny
 The Basketball Diaries
 Basquiat
 Bastard Out of Carolina
-The Bat:
+The Bat
 Bat Thumb
 Bats
 Bataille de boules de neige
 Bataan
 Bateau-mouche sur la Seine
-Batman series:
-Batman:
+Batman 
+Batman
 Batman Begins
 Batman Dracula
 Batman Fights Dracula
@@ -221,7 +221,7 @@ Batman Beyond: Return of the Joker
 Batman: Under the Red Hood
 Batman: Year One
 Batteuse à vapeur
-*batteries not included
+Batteries Not Included
 The Battle of Algiers
 Battle Beyond the Stars
 Battle Beyond the Sun
@@ -252,18 +252,18 @@ The Bat Whispers
 Bauerntanz zweier Kinder
 The Baxter
 The Bay Boy
-[edit]Be
+Be
 Be Cool
 Be Kind Rewind
 Be with Me
-[edit]Bea-Beh
+Bea-Beh
 The Beach
 Beach Blanket Bingo
 Beach Party
 Beaches
 The Beales of Grey Gardens
 Bean
-The Beast:
+The Beast
 The Beast and the Beauty
 The Beast with Five Fingers
 The Beast Must Die
@@ -279,11 +279,11 @@ Beat Girl
 The Beat That My Heart Skipped
 Beatrice Wood: Mama of Dada
 Beau Brummell
-Beau Geste:
+Beau Geste
 Le Beau Serge
 Beau Travail
 Beaufort
-Beautiful:
+Beautiful
 Beautiful Boy
 The Beautiful Country
 Beautiful Creatures
@@ -292,7 +292,7 @@ A Beautiful Mind
 A Beautiful New World
 Beautiful People
 Beautiful Thing
-Beauty and the Beast:
+Beauty and the Beast
 Beauty and the Beast: The Enchanted Christmas
 Beauty Shop
 The Beaver
@@ -306,8 +306,8 @@ Becket
 Becoming Jane
 Bed and Board
 Bed and Sofa
-Bed of Roses:
-Bedazzled:
+Bed of Roses
+Bedazzled
 Bedknobs and Broomsticks
 Bedlam
 Bedtime for Bonzo
@@ -318,7 +318,7 @@ Beef
 Beep Prepared
 Beer League
 Beerfest
-Beethoven series:
+Beethoven 
 Beethoven
 Beethoven's 2nd
 Beethoven's 3rd
@@ -337,10 +337,10 @@ Behind Enemy Lines
 Behind Enemy Lines II: Axis of Evil
 Behind the Green Door
 Behind the Lines
-Before the Rain:
+Before the Rain
 Behind the Screen
 Behind the Sun
-[edit]Bei-Bey
+Bei-Bey
 Beijing Bastards
 Beijing Bicycle
 Beijing Rocks
@@ -363,7 +363,7 @@ The Belles of St Trinian's
 Belle's Magical World
 Bellflower
 Bellman and True
-The Bells:
+The Bells
 Bells from the Deep: Faith and Superstition in Russia
 The Bells of St. Mary's
 Belly
@@ -371,7 +371,7 @@ The Belly of an Architect
 Belly of the Beast
 Bellyfruit
 Bellyful
-The Beloved:
+The Beloved
 Beloved
 Belphegor, Ghost of the Louvre
 Ben and Me
@@ -387,24 +387,24 @@ Beneath the Valley of the Ultra-Vixens
 Benji
 Benny & Joon
 Bent
-Ben-Hur:
+Ben-Hur
 Beongeoli Sam-ryong
-Beowulf:
+Beowulf
 Beregis Avtomobilya
 Berkeley Square
 Berlin Alexanderplatz
 Berlin Express
 Bernard and the Genie
-Bernie:
+Bernie
 Berserker
 Beshkempir
 Besieged
 Best Defense
 The Best Exotic Marigold Hotel
-Best Friends:
+Best Friends
 The Best Intentions
 The Best Little Whorehouse in Texas
-The Best Man:
+The Best Man
 Best Men
 Best in Show
 Best of the Best
@@ -413,11 +413,11 @@ The Best of Times
 The Best Years of Our Lives
 The Best of Youth
 La Bestia y la Espada Magica
-The Bet:
+The Bet
 Beta
 La bête
 La Bête Humaine
-Betrayed:
+Betrayed
 The Betrayed
 The Betsy
 Betsy's Wedding
@@ -434,14 +434,14 @@ Between Showers
 Between Two Worlds
 The Beverly Hillbillies
 Beverly Hills Chihuahua
-Beverly Hills Cop series:
+Beverly Hills Cop 
 Beverly Hills Cop
 Beverly Hills Cop II
 Beverly Hills Cop III
 Beverly Hills Ninja
 Bewafaa
 Beware, My Lovely
-Bewitched:
+Bewitched
 Bewitching Attraction
 The Beyond
 Beyond Borders
@@ -453,7 +453,7 @@ Beyond the Mat
 Beyond the Poseidon Adventure
 Beyond the Rainbow
 Beyond Rangoon
-Beyond a Reasonable Doubt:
+Beyond a Reasonable Doubt
 Beyond Re-Animator
 Beyond the Rocks
 Beyond the Sea
@@ -461,7 +461,7 @@ Beyond the Years
 Beyond This Place
 Beyond Tomorrow
 Beyond the Valley of the Dolls
-[edit]Bh-Bi
+Bh-Bi
 Bharathi Kannamma
 Bhoot
 Bhoot Bungla
@@ -480,7 +480,7 @@ The Big Bounce
 The Big Broadcast
 Big Bug Man
 Big Bully
-Big Business:
+Big Business
 The Big Bus'
 The Big Chill
 Big City Blues
@@ -503,26 +503,26 @@ Big Jim McLain
 The Big Kahuna
 The Big Lebowski
 Big Miracle
-Big Momma series:
+Big Momma 
 Big Momma's House
 Big Momma's House 2
 Big Mommas: Like Father, Like Son
 Big Money Hustlas
 The Big Mouth
 Big Night
-The Big Parade:
+The Big Parade
 The Big Picture
 Big Red
 The Big Red One
 The Big Road
 Big Shot's Funeral
-The Big Sleep:
+The Big Sleep
 The Big Store
 The Big Swindle
 Big Top Bunny
 Big Top Pee-wee
 The Big Trail
-Big Trouble:
+Big Trouble
 Big Trouble in Little China
 Big Wednesday
 The Big Wheel
@@ -534,10 +534,10 @@ Bigger Than the Sky
 Biggles: Adventures in Time
 Biker Boyz
 Bikini Beach
-Bill:
+Bill
 Bill: On His Own
 Bill Cosby: Himself
-A Bill of Divorcement:
+A Bill of Divorcement
 Bill & Ted's Bogus Journey
 Bill & Ted's Excellent Adventure
 Billboard Dad
@@ -579,20 +579,20 @@ A Bittersweet Life
 Le Bivouac
 Biwi No.1
 Bizarre, Bizarre
-[edit]Bl-Bm
-Black:
+Bl-Bm
+Black
 Black Angel
 Black Beauty
 Black Belt Jones
 Black Book
 Black Caesar
 The Black Cannon Incident
-The Black Cat:
+The Black Cat
 Black Cat
 Black Cat, White Cat
 The Black Cauldron
 Black Chicks Talking
-Black Christmas:
+Black Christmas
 Black Cloud
 The Black Dahlia
 Black Dalia
@@ -601,7 +601,7 @@ Black Dog
 Black Dynamite
 Black Eagle
 Black Emanuelle
-Black Friday:
+Black Friday
 Black Hawk Down
 The Black Hole
 The Black Hole
@@ -612,7 +612,7 @@ Black Like Me
 Black Mama, White Mama
 Black Mask
 Black Mask 2: City of Masks
-Black Moon:
+Black Moon
 Black Moon Rising
 Black Narcissus
 Black Orpheus
@@ -621,30 +621,30 @@ Black Rain
 Black Republic
 Black Robe
 Black Sabbath
-Black Sheep:
+Black Sheep
 Black Snake Moan
 The Black Stallion
 Black Stallion
-Black Sunday:
+Black Sunday
 The Black Swan
 Black Swan
 Black Swans
 Black Tuesday
 Black Widow
-Black & White:
+Black & White
 Black and White in Color
 Blackball
 Blackballed
 Blackbeard's Ghost
 Blackbirds at Bangpleng
 Blackboard Jungle
-Blackmail:
+Blackmail
 Black Mail
 Blackmailed
 The Blacksmith
 Blacksmith Scene
 Blacula
-Blade series:
+Blade 
 Blade
 Blade II
 Blade: Trinity
@@ -669,16 +669,16 @@ Blind Shaft
 The Blind Side
 Blindness
 Blink
-Bliss:
+Bliss
 Bliss
 Blissfully Yours
 Blithe Spirit
-The Blob:
+The Blob
 Block-Heads
 Blonde Ambition
 Blood Bath
 Blood and Black Lace
-Blood Brothers:
+Blood Brothers
 Blood & Chocolate
 Blood Diamond
 Blood for Dracula
@@ -700,7 +700,7 @@ Bloodbath at the House of Death
 Bloodbrothers
 Bloodlust!
 BloodRayne
-Bloodsport series:
+Bloodsport 
 Bloodsport
 Bloodsport II: The Next Kumite
 Bloodsport III
@@ -711,9 +711,9 @@ Bloom in the Moonlight
 Blossoms in the Dust
 Blow
 Blow Out
-Blown Away:
+Blown Away
 Blowup
-The Blue Bird :
+The Blue Bird 
 Blue Chips
 Blue Collar
 Blue Crush
@@ -723,7 +723,7 @@ The Blue Eagle
 Blue in the Face
 Blue Hawaii
 The Blue Kite
-The Blue Lagoon:
+The Blue Lagoon
 The Blue Lamp
 The Blue Light
 The Blue Max
@@ -740,29 +740,29 @@ The Blues Brothers
 Blues Brothers 2000
 Blush
 BMX Bandits
-[edit]Bo
+Bo
 The Boat
 Boat Trip
 The Boatniks
 Bob & Carol & Ted & Alice
 Bob the High Roller
 Bob Roberts
-Bobby:
-Body and Soul:
+Bobby
+Body and Soul
 Body Double
 Body of Evidence
 Body Jumper
 Body Snatchers
 Body Without Soul
-The Bodyguard:
+The Bodyguard
 The Bodyguard 2
 Boeing Boeing
-La Bohème:
-The Bohemian Girl:
+La Bohème
+The Bohemian Girl
 Boiler Room
-Boiling Point:
+Boiling Point
 Bois de Boulogne
-Bolero:
+Bolero
 Bolívar Soy Yo
 Bolshevism on Trial
 Bolt
@@ -776,7 +776,7 @@ Bones
 The Bonfire of the Vanities
 Bongoland
 Bongwater
-Le Bonheur:
+Le Bonheur
 Bonjour Monsieur Shlomi
 Bonnie and Clyde
 The Boogie Man Will Get You
@@ -794,7 +794,7 @@ Borat: Cultural Learnings of America for Make Benefit Glorious Nation of Kazakhs
 Bordello of Blood
 Border Radio
 Border War: The Battle Over Illegal Immigration
-Borderline:
+Borderline
 Boris and Natasha: The Movie
 Born Free
 Born into Brothels
@@ -803,7 +803,7 @@ Born in Flames
 Born on the Fourth of July
 The Born Losers
 Born to Dance
-Born Yesterday:
+Born Yesterday
 The Bostonians
 Bottle Rocket
 Boudu Saved from Drowning
@@ -813,7 +813,7 @@ Bound
 Bound for Glory
 The Bounty
 The Bounty Hunter
-Bourne series:
+Bourne 
 The Bourne Identity
 The Bourne Supremacy
 The Bourne Ultimatum
@@ -823,18 +823,18 @@ The Bowery
 Bowery Blitzkrieg
 Bowfinger
 Bowling for Columbine
-The Box:
+The Box
 Boxcar Bertha
 Das Boxende Känguruh
 Boxer
 The Boxer
 The Boxing Kangaroo
 Boxing Match; or, Glove Contest
-Boy:
-The Boy Friend:
+Boy
+The Boy Friend
 Boy Goes To Heaven
 Boy, Girl
-A Boy and His Dog:
+A Boy and His Dog
 The Boy in the Plastic Bubble
 The Boy in the Striped Pajamas
 A Boy Named Charlie Brown
@@ -850,7 +850,7 @@ Boys Town
 Boys Will Be Boys
 Boys' Night Out
 Boyz n the Hood
-[edit]Br
+Br
 The Brady Bunch Movie
 Brain Candy
 Braindead
@@ -863,12 +863,12 @@ Brand Upon the Brain!
 Branded to Kill
 Bratz: The Movie
 Brave
-Braveheart:
+Braveheart
 The Brave Little Toaster
-The Brave One:
+The Brave One
 Bravo, My Life
 Bravo My Life
-Brazil:
+Brazil
 Bread, Love and Dreams
 Breaker Morant
 Breakfast at Tiffany's
@@ -881,9 +881,9 @@ Breaking with Old Ideas
 Breakin' All the Rules
 The Break-Up
 Breast Men
-Breathless:
+Breathless
 The Breed
-Brewster's Millions:
+Brewster's Millions
 Brian's Song
 Brick
 The Bride
@@ -893,8 +893,8 @@ Bride of Frankenstein
 Bride of Re-Animator
 Bride Wars
 The Brides of Dracula
-Bridesmaids:
-Bridge:
+Bridesmaids
+Bridge
 The Bridge
 The Bridge of San Luis Rey
 The Bridge on the River Kwai
@@ -908,7 +908,7 @@ A Brief History of Time
 Brief Interviews with Hideous Men
 A Brief Vacation
 Brigadoon
-Bright Eyes:
+Bright Eyes
 Bright Leaf
 Bright Star
 Bright Young Things
@@ -916,7 +916,7 @@ Brilliantovaya ruka
 Bringing Down the House
 Bringing Out the Dead
 Bringing Up Baby
-Bring It On series:
+Bring It On 
 Bring It On
 Bring It On Again
 Bring It On: All or Nothing
@@ -926,7 +926,7 @@ Bring Me the Head of Alfredo Garcia
 Broadcast News
 Broadway Bill
 Broadway Danny Rose
-Broadway Melody series:
+Broadway Melody 
 The Broadway Melody
 Broadway Melody of 1936
 Broadway Melody of 1938
@@ -953,8 +953,8 @@ Brother to Brother
 Brother Future
 Brother Rat
 Brother and Sister
-Brothers:
-The Brothers:
+Brothers
+The Brothers
 Brothers at War
 The Brothers Bloom
 The Brothers Grimm
@@ -964,14 +964,14 @@ The Brothers Solomon
 The Brown Bunny
 Brown Sugar
 The Brown Wallet
-The Browning Version:
+The Browning Version
 Brown's Requiem
 Brubaker
 Bruce Almighty
 Bruce and Pepper Wayne Gacy's Home Movies
 Brüno
-Brute Force:
-[edit]Bu-By
+Brute Force
+Bu-By
 Bubba Ho-tep
 Bubble
 Bubble Boy
@@ -980,7 +980,7 @@ Buck
 Buck Privates
 Buck Privates Come Home
 The Bucket List
-A Bucket of Blood:
+A Bucket of Blood
 Bucking Broadway
 Bucky Larson: Born to Be a Star
 Buddy Buddy
@@ -993,26 +993,26 @@ Bug
 A Bug's Life
 Bugsy Malone
 Bull Durham
-Bulldog Drummond series:
-Bulldog Drummond:
+Bulldog Drummond 
+Bulldog Drummond
 Bulldog Jack
 Bulldog Drummond's Revenge
 Bulldog Drummond's Secret Police
 Bulldog Drummond's Third Round
 Deadlier Than the Male
 Some Girls Do
-Bulletproof:
+Bulletproof
 Bulletproof Monk
 Bullets or Ballots
 Bullets Over Broadway
 The Bullfighters
 Bullitt
 Bullshot
-Bully:
+Bully
 Bulworth
 Bummer
 Bungee Jumping of Their Own
-The Bunker:
+The Bunker
 Bunker Bean
 The Bunny Game
 Bunshinsaba
@@ -1024,7 +1024,7 @@ Burglar
 Buried on Sunday
 Buriki no kunsho
 Burlesque on Carmen
-The Burmese Harp:
+The Burmese Harp
 Burn After Reading
 Bus Stop
 The Bus Uncle
@@ -1036,10 +1036,10 @@ Bustin' Loose
 A Busy Day
 But I'm a Cheerleader
 Butch Cassidy and the Sundance Kid
-The Butcher:
-The Butcher Boy:
+The Butcher
+The Butcher Boy
 The Butcher's Wife
-Butter:
+Butter
 BUtterfield 8
 Butterflies Are Free
 Butterfly and Flowers
