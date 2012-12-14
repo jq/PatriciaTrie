@@ -1,30 +1,37 @@
 package com.jeraff.patricia.handler.rest;
 
 import com.jeraff.patricia.util.Method;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Map;
 
-class Params {
+public class Params {
     public static final String PARAM_OFFSET = "offset";
     public static final String PARAM_LIMIT = "limit";
     public static final String PARAM_S = "s";
+    private static final String PARAM_T = "t";
 
     public static final int DEFAULT_LIMIT = 25;
 
     private static final String ERROR_MESSAGE_S_REQUIRED = "'s' is a required parameter";
     private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single 's' parameter";
 
-    String[] keys = new String[]{};
-    int offset = 0;
-    int limit = DEFAULT_LIMIT;
+    private String[] keys;
+    private int offset = 0;
+    private int limit = DEFAULT_LIMIT;
 
     public Params(HttpServletRequest request) {
         final Map<String, String[]> parameterMap = request.getParameterMap();
 
-        if (parameterMap.containsKey(PARAM_S)) {
-            this.keys = parameterMap.get(PARAM_S);
+        if (parameterMap.containsKey(PARAM_T)) {
+            final String[] strings = request.getParameterValues(PARAM_T);
+            if (strings.length != 0) {
+                setKeys(StringUtils.split(strings[0], "\n"));
+            }
+        } else if (parameterMap.containsKey(PARAM_S)) {
+            setKeys(parameterMap.get(PARAM_S));
         }
 
         final String[] offsets = parameterMap.get(PARAM_OFFSET);
@@ -87,5 +94,34 @@ class Params {
         } else if (keys.length != 1) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
         }
+    }
+
+    public String[] getKeys() {
+        return keys;
+    }
+
+    public void setKeys(String[] keys) {
+        if (keys.length != 0) {
+            this.keys = new String[keys.length];
+            for (int i = 0; i < keys.length; i++) {
+                this.keys[i] = StringUtils.chomp(keys[i]);
+            }
+        }
+    }
+
+    public int getOffset() {
+        return offset;
+    }
+
+    public void setOffset(int offset) {
+        this.offset = offset;
+    }
+
+    public int getLimit() {
+        return limit;
+    }
+
+    public void setLimit(int limit) {
+        this.limit = limit;
     }
 }

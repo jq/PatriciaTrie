@@ -2,7 +2,7 @@ package com.jeraff.patricia.handler.rest;
 
 import java.util.HashMap;
 
-class ParamValidationError extends Exception {
+public class ParamValidationError extends Exception {
     int code;
     String message;
 

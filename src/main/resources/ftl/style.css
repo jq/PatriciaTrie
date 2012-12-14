@@ -16,7 +16,7 @@ label {
     font-size: 32pt;
 }
 
-input {
+input.juicy {
     font-size: 40pt;
     width: 75%;
     border: 1px solid #3e93e8;

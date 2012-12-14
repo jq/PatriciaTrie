@@ -34,7 +34,7 @@
         <label for="s">Test out the Auto-Complete</label>
 
         <div>
-            <input id="s" type="text" name="s"/>
+            <input id="s" type="text" name="s" class="juicy"/>
         </div>
     </form>
 </div>

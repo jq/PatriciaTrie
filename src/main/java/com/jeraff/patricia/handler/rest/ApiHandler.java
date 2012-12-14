@@ -22,7 +22,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     }
 
     public void get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.keys;
+        final String[] keys = params.getKeys();
         final String key = keys[0];
 
         final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(key));
@@ -50,7 +50,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     }
 
     public void putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.keys;
+        final String[] keys = params.getKeys();
         final int length = keys.length;
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
@@ -71,7 +71,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     }
 
     public void delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.keys;
+        final String[] keys = params.getKeys();
         final int length = keys.length;
         final HashMap<String, String> result = new HashMap<String, String>(length);
 
@@ -83,7 +83,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     }
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.keys;
+        final String[] keys = params.getKeys();
         final boolean contains = patriciaTrie.containsKey(keys[0]);
 
         if (!contains) {
@@ -147,7 +147,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
         baseRequest.setHandled(true);
     }
 
-    private void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {
+    public void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {
         response.setStatus(validationError.code);
         write(response, validationError.getErrorMap());
     }

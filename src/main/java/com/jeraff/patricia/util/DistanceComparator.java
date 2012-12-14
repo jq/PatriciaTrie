@@ -13,6 +13,7 @@ public class DistanceComparator implements Comparator<String> {
     public int compare(String s0, String s1) {
         final int d0 = LevenshteinDistance.computeLevenshteinDistance(input, s0.toLowerCase());
         final int d1 = LevenshteinDistance.computeLevenshteinDistance(input, s1.toLowerCase());
-        return new Integer(d0).compareTo(d1);
+        final int i = new Integer(d0).compareTo(d1);
+        return i;
     }
 }
