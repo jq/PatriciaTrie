@@ -1,7 +1,7 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.handler.rest.ApiHandler;
-import com.jeraff.patricia.handler.webui.freemarker.WebHandler;
+import com.jeraff.patricia.handler.web.WebHandler;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
@@ -25,18 +25,18 @@ public class PatriciaServer {
         connector0.setLowResourcesMaxIdleTime(5000);
         connector0.setLowResourcesConnections(100);
 
-        final ContextHandler restHandler = new ContextHandler("/api");
-        restHandler.setResourceBase(".");
-        restHandler.setHandler(new ApiHandler(patriciaTrie));
-        restHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        final ContextHandler apiHandler = new ContextHandler(ApiHandler.CONTEXT_PATH);
+        apiHandler.setResourceBase(".");
+        apiHandler.setHandler(new ApiHandler(patriciaTrie));
+        apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
-        final ContextHandler webUIHandler = new ContextHandler("/webui");
-        webUIHandler.setResourceBase(".");
-        webUIHandler.setHandler(new WebHandler(patriciaTrie));
-        webUIHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        final ContextHandler webHandler = new ContextHandler(WebHandler.CONTEXT_PATH);
+        webHandler.setResourceBase(".");
+        webHandler.setHandler(new WebHandler(patriciaTrie));
+        webHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[]{restHandler, webUIHandler});
+        contexts.setHandlers(new Handler[]{apiHandler, webHandler});
 
         server.setConnectors(new Connector[]{connector0});
         server.setHandler(contexts);

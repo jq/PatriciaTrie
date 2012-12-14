@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler.webui.freemarker;
+package com.jeraff.patricia.handler.web;
 
 import freemarker.template.Configuration;
 import freemarker.template.Template;

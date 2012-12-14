@@ -14,6 +14,7 @@ import java.util.*;
 
 public class ApiHandler extends AbstractApiHandler<String, String> {
     public static final String HEADER_TOTAL = "X-Patricia-Total";
+    public static final String CONTEXT_PATH = "/api";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie) {
         super(patriciaTrie);

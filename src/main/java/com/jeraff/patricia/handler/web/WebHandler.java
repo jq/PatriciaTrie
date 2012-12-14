@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler.webui.freemarker;
+package com.jeraff.patricia.handler.web;
 
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -13,6 +13,7 @@ import java.util.HashMap;
 public class WebHandler extends AbstractWebHandler {
     private static final String ACTION_INDEX = "";
     public static final String TEMPLATE_INDEX = "index.ftl";
+    public static final String CONTEXT_PATH = "/webui";
 
     protected PatriciaTrie<String, String> patriciaTrie;
 
