@@ -15,6 +15,8 @@ Essentially: for a string like "A Nightmare on Elm Street" we want queries such 
 
 etc to return "A Nightmare on Elm Street" as a result
 
+And, if you missed it, its all in memory - aka: no persistence yo.
+
 Quick Start
 ===
 
