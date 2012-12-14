@@ -14,7 +14,8 @@ import java.io.IOException;
 import java.util.*;
 
 public class ApiHandler extends AbstractApiHandler<String, String> {
-    public static final String HEADER_TOTAL = "X-Patricia-Total";
+    public static final String HEADER_PREFIX_TOTAL = "X-Patricia-Prefix-Total";
+    public static final String HEADER_PATRICIA_TRIE_SIZE = "X-Patricia-Trie-Size";
     public static final String CONTEXT_PATH = "/api";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie) {
@@ -36,7 +37,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             final int total = result.size();
 
             headers = new HashMap<String, Object>(){{
-                put(HEADER_TOTAL, total);
+                put(HEADER_PREFIX_TOTAL, total);
             }};
 
             if (total > 25) {
@@ -84,12 +85,13 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String[] keys = params.getKeys();
-        final boolean contains = patriciaTrie.containsKey(keys[0]);
-
-        if (!contains) {
+        final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(params.getKeys()[0]));
+        if (prefixedBy.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
 
+        response.setHeader(HEADER_PREFIX_TOTAL, String.valueOf(prefixedBy.size()));
+        response.setHeader(HEADER_PATRICIA_TRIE_SIZE, String.valueOf(patriciaTrie.size()));
         write(response, null);
     }
 
