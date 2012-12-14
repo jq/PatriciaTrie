@@ -21,7 +21,7 @@ public class WordUtil {
 
         for (int i = 0; i < split.length; i++) {
             final String token = split[i];
-            if (!stopWords.contains(token.toLowerCase())) {
+            if (i == 0 || !stopWords.contains(token.toLowerCase())) {
                 cleaned.add(token);
             }
         }
