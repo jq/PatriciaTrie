@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler.rest;
 
 import com.google.gson.Gson;
+import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.Method;
 import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
@@ -41,6 +42,8 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             if (total > 25) {
                 result = result.subList(0, 25);
             }
+
+            Collections.sort(result, new DistanceComparator(key));
         }
 
         write(response, headers, result);
