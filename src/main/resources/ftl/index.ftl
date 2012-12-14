@@ -19,7 +19,7 @@
                 minLength: 1,
                 select: function (event, ui) {
                     alert(ui.item ?
-                            "Selected: " + ui.item.value + " aka " + ui.item.id :
+                            "Selected: " + ui.item.value :
                             "Nothing selected, input was " + this.value);
                 }
             });
