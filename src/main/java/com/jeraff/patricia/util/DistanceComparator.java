@@ -11,9 +11,12 @@ public class DistanceComparator implements Comparator<String> {
 
     @Override
     public int compare(String s0, String s1) {
-        final int d0 = LevenshteinDistance.computeLevenshteinDistance(input, s0.toLowerCase());
-        final int d1 = LevenshteinDistance.computeLevenshteinDistance(input, s1.toLowerCase());
-        final int i = new Integer(d0).compareTo(d1);
-        return i;
+        final int dist0 = LevenshteinDistance.computeLevenshteinDistance(input, s0.toLowerCase());
+        final int dist1 = LevenshteinDistance.computeLevenshteinDistance(input, s1.toLowerCase());
+        final int i = new Integer(dist0).compareTo(dist1);
+
+        return (i != 0)
+                ? i
+                : s0.compareTo(s1);
     }
 }

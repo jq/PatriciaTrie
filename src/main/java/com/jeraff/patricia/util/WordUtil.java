@@ -29,9 +29,11 @@ public class WordUtil {
     }
 
     public static String clean(String s) {
-        return StringUtils.chomp(
-                stripStopWords(s.replaceAll("[^A-Za-z0-9]", "")).toLowerCase()
-        );
+        final String charsRemoved = s.replaceAll("[^A-Za-z0-9 ]", "");
+        final String stopWordsRemoved = stripStopWords(charsRemoved);
+        final String lower = stopWordsRemoved.toLowerCase();
+        final String chomp = StringUtils.chomp(lower);
+        return chomp;
     }
 
     public static HashSet<String> getGramsFormPut(final String s) {
