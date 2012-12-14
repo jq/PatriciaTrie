@@ -8,11 +8,11 @@ public class WordUtil {
     public static final String SPACE = " ";
 
     public static final List<String> stopWords = Arrays.asList(new String[]{
-            "a", "an", "and", "are", "as", "at", "be", "but", "by",
-            "for", "if", "in", "into", "is", "it",
-            "no", "not", "of", "on", "or", "s", "such",
-            "t", "that", "the", "their", "then", "there", "these",
-            "they", "this", "to", "was", "will", "with"});
+            "a", "an", "and", "as", "at", "be", "by",
+            "if", "in", "is", "it",
+            "of", "on", "or",
+            "the",
+            "to"});
 
     public static String stripStopWords(String s) {
         final String[] split = StringUtils.split(s);
