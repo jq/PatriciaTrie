@@ -32,6 +32,8 @@ public class WebHandler extends AbstractWebHandler {
         } else {
             handle404(response);
         }
+
+        baseRequest.setHandled(true);
     }
 
     private void handleIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {

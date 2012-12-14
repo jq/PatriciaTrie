@@ -117,14 +117,15 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     }
 
     @Override
-    public void handle(String target, Request request, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException, ServletException {
+    public void handle(String target, Request baseRequest, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException, ServletException {
         final Params params = new Params(httpServletRequest);
-        final Method method = Method.valueOf(request.getMethod());
+        final Method method = Method.valueOf(baseRequest.getMethod());
 
         try {
             params.validate(method);
         } catch (ParamValidationError validationError) {
             handleValidationError(validationError, response);
+            baseRequest.setHandled(true);
             return;
         }
 
@@ -142,6 +143,8 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
                 putPost(params, httpServletRequest, response);
                 break;
         }
+
+        baseRequest.setHandled(true);
     }
 
     private void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {

@@ -9,7 +9,7 @@ import java.io.*;
 import java.net.URL;
 import java.util.HashMap;
 
-public abstract class AbstractWebHandler extends AbstractHandler{
+public abstract class AbstractWebHandler extends AbstractHandler {
     protected Configuration freemarkerConfig;
 
     public AbstractWebHandler() {

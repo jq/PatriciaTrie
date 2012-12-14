@@ -18,12 +18,12 @@ public abstract class AbstractApiHandler<K, V> extends AbstractHandler {
         this.patriciaTrie = patriciaTrie;
     }
 
-    public void handle(String target, Request request, HttpServletRequest httpServletRequest,
+    public void handle(String target, Request baseRequest, HttpServletRequest httpServletRequest,
                        HttpServletResponse response) throws IOException, ServletException {
 
         response.setContentType(CONTENT_TYPE_HTML);
         response.setStatus(HttpServletResponse.SC_OK);
-        request.setHandled(true);
+        baseRequest.setHandled(true);
 
         response.getWriter().println(this.getClass().getCanonicalName());
     }
