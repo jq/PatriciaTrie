@@ -16,8 +16,15 @@ label {
     font-size: 32pt;
 }
 
+textarea.juicy,
 input.juicy {
     font-size: 40pt;
     width: 75%;
     border: 1px solid #3e93e8;
+}
+
+input[type=submit] {
+    background-color: #3e93e8;
+    color: white;
+    border: 1px solid white;
 }

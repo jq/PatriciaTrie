@@ -14,12 +14,12 @@
 <div class="center">
     <form method="POST" action="/add">
         <label for="t">Add Some Stuff</label>
-        <em>Put each string on its own line</em>
 
         <div>
-            <textarea id="t" cols="75" rows="10" name="t"></textarea>
+            <textarea name="t" id="t" class="juicy" cols="75" rows="6"></textarea>
+
             <p>
-                <input type="submit" />
+                <input type="submit" class="juicy"/>
             </p>
         </div>
     </form>
