@@ -137,8 +137,7 @@ as such there's some garbage or mangled titles in there but it's good enough.
 
 To load the movie titles just do this:
 
-    $ cd ./bin
-    $ cat etc/data/movies/*.txt | import_stdin
+    $ cat etc/data/movies/*.txt | ./bin/import_stdin
 
 
 Web UI for Testing
