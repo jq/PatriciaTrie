@@ -28,22 +28,34 @@ public class WordUtil {
     }
 
     public static String clean(String s) {
-        final String charsRemoved = s.replaceAll("[^A-Za-z0-9 ]", "");
-        final String stopWordsRemoved = stripStopWords(charsRemoved);
-        final String lower = stopWordsRemoved.toLowerCase();
-        final String chomp = StringUtils.chomp(lower);
-        return chomp;
+        return clean(s, false);
     }
 
-    public static HashSet<String> getGramsFormPut(final String s) {
-        final String clean = clean(s);
-        final String[] st = StringUtils.split(clean);
+    public static String clean(String s, boolean stripStopWords) {
+        String current = s.replaceAll("[^A-Za-z0-9 ]", "");
+
+        if (stripStopWords) {
+            current = stripStopWords(current);
+        }
+
+        return StringUtils.chomp(current.toLowerCase());
+    }
+
+    public static HashSet<String> getGramsForPut(final String s) {
+        final HashSet<String> rtn = new HashSet<String>();
+        rtn.addAll(getGramsForCleanedString(clean(s, true)));
+        rtn.addAll(getGramsForCleanedString(clean(s, false)));
+        return rtn;
+    }
+
+    public static HashSet<String> getGramsForCleanedString(final String cleanedString) {
+        final String[] st = StringUtils.split(cleanedString);
 
         if (st.length == 0) {
             return new HashSet<String>(0);
         } else if (st.length == 1) {
             return new HashSet<String>() {{
-                add(clean(s));
+                add(cleanedString);
             }};
         }
 
@@ -59,7 +71,7 @@ public class WordUtil {
             }
         }
 
-        res.add(clean);
+        res.add(cleanedString);
         return res;
     }
 

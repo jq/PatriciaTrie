@@ -61,7 +61,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
 
         for (int i = 0; i < length; i++) {
             final String key = keys[i];
-            final HashSet<String> grams = WordUtil.getGramsFormPut(key);
+            final HashSet<String> grams = WordUtil.getGramsForPut(key);
             final ArrayList<String> strings = new ArrayList<String>();
 
             for (String gram : grams) {
