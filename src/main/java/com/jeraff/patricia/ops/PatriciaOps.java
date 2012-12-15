@@ -7,13 +7,24 @@ import org.limewire.collection.PatriciaTrie;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class PatriciaOps {
+    private static final Logger log = Logger.getLogger(PatriciaOps.class.getPackage().getName());
     public static final int NUM_PREFIX_MATCHES = 25;
+
     private PatriciaTrie<String, String> patriciaTrie;
+    private MessageDigest messageDigest;
 
     public PatriciaOps(PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
+
+        try {
+            messageDigest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            log.severe("Couldn't create an MD5 MessageDigest");
+        }
     }
 
     public String firstKey() {
@@ -36,14 +47,17 @@ public class PatriciaOps {
             final String string = strings[i];
             final ArrayList<String> grams = new ArrayList<String>();
 
+            if (messageDigest == null) {
+                log.log(Level.WARNING, "No MD5 digest available. Possible key collision for: \"{0}\"", string);
+            }
+
             for (String gram : WordUtil.getGramsForPut(string)) {
                 final String clean = WordUtil.clean(gram);
-                try {
+                if (messageDigest != null) {
                     final String put = patriciaTrie.put(
-                            String.format("%s.%s", clean, MessageDigest.getInstance("MD5").digest(string.getBytes())),
+                            String.format("%s.%s", clean, messageDigest.digest(string.getBytes())),
                             string);
-                } catch (NoSuchAlgorithmException e) {
-                    // possible collision here
+                } else {
                     final String put = patriciaTrie.put(clean, string);
                 }
 

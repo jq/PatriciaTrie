@@ -55,6 +55,7 @@ public abstract class BaseHandler extends AbstractHandler {
             final StringWriter sw = new StringWriter();
             final PrintWriter pw = new PrintWriter(sw);
 
+            log.log(Level.SEVERE, "Problem rendering ftl template: " + templateName, e);
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             e.printStackTrace(pw);
 
