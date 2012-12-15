@@ -64,11 +64,12 @@ public class WordUtil {
         final Iterator<String> iterator = list.iterator();
 
         while (iterator.hasNext()) {
-            iterator.next();
-            iterator.remove();
             if (!list.isEmpty()) {
                 res.add(StringUtils.join(list, " "));
             }
+
+            iterator.next();
+            iterator.remove();
         }
 
         res.add(cleanedString);
