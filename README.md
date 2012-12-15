@@ -157,7 +157,7 @@ Check how many matches there are for a specific prefix
 	$ curl --head localhost:8666/api/?s=night
 	
 	HTTP/1.1 200 OK
-	X-Patricia-Prefix-Count: 5
+	X-Patricia-Prefix-Count: 4
 	Content-Length: 0
 	Server: Jetty(8.1.7.v20120910)
 	
