@@ -11,19 +11,28 @@
 
 <body>
 
-<div class="center">
-    <form method="POST" action="/add">
+<form method="POST" action="/add">
+    <div class="center">
         <label for="t">Add Some Stuff</label>
+    </div>
 
-        <div>
-            <textarea name="t" id="t" class="juicy" cols="75" rows="6"></textarea>
+    <div>
+        <#if success??>
+            <#if success == true>
+                <code><div><strong>Successfully added the strings.</strong><br />${resultJson}</div></code>
+            <#else>
+                <code><div><span class="error">${error}</span></div></code>
+            </#if>
+        </#if>
 
-            <p>
-                <input type="submit" class="juicy"/>
-            </p>
-        </div>
-    </form>
-</div>
+
+        <textarea name="t" id="t" class="juicy" rows="6"></textarea>
+
+        <p>
+            <input type="submit" class="juicy"/>
+        </p>
+    </div>
+</form>
 
 
 </body>

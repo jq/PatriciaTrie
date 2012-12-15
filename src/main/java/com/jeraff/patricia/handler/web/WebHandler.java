@@ -1,6 +1,8 @@
 package com.jeraff.patricia.handler.web;
 
+import com.google.gson.Gson;
 import com.jeraff.patricia.handler.rest.ApiHandler;
+import com.jeraff.patricia.handler.rest.ApiMethodResult;
 import com.jeraff.patricia.handler.rest.ParamValidationError;
 import com.jeraff.patricia.handler.rest.Params;
 import com.jeraff.patricia.util.Method;
@@ -53,12 +55,14 @@ public class WebHandler extends AbstractWebHandler {
 
             try {
                 params.validate(Method.POST);
-                apiHandler.putPost(params, request, response);
+                final ApiMethodResult methodResult = apiHandler.putPost(params, request, response);
+                rootMap.put("result", methodResult.getResult());
+                rootMap.put("resultJson", new Gson().toJson(methodResult.getResult()));
+                rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {
-                apiHandler.handleValidationError(paramValidationError, response);
+                rootMap.put("success", false);
+                rootMap.put("error", paramValidationError.getMessage());
             }
-
-            return;
         }
 
         final String out = renderTemplate(response, TEMPLATE_ADD, rootMap);

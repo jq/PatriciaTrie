@@ -22,7 +22,7 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
         super(patriciaTrie);
     }
 
-    public void get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String[] keys = params.getKeys();
         final String key = keys[0];
 
@@ -47,10 +47,10 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             Collections.sort(result, new DistanceComparator(key));
         }
 
-        write(response, headers, result);
+        return new ApiMethodResult(headers, result);
     }
 
-    public void putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String[] keys = params.getKeys();
         final int length = keys.length;
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
@@ -68,10 +68,10 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             result.put(key, strings);
         }
 
-        write(response, result);
+        return new ApiMethodResult(result);
     }
 
-    public void delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String[] keys = params.getKeys();
         final int length = keys.length;
         final HashMap<String, String> result = new HashMap<String, String>(length);
@@ -80,11 +80,10 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             result.put(key, patriciaTrie.remove(key));
         }
 
-        write(response, result);
+        return new ApiMethodResult(result);
     }
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.getKeys();
         final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(params.getKeys()[0]));
         if (prefixedBy.isEmpty()) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -92,7 +91,10 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
 
         response.setHeader(HEADER_PREFIX_TOTAL, String.valueOf(prefixedBy.size()));
         response.setHeader(HEADER_PATRICIA_TRIE_SIZE, String.valueOf(patriciaTrie.size()));
-        write(response, null);
+    }
+
+    private void write(HttpServletResponse response, ApiMethodResult methodResult) throws IOException {
+        write(response, methodResult.headers, methodResult.result);
     }
 
     private void write(HttpServletResponse response, Object o) throws IOException {
@@ -133,16 +135,16 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
 
         switch (method) {
             case GET:
-                get(params, httpServletRequest, response);
+                write(response, get(params, httpServletRequest, response));
                 break;
             case DELETE:
-                delete(params, httpServletRequest, response);
+                write(response, delete(params, httpServletRequest, response));
                 break;
             case HEAD:
                 head(params, httpServletRequest, response);
                 break;
             default:
-                putPost(params, httpServletRequest, response);
+                write(response, putPost(params, httpServletRequest, response));
                 break;
         }
 

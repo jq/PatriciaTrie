@@ -69,13 +69,13 @@ public class Params {
     }
 
     private void validatePutPost() throws ParamValidationError {
-        if (keys.length == 0) {
+        if (keys == null || keys.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
 
     private void validateGet() throws ParamValidationError {
-        if (keys.length == 0) {
+        if (keys == null || keys.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         } else if (keys.length != 1) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
@@ -83,7 +83,7 @@ public class Params {
     }
 
     private void validateDelete() throws ParamValidationError {
-        if (keys.length == 0) {
+        if (keys == null || keys.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
@@ -101,7 +101,7 @@ public class Params {
     }
 
     public void setKeys(String[] keys) {
-        if (keys.length != 0) {
+        if (keys == null && keys.length != 0) {
             this.keys = new String[keys.length];
             for (int i = 0; i < keys.length; i++) {
                 this.keys[i] = StringUtils.chomp(keys[i]);

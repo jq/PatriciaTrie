@@ -1,7 +1,7 @@
 BODY {
     font-family: Verdana;
     font-size: 14px;
-    margin: 100px;
+    margin: 50px 100px;
     background-color: #f5fffd;
 }
 
@@ -16,15 +16,40 @@ label {
     font-size: 32pt;
 }
 
-textarea.juicy,
-input.juicy {
-    font-size: 40pt;
-    width: 75%;
+.juicy {
+    font-size: 35pt;
+    width: 100%;
     border: 1px solid #264be8;
+    padding: 10px;
 }
 
 input[type=submit] {
     background-color: #3e93e8;
     color: white;
     border: 1px solid #264be8;
+}
+
+.error {
+    color: red;
+}
+
+.msg {
+    padding: 15px;
+    font-weight: bold;
+}
+
+code {
+    text-align: left;
+    white-space: pre-wrap;
+    font-weight: normal;
+    width: 100%;
+    border: 1px solid #c8c8c8;
+    background-color: white;
+    display: block;
+    margin: 15px 0 15px 0;
+    font-size: 15px !important;
+}
+
+code div {
+    padding: 10px;
 }
