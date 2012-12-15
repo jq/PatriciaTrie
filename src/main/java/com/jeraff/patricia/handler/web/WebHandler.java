@@ -20,8 +20,10 @@ import java.util.HashMap;
 public class WebHandler extends AbstractWebHandler {
     private static final String ACTION_INDEX = "";
     private static final String ACTION_ADD = "add";
+    private String ACTION_STATUS = "status";
 
     public static final String TEMPLATE_INDEX = "index.ftl";
+    public static final String TEMPLATE_STATUS = "status.ftl";
     public static final String TEMPLATE_ADD = "add.ftl";
 
     public static final String CONTEXT_PATH = "/";
@@ -42,6 +44,8 @@ public class WebHandler extends AbstractWebHandler {
             handleIndex(request, response);
         } else if (ACTION_ADD.equals(action)) {
             handleAdd(request, response);
+        } else if (ACTION_STATUS.equals(action)) {
+            handleStatus(request, response);
         } else {
             handle404(response);
         }
@@ -78,6 +82,23 @@ public class WebHandler extends AbstractWebHandler {
 
     private void handleIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String out = renderTemplate(response, TEMPLATE_INDEX, new HashMap<String, Object>());
+        final PrintWriter writer = response.getWriter();
+
+        writer.print(out);
+        writer.close();
+    }
+
+    private void handleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        final HashMap<String, Object> rootMap = new HashMap<String, Object>();
+        final int size = patriciaTrie.size();
+        rootMap.put("size", size);
+
+        if (size != 0) {
+            rootMap.put("firstKey", patriciaTrie.firstKey());
+            rootMap.put("lastKey", patriciaTrie.firstKey());
+        }
+
+        final String out = renderTemplate(response, TEMPLATE_STATUS, rootMap);
         final PrintWriter writer = response.getWriter();
 
         writer.print(out);
