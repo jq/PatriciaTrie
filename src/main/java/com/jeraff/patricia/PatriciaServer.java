@@ -13,8 +13,6 @@ import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
 public class PatriciaServer {
-    public static final String SYSTEM_PROP_CONFIG = "";
-
     public static void main(String[] args) throws Exception {
         final PatriciaTrie<String, String> patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
         final Server server = new Server();
