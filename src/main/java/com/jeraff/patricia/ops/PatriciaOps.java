@@ -81,7 +81,7 @@ public class PatriciaOps {
 
         List<String> result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
         final int total = result.size();
-        if (total > 25) {
+        if (total > NUM_PREFIX_MATCHES) {
             result = result.subList(0, NUM_PREFIX_MATCHES);
         }
 
