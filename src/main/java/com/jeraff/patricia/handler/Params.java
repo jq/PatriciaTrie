@@ -100,7 +100,9 @@ public class Params {
     }
 
     public String getFirstKey() {
-        return strings.length != 0 ? strings[0] : null;
+        return (strings != null && strings.length != 0)
+                ? strings[0]
+                : null;
     }
 
     public void setStrings(String[] strings) {

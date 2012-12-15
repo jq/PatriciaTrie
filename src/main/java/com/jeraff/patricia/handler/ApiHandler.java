@@ -44,7 +44,7 @@ public class ApiHandler extends BaseHandler {
             count = patriciaTrieOps.getPrefixedByCount(firstKey);
         }
 
-        if (count == 0) {
+        if (count == 0 && firstKey != null) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
 
