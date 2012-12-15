@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler.web;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.handler.rest.ApiHandler;
 import com.jeraff.patricia.handler.rest.ApiMethodResult;
 import com.jeraff.patricia.handler.rest.ParamValidationError;
@@ -55,9 +56,12 @@ public class WebHandler extends AbstractWebHandler {
 
             try {
                 params.validate(Method.POST);
+
                 final ApiMethodResult methodResult = apiHandler.putPost(params, request, response);
+                final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+
+                rootMap.put("resultJson", gson.toJson(methodResult.getResult()));
                 rootMap.put("result", methodResult.getResult());
-                rootMap.put("resultJson", new Gson().toJson(methodResult.getResult()));
                 rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {
                 rootMap.put("success", false);

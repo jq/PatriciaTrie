@@ -101,7 +101,7 @@ public class Params {
     }
 
     public void setKeys(String[] keys) {
-        if (keys == null && keys.length != 0) {
+        if (keys != null && keys.length != 0) {
             this.keys = new String[keys.length];
             for (int i = 0; i < keys.length; i++) {
                 this.keys[i] = StringUtils.chomp(keys[i]);

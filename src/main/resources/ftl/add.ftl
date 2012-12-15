@@ -19,14 +19,14 @@
     <div>
         <#if success??>
             <#if success == true>
-                <code><div><strong>Successfully added the strings.</strong><br />${resultJson}</div></code>
+                <code><div><strong>Success!!!</strong><br /><br />${resultJson}</div></code>
             <#else>
                 <code><div><span class="error">${error}</span></div></code>
             </#if>
         </#if>
 
 
-        <textarea name="t" id="t" class="juicy" rows="6"></textarea>
+        <textarea name="t" id="t" class="juicy stdtxt" rows="10"></textarea>
 
         <p>
             <input type="submit" class="juicy"/>
