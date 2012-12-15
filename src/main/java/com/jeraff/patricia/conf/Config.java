@@ -22,7 +22,7 @@ public class Config {
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
-//        setupDefaults(confMap);
+        setupDefaults(confMap);
 
         final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
         if (confFilePath != null) {
