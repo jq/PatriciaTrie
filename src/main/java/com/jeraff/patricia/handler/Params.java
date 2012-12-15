@@ -11,7 +11,7 @@ public class Params {
     public static final String PARAM_OFFSET = "offset";
     public static final String PARAM_LIMIT = "limit";
     public static final String PARAM_S = "s";
-    private static final String PARAM_T = "t";
+    public static final String PARAM_T = "t";
 
     public static final int DEFAULT_LIMIT = 25;
 
