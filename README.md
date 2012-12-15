@@ -47,10 +47,12 @@ Get stuff out
         "A Nightmare on Elm Street"
     ]
 
-    $ ./bin/get e
-    [
-        "A Nightmare on Elm Street"
-    ]
+    $ ./bin/get n
+	[
+		"A Nightmare on Elm Street",
+	 	"Silent Night Deadly Night",
+	 	"The Nightmare Before Christmas"
+	]
 
 URL's etc
 ===
