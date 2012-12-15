@@ -31,7 +31,7 @@ public abstract class BaseHandler extends AbstractHandler {
         this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
 
         try {
-            final URL resource = getClass().getResource("/ftld/");
+            final URL resource = getClass().getResource("/ftl/");
             freemarkerConfig.setDirectoryForTemplateLoading(new File(resource.getFile()));
         } catch (Exception e) {
             final String err = "Can't configure freemarker";
