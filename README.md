@@ -77,11 +77,13 @@ The server will spit out some JSON telling you what prefixes it extracted for ea
 
     {
          "some string": [
-             "some string"
+             "some string",
+  			 "string"
          ],
          "some other string": [
              "some other string",
              "other string"
+  			 "string"
          ]
     }
 
