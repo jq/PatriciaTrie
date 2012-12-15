@@ -34,7 +34,7 @@
     </div>
 </form>
 
-
+<#include "footer.ftl">
 </body>
 
 </html>

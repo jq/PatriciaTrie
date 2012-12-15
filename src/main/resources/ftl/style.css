@@ -60,3 +60,20 @@ code {
 code div {
     padding: 10px;
 }
+
+#footer {
+    position: absolute;
+    bottom: 25px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 100%;
+    left: 0;
+}
+
+#footer a {
+    margin: 0 10px;
+    color: #5f91e8;
+    position: relative;
+    text-decoration: none
+}

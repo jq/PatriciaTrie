@@ -13,7 +13,7 @@
 
         $(function () {
             $("#s").autocomplete({
-                source: "/api",
+                source: "/api/",
                 autoFocus: true,
                 delay: 10,
                 minLength: 1,
@@ -39,7 +39,7 @@
     </form>
 </div>
 
-
+<#include "footer.ftl">
 </body>
 
 </html>
