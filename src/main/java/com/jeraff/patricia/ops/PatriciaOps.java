@@ -4,6 +4,8 @@ import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.WordUtil;
 import org.limewire.collection.PatriciaTrie;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 
 public class PatriciaOps {
@@ -36,7 +38,15 @@ public class PatriciaOps {
 
             for (String gram : WordUtil.getGramsForPut(string)) {
                 final String clean = WordUtil.clean(gram);
-                final String put = patriciaTrie.put(clean, string);
+                try {
+                    final String put = patriciaTrie.put(
+                            String.format("%s.%s", clean, MessageDigest.getInstance("MD5").digest(string.getBytes())),
+                            string);
+                } catch (NoSuchAlgorithmException e) {
+                    // possible collision here
+                    final String put = patriciaTrie.put(clean, string);
+                }
+
                 grams.add(gram);
             }
 
