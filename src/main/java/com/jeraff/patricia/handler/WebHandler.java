@@ -59,7 +59,7 @@ public class WebHandler extends BaseHandler {
             try {
                 params.validate(Method.POST);
 
-                final HashMap<String,ArrayList<String>> put = patriciaTrieOps.put(params.getKeys());
+                final HashMap<String,ArrayList<String>> put = patriciaTrieOps.put(params.getStrings());
                 final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
                 rootMap.put("resultJson", gson.toJson(put));

@@ -19,7 +19,7 @@ public class Params {
     private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single 's' parameter";
     private static final String ERROR_MESSAGE_S_ZERO_ONE = "Method only accepts zero or one 's' parameter";
 
-    private String[] keys;
+    private String[] strings;
     private int offset = 0;
     private int limit = DEFAULT_LIMIT;
 
@@ -29,10 +29,10 @@ public class Params {
         if (parameterMap.containsKey(PARAM_T)) {
             final String[] strings = request.getParameterValues(PARAM_T);
             if (strings.length != 0) {
-                setKeys(StringUtils.split(strings[0], "\n"));
+                setStrings(StringUtils.split(strings[0], "\n"));
             }
         } else if (parameterMap.containsKey(PARAM_S)) {
-            setKeys(parameterMap.get(PARAM_S));
+            setStrings(parameterMap.get(PARAM_S));
         }
 
         final String[] offsets = parameterMap.get(PARAM_OFFSET);
@@ -70,44 +70,44 @@ public class Params {
     }
 
     private void validatePutPost() throws ParamValidationError {
-        if (keys == null || keys.length == 0) {
+        if (strings == null || strings.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
 
     private void validateGet() throws ParamValidationError {
-        if (keys == null || keys.length == 0) {
+        if (strings == null || strings.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
-        } else if (keys.length != 1) {
+        } else if (strings.length != 1) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
         }
     }
 
     private void validateDelete() throws ParamValidationError {
-        if (keys == null || keys.length == 0) {
+        if (strings == null || strings.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
 
     private void validateHead() throws ParamValidationError {
-        if (keys.length > 1) {
+        if (strings.length > 1) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
         }
     }
 
-    public String[] getKeys() {
-        return keys;
+    public String[] getStrings() {
+        return strings;
     }
 
     public String getFirstKey() {
-        return keys.length != 0 ? keys[0] : null;
+        return strings.length != 0 ? strings[0] : null;
     }
 
-    public void setKeys(String[] keys) {
-        if (keys != null && keys.length != 0) {
-            this.keys = new String[keys.length];
-            for (int i = 0; i < keys.length; i++) {
-                this.keys[i] = StringUtils.trim(StringUtils.chomp(keys[i]));
+    public void setStrings(String[] strings) {
+        if (strings != null && strings.length != 0) {
+            this.strings = new String[strings.length];
+            for (int i = 0; i < strings.length; i++) {
+                this.strings[i] = StringUtils.trim(StringUtils.chomp(strings[i]));
             }
         }
     }

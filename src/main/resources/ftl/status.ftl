@@ -25,7 +25,7 @@
 
         <code>
             <div>
-                <strong>total keys:</strong> ${size}
+                <strong>total strings:</strong> ${size}
             <#if firstKey ??>
                 <strong>first key:</strong> ${firstKey}
             </#if>

@@ -26,12 +26,12 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getKeys());
+        final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getStrings());
         return new ApiMethodResult(result);
     }
 
     public ApiMethodResult delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        return new ApiMethodResult(patriciaTrieOps.remove(params.getKeys()));
+        return new ApiMethodResult(patriciaTrieOps.remove(params.getStrings()));
     }
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
