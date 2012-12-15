@@ -163,7 +163,7 @@ Config file's in json... Here's the most basic one you could have...
 The config will use reflection to set stuff up on the connector. So in essence given the config file above the code will
 do do the following:
 
-    connector.*set*Port(8666)
+    connector.setPort(8666)
 
 Obviously, if you specified more values then those will get set as well. Check out
 http://wiki.eclipse.org/Jetty/Howto/Configure_Connectors for a list of `connector` options.
