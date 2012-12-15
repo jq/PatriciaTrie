@@ -104,7 +104,7 @@ public class Params {
         if (keys != null && keys.length != 0) {
             this.keys = new String[keys.length];
             for (int i = 0; i < keys.length; i++) {
-                this.keys[i] = StringUtils.chomp(keys[i]);
+                this.keys[i] = StringUtils.trim(StringUtils.chomp(keys[i]));
             }
         }
     }

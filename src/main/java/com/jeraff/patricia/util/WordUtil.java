@@ -38,7 +38,7 @@ public class WordUtil {
             current = stripStopWords(current);
         }
 
-        return StringUtils.chomp(current.toLowerCase());
+        return StringUtils.trim(StringUtils.chomp(current.toLowerCase()));
     }
 
     public static HashSet<String> getGramsForPut(final String s) {
