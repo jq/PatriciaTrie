@@ -1,21 +1,17 @@
 Simple in-memory pseudo-prefix search
 =============
 
-This is an experimental project.
-It's a simple http server on top of LimeWire's PatriciaTrie implementation.
-more info at: http://code.google.com/p/google-collections/issues/detail?id=5
+An experimental auto-complete, prefix search server...
 
-The goal is to provide an http interface for pseudo-prefix searches (aka type-head, aka auto-complete).
+The goal is to provide an http interface for fast prefix searches (aka type-head, aka auto-complete).
 
 I say "pseudo-prefix" b/c we break the initial string into chunks (chop off previous token over & over again) to enable kinda-sorta-partial-pseudo-prefix type searches.
-Essentially: for a string like "A Nightmare on Elm Street" we want queries such as:
+Essentially: for a string like "A Nightmare on Elm Street" we want a successful match for queries such as:
 
 - elm
 - on elm
 
-etc to return "A Nightmare on Elm Street" as a result
-
-And, if you missed it, its all in memory - aka: no persistence yo.
+So far there's no persistence at all; server goes down == need to re-import the data. 
 
 Quick Start
 ===
@@ -54,7 +50,7 @@ Get stuff out
 	 	"The Nightmare Before Christmas"
 	]
 
-URL's etc
+HTTP Methods, URL's etc
 ===
 
 The whole thing's "REST" based & does stuff based on the HTTP verb you use.
@@ -68,12 +64,11 @@ This will add a string to the PatriciaTrie:
 
 `curl localhost:8666/api/ -d s="some string"`
 
-
 You can `PUT` multiple strings at once by specifying the `s` parameter multiple times:
 
 `curl localhost:8666/api/ -d s="some string" -d s="some other string"`
 
-The server will spit out some JSON telling you what prefixes it extracted for each `s` you sent it.
+The server will spit out some JSON telling you what "prefixes" it extracted for each `s` you sent it.
 
     {
          "some string": [
@@ -115,6 +110,12 @@ So with this example the following "prefix" queries would return "some other str
 - other stri
 - other strin
 - other string
+- s
+- st
+- str
+- stri
+- strin
+- string
 
 
 GET
@@ -130,6 +131,36 @@ output's gonna be...
          "some other string",
          "some string"
      ]
+
+HEAD
+---
+
+Send a HEAD request to see how many matches there would be for a given prefix...
+Assuming you started with an empty trie
+
+	$ ./bin/put "A Nightmare on Elm Street"
+	$ ./bin/put "30 Days of Night"
+	$ ./bin/put "Silent Night Deadly Night"
+	$ ./bin/put "The Nightmare Before Christmas"
+	
+Check how many total prefixes are stored
+	
+	$ curl --head localhost:8666/api/
+	
+	HTTP/1.1 200 OK
+	X-Patricia-Prefix-Count: 20
+	Content-Length: 0
+	Server: Jetty(8.1.7.v20120910)
+		
+Check how many matches there are for a specific prefix
+
+	$ curl --head localhost:8666/api/?s=night
+	
+	HTTP/1.1 200 OK
+	X-Patricia-Prefix-Count: 5
+	Content-Length: 0
+	Server: Jetty(8.1.7.v20120910)
+	
 
 Test Data - Free of Charge
 ===
@@ -206,10 +237,11 @@ Useful stuff
 
 Licence
 ===
-Shit's free...
 
-I have no clue what the official license is for LimeWire's code.
-On http://code.google.com/p/google-collections/issues/detail?id=5 they state:
+This project makes use of LimeWire's PatriciaTrie implementation.
+http://code.google.com/p/google-collections/issues/detail?id=5
+
+I have no clue what the official license is for LimeWire's code but on that page they state:
 
     The files can be licensed as necessary (we own the copyright and can
     change/transfer the license).  I'm not sure what license, if any, these
