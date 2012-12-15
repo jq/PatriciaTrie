@@ -23,12 +23,12 @@ public class PatriciaServer {
 
         final ContextHandler apiHandler = new ContextHandler(ApiHandler.CONTEXT_PATH);
         apiHandler.setResourceBase(".");
-        apiHandler.setHandler(new ApiHandler(patriciaTrie));
+        apiHandler.setHandler(new ApiHandler(patriciaTrie, config));
         apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         final ContextHandler webHandler = new ContextHandler(WebHandler.CONTEXT_PATH);
         webHandler.setResourceBase(".");
-        webHandler.setHandler(new WebHandler(patriciaTrie));
+        webHandler.setHandler(new WebHandler(patriciaTrie, config));
         webHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();

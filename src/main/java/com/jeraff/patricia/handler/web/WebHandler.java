@@ -2,11 +2,13 @@ package com.jeraff.patricia.handler.web;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.handler.rest.ApiHandler;
 import com.jeraff.patricia.handler.rest.ApiMethodResult;
 import com.jeraff.patricia.handler.rest.ParamValidationError;
 import com.jeraff.patricia.handler.rest.Params;
 import com.jeraff.patricia.util.Method;
+import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -15,6 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 public class WebHandler extends AbstractWebHandler {
@@ -29,9 +33,11 @@ public class WebHandler extends AbstractWebHandler {
     public static final String CONTEXT_PATH = "/";
 
     protected PatriciaTrie<String, String> patriciaTrie;
+    private Config config;
 
-    public WebHandler(PatriciaTrie<String, String> patriciaTrie) {
+    public WebHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         this.patriciaTrie = patriciaTrie;
+        this.config = config;
     }
 
     @Override
@@ -55,7 +61,7 @@ public class WebHandler extends AbstractWebHandler {
         final HashMap<String, Object> rootMap = new HashMap<String, Object>();
 
         if (Method.valueOf(request.getMethod()) == Method.POST) {
-            final ApiHandler apiHandler = new ApiHandler(patriciaTrie);
+            final ApiHandler apiHandler = new ApiHandler(patriciaTrie, config);
             final Params params = new Params(request);
 
             try {
@@ -91,15 +97,22 @@ public class WebHandler extends AbstractWebHandler {
     private void handleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
         final HashMap<String, Object> rootMap = new HashMap<String, Object>();
         final int size = patriciaTrie.size();
+        final SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
+        final Date dateUp = new Date(config.getTime());
+
         rootMap.put("size", size);
+        rootMap.put("upSec", (System.currentTimeMillis() - config.getTime())/ 1000L);
+        rootMap.put("upAgo", WordUtil.ago(dateUp));
+        rootMap.put("upDate", sdf.format(dateUp));
 
         if (size != 0) {
             rootMap.put("firstKey", patriciaTrie.firstKey());
-            rootMap.put("lastKey", patriciaTrie.firstKey());
+            rootMap.put("lastKey", patriciaTrie.lastKey());
         }
 
         final String out = renderTemplate(response, TEMPLATE_STATUS, rootMap);
         final PrintWriter writer = response.getWriter();
+
 
         writer.print(out);
         writer.close();

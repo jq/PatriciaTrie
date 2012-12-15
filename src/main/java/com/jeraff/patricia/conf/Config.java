@@ -19,9 +19,12 @@ public class Config {
     public static final String PARTRICIA_PROP_PREFIX = "partricia.";
 
     private HashMap<String, Object> confMap;
+    private long time;
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
+        time = System.currentTimeMillis();
+
         setupDefaults(confMap);
 
         final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
@@ -107,5 +110,9 @@ public class Config {
         } catch (Exception e) {
             throw new RuntimeException("Could not configure connector");
         }
+    }
+
+    public long getTime() {
+        return time;
     }
 }

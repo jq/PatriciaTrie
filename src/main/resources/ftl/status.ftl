@@ -7,6 +7,14 @@
     <style>
         <#include "style.css">
     </style>
+
+    <style>
+        strong {
+            display: inline-block;
+            width: 105px;
+            text-align: right;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,7 +25,16 @@
 
         <code>
             <div>
-                <strong>${size}</strong> keys
+                <strong>total keys:</strong> ${size}
+            <#if firstKey ??>
+                <strong>first key:</strong> ${firstKey}
+            </#if>
+            <#if lastKey ??>
+                <strong>last key:</strong> ${lastKey}
+            </#if>
+                <hr>
+                <strong>up:</strong> ${upAgo} (${upSec} seconds)
+                <strong>since:</strong> ${upDate}
             </div>
         </code>
     </div>

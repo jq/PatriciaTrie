@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler.rest;
 
 import com.google.gson.Gson;
+import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.Method;
 import com.jeraff.patricia.util.WordUtil;
@@ -18,8 +19,11 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
     public static final String HEADER_PATRICIA_TRIE_SIZE = "X-Patricia-Trie-Size";
     public static final String CONTEXT_PATH = "/api";
 
-    public ApiHandler(PatriciaTrie<String, String> patriciaTrie) {
+    private final Config config;
+
+    public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super(patriciaTrie);
+        this.config = config;
     }
 
     public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
