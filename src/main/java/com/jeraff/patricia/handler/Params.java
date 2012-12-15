@@ -91,7 +91,7 @@ public class Params {
 
     private void validateHead() throws ParamValidationError {
         if (strings.length > 1) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
+            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_ZERO_ONE);
         }
     }
 
