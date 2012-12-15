@@ -64,7 +64,8 @@ public class PatriciaOps {
     }
 
     public int getPrefixedByCount(String string) {
-        return patriciaTrie.getPrefixedBy(string).size();
+        final HashSet<String> strings = new HashSet<String>(patriciaTrie.getPrefixedBy(string).values());
+        return strings.size();
     }
 
     public HashMap<String, String> remove(String[] strings) {
