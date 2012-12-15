@@ -21,6 +21,12 @@
                     alert(ui.item ?
                             "Selected: " + ui.item.value :
                             "Nothing selected, input was " + this.value);
+                },
+                close: function( event, ui ) {
+                    $("#s").removeClass("autoOpen");
+                },
+                open: function( event, ui ) {
+                    $("#s").addClass("autoOpen");
                 }
             });
         });

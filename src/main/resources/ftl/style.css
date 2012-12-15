@@ -22,7 +22,7 @@ label {
 .juicy {
     font-size: 300%;
     width: 100%;
-    border: 4px solid #5f91e8;
+    border: 4px ridge #5f91e8;
     padding: 10px;
 }
 
@@ -76,4 +76,25 @@ code div {
     color: #5f91e8;
     position: relative;
     text-decoration: none
+}
+
+.ui-corner-all {
+    border-radius: 0 !important;
+}
+
+.ui-menu {
+    padding: 0 !important;
+    margin-top: -5px !important;
+}
+li.ui-menu-item a.ui-state-focus {
+    background: #5f91e8 !important;
+    color: white;;
+    border: 0 !important;
+}
+li.ui-menu-item a.ui-state-focus:first-child {
+    border-top: 1px solid #bed3e8 !important;
+    border-bottom: 1px solid #bed3e8 !important;
+}
+.autoOpen {
+    border-bottom: 4px solid #e8e8e8;
 }
