@@ -57,7 +57,7 @@ Get stuff out
 URL's etc
 ===
 
-The whole thing's "REST" based & does stuff based on the HTTP verb you use (the path doesn't matter at all).
+The whole thing's "REST" based & does stuff based on the HTTP verb you use.
 Currently GET and PUT/POST are the only ones i've bothered with.
 
 
