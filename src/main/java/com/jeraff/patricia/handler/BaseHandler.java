@@ -9,17 +9,19 @@ import org.limewire.collection.PatriciaTrie;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public abstract class BaseHandler extends AbstractHandler {
 
     protected Configuration freemarkerConfig;
     protected final Config config;
     protected final PatriciaOps patriciaTrieOps;
+    protected static final Logger log = Logger.getLogger(BaseHandler.class.getPackage().getName());
 
     public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super();
@@ -29,10 +31,14 @@ public abstract class BaseHandler extends AbstractHandler {
         this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
 
         try {
-            final URL resource = getClass().getResource("/ftl/");
+            final URL resource = getClass().getResource("/ftld/");
             freemarkerConfig.setDirectoryForTemplateLoading(new File(resource.getFile()));
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            final String err = "Can't configure freemarker";
+            final RuntimeException rte = new RuntimeException(err, e);
+
+            log.log(Level.SEVERE, err, e);
+            throw rte;
         }
     }
 
