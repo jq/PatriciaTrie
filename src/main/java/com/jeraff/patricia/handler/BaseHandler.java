@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.ops.PatriciaOps;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.eclipse.jetty.server.handler.AbstractHandler;
@@ -18,14 +19,14 @@ public abstract class BaseHandler extends AbstractHandler {
 
     protected Configuration freemarkerConfig;
     protected final Config config;
-    protected final PatriciaTrie<String, String> patriciaTrie;
+    protected final PatriciaOps patriciaTrieOps;
 
     public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super();
 
         this.config = config;
-        this.patriciaTrie = patriciaTrie;
         this.freemarkerConfig = new Configuration();
+        this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
 
         try {
             final URL resource = getClass().getResource("/ftl/");

@@ -17,6 +17,7 @@ public class Params {
 
     private static final String ERROR_MESSAGE_S_REQUIRED = "'s' is a required parameter";
     private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single 's' parameter";
+    private static final String ERROR_MESSAGE_S_ZERO_ONE = "Method only accepts zero or one 's' parameter";
 
     private String[] keys;
     private int offset = 0;
@@ -89,15 +90,17 @@ public class Params {
     }
 
     private void validateHead() throws ParamValidationError {
-        if (keys.length == 0) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
-        } else if (keys.length != 1) {
+        if (keys.length > 1) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
         }
     }
 
     public String[] getKeys() {
         return keys;
+    }
+
+    public String getFirstKey() {
+        return keys.length != 0 ? keys[0] : null;
     }
 
     public void setKeys(String[] keys) {

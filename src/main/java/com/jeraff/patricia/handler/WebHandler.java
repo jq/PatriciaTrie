@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 
@@ -53,17 +54,15 @@ public class WebHandler extends BaseHandler {
         final HashMap<String, Object> rootMap = new HashMap<String, Object>();
 
         if (Method.valueOf(request.getMethod()) == Method.POST) {
-            final ApiHandler apiHandler = new ApiHandler(patriciaTrie, config);
             final Params params = new Params(request);
 
             try {
                 params.validate(Method.POST);
 
-                final ApiMethodResult methodResult = apiHandler.putPost(params, request, response);
+                final HashMap<String,ArrayList<String>> put = patriciaTrieOps.put(params.getKeys());
                 final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
-                rootMap.put("resultJson", gson.toJson(methodResult.getResult()));
-                rootMap.put("result", methodResult.getResult());
+                rootMap.put("resultJson", gson.toJson(put));
                 rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {
                 rootMap.put("success", false);
@@ -88,7 +87,7 @@ public class WebHandler extends BaseHandler {
 
     private void handleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
         final HashMap<String, Object> rootMap = new HashMap<String, Object>();
-        final int size = patriciaTrie.size();
+        final int size = patriciaTrieOps.size();
         final SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
         final Date dateUp = new Date(config.getTime());
 
@@ -98,8 +97,8 @@ public class WebHandler extends BaseHandler {
         rootMap.put("upDate", sdf.format(dateUp));
 
         if (size != 0) {
-            rootMap.put("firstKey", patriciaTrie.firstKey());
-            rootMap.put("lastKey", patriciaTrie.lastKey());
+            rootMap.put("firstKey", patriciaTrieOps.firstKey());
+            rootMap.put("lastKey", patriciaTrieOps.lastKey());
         }
 
         final String out = renderTemplate(response, TEMPLATE_STATUS, rootMap);

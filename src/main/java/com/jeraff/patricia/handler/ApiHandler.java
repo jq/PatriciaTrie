@@ -2,9 +2,7 @@ package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.Method;
-import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -15,8 +13,7 @@ import java.io.IOException;
 import java.util.*;
 
 public class ApiHandler extends BaseHandler {
-    public static final String HEADER_PREFIX_TOTAL = "X-Patricia-Prefix-Total";
-    public static final String HEADER_PATRICIA_TRIE_SIZE = "X-Patricia-Trie-Size";
+    public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
     public static final String CONTEXT_PATH = "/api";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
@@ -24,75 +21,34 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.getKeys();
-        final String key = keys[0];
-
-        final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(key));
-        List<String> result = null;
-        HashMap<String, Object> headers = null;
-
-        if (prefixedBy.isEmpty()) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        } else {
-            result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
-            final int total = result.size();
-
-            headers = new HashMap<String, Object>(){{
-                put(HEADER_PREFIX_TOTAL, total);
-            }};
-
-            if (total > 25) {
-                result = result.subList(0, 25);
-            }
-
-            Collections.sort(result, new DistanceComparator(key));
-        }
-
-        return new ApiMethodResult(headers, result);
+        final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
+        return new ApiMethodResult(new HashMap<String, Object>(), prefixedBy);
     }
 
     public ApiMethodResult putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.getKeys();
-        final int length = keys.length;
-        final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
-
-        for (int i = 0; i < length; i++) {
-            final String key = keys[i];
-            final HashSet<String> grams = WordUtil.getGramsForPut(key);
-            final ArrayList<String> strings = new ArrayList<String>();
-
-            for (String gram : grams) {
-                final String clean = WordUtil.clean(gram);
-                final String put = patriciaTrie.put(clean, key);
-                strings.add(gram);
-            }
-
-            result.put(key, strings);
-        }
-
+        final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getKeys());
         return new ApiMethodResult(result);
     }
 
     public ApiMethodResult delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String[] keys = params.getKeys();
-        final int length = keys.length;
-        final HashMap<String, String> result = new HashMap<String, String>(length);
-
-        for (String key : keys) {
-            result.put(key, patriciaTrie.remove(key));
-        }
-
-        return new ApiMethodResult(result);
+        return new ApiMethodResult(patriciaTrieOps.remove(params.getKeys()));
     }
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(params.getKeys()[0]));
-        if (prefixedBy.isEmpty()) {
+        final String firstKey = params.getFirstKey();
+        int count = 0;
+
+        if (firstKey == null) {
+            count = patriciaTrieOps.size();
+        } else {
+            count = patriciaTrieOps.getPrefixedByCount(firstKey);
+        }
+
+        if (count == 0) {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
 
-        response.setHeader(HEADER_PREFIX_TOTAL, String.valueOf(prefixedBy.size()));
-        response.setHeader(HEADER_PATRICIA_TRIE_SIZE, String.valueOf(patriciaTrie.size()));
+        response.setHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
     }
 
     private void write(HttpServletResponse response, ApiMethodResult methodResult) throws IOException {
