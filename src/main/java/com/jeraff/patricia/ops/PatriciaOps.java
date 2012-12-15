@@ -54,11 +54,9 @@ public class PatriciaOps {
             for (String gram : WordUtil.getGramsForPut(string)) {
                 final String clean = WordUtil.clean(gram);
                 if (messageDigest != null) {
-                    final String put = patriciaTrie.put(
-                            String.format("%s.%s", clean, messageDigest.digest(string.getBytes())),
-                            string);
+                    patriciaTrie.put(generateKey(string, clean), string);
                 } else {
-                    final String put = patriciaTrie.put(clean, string);
+                    patriciaTrie.put(clean, string);
                 }
 
                 grams.add(gram);
@@ -68,6 +66,10 @@ public class PatriciaOps {
         }
 
         return result;
+    }
+
+    private String generateKey(String string, String clean) {
+        return String.format("%s.%s", clean, messageDigest.digest(string.getBytes()));
     }
 
     public List<String> getPrefixedBy(String prefix) {
@@ -97,7 +99,8 @@ public class PatriciaOps {
 
         for (String string : strings) {
             for (String gram : WordUtil.getGramsForPut(string)) {
-                result.put(string, patriciaTrie.remove(gram));
+                final String clean = WordUtil.clean(gram);
+                result.put(string, patriciaTrie.remove(generateKey(string, clean)));
             }
         }
 
