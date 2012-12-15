@@ -23,7 +23,7 @@ public class PatriciaOps {
         try {
             messageDigest = MessageDigest.getInstance("MD5");
         } catch (NoSuchAlgorithmException e) {
-            log.severe("Couldn't create an MD5 MessageDigest");
+            log.severe("Couldn't create an MD5 digest. Key collisions may take place & clobber your data");
         }
     }
 
@@ -48,7 +48,7 @@ public class PatriciaOps {
             final ArrayList<String> grams = new ArrayList<String>();
 
             if (messageDigest == null) {
-                log.log(Level.WARNING, "No MD5 digest available. Possible key collision for: \"{0}\"", string);
+                log.log(Level.WARNING, "Performing put(\"{0}\") w/o md5 digest. Key collision is possible", string);
             }
 
             for (String gram : WordUtil.getGramsForPut(string)) {
