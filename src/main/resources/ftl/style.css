@@ -16,6 +16,7 @@ label {
     font-size: 400%;
     font-weight: 100;
     color: #dbdbdb;
+    text-shadow: 1px 1px #5f91e8;
 }
 
 .juicy {
@@ -26,7 +27,7 @@ label {
 }
 
 input[type=submit] {
-    background-color: #3e93e8;
+    background-color: #5f91e8;
     color: white;
     border: 1px solid #264be8;
 }
