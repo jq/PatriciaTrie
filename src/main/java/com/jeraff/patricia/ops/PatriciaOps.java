@@ -48,7 +48,9 @@ public class PatriciaOps {
             final ArrayList<String> grams = new ArrayList<String>();
 
             if (messageDigest == null) {
-                log.log(Level.WARNING, "Performing put(\"xxx\", \"{0}\") w/o md5 digest. Key collision is possible", string);
+                log.log(Level.WARNING,
+                        "Performing put(\"xxx\", \"{0}\") w/o md5 digest. Key collision is possible",
+                        string);
             }
 
             for (String gram : WordUtil.getGramsForPut(string)) {
