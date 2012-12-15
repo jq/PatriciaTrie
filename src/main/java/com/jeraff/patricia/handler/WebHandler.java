@@ -1,12 +1,8 @@
-package com.jeraff.patricia.handler.web;
+package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.handler.rest.ApiHandler;
-import com.jeraff.patricia.handler.rest.ApiMethodResult;
-import com.jeraff.patricia.handler.rest.ParamValidationError;
-import com.jeraff.patricia.handler.rest.Params;
 import com.jeraff.patricia.util.Method;
 import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
@@ -21,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-public class WebHandler extends AbstractWebHandler {
+public class WebHandler extends BaseHandler {
     private static final String ACTION_INDEX = "";
     private static final String ACTION_ADD = "add";
     private String ACTION_STATUS = "status";
@@ -32,12 +28,8 @@ public class WebHandler extends AbstractWebHandler {
 
     public static final String CONTEXT_PATH = "/";
 
-    protected PatriciaTrie<String, String> patriciaTrie;
-    private Config config;
-
     public WebHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
-        this.patriciaTrie = patriciaTrie;
-        this.config = config;
+        super(patriciaTrie, config);
     }
 
     @Override

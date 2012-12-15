@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler.rest;
+package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
 import com.jeraff.patricia.conf.Config;
@@ -14,16 +14,13 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.*;
 
-public class ApiHandler extends AbstractApiHandler<String, String> {
+public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_TOTAL = "X-Patricia-Prefix-Total";
     public static final String HEADER_PATRICIA_TRIE_SIZE = "X-Patricia-Trie-Size";
     public static final String CONTEXT_PATH = "/api";
 
-    private final Config config;
-
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
-        super(patriciaTrie);
-        this.config = config;
+        super(patriciaTrie, config);
     }
 
     public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -65,7 +62,8 @@ public class ApiHandler extends AbstractApiHandler<String, String> {
             final ArrayList<String> strings = new ArrayList<String>();
 
             for (String gram : grams) {
-                final String put = patriciaTrie.put(WordUtil.clean(gram), key);
+                final String clean = WordUtil.clean(gram);
+                final String put = patriciaTrie.put(clean, key);
                 strings.add(gram);
             }
 

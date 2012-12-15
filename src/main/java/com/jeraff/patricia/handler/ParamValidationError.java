@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler.rest;
+package com.jeraff.patricia.handler;
 
 import java.util.HashMap;
 

@@ -1,8 +1,8 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.handler.rest.ApiHandler;
-import com.jeraff.patricia.handler.web.WebHandler;
+import com.jeraff.patricia.handler.ApiHandler;
+import com.jeraff.patricia.handler.WebHandler;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
