@@ -29,7 +29,7 @@
         <textarea name="t" id="t" class="juicy stdtxt" rows="10"></textarea>
 
         <p>
-            <input type="submit" class="juicy"/>
+            <input type="submit" class="juicy" value="Submit"/>
         </p>
     </div>
 </form>
