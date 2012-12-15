@@ -8,9 +8,7 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.StringWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class Config {
     public static final String CONNECTOR = "connector";
@@ -18,24 +16,64 @@ public class Config {
     public static final int CONF_CONNECTOR_PORT_DEFAULT = 8666;
 
     private static final String PROP_CONFIG_FILE = "conf";
+    public static final String PARTRICIA_PROP_PREFIX = "partricia.";
 
     private HashMap<String, Object> confMap;
 
     public Config(Properties properties) {
-        setupDefaults();
+        confMap = new HashMap<String, Object>();
+//        setupDefaults(confMap);
 
         final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
         if (confFilePath != null) {
             handleConfFile(confFilePath, confMap);
         }
+
+        handleSystemProperties(properties, confMap);
     }
 
-    private void setupDefaults() {
+    private void handleSystemProperties(Properties properties, HashMap<String, Object> confMap) {
+        for (Map.Entry<Object, Object> entry : properties.entrySet()) {
+            final Object key = entry.getKey();
+            if (!(key instanceof String)) {
+                continue;
+            }
+
+            String name = (String) key;
+            if (!name.startsWith(PARTRICIA_PROP_PREFIX)) {
+                continue;
+            }
+
+            final Object value = entry.getValue();
+            final List<String> strings = new ArrayList<String>(Arrays.asList(name.split("\\.")));
+            final Iterator<String> iterator = strings.iterator();
+            iterator.next();
+            iterator.remove();
+
+            Map<String, Object> node = confMap;
+            while (iterator.hasNext()) {
+                final String next = iterator.next();
+
+                if (iterator.hasNext()) {
+                    if (!node.containsKey(next)) {
+                        node.put(next, new HashMap<String, Object>());
+                    }
+
+                    node = (Map<String, Object>) node.get(next);
+                } else {
+                    node.put(next, value);
+                }
+
+                iterator.remove();
+            }
+        }
+    }
+
+    private void setupDefaults(HashMap<String, Object> confMap) {
         final HashMap<String, Object> connectorDefaults = new HashMap<String, Object>() {{
             put(CONNECTOR_PORT, CONF_CONNECTOR_PORT_DEFAULT);
         }};
 
-        confMap = new HashMap<String, Object>();
         confMap.put(CONNECTOR, connectorDefaults);
     }
 
