@@ -3,6 +3,7 @@ package com.jeraff.patricia.ops;
 import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.WordUtil;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.commons.lang.StringUtils;
 import org.limewire.collection.PatriciaTrie;
 
 import java.util.*;
@@ -52,7 +53,11 @@ public class PatriciaOps {
     }
 
     private String generateKey(String string, String clean) {
-        return String.format("%s.%s", clean, DigestUtils.md5Hex(string));
+        final String suffix = (string.length() < 32)
+                ? StringUtils.deleteWhitespace(WordUtil.clean(string, false))
+                : DigestUtils.md5Hex(string);
+
+        return String.format("%s.%s", clean, suffix);
     }
 
     public List<String> getPrefixedBy(String prefix) {
