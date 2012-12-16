@@ -96,7 +96,9 @@ public class Config {
     private void handleConfFile(String confFilePath, HashMap<String, Object> confMap) {
         final File file = new File(confFilePath);
         if (!file.exists() || !file.canRead()) {
-            throw new RuntimeException(confFilePath + " is not a readable file");
+            String s = confFilePath + " is not a readable file";
+            log.log(Level.SEVERE, s);
+            throw new RuntimeException(s);
         }
 
         String json;
@@ -105,7 +107,9 @@ public class Config {
             IOUtils.copy(new FileInputStream(file), stringWriter);
             json = stringWriter.toString();
         } catch (Exception e) {
-            throw new RuntimeException("Can't read " + confFilePath, e);
+            String error = "Can't read " + confFilePath;
+            log.log(Level.SEVERE, error, e);
+            throw new RuntimeException(error, e);
         }
 
         final HashMap hashMap = new Gson().fromJson(json, HashMap.class);
@@ -173,7 +177,7 @@ public class Config {
     }
 
     public String getyJdbcOrderColumn() {
-        String s = (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_STRING);
+        String s = (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_ORDER);
         return (s != null)
                 ? s
                 : getyJdbcStringColumn();
