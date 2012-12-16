@@ -28,7 +28,9 @@ public class JbdcBootstrap {
         try {
             connection = config.getJdbcConnection();
             if (connection == null) {
-                log.log(Level.INFO, "No JDBC connection established");
+                if (log.isLoggable(Level.INFO)) {
+                    log.log(Level.INFO, "No JDBC connection established");
+                }
                 return;
             }
 
@@ -59,7 +61,10 @@ public class JbdcBootstrap {
             while (rs.next()) {
                 String string = rs.getString(columnIndex);
                 ops.put(new String[]{string});
-                log.log(Level.INFO, "Bootstrap: {0}", string);
+
+                if (log.isLoggable(Level.INFO)) {
+                    log.log(Level.INFO, "Bootstrap: {0}", string);
+                }
 
                 if (!rs.next()) {
                     offset += LIMIT;
@@ -88,6 +93,11 @@ public class JbdcBootstrap {
     private String createSelectQuery(String table, String stringColumn, String orderColumn, int offset) {
         String sql = String.format("SELECT %s from %s ORDER BY %s ASC LIMIT %d OFFSET %d",
                 stringColumn, table, orderColumn, LIMIT, offset);
+
+        if (log.isLoggable(Level.FINE)) {
+            log.log(Level.FINE, sql);
+        }
+
         return sql;
     }
 }
