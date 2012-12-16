@@ -90,11 +90,13 @@ public class WebHandler extends BaseHandler {
         final int size = patriciaTrieOps.size();
         final SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
         final Date dateUp = new Date(config.getTime());
+        final Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
         rootMap.put("size", size);
         rootMap.put("upSec", (System.currentTimeMillis() - config.getTime())/ 1000L);
         rootMap.put("upAgo", WordUtil.ago(dateUp));
         rootMap.put("upDate", sdf.format(dateUp));
+        rootMap.put("config", gson.toJson(config));
 
         if (size != 0) {
             rootMap.put("firstKey", patriciaTrieOps.firstKey());

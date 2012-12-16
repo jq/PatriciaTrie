@@ -9,10 +9,28 @@
     </style>
 
     <style>
-        strong {
-            display: inline-block;
+        th {
             width: 105px;
             text-align: right;
+            padding-right: 20px;
+        }
+
+        td, th {
+            vertical-align: top;
+            font-family: monospace;
+        }
+
+        hr {
+            margin: 10px;
+        }
+
+        table {
+            width: 100%;
+            padding: 20px;
+        }
+
+        textarea {
+            width: 98%;
         }
     </style>
 </head>
@@ -23,20 +41,50 @@
     <div class="center">
         <label>Status</label>
 
-        <code>
-            <div>
-                <strong>total strings:</strong> ${size}
+        <div class="center" style="background-color: white">
+            <table width="100%">
+                <tr>
+                    <th># strings:</th>
+                    <td>${size}</td>
+                </tr>
             <#if firstKey ??>
-                <strong>first key:</strong> ${firstKey}
+                <tr>
+                    <th>first key:</th>
+                    <td>${firstKey}</td>
+                </tr>
             </#if>
             <#if lastKey ??>
-                <strong>last key:</strong> ${lastKey}
+                <tr>
+                    <th>last key:</th>
+                    <td>${lastKey}</td>
+                </tr>
             </#if>
-                <hr>
-                <strong>up:</strong> ${upAgo} (${upSec} seconds)
-                <strong>since:</strong> ${upDate}
-            </div>
-        </code>
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>up:</th>
+                    <td>${upAgo} (${upSec} seconds)</td>
+                </tr>
+                <tr>
+                    <th>since:</th>
+                    <td>${upDate}</td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <hr/>
+                    </td>
+                </tr>
+                <tr>
+                    <th>config:</th>
+                    <td><textarea rows="20" cols="60" readonly="true">${config}</textarea></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <p><br></p>
     </div>
 </form>
 

@@ -62,11 +62,9 @@ code div {
 }
 
 #footer {
-    position: absolute;
-    bottom: 25px;
     text-align: center;
     margin: 0 auto;
-    margin-top: 25px;
+    margin-top: 10px;
     width: 100%;
     left: 0;
 }
