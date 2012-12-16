@@ -8,10 +8,8 @@ import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.limewire.collection.PatriciaTrie;
 
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.net.URL;
 import java.util.HashMap;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -31,8 +29,7 @@ public abstract class BaseHandler extends AbstractHandler {
         this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
 
         try {
-            final URL resource = getClass().getResource("/ftl/");
-            freemarkerConfig.setDirectoryForTemplateLoading(new File(resource.getFile()));
+            freemarkerConfig.setClassForTemplateLoading(BaseHandler.class, "/ftl");
         } catch (Exception e) {
             final String err = "Can't configure freemarker";
             final RuntimeException rte = new RuntimeException(err, e);
