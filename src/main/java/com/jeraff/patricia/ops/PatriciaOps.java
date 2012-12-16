@@ -2,12 +2,10 @@ package com.jeraff.patricia.ops;
 
 import com.jeraff.patricia.util.DistanceComparator;
 import com.jeraff.patricia.util.WordUtil;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.limewire.collection.PatriciaTrie;
 
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaOps {
@@ -15,16 +13,9 @@ public class PatriciaOps {
     public static final int NUM_PREFIX_MATCHES = 25;
 
     private PatriciaTrie<String, String> patriciaTrie;
-    private MessageDigest messageDigest;
 
     public PatriciaOps(PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
-
-        try {
-            messageDigest = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            log.severe("Couldn't create an MD5 digest. Key collisions may take place & clobber your data");
-        }
     }
 
     public String firstKey() {
@@ -47,20 +38,10 @@ public class PatriciaOps {
             final String string = strings[i];
             final ArrayList<String> grams = new ArrayList<String>();
 
-            if (messageDigest == null) {
-                log.log(Level.WARNING,
-                        "Performing put(\"xxx\", \"{0}\") w/o md5 digest. Key collision is possible",
-                        string);
-            }
-
             for (String gram : WordUtil.getGramsForPut(string)) {
                 final String clean = WordUtil.clean(gram);
-                if (messageDigest != null) {
-                    patriciaTrie.put(generateKey(string, clean), string);
-                } else {
-                    patriciaTrie.put(clean, string);
-                }
-
+                final String key = generateKey(string, clean);
+                patriciaTrie.put(key, string);
                 grams.add(gram);
             }
 
@@ -71,7 +52,7 @@ public class PatriciaOps {
     }
 
     private String generateKey(String string, String clean) {
-        return String.format("%s.%s", clean, messageDigest.digest(string.getBytes()));
+        return String.format("%s.%s", clean, DigestUtils.md5Hex(string));
     }
 
     public List<String> getPrefixedBy(String prefix) {
