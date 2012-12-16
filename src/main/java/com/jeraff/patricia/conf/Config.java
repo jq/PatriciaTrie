@@ -18,6 +18,7 @@ public class Config {
     protected static final Logger log = Logger.getLogger(Config.class.getPackage().getName());
 
     public static final String CONNECTOR = "connector";
+    public static final String CONNECTOR_ACCEPTORS = "acceptors";
     public static final String CONNECTOR_PORT = "port";
     public static final int CONF_CONNECTOR_PORT_DEFAULT = 8666;
 
@@ -117,10 +118,16 @@ public class Config {
             return;
         }
 
+        if (!((Map) o).containsKey(CONNECTOR_ACCEPTORS)) {
+            ((Map) o).put(CONNECTOR_ACCEPTORS, 2 * Runtime.getRuntime().availableProcessors());
+        }
+
         try {
             BeanUtils.populate(connector, (Map) o);
         } catch (Exception e) {
-            throw new RuntimeException("Could not configure connector");
+            String error = "Could not configure connector";
+            log.log(Level.SEVERE, error, e);
+            throw new RuntimeException(error, e);
         }
     }
 
