@@ -12,11 +12,24 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
+import java.util.logging.Logger;
+
 public class PatriciaServer {
+    protected static final Logger log = Logger.getLogger(PatriciaServer.class.getPackage().getName());
+
     public static void main(String[] args) throws Exception {
         final PatriciaTrie<String, String> patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
         final Server server = new Server();
         final Config config = new Config(System.getProperties());
+
+        Runtime.getRuntime().addShutdownHook(new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("Performing shutdown...");
+                    }
+                }
+        ));
 
         final SelectChannelConnector connector0 = new SelectChannelConnector();
         config.configConnector(connector0);
@@ -38,14 +51,5 @@ public class PatriciaServer {
         server.setHandler(contexts);
         server.start();
         server.join();
-
-        Runtime.getRuntime().addShutdownHook(new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println("shutting down now...");
-                    }
-                }
-        ));
     }
 }
