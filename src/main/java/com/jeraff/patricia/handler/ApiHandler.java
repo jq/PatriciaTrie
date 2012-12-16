@@ -60,22 +60,24 @@ public class ApiHandler extends BaseHandler {
     }
 
     private void write(HttpServletResponse response, HashMap<String, Object> headers, Object o) throws IOException {
+        final GZIPResponseWrapper wrapper = new GZIPResponseWrapper(response);
+
         if (o != null) {
             final Gson gson = new Gson();
             final String json = gson.toJson(o);
-            response.setContentLength(json.getBytes().length);
-            response.getWriter().print(json);
+            wrapper.setContentLength(json.getBytes().length);
+            wrapper.getWriter().write(json);
         }
 
         if (headers != null) {
             for (Map.Entry<String, Object> header : headers.entrySet()) {
-                response.addHeader(header.getKey(), header.getValue().toString());
+                wrapper.addHeader(header.getKey(), header.getValue().toString());
             }
         }
 
-        response.setContentType("application/json");
-        response.setCharacterEncoding("UTF-8");
-        response.getWriter().close();
+        wrapper.setContentType("application/json");
+        wrapper.setCharacterEncoding("UTF-8");
+        wrapper.getWriter().close();
     }
 
     @Override
