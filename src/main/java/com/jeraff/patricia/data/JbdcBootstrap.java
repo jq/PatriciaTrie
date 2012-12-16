@@ -40,12 +40,9 @@ public class JbdcBootstrap {
             ResultSet rs = statement.executeQuery(
                     createSelectQuery(
                             config.getyJdbcTable(),
-                            config.getyJdbcColumn(),
+                            config.getyJdbcStringColumn(),
+                            config.getyJdbcOrderColumn(),
                             offset));
-
-            if (!rs.next()) {
-                return;
-            }
 
             // figure out the column index
             ResultSetMetaData metaData = rs.getMetaData();
@@ -53,19 +50,26 @@ public class JbdcBootstrap {
 
             for (int i = 1; i <= columnCount; i++) {
                 String name = metaData.getColumnName(i);
-                if (name.equals(config.getyJdbcColumn())) {
+                if (name.equals(config.getyJdbcStringColumn())) {
                     columnIndex = i;
                     break;
                 }
             }
 
             while (rs.next()) {
-                ops.put(new String[]{rs.getString(columnIndex)});
-                log.log(Level.INFO, "Added: ");
+                String string = rs.getString(columnIndex);
+                ops.put(new String[]{string});
+                log.log(Level.INFO, "Bootstrap: {0}", string);
 
                 if (!rs.next()) {
                     offset += LIMIT;
-                    rs = statement.executeQuery(createSelectQuery(config.getyJdbcTable(), config.getyJdbcColumn(), offset));
+                    rs = statement.executeQuery(createSelectQuery(
+                            config.getyJdbcTable(),
+                            config.getyJdbcStringColumn(),
+                            config.getyJdbcOrderColumn(),
+                            offset));
+                } else {
+                    rs.previous();
                 }
             }
         } catch (SQLException e) {
@@ -81,8 +85,9 @@ public class JbdcBootstrap {
         }
     }
 
-    private String createSelectQuery(String table, String column, int offset) {
-        String sql = String.format("SELECT %s from %s LIMIT %d, %d", column, table, offset, LIMIT);
+    private String createSelectQuery(String table, String stringColumn, String orderColumn, int offset) {
+        String sql = String.format("SELECT %s from %s ORDER BY %s ASC LIMIT %d OFFSET %d",
+                stringColumn, table, orderColumn, LIMIT, offset);
         return sql;
     }
 }

@@ -11,7 +11,8 @@
     "jdbc": {
         "url": "jdbc:mysql://localhost:3306/patricia",
         "table": "movies",
-        "column": "name",
+        "s": "name",
+        "order": "name",
         "user": "root",
         "password": ""
     }

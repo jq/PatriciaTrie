@@ -13,9 +13,6 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaServer {
@@ -51,10 +48,6 @@ public class PatriciaServer {
     }
 
     private static void jdbcBootstrap(PatriciaTrie<String, String> patriciaTrie, Config config) {
-        try {
-            new JbdcBootstrap(patriciaTrie, config).run();
-        } catch (SQLException e) {
-            log.log(Level.WARNING, "JDBC bootstrap failed", e);
-        }
+        new JbdcBootstrap(patriciaTrie, config).run();
     }
 }

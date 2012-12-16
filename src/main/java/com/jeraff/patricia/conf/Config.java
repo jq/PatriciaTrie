@@ -23,7 +23,8 @@ public class Config {
 
     public static final String JDBC = "jdbc";
     public static final String JDBC_TABLE = "table";
-    public static final String JDBC_COLUMN = "column";
+    public static final String JDBC_COLUMN_STRING = "s";
+    public static final String JDBC_COLUMN_ORDER = "orderby";
     public static final String JDBC_URL = "url";
 
     public static final String PARTRICIA_PROP_PREFIX = "partricia.";
@@ -142,7 +143,7 @@ public class Config {
 
         try {
             final Map<String, Object> jdbcInfo = (Map<String, Object>) confMap.get(JDBC);
-            jdbcInfo.put(JDBC_COLUMN, jdbcInfo.get(JDBC_COLUMN));
+            jdbcInfo.put(JDBC_COLUMN_STRING, jdbcInfo.get(JDBC_COLUMN_STRING));
 
             final Properties properties = new Properties();
             properties.putAll(jdbcInfo);
@@ -157,10 +158,17 @@ public class Config {
     }
 
     public String getyJdbcTable() {
-        return (String) ((Map<String, Object>)confMap.get(JDBC)).get(JDBC_TABLE);
+        return (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_TABLE);
     }
 
-    public String getyJdbcColumn() {
-        return (String) ((Map<String, Object>)confMap.get(JDBC)).get(JDBC_COLUMN);
+    public String getyJdbcStringColumn() {
+        return (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_STRING);
+    }
+
+    public String getyJdbcOrderColumn() {
+        String s = (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_STRING);
+        return (s != null)
+                ? s
+                : getyJdbcStringColumn();
     }
 }
