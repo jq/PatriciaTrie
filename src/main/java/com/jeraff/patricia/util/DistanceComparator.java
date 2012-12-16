@@ -6,13 +6,23 @@ public class DistanceComparator implements Comparator<String> {
     private String input;
 
     public DistanceComparator(String input) {
-        this.input = input.toLowerCase();
+        this.input = WordUtil.clean(input, true);
     }
 
     @Override
     public int compare(String s0, String s1) {
-        final int dist0 = LevenshteinDistance.computeLevenshteinDistance(input, s0.toLowerCase());
-        final int dist1 = LevenshteinDistance.computeLevenshteinDistance(input, s1.toLowerCase());
+        s0 = WordUtil.clean(s0, true);
+        s1 = WordUtil.clean(s1, true);
+
+        final int i0 = input.indexOf(s0);
+        final int i1 = input.indexOf(s1);
+
+        if (i0 != i1) {
+            return new Integer(i0).compareTo(i1);
+        }
+
+        final int dist0 = LevenshteinDistance.computeLevenshteinDistance(input, s0);
+        final int dist1 = LevenshteinDistance.computeLevenshteinDistance(input, s1);
         final int i = new Integer(dist0).compareTo(dist1);
 
         return (i != 0)
