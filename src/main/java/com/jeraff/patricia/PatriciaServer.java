@@ -38,5 +38,14 @@ public class PatriciaServer {
         server.setHandler(contexts);
         server.start();
         server.join();
+
+        Runtime.getRuntime().addShutdownHook(new Thread(
+                new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("shutting down now...");
+                    }
+                }
+        ));
     }
 }
