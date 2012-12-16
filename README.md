@@ -194,7 +194,7 @@ Config
 
 On the command line you can specify a config file via system property named "conf"
 
-    java -Dconf=~/xxxxxx/PatriciaTrie/etc/conf/local.json -jar /path/to/patricia.jar
+    java -Dpatricia.conf=~/xxxxxx/PatriciaTrie/etc/conf/local.json -jar /path/to/patricia.jar
 
 Config file's in json... Here's the most basic one you could have...
 
@@ -217,7 +217,7 @@ system properties who's names begin with `patricia.`.
 
 Going with the example above:
 
-    java -Dconf=~/xxxxxx/PatriciaTrie/etc/conf/local.json -Dpatricia.connector.port=8111 -jar /path/to/patricia.jar
+    java -Dpatricia.conf=~/xxxxxx/PatriciaTrie/etc/conf/local.json -Dpatricia.connector.port=8111 -jar /path/to/patricia.jar
 
 With a line like that the app will first load in all the values from `local.json` then layer on the values
 from any system properties named `patricia.*`. So in this example `connector.port` is first set to 8666 from the config,

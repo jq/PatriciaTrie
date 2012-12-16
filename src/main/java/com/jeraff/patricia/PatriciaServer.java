@@ -1,6 +1,7 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.data.JbdcBootstrap;
 import com.jeraff.patricia.handler.ApiHandler;
 import com.jeraff.patricia.handler.WebHandler;
 import org.eclipse.jetty.server.Connector;
@@ -12,6 +13,9 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaServer {
@@ -22,14 +26,7 @@ public class PatriciaServer {
         final Server server = new Server();
         final Config config = new Config(System.getProperties());
 
-        Runtime.getRuntime().addShutdownHook(new Thread(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println("Performing shutdown...");
-                    }
-                }
-        ));
+        jdbcBootstrap(patriciaTrie, config);
 
         final SelectChannelConnector connector0 = new SelectChannelConnector();
         config.configConnector(connector0);
@@ -51,5 +48,13 @@ public class PatriciaServer {
         server.setHandler(contexts);
         server.start();
         server.join();
+    }
+
+    private static void jdbcBootstrap(PatriciaTrie<String, String> patriciaTrie, Config config) {
+        try {
+            new JbdcBootstrap(patriciaTrie, config).run();
+        } catch (SQLException e) {
+            log.log(Level.WARNING, "JDBC bootstrap failed", e);
+        }
     }
 }

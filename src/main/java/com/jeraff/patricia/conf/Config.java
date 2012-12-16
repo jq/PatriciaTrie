@@ -8,15 +8,26 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.StringWriter;
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Config {
+    protected static final Logger log = Logger.getLogger(Config.class.getPackage().getName());
+
     public static final String CONNECTOR = "connector";
     public static final String CONNECTOR_PORT = "port";
     public static final int CONF_CONNECTOR_PORT_DEFAULT = 8666;
 
-    private static final String PROP_CONFIG_FILE = "conf";
+    public static final String JDBC = "jdbc";
+    public static final String JDBC_TABLE = "table";
+    public static final String JDBC_COLUMN = "column";
+    public static final String JDBC_URL = "url";
+
     public static final String PARTRICIA_PROP_PREFIX = "partricia.";
+    public static final String PROP_CONFIG_FILE = PARTRICIA_PROP_PREFIX + "conf";
 
     private HashMap<String, Object> confMap;
     private long time;
@@ -114,5 +125,42 @@ public class Config {
 
     public long getTime() {
         return time;
+    }
+
+    /////////////////////////////////////////////////////////////////
+    // jdbc stuff
+    /////////////////////////////////////////////////////////////////
+    public boolean hasJdbc() {
+        return confMap.containsKey(JDBC);
+    }
+
+    public Connection getJdbcConnection() {
+        if (!hasJdbc()) {
+            log.log(Level.WARNING, "No JDBC configuration available");
+            return null;
+        }
+
+        try {
+            final Map<String, Object> jdbcInfo = (Map<String, Object>) confMap.get(JDBC);
+            jdbcInfo.put(JDBC_COLUMN, jdbcInfo.get(JDBC_COLUMN));
+
+            final Properties properties = new Properties();
+            properties.putAll(jdbcInfo);
+
+            return DriverManager.getConnection((String) jdbcInfo.get(JDBC_URL), properties);
+        } catch (Exception e) {
+            final String error = "Could not create JDBC connection";
+            log.log(Level.SEVERE, error, e);
+        }
+
+        return null;
+    }
+
+    public String getyJdbcTable() {
+        return (String) ((Map<String, Object>)confMap.get(JDBC)).get(JDBC_TABLE);
+    }
+
+    public String getyJdbcColumn() {
+        return (String) ((Map<String, Object>)confMap.get(JDBC)).get(JDBC_COLUMN);
     }
 }
