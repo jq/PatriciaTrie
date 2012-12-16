@@ -28,7 +28,7 @@ public class Config {
     public static final String JDBC_COLUMN_ORDER = "orderby";
     public static final String JDBC_URL = "url";
 
-    public static final String PARTRICIA_PROP_PREFIX = "partricia.";
+    public static final String PARTRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PARTRICIA_PROP_PREFIX + "conf";
 
     private HashMap<String, Object> confMap;
