@@ -2,27 +2,21 @@
 
 import sys
 import argparse
-from subprocess import call
+import urllib2
+import urllib
+import args
+import json
+import zlib
 
-parser = argparse.ArgumentParser(
-    add_help=False,
-    description="Import from stdin")
-
-parser.add_argument("-host",
-    type=str,
-    help="Machine's hostname",
-    dest='host',
-    default="localhost:8666",
-    required=False)
-
-pp = parser.parse_args(sys.argv[1:])
+pp = args.args()
 
 for line in sys.stdin:
-	s = line.strip()
+    s = line.strip()
 
-	if not bool(s):
-		continue
-		
-	l = s.replace("[edit]", "").rstrip(':')
-	return_code = call(["curl", "%s/api/" % pp.host, "-d", ("s=%s" % l)])
-	print return_code
+    if not bool(s):
+        continue
+
+    req = urllib2.Request(pp.host, urllib.urlencode({"s": s}))
+    response = urllib2.urlopen(req)
+    data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS))
+    print data

@@ -5,6 +5,7 @@ import args
 import urllib
 import urllib2
 import pprint
+import zlib
 
 pp = args.args()
 res = []
@@ -12,7 +13,7 @@ res = []
 url = "%s?%s" % (pp.host, urllib.urlencode({"s": " ".join(pp.keys)}))
 req = urllib2.Request(url)
 response = urllib2.urlopen(req)
-data = json.loads(response.read(), encoding="UTF-8")
+data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS), encoding="UTF-8")
 res.append(data)
     
 pprint.pprint(data)

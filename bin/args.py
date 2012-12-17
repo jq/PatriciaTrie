@@ -16,7 +16,7 @@ def args():
     parser.add_argument("keys",
         type=str,
         help="Keys to add",
-        nargs='+')
+        nargs='*')
 
     pp = parser.parse_args(sys.argv[1:])
     if not pp.host.startswith("http://") and not pp.host.startswith("https://"):
