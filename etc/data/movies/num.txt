@@ -75,7 +75,6 @@ The Thirteenth Floor
 A Thousand Acres
 A Thousand Clowns
 Twelve
-[edit]2
 2 Days in New York
 2 Days in Paris
 2 Days in the Valley
@@ -119,7 +118,6 @@ Twenty-One
 28 up
 2:37
 Catch-22
-[edit]3
 Three Amigos
 Three Coins in the Fountain
 Three Colors 
@@ -170,7 +168,7 @@ Thr3e
 Three
 Three... Extremes
 π
-[edit]4
+
 Four Brothers
 Four Daughters
 Four Feathers
@@ -199,7 +197,7 @@ The 400 Blows
 The 4th Floor
 The Fourth Man
 The Fourth Protocol
-[edit]5
+
 5 Broken Cameras
 5 Card Stud
 5 Days of War
@@ -222,7 +220,7 @@ The Fifth Element
 (500) Days of Summer
 The 5,000 Fingers of Dr. T
 50/50
-[edit]6
+
 6 Angels
 The 6th Day
 633 Squadron
@@ -232,7 +230,7 @@ Sixteen Candles
 The Sixth Sense
 The 601st Phone Call
 61*
-[edit]7
+
 Six Days Seven Nights
 Seven Beauties
 Seven Brides for Seven Brothers
@@ -253,7 +251,7 @@ The Seventh Seal
 The Seventh Sign
 Se7en
 The Seven-Ups
-[edit]8
+
 Eight Crazy Nights
 8 Heads in a Duffel Bag
 Eight Men Out
@@ -268,7 +266,7 @@ Eight Men Out
 8mm 2
 8½
 8½ Women
-[edit]9
+
 9
 Nine
 Nine to Five
@@ -281,9 +279,9 @@ Nine Queens
 9th Company
 9½ Weeks
 The Nines
-[edit]In numerical order
 
-[edit]0-π
+
+
 Zero Effect
 .45
 One A.M.
@@ -325,7 +323,7 @@ The Three Musketeers
 Three for the Road
 3,2,1... Frankie Go Boom
 π
-[edit]4-6
+
 4D Man
 Four Daughters
 Four Feathers
@@ -352,7 +350,7 @@ The 6th Day
 Six Degrees of Separation
 Six Days Seven Nights
 The Sixth Sense
-[edit]7-9
+
 Se7en
 Seven Beauties
 Seven Brides for Seven Brothers
@@ -382,7 +380,7 @@ Eight Men Out
 The Nines
 9 Songs
 Nine to Five
-[edit]10-99
+
 10
 10½
 10 Items or Less
@@ -446,7 +444,7 @@ The 51st State
 52 Pick-Up
 61*
 84 Charing Cross Road
-[edit]100-999
+
 One Hundred Men and a Girl
 101 Dalmatians
 101 Reykjavík
