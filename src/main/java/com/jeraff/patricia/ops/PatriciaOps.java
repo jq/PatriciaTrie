@@ -61,19 +61,23 @@ public class PatriciaOps {
     }
 
     public List<String> getPrefixedBy(String prefix) {
-        final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(WordUtil.clean(prefix));
+        final SortedMap<String, String> prefixedBy = (WordUtil.isSTopWord(prefix))
+                ? patriciaTrie.getPrefixedBy(prefix.toLowerCase())
+                : patriciaTrie.getPrefixedBy(WordUtil.clean(prefix));
 
         if (prefixedBy.isEmpty()) {
             return new ArrayList<String>();
         }
 
         List<String> result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
+        Collections.sort(result, new DistanceComparator(prefix));
+
         final int total = result.size();
+
         if (total > NUM_PREFIX_MATCHES) {
             result = result.subList(0, NUM_PREFIX_MATCHES);
         }
 
-        Collections.sort(result, new DistanceComparator(prefix));
         return result;
     }
 

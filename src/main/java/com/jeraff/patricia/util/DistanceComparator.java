@@ -14,11 +14,15 @@ public class DistanceComparator implements Comparator<String> {
         s0 = WordUtil.clean(s0, true);
         s1 = WordUtil.clean(s1, true);
 
-        final int i0 = input.indexOf(s0);
-        final int i1 = input.indexOf(s1);
+        final int i0 = s0.indexOf(input);
+        final int i1 = s1.indexOf(input);
 
-        if (i0 != i1) {
-            return new Integer(i0).compareTo(i1);
+        if (i0 != i1 && (i0 + i1 != -2)) {
+            if (i0 == 0) {
+                return -1;
+            } else if (i1 == 0) {
+                return 1;
+            }
         }
 
         final int dist0 = LevenshteinDistance.computeLevenshteinDistance(input, s0);

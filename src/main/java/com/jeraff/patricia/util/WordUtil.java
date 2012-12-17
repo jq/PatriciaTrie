@@ -7,11 +7,18 @@ import java.util.*;
 public class WordUtil {
     public static final String SPACE = " ";
 
-    public static final List<String> stopWords = Arrays.asList(new String[]{
-            "a", "an", "and", "as", "at", "be", "by",
-            "if", "in", "is", "it",
-            "of", "on", "or",
-            "the", "to"});
+    public static final HashMap<String, Byte> stopWords = new HashMap<String, Byte>();
+
+    static {
+        String[] stopWordsArray = new String[]{
+                "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no",
+                "not", "of", "on", "or", "s", "such", "t", "that", "the", "their", "then", "there", "these", "they",
+                "this", "to", "was", "will", "with"};
+
+        for (int i = 0; i < stopWordsArray.length; i++) {
+            stopWords.put(stopWordsArray[i], Byte.MIN_VALUE);
+        }
+    }
 
     public static String stripStopWords(String s) {
         final String[] split = StringUtils.split(s);
@@ -19,12 +26,16 @@ public class WordUtil {
 
         for (int i = 0; i < split.length; i++) {
             final String token = split[i];
-            if (i == 0 || !stopWords.contains(token.toLowerCase())) {
+            if (i == 0 || !stopWords.containsKey(token.toLowerCase())) {
                 cleaned.add(token);
             }
         }
 
         return StringUtils.join(cleaned, SPACE);
+    }
+
+    public static boolean isSTopWord(String s) {
+        return stopWords.containsKey(s.toLowerCase());
     }
 
     public static String clean(String s) {
