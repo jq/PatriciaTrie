@@ -70,14 +70,13 @@ public class PatriciaOps {
         }
 
         List<String> result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
-        Collections.sort(result, new DistanceComparator(prefix));
-
         final int total = result.size();
 
         if (total > NUM_PREFIX_MATCHES) {
             result = result.subList(0, NUM_PREFIX_MATCHES);
         }
 
+        Collections.sort(result, new DistanceComparator(prefix));
         return result;
     }
 
