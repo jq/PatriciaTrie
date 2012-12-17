@@ -40,7 +40,7 @@ public class PatriciaOps {
             final ArrayList<String> grams = new ArrayList<String>();
 
             for (String gram : WordUtil.getGramsForPut(string)) {
-                final String clean = (gram.indexOf("^") == 0) ? gram : WordUtil.clean(gram);
+                final String clean = (gram.indexOf("^") == 0) ? gram.toLowerCase() : WordUtil.clean(gram);
                 final String key = generateKey(string, clean);
                 patriciaTrie.put(key, string);
                 grams.add(gram);
