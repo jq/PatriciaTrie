@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 public class PatriciaOps {
     private static final Logger log = Logger.getLogger(PatriciaOps.class.getPackage().getName());
-    public static final int NUM_PREFIX_MATCHES = 25;
+    public static final int NUM_PREFIX_MATCHES = 10;
 
     private PatriciaTrie<String, String> patriciaTrie;
 
@@ -40,7 +40,7 @@ public class PatriciaOps {
             final ArrayList<String> grams = new ArrayList<String>();
 
             for (String gram : WordUtil.getGramsForPut(string)) {
-                final String clean = WordUtil.clean(gram);
+                final String clean = (gram.indexOf("^") == 0) ? gram : WordUtil.clean(gram);
                 final String key = generateKey(string, clean);
                 patriciaTrie.put(key, string);
                 grams.add(gram);
@@ -62,7 +62,7 @@ public class PatriciaOps {
 
     public List<String> getPrefixedBy(String prefix) {
         final SortedMap<String, String> prefixedBy = (WordUtil.isSTopWord(prefix))
-                ? patriciaTrie.getPrefixedBy(prefix.toLowerCase())
+                ? patriciaTrie.getPrefixedBy(WordUtil.getStartsWithKey(prefix.toLowerCase()))
                 : patriciaTrie.getPrefixedBy(WordUtil.clean(prefix));
 
         if (prefixedBy.isEmpty()) {

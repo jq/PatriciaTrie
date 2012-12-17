@@ -55,8 +55,20 @@ public class WordUtil {
     public static HashSet<String> getGramsForPut(final String s) {
         final HashSet<String> rtn = new HashSet<String>();
         rtn.addAll(getGramsForCleanedString(clean(s, true)));
-        rtn.addAll(getGramsForCleanedString(clean(s, false)));
+
+        final HashSet<String> cleansStopWordsInTact = getGramsForCleanedString(clean(s, false));
+        rtn.addAll(cleansStopWordsInTact);
+
+        final String firstWord = StringUtils.split(s)[0];
+        if (WordUtil.isSTopWord(firstWord)) {
+            rtn.add(getStartsWithKey(firstWord));
+        }
+
         return rtn;
+    }
+
+    public static String getStartsWithKey(String s) {
+        return String.format("^%s", s);
     }
 
     public static HashSet<String> getGramsForCleanedString(final String cleanedString) {
