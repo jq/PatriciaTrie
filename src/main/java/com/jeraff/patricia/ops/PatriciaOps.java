@@ -1,9 +1,7 @@
 package com.jeraff.patricia.ops;
 
+import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import com.jeraff.patricia.util.DistanceComparator;
-import com.jeraff.patricia.util.WordUtil;
-import org.apache.commons.codec.digest.DigestUtils;
-import org.apache.commons.lang.StringUtils;
 import org.limewire.collection.PatriciaTrie;
 
 import java.util.*;
@@ -14,9 +12,11 @@ public class PatriciaOps {
     public static final int NUM_PREFIX_MATCHES = 10;
 
     private PatriciaTrie<String, String> patriciaTrie;
+    private final PartialMatchAnalyzer analyzer;
 
     public PatriciaOps(PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
+        this.analyzer = new PartialMatchAnalyzer();
     }
 
     public String firstKey() {
@@ -37,33 +37,22 @@ public class PatriciaOps {
 
         for (int i = 0; i < length; i++) {
             final String string = strings[i];
-            final ArrayList<String> grams = new ArrayList<String>();
+            final ArrayList<String> indexKeys = new ArrayList<String>();
 
-            for (String gram : WordUtil.getGramsForPut(string)) {
-                final String clean = (gram.indexOf("^") == 0) ? gram.toLowerCase() : WordUtil.clean(gram);
-                final String key = generateKey(string, clean);
-                patriciaTrie.put(key, string);
-                grams.add(gram);
+            final Set<Map.Entry<String, String>> indexKeyValues = analyzer.getIndexKeyValues(string);
+            for (Map.Entry<String, String> indexKeyValue : indexKeyValues) {
+                patriciaTrie.put(indexKeyValue.getKey(), string);
+                indexKeys.add(indexKeyValue.getKey());
             }
 
-            result.put(string, grams);
+            result.put(string, indexKeys);
         }
 
         return result;
     }
 
-    private String generateKey(String string, String clean) {
-        final String suffix = (string.length() < 32)
-                ? StringUtils.deleteWhitespace(WordUtil.clean(string, false))
-                : DigestUtils.md5Hex(string);
-
-        return String.format("%s.%s", clean, suffix);
-    }
-
     public List<String> getPrefixedBy(String prefix) {
-        final SortedMap<String, String> prefixedBy = (WordUtil.isSTopWord(prefix))
-                ? patriciaTrie.getPrefixedBy(WordUtil.getStartsWithKey(prefix.toLowerCase()))
-                : patriciaTrie.getPrefixedBy(WordUtil.clean(prefix));
+        final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(analyzer.getPrefixSearchKey(prefix));
 
         if (prefixedBy.isEmpty()) {
             return new ArrayList<String>();
@@ -76,7 +65,7 @@ public class PatriciaOps {
             result = result.subList(0, NUM_PREFIX_MATCHES);
         }
 
-        Collections.sort(result, new DistanceComparator(prefix));
+        Collections.sort(result, new DistanceComparator(prefix, analyzer));
         return result;
     }
 
@@ -89,9 +78,9 @@ public class PatriciaOps {
         final HashMap<String, String> result = new HashMap<String, String>(length);
 
         for (String string : strings) {
-            for (String gram : WordUtil.getGramsForPut(string)) {
-                final String clean = WordUtil.clean(gram);
-                result.put(string, patriciaTrie.remove(generateKey(string, clean)));
+            final Set<Map.Entry<String, String>> entries = analyzer.getIndexKeyValues(string);
+            for (Map.Entry<String, String> entry : entries) {
+                result.put(string, patriciaTrie.remove(entry.getKey()));
             }
         }
 

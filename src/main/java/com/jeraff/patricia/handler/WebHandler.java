@@ -4,7 +4,6 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.util.Method;
-import com.jeraff.patricia.util.WordUtil;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -94,7 +93,7 @@ public class WebHandler extends BaseHandler {
 
         rootMap.put("size", size);
         rootMap.put("upSec", (System.currentTimeMillis() - config.getTime())/ 1000L);
-        rootMap.put("upAgo", WordUtil.ago(dateUp));
+        rootMap.put("upAgo", ago(dateUp));
         rootMap.put("upDate", sdf.format(dateUp));
         rootMap.put("config", gson.toJson(config));
 
@@ -124,5 +123,52 @@ public class WebHandler extends BaseHandler {
             target = target.replaceAll("/$", "");
         }
         return target;
+    }
+
+    static String ago(Date date) {
+        final Date now = new Date();
+        if (now.before(date)) {
+            return "";
+        }
+
+        long delta = (now.getTime() - date.getTime()) / 1000;
+        if (delta < 30) {
+            return "just now";
+        }
+
+        if (delta < 60) {
+            return "1 minute";
+        }
+
+        if (delta < 60 * 60) {
+            long minutes = delta / 60;
+            return String.format("%d minute%s", minutes, pluralize(minutes));
+        }
+
+        if (delta < 24 * 60 * 60) {
+            long hours = delta / (60 * 60);
+            return String.format("%d hour%s", hours, pluralize(hours));
+        }
+
+        if (delta < 30 * 24 * 60 * 60) {
+            long days = delta / (24 * 60 * 60);
+            return String.format("%d day%s", days, pluralize(days));
+        }
+
+        if (delta < 365 * 24 * 60 * 60) {
+            long months = delta / (30 * 24 * 60 * 60);
+            return String.format("%d month%s", months, pluralize(months));
+        }
+
+        long years = delta / (365 * 24 * 60 * 60);
+        return String.format("%d year%s", years, pluralize(years));
+    }
+
+    static String pluralize(Number n) {
+        long l = n.longValue();
+        if (l != 1) {
+            return "s";
+        }
+        return "";
     }
 }
