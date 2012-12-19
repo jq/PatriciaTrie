@@ -63,9 +63,8 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         final HashSet<String> cleansStopWordsInTact = getGramsForCleanedString(clean(s, false));
         rtn.addAll(cleansStopWordsInTact);
 
-        final String firstWord = StringUtils.split(s)[0];
-        if (startsWithStopWord(firstWord)) {
-            rtn.add(getStartsWithKey(firstWord));
+        if (startsWithStopWord(s)) {
+            rtn.add(getStartsWithKey(s.toLowerCase()));
         }
 
         return rtn;
