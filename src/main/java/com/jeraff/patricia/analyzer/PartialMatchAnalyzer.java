@@ -22,7 +22,7 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
 
     @Override
     public String getPrefixSearchKey(String s) {
-        return (WordUtil.beginsWithStopWord(s))
+        return (WordUtil.startsWithStopWord(s))
                 ? WordUtil.getStartsWithKey(s.toLowerCase())
                 : WordUtil.clean(s);
     }
@@ -48,7 +48,7 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         rtn.addAll(cleansStopWordsInTact);
 
         final String firstWord = StringUtils.split(s)[0];
-        if (WordUtil.beginsWithStopWord(firstWord)) {
+        if (WordUtil.startsWithStopWord(firstWord)) {
             rtn.add(WordUtil.getStartsWithKey(firstWord));
         }
 

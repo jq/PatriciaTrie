@@ -84,13 +84,12 @@ class WordUtil {
         return res;
     }
 
-    public static boolean beginsWithStopWord(String s) {
+    public static boolean startsWithStopWord(String s) {
         for (String stopWord : stopWords.keySet()) {
             if (s.toLowerCase().startsWith(stopWord)) {
                 return true;
             }
         }
-
         return false;
     }
 }
