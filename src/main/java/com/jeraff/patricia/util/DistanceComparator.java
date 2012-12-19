@@ -10,13 +10,13 @@ public class DistanceComparator implements Comparator<String> {
 
     public DistanceComparator(String input, PatriciaStringAnalyzer analyzer) {
         this.analyzer = analyzer;
-        this.input = analyzer.clean(input, true);
+        this.input = analyzer.getComparable(input);
     }
 
     @Override
     public int compare(String s0, String s1) {
-        s0 = analyzer.clean(s0, true);
-        s1 = analyzer.clean(s1, true);
+        s0 = analyzer.getComparable(s0);
+        s1 = analyzer.getComparable(s1);
 
         final int i0 = s0.indexOf(input);
         final int i1 = s1.indexOf(input);

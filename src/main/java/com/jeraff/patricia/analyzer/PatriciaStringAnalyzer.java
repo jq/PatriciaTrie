@@ -6,5 +6,5 @@ import java.util.Set;
 public interface PatriciaStringAnalyzer {
     public Set<Map.Entry<String, String>> getIndexKeyValues(String s);
     public String getPrefixSearchKey(String s);
-    public String clean(String String, boolean b);
+    public String getComparable(String String);
 }

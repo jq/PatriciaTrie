@@ -28,8 +28,8 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
     }
 
     @Override
-    public String clean(String String, boolean b) {
-        return WordUtil.clean(String, b);
+    public String getComparable(String String) {
+        return WordUtil.clean(String, true);
     }
 
     private String generateKey(String string, String clean) {
