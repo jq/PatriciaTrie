@@ -34,7 +34,7 @@ class WordUtil {
         return StringUtils.join(cleaned, SPACE);
     }
 
-    static boolean isSTopWord(String s) {
+    static boolean isStopWord(String s) {
         return stopWords.containsKey(s.toLowerCase());
     }
 
@@ -60,7 +60,7 @@ class WordUtil {
         rtn.addAll(cleansStopWordsInTact);
 
         final String firstWord = StringUtils.split(s)[0];
-        if (WordUtil.isSTopWord(firstWord)) {
+        if (WordUtil.isStopWord(firstWord)) {
             rtn.add(getStartsWithKey(firstWord));
         }
 
