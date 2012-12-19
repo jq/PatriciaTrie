@@ -52,21 +52,6 @@ class WordUtil {
         return StringUtils.trim(StringUtils.chomp(current.toLowerCase()));
     }
 
-    static HashSet<String> getGramsForPut(final String s) {
-        final HashSet<String> rtn = new HashSet<String>();
-        rtn.addAll(getGramsForCleanedString(clean(s, true)));
-
-        final HashSet<String> cleansStopWordsInTact = getGramsForCleanedString(clean(s, false));
-        rtn.addAll(cleansStopWordsInTact);
-
-        final String firstWord = StringUtils.split(s)[0];
-        if (WordUtil.isStopWord(firstWord)) {
-            rtn.add(getStartsWithKey(firstWord));
-        }
-
-        return rtn;
-    }
-
     static String getStartsWithKey(String s) {
         return String.format("^%s", s);
     }
@@ -97,5 +82,15 @@ class WordUtil {
 
         res.add(cleanedString);
         return res;
+    }
+
+    public static boolean beginsWithStopWord(String s) {
+        for (String stopWord : stopWords.keySet()) {
+            if (s.toLowerCase().startsWith(stopWord)) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
