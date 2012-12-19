@@ -6,13 +6,12 @@ import org.apache.commons.lang.StringUtils;
 import java.util.*;
 
 public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
-
     @Override
     public Set<Map.Entry<String, String>> getIndexKeyValues(String s) {
         final HashMap<String, String> rtn = new HashMap<String, String>();
 
         for (String gram : getGramsForPut(s)) {
-            final String clean = (gram.indexOf("^") == 0) ? gram.toLowerCase() : WordUtil.clean(gram);
+            final String clean = (gram.indexOf("^") == 0) ? gram.toLowerCase() : clean(gram);
             final String key = generateKey(s, clean);
             rtn.put(key, s);
         }
@@ -22,19 +21,36 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
 
     @Override
     public String getPrefixSearchKey(String s) {
-        return (WordUtil.startsWithStopWord(s))
-                ? WordUtil.getStartsWithKey(s.toLowerCase())
-                : WordUtil.clean(s);
+        return (startsWithStopWord(s))
+                ? getStartsWithKey(s.toLowerCase())
+                : clean(s);
     }
 
     @Override
     public String getComparable(String String) {
-        return WordUtil.clean(String, true);
+        return clean(String, true);
+    }
+
+    ////////////////////////////////////////////////////////////////////////
+    // helper methods & vars
+    ////////////////////////////////////////////////////////////////////////
+    private static final String SPACE = " ";
+    private static final HashMap<String, Byte> stopWords = new HashMap<String, Byte>();
+
+    static {
+        String[] stopWordsArray = new String[]{
+                "a", "an", "and", "are", "as", "at", "be", "but", "by", "for", "if", "in", "into", "is", "it", "no",
+                "not", "of", "on", "or", "s", "such", "t", "that", "the", "their", "then", "there", "these", "they",
+                "this", "to", "was", "will", "with"};
+
+        for (int i = 0; i < stopWordsArray.length; i++) {
+            stopWords.put(stopWordsArray[i], Byte.MIN_VALUE);
+        }
     }
 
     private String generateKey(String string, String clean) {
         final String suffix = (string.length() < 32)
-                ? StringUtils.deleteWhitespace(WordUtil.clean(string, false))
+                ? StringUtils.deleteWhitespace(clean(string, false))
                 : DigestUtils.md5Hex(string);
 
         return String.format("%s.%s", clean, suffix);
@@ -42,16 +58,85 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
 
     private HashSet<String> getGramsForPut(String s) {
         final HashSet<String> rtn = new HashSet<String>();
-        rtn.addAll(WordUtil.getGramsForCleanedString(WordUtil.clean(s, true)));
+        rtn.addAll(getGramsForCleanedString(clean(s, true)));
 
-        final HashSet<String> cleansStopWordsInTact = WordUtil.getGramsForCleanedString(WordUtil.clean(s, false));
+        final HashSet<String> cleansStopWordsInTact = getGramsForCleanedString(clean(s, false));
         rtn.addAll(cleansStopWordsInTact);
 
         final String firstWord = StringUtils.split(s)[0];
-        if (WordUtil.startsWithStopWord(firstWord)) {
-            rtn.add(WordUtil.getStartsWithKey(firstWord));
+        if (startsWithStopWord(firstWord)) {
+            rtn.add(getStartsWithKey(firstWord));
         }
 
         return rtn;
+    }
+
+    private String stripStopWords(String s) {
+        final String[] split = StringUtils.split(s);
+        final List<String> cleaned = new ArrayList<String>();
+
+        for (int i = 0; i < split.length; i++) {
+            final String token = split[i];
+            if (i == 0 || !stopWords.containsKey(token.toLowerCase())) {
+                cleaned.add(token);
+            }
+        }
+
+        return StringUtils.join(cleaned, SPACE);
+    }
+
+    private String clean(String s) {
+        return clean(s, false);
+    }
+
+    private String clean(String s, boolean stripStopWords) {
+        String current = s.replaceAll("[^A-Za-z0-9 ]", "");
+
+        if (stripStopWords) {
+            current = stripStopWords(current);
+        }
+
+        return StringUtils.trim(StringUtils.chomp(current.toLowerCase()));
+    }
+
+    private String getStartsWithKey(String s) {
+        return String.format("^%s", s);
+    }
+
+    private HashSet<String> getGramsForCleanedString(final String cleanedString) {
+        final String[] st = StringUtils.split(cleanedString);
+
+        if (st.length == 0) {
+            return new HashSet<String>(0);
+        } else if (st.length == 1) {
+            return new HashSet<String>() {{
+                add(cleanedString);
+            }};
+        }
+
+        final ArrayList<String> list = new ArrayList<String>(Arrays.asList(st));
+        final HashSet<String> res = new HashSet<String>();
+        final Iterator<String> iterator = list.iterator();
+
+        while (iterator.hasNext()) {
+            if (!list.isEmpty()) {
+                res.add(StringUtils.join(list, " "));
+            }
+
+            iterator.next();
+            iterator.remove();
+        }
+
+        res.add(cleanedString);
+        return res;
+    }
+
+    private static boolean startsWithStopWord(String s) {
+        for (String stopWord : stopWords.keySet()) {
+            if (s.toLowerCase().startsWith(stopWord)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
