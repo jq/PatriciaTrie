@@ -37,4 +37,25 @@ public class Core {
     public Class getAnalyzerClass() {
         return analyzerClass;
     }
+
+    private String makeUrl(String path) {
+        final String strip = StringUtils.strip(contextPath, "/");
+        if (StringUtils.isBlank(strip)) {
+            return String.format("/%s/", StringUtils.strip(path, "/"));
+        } else {
+            return String.format("/%s/%s/", strip, StringUtils.strip(path, "/"));
+        }
+    }
+
+    public String getAddUrl() {
+        return makeUrl("add");
+    }
+
+    public String getApiUrl() {
+        return makeUrl("api");
+    }
+
+    public String getStatusUrl() {
+        return makeUrl("status");
+    }
 }

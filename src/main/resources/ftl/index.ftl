@@ -13,7 +13,7 @@
 
         $(function () {
             $("#s").autocomplete({
-                source: "${core.contextPath}/api/",
+                source: "${core.apiUrl}",
                 autoFocus: true,
                 delay: 10,
                 minLength: 1,

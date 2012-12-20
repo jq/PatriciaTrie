@@ -11,7 +11,7 @@
 
 <body>
 
-<form method="POST" action="${core.contextPath}/add">
+<form method="POST" action="${core.addUrl}">
     <div class="center">
         <label for="t">Add Some Stuff</label>
     </div>
