@@ -2,6 +2,7 @@ package com.jeraff.patricia.conf;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.StringMap;
+import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -33,11 +34,14 @@ public class Config {
     public static final String PARTRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PARTRICIA_PROP_PREFIX + "conf";
 
+    @GsonIgnore
     private HashMap<String, Object> confMap;
     private long time;
     private HashMap<String, Core> cores = new HashMap<String, Core>();
     private final String confFilePath;
     private boolean needsIndexHandler;
+    private HashMap<Object, Object> systemProperties;
+    private final Object connector;
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
@@ -52,6 +56,8 @@ public class Config {
 
         handleSystemProperties(properties, confMap);
         setupCores();
+
+        this.connector = confMap.get(CONNECTOR);
     }
 
     public String getConfigFileContent() throws IOException {
@@ -81,6 +87,8 @@ public class Config {
     }
 
     private void handleSystemProperties(Properties properties, HashMap<String, Object> confMap) {
+        systemProperties = new HashMap<Object, Object>();
+
         for (Map.Entry<Object, Object> entry : properties.entrySet()) {
             final Object key = entry.getKey();
             if (!(key instanceof String)) {
@@ -91,6 +99,8 @@ public class Config {
             if (!name.startsWith(PARTRICIA_PROP_PREFIX)) {
                 continue;
             }
+
+            systemProperties.put(entry.getKey(), entry.getValue());
 
             final Object value = entry.getValue();
             final List<String> strings = new ArrayList<String>(Arrays.asList(name.split("\\.")));

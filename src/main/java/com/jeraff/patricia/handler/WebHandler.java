@@ -1,9 +1,12 @@
 package com.jeraff.patricia.handler;
 
+import com.google.gson.ExclusionStrategy;
+import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.util.GsonIgnore;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -98,7 +101,20 @@ public class WebHandler extends BaseHandler {
         rootMap.put("upSec", (System.currentTimeMillis() - config.getTime()) / 1000L);
         rootMap.put("upAgo", ago(dateUp));
         rootMap.put("upDate", sdf.format(dateUp));
-        rootMap.put("config", config.getConfigFileContent());
+        rootMap.put("configFile", config.getConfigFileContent());
+
+        final Gson gson = new GsonBuilder().setPrettyPrinting().setExclusionStrategies(new ExclusionStrategy() {
+            @Override
+            public boolean shouldSkipField(FieldAttributes fieldAttributes) {
+                return fieldAttributes.getAnnotation(GsonIgnore.class) != null;
+            }
+
+            @Override
+            public boolean shouldSkipClass(Class<?> aClass) {
+                return false;
+            }
+        }).create();
+        rootMap.put("config", gson.toJson(config));
 
         if (size != 0) {
             rootMap.put("firstKey", patriciaTrieOps.firstKey());

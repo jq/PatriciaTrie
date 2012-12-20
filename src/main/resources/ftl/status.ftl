@@ -15,7 +15,7 @@
             padding-right: 20px;
         }
 
-        td, th {
+        td, th, textarea {
             vertical-align: top;
             font-family: monospace;
         }
@@ -76,6 +76,10 @@
                     <td colspan="2">
                         <hr/>
                     </td>
+                </tr>
+                <tr>
+                    <th>config file:</th>
+                    <td><textarea rows="10" cols="60" readonly="true">${configFile}</textarea></td>
                 </tr>
                 <tr>
                     <th>config:</th>
