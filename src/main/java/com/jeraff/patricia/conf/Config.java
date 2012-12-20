@@ -189,6 +189,8 @@ public class Config {
         final Object rawCoreConfig = confMap.get(CORES);
 
         if (rawCoreConfig == null) {
+            final Core core = new Core("/");
+            cores.put(core.getContextPath(), core);
             return;
         } else if (!(rawCoreConfig instanceof StringMap)) {
             log.log(Level.SEVERE, err);
@@ -223,13 +225,7 @@ public class Config {
     }
 
     public List<Core> getCores() {
-        if (cores.size() != 0) {
-            return new ArrayList<Core>(cores.values());
-        }
-
-        return new ArrayList<Core>(1) {{
-            add(new Core("/"));
-        }};
+        return new ArrayList<Core>(cores.values());
     }
 
     /////////////////////////////////////////////////////////////////
