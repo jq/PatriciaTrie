@@ -3,7 +3,7 @@ package com.jeraff.patricia;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.handler.CoreHandler;
-import org.eclipse.jetty.server.Connector;
+import com.jeraff.patricia.handler.IndexHandler;import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -41,6 +41,14 @@ public class PatriciaServer {
             apiHandler.setHandler(new CoreHandler(core, config));
             apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
             contextHandlers.add(apiHandler);
+        }
+
+        if (config.needsIndexHandler()) {
+            final ContextHandler indexHandler = new ContextHandler("/");
+            indexHandler.setResourceBase(".");
+            indexHandler.setHandler(new IndexHandler(config));
+            indexHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+            contextHandlers.add(indexHandler);
         }
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();

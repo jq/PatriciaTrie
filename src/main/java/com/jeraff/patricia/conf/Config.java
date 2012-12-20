@@ -37,6 +37,7 @@ public class Config {
     private long time;
     private HashMap<String, Core> cores = new HashMap<String, Core>();
     private final String confFilePath;
+    private boolean needsIndexHandler;
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
@@ -185,6 +186,7 @@ public class Config {
         }
 
         StringMap<StringMap> coreConfig = (StringMap<StringMap>) rawCoreConfig;
+
         for (Map.Entry<String, StringMap> entry : coreConfig.entrySet()) {
             try {
                 final Core core = new Core(entry.getKey(), entry.getValue());
@@ -194,6 +196,30 @@ public class Config {
                 throw new RuntimeException(err);
             }
         }
+
+        // if the user configured a single core at / then we don't need an index handler
+        needsIndexHandler = true;
+        if (cores.size() == 1) {
+            final ArrayList<Core> l = new ArrayList<Core>(cores.values());
+            final Core core = l.get(0);
+            if (core.getContextPath().equals("/")) {
+                needsIndexHandler = false;
+            }
+        }
+    }
+
+    public boolean needsIndexHandler() {
+        return needsIndexHandler;
+    }
+
+    public List<Core> getCores() {
+        if (cores.size() != 0) {
+            return new ArrayList<Core>(cores.values());
+        }
+
+        return new ArrayList<Core>(1) {{
+            add(new Core("/"));
+        }};
     }
 
     /////////////////////////////////////////////////////////////////
@@ -238,15 +264,5 @@ public class Config {
         return (s != null)
                 ? s
                 : getyJdbcStringColumn();
-    }
-
-    public Collection<Core> getCores() {
-        if (cores.size() != 0) {
-            return cores.values();
-        }
-
-        return new ArrayList<Core>(1){{
-            add(new Core("/"));
-        }};
     }
 }

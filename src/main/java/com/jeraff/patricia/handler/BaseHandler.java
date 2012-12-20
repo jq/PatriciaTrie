@@ -23,15 +23,22 @@ public abstract class BaseHandler extends AbstractHandler {
     protected PatriciaOps patriciaTrieOps;
     protected static final Logger log = Logger.getLogger(BaseHandler.class.getCanonicalName());
 
+    protected BaseHandler() {
+    }
+
     public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super();
 
         this.core = core;
         this.config = config;
-        this.freemarkerConfig = new Configuration();
         this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
 
+        setupFreemarker();
+    }
+
+    protected void setupFreemarker() {
         try {
+            this.freemarkerConfig = new Configuration();
             freemarkerConfig.setClassForTemplateLoading(BaseHandler.class, "/ftl");
         } catch (Exception e) {
             final String err = "Can't configure freemarker";
@@ -40,9 +47,6 @@ public abstract class BaseHandler extends AbstractHandler {
             log.log(Level.SEVERE, err, e);
             throw rte;
         }
-    }
-
-    protected BaseHandler() {
     }
 
     protected String renderTemplate(HttpServletResponse response, String templateName, HashMap<String, Object> rootMap) {

@@ -23,9 +23,14 @@ public class WebHandler extends BaseHandler {
     private static final String ACTION_ADD = "add";
     private String ACTION_STATUS = "status";
 
-    public static final String TEMPLATE_INDEX = "index.ftl";
+    public static final String TEMPLATE_AUTO_COMPLETE = "autocomplete.ftl";
     public static final String TEMPLATE_STATUS = "status.ftl";
     public static final String TEMPLATE_ADD = "add.ftl";
+    public static final String TEMPLATE_INDEX = "index.ftl";
+
+    protected WebHandler() {
+
+    }
 
     public WebHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
@@ -76,7 +81,7 @@ public class WebHandler extends BaseHandler {
     }
 
     private void handleIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        final String out = renderTemplate(response, TEMPLATE_INDEX, new HashMap<String, Object>());
+        final String out = renderTemplate(response, TEMPLATE_AUTO_COMPLETE, new HashMap<String, Object>());
         final PrintWriter writer = response.getWriter();
 
         writer.print(out);
