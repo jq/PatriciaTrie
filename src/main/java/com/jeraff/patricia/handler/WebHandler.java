@@ -3,6 +3,7 @@ package com.jeraff.patricia.handler;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -26,10 +27,8 @@ public class WebHandler extends BaseHandler {
     public static final String TEMPLATE_STATUS = "status.ftl";
     public static final String TEMPLATE_ADD = "add.ftl";
 
-    public static final String CONTEXT_PATH = "";
-
-    public WebHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
-        super(patriciaTrie, config);
+    public WebHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
+        super(patriciaTrie, core, config);
     }
 
     @Override

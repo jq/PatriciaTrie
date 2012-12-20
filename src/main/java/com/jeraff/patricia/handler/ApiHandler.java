@@ -2,6 +2,7 @@ package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -14,10 +15,9 @@ import java.util.*;
 
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
-    public static final String CONTEXT_PATH = "api";
 
-    public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
-        super(patriciaTrie, config);
+    public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
+        super(patriciaTrie, core, config);
     }
 
     public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {

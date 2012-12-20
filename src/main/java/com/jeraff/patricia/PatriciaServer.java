@@ -16,7 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaServer {
-    protected static final Logger log = Logger.getLogger(PatriciaServer.class.getPackage().getName());
+    protected static final Logger log = Logger.getLogger(PatriciaServer.class.getCanonicalName());
 
     public static void main(String[] args) throws Exception {
         final Server server = new Server();
@@ -38,7 +38,7 @@ public class PatriciaServer {
         for (Core core : cores) {
             final ContextHandler apiHandler = new ContextHandler(core.getContextPath());
             apiHandler.setResourceBase(".");
-            apiHandler.setHandler(new CoreHandler(config));
+            apiHandler.setHandler(new CoreHandler(core, config));
             apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
             contextHandlers.add(apiHandler);
         }
@@ -46,10 +46,14 @@ public class PatriciaServer {
         final ContextHandlerCollection contexts = new ContextHandlerCollection();
         final ContextHandler[] handlers = contextHandlers.toArray(new ContextHandler[]{});
         contexts.setHandlers(handlers);
-        for (int i = 0; i < handlers.length; i++) {
-            ContextHandler ch = handlers[i];
-            log.log(Level.INFO, "Handler: {0}", ch.getContextPath());
+
+        if (log.isLoggable(Level.INFO)) {
+            for (int i = 0; i < handlers.length; i++) {
+                ContextHandler ch = handlers[i];
+                log.log(Level.INFO, "Handler: {0}", ch.getContextPath());
+            }
         }
+
         return contexts;
     }
 }

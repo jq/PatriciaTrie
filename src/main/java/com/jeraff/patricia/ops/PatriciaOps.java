@@ -8,7 +8,7 @@ import java.util.*;
 import java.util.logging.Logger;
 
 public class PatriciaOps {
-    private static final Logger log = Logger.getLogger(PatriciaOps.class.getPackage().getName());
+    private static final Logger log = Logger.getLogger(PatriciaOps.class.getCanonicalName());
     public static final int NUM_PREFIX_MATCHES = 10;
 
     private PatriciaTrie<String, String> patriciaTrie;

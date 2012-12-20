@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.ops.PatriciaOps;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
@@ -18,15 +19,14 @@ public abstract class BaseHandler extends AbstractHandler {
 
     protected Configuration freemarkerConfig;
     protected Config config;
+    protected Core core;
     protected PatriciaOps patriciaTrieOps;
-    protected static final Logger log = Logger.getLogger(BaseHandler.class.getPackage().getName());
+    protected static final Logger log = Logger.getLogger(BaseHandler.class.getCanonicalName());
 
-    protected BaseHandler() {
-    }
-
-    public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
+    public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super();
 
+        this.core = core;
         this.config = config;
         this.freemarkerConfig = new Configuration();
         this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
@@ -42,11 +42,15 @@ public abstract class BaseHandler extends AbstractHandler {
         }
     }
 
+    protected BaseHandler() {
+    }
+
     protected String renderTemplate(HttpServletResponse response, String templateName, HashMap<String, Object> rootMap) {
         try {
             final Template template;
             final StringWriter sw = new StringWriter();
 
+            rootMap.put("core", core);
             template = freemarkerConfig.getTemplate(templateName);
             template.process(rootMap, sw);
 

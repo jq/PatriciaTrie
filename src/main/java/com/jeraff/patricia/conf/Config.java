@@ -15,7 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Config {
-    protected static final Logger log = Logger.getLogger(Config.class.getPackage().getName());
+    protected static final Logger log = Logger.getLogger(Config.class.getCanonicalName());
 
     public static final String CONNECTOR = "connector";
     public static final String CONNECTOR_ACCEPTORS = "acceptors";

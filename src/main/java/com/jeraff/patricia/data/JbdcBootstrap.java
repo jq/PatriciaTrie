@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class JbdcBootstrap {
-    protected static final Logger log = Logger.getLogger(JbdcBootstrap.class.getPackage().getName());
+    protected static final Logger log = Logger.getLogger(JbdcBootstrap.class.getCanonicalName());
 
     private final PatriciaOps ops;
     private Config config;
