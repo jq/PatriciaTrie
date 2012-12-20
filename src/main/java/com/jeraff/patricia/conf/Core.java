@@ -29,8 +29,4 @@ public class Core {
     public Class getAnalyzerClass() {
         return analyzerClass;
     }
-
-    public String createPath(String path) {
-        return String.format("/%s/%s", StringUtils.strip(contextPath, "/"), StringUtils.split(path, "/"));
-    }
 }

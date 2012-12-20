@@ -17,9 +17,12 @@ import java.util.logging.Logger;
 public abstract class BaseHandler extends AbstractHandler {
 
     protected Configuration freemarkerConfig;
-    protected final Config config;
-    protected final PatriciaOps patriciaTrieOps;
+    protected Config config;
+    protected PatriciaOps patriciaTrieOps;
     protected static final Logger log = Logger.getLogger(BaseHandler.class.getPackage().getName());
+
+    protected BaseHandler() {
+    }
 
     public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super();

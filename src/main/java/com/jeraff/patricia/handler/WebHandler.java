@@ -26,7 +26,7 @@ public class WebHandler extends BaseHandler {
     public static final String TEMPLATE_STATUS = "status.ftl";
     public static final String TEMPLATE_ADD = "add.ftl";
 
-    public static final String CONTEXT_PATH = "/";
+    public static final String CONTEXT_PATH = "";
 
     public WebHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super(patriciaTrie, config);

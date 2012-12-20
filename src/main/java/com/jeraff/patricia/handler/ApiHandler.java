@@ -14,7 +14,7 @@ import java.util.*;
 
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
-    public static final String CONTEXT_PATH = "/api";
+    public static final String CONTEXT_PATH = "api";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Config config) {
         super(patriciaTrie, config);

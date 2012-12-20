@@ -3,10 +3,8 @@ package com.jeraff.patricia;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.data.JbdcBootstrap;
-import com.jeraff.patricia.handler.ApiHandler;
-import com.jeraff.patricia.handler.WebHandler;
+import com.jeraff.patricia.handler.CoreHandler;
 import org.eclipse.jetty.server.Connector;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -17,6 +15,7 @@ import org.limewire.collection.PatriciaTrie;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaServer {
@@ -36,19 +35,20 @@ public class PatriciaServer {
         final Collection<Core> cores = config.getCores();
 
         for (Core core : cores) {
-            final ContextHandler apiHandler = new ContextHandler(core.createPath(ApiHandler.CONTEXT_PATH));
+            final ContextHandler apiHandler = new ContextHandler(core.getContextPath());
             apiHandler.setResourceBase(".");
-            apiHandler.setHandler(new ApiHandler(patriciaTrie, config));
+            apiHandler.setHandler(new CoreHandler(patriciaTrie, config));
             apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
-
-            final ContextHandler webHandler = new ContextHandler(core.createPath(WebHandler.CONTEXT_PATH));
-            webHandler.setResourceBase(".");
-            webHandler.setHandler(new WebHandler(patriciaTrie, config));
-            webHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+            contextHandlers.add(apiHandler);
         }
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(contextHandlers.toArray(new Handler[]{}));
+        final ContextHandler[] handlers = contextHandlers.toArray(new ContextHandler[]{});
+        contexts.setHandlers(handlers);
+        for (int i = 0; i < handlers.length; i++) {
+            ContextHandler ch = handlers[i];
+            log.log(Level.INFO, "Handler: {0}", ch.getContextPath());
+        }
 
         server.setConnectors(new Connector[]{connector0});
         server.setHandler(contexts);
