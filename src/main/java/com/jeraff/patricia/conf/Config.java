@@ -1,13 +1,13 @@
 package com.jeraff.patricia.conf;
 
 import com.google.gson.Gson;
+import com.google.gson.internal.StringMap;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.StringWriter;
+import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.util.*;
@@ -20,7 +20,9 @@ public class Config {
     public static final String CONNECTOR = "connector";
     public static final String CONNECTOR_ACCEPTORS = "acceptors";
     public static final String CONNECTOR_PORT = "port";
-    public static final int CONF_CONNECTOR_PORT_DEFAULT = 8666;
+    public static final int CONNECTOR_PORT_DEFAULT = 8666;
+
+    private static final String CORES = "cores";
 
     public static final String JDBC = "jdbc";
     public static final String JDBC_TABLE = "table";
@@ -33,6 +35,8 @@ public class Config {
 
     private HashMap<String, Object> confMap;
     private long time;
+    private HashMap<String, Core> cores = new HashMap<String, Core>();
+    private final String confFilePath;
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
@@ -40,12 +44,39 @@ public class Config {
 
         setupDefaults(confMap);
 
-        final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
+        confFilePath = properties.getProperty(PROP_CONFIG_FILE);
         if (confFilePath != null) {
             handleConfFile(confFilePath, confMap);
         }
 
         handleSystemProperties(properties, confMap);
+        setupCores();
+    }
+
+    public String getConfigFileContent() throws IOException {
+        if (confFilePath == null) {
+            return "";
+        }
+
+        FileInputStream in = null;
+
+        try {
+            in = new FileInputStream(new File(confFilePath));
+            InputStreamReader inR = new InputStreamReader(in);
+            BufferedReader buf = new BufferedReader(inR);
+            List<String> lines = new ArrayList<String>();
+            String line;
+
+            while ((line = buf.readLine()) != null) {
+                lines.add(line);
+            }
+
+            return StringUtils.join(lines, "\n");
+        } finally {
+            if (in != null) {
+                in.close();
+            }
+        }
     }
 
     private void handleSystemProperties(Properties properties, HashMap<String, Object> confMap) {
@@ -87,7 +118,7 @@ public class Config {
 
     private void setupDefaults(HashMap<String, Object> confMap) {
         final HashMap<String, Object> connectorDefaults = new HashMap<String, Object>() {{
-            put(CONNECTOR_PORT, CONF_CONNECTOR_PORT_DEFAULT);
+            put(CONNECTOR_PORT, CONNECTOR_PORT_DEFAULT);
         }};
 
         confMap.put(CONNECTOR, connectorDefaults);
@@ -140,6 +171,32 @@ public class Config {
     }
 
     /////////////////////////////////////////////////////////////////
+    // cores
+    /////////////////////////////////////////////////////////////////
+    private void setupCores() {
+        final String err = "Invalid core configuration";
+        final Object rawCoreConfig = confMap.get(CORES);
+
+        if (rawCoreConfig == null) {
+            return;
+        } else if (!(rawCoreConfig instanceof StringMap)) {
+            log.log(Level.SEVERE, err);
+            throw new RuntimeException(err);
+        }
+
+        StringMap<StringMap> coreConfig = (StringMap<StringMap>) rawCoreConfig;
+        for (Map.Entry<String, StringMap> entry : coreConfig.entrySet()) {
+            try {
+                final Core core = new Core(entry.getKey(), entry.getValue());
+                cores.put(core.contextPath, core);
+            } catch (ClassNotFoundException e) {
+                log.log(Level.SEVERE, err);
+                throw new RuntimeException(err);
+            }
+        }
+    }
+
+    /////////////////////////////////////////////////////////////////
     // jdbc stuff
     /////////////////////////////////////////////////////////////////
     public boolean hasJdbc() {
@@ -181,5 +238,9 @@ public class Config {
         return (s != null)
                 ? s
                 : getyJdbcStringColumn();
+    }
+
+    public Collection<Core> getCores() {
+        return cores.values();
     }
 }

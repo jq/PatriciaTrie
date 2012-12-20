@@ -1,6 +1,7 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.data.JbdcBootstrap;
 import com.jeraff.patricia.handler.ApiHandler;
 import com.jeraff.patricia.handler.WebHandler;
@@ -13,6 +14,9 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 import org.limewire.collection.CharSequenceKeyAnalyzer;
 import org.limewire.collection.PatriciaTrie;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 import java.util.logging.Logger;
 
 public class PatriciaServer {
@@ -28,18 +32,23 @@ public class PatriciaServer {
         final SelectChannelConnector connector0 = new SelectChannelConnector();
         config.configConnector(connector0);
 
-        final ContextHandler apiHandler = new ContextHandler(ApiHandler.CONTEXT_PATH);
-        apiHandler.setResourceBase(".");
-        apiHandler.setHandler(new ApiHandler(patriciaTrie, config));
-        apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        final List<ContextHandler> contextHandlers = new ArrayList<ContextHandler>();
+        final Collection<Core> cores = config.getCores();
 
-        final ContextHandler webHandler = new ContextHandler(WebHandler.CONTEXT_PATH);
-        webHandler.setResourceBase(".");
-        webHandler.setHandler(new WebHandler(patriciaTrie, config));
-        webHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        for (Core core : cores) {
+            final ContextHandler apiHandler = new ContextHandler(core.createPath(ApiHandler.CONTEXT_PATH));
+            apiHandler.setResourceBase(".");
+            apiHandler.setHandler(new ApiHandler(patriciaTrie, config));
+            apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+
+            final ContextHandler webHandler = new ContextHandler(core.createPath(WebHandler.CONTEXT_PATH));
+            webHandler.setResourceBase(".");
+            webHandler.setHandler(new WebHandler(patriciaTrie, config));
+            webHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        }
 
         final ContextHandlerCollection contexts = new ContextHandlerCollection();
-        contexts.setHandlers(new Handler[]{apiHandler, webHandler});
+        contexts.setHandlers(contextHandlers.toArray(new Handler[]{}));
 
         server.setConnectors(new Connector[]{connector0});
         server.setHandler(contexts);
