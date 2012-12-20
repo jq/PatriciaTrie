@@ -1,15 +1,23 @@
 package com.jeraff.patricia.conf;
 
 import com.google.gson.internal.StringMap;
+import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.lang.StringUtils;
 
 public class Core {
     String contextPath;
-    @GsonIgnore Class analyzerClass;
+    @GsonIgnore
+    Class analyzerClass;
     String analyzer;
 
     private static final String KEY_ANALYZER = "analyzer";
+
+    public Core(String contextPath) {
+        analyzerClass = PartialMatchAnalyzer.class;
+        analyzer = PartialMatchAnalyzer.class.getCanonicalName();
+        setContextPath(contextPath);
+    }
 
     public Core(String contextPath, StringMap<String> map) throws ClassNotFoundException {
         analyzerClass = Class.forName(map.get(KEY_ANALYZER));

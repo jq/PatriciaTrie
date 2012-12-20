@@ -241,6 +241,12 @@ public class Config {
     }
 
     public Collection<Core> getCores() {
-        return cores.values();
+        if (cores.size() != 0) {
+            return cores.values();
+        }
+
+        return new ArrayList<Core>(1){{
+            add(new Core("/"));
+        }};
     }
 }
