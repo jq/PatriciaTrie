@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import org.eclipse.jetty.server.Request;
 
 import javax.servlet.ServletException;
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 
 public class IndexHandler extends BaseHandler {
     public IndexHandler(Config config) {
@@ -18,10 +20,17 @@ public class IndexHandler extends BaseHandler {
     @Override
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        final HashMap<String, Object> rootMap = new HashMap<String, Object>();
-        rootMap.put("cores", config.getCores());
-        final String s = renderTemplate(response, WebHandler.TEMPLATE_INDEX, rootMap);
-        response.getWriter().print(s);
+        final List<Core> cores = config.getCores();
+        if (cores.size() == 1) {
+            response.sendRedirect(cores.get(0).getContextPath());
+        } else {
+            final HashMap<String, Object> rootMap = new HashMap<String, Object>() {{
+                put("cores", cores);
+            }};
+
+            final String s = renderTemplate(response, WebHandler.TEMPLATE_INDEX, rootMap);
+            response.getWriter().print(s);
+        }
         baseRequest.setHandled(true);
     }
 }
