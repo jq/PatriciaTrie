@@ -35,8 +35,7 @@ public class PatriciaOps {
         final int length = strings.length;
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
-        for (int i = 0; i < length; i++) {
-            final String string = strings[i];
+        for (final String string : strings) {
             final ArrayList<String> indexKeys = new ArrayList<String>();
 
             final Set<Map.Entry<String, String>> indexKeyValues = analyzer.getIndexKeyValues(string);

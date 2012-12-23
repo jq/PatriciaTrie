@@ -36,7 +36,7 @@ public class ApiHandler extends BaseHandler {
 
     public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final String firstKey = params.getFirstKey();
-        int count = 0;
+        int count;
 
         if (firstKey == null) {
             count = patriciaTrieOps.size();

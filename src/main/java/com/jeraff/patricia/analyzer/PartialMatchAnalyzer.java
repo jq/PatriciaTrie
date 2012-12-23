@@ -43,8 +43,8 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
                 "not", "of", "on", "or", "s", "such", "t", "that", "the", "their", "then", "there", "these", "they",
                 "this", "to", "was", "will", "with"};
 
-        for (int i = 0; i < stopWordsArray.length; i++) {
-            stopWords.put(stopWordsArray[i], Byte.MIN_VALUE);
+        for (String stopWord : stopWordsArray) {
+            stopWords.put(stopWord, Byte.MIN_VALUE);
         }
     }
 

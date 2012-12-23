@@ -6562,7 +6562,6 @@
             if ( $.isArray(this.options.source) ) {
                 array = this.options.source;
                 this.source = function( request, response ) {
-                    alert(999)
                     response( $.ui.autocomplete.filter( array, request.term ) );
                 };
             } else if ( typeof this.options.source === "string" ) {
