@@ -41,7 +41,6 @@ public class Config {
     private final String confFilePath;
     private boolean needsIndexHandler;
     private HashMap<Object, Object> systemProperties;
-    private final Object connector;
 
     public Config(Properties properties) {
         confMap = new HashMap<String, Object>();
@@ -56,8 +55,6 @@ public class Config {
 
         handleSystemProperties(properties, confMap);
         setupCores();
-
-        this.connector = confMap.get(CONNECTOR);
     }
 
     public String getConfigFileContent() throws IOException {
