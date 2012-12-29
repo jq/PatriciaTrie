@@ -12,6 +12,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class IndexHandler extends BaseHandler {
+    public static final String HEADER_LOCATION = "Location";
+    public static final String CORES = "cores";
+
     public IndexHandler(Config config) {
         this.config = config;
         setupFreemarker();
@@ -21,16 +24,20 @@ public class IndexHandler extends BaseHandler {
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         final List<Core> cores = config.getCores();
+
         if (cores.size() == 1) {
-            response.sendRedirect(cores.get(0).getContextPath());
+            if (!response.isCommitted()) {
+                response.sendRedirect(cores.get(0).getContextPath());
+            }
         } else {
             final HashMap<String, Object> rootMap = new HashMap<String, Object>() {{
-                put("cores", cores);
+                put(CORES, cores);
             }};
 
             final String s = renderTemplate(response, WebHandler.TEMPLATE_INDEX, rootMap);
             response.getWriter().print(s);
         }
+
         baseRequest.setHandled(true);
     }
 }

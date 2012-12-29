@@ -2,7 +2,6 @@ package com.jeraff.patricia.conf;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.StringMap;
-import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -20,8 +19,10 @@ public class Config {
 
     public static final String CONNECTOR = "connector";
     public static final String CONNECTOR_ACCEPTORS = "acceptors";
-    public static final String CONNECTOR_PORT = "port";
-    public static final int CONNECTOR_PORT_DEFAULT = 8666;
+
+    private static final HashMap<String, Object> connectorDefaults = new HashMap<String, Object>() {{
+        put("port", 8666);
+    }};
 
     private static final String CORES = "cores";
 
@@ -34,27 +35,31 @@ public class Config {
     public static final String PATRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PATRICIA_PROP_PREFIX + "conf";
 
-    @GsonIgnore
-    private HashMap<String, Object> confMap;
     private long time;
     private HashMap<String, Core> cores = new HashMap<String, Core>();
-    private final String confFilePath;
+    private String confFilePath;
     private boolean needsIndexHandler;
     private HashMap<Object, Object> systemProperties;
+    private Map<String, Object> connector;
+    private Map<String, Object> jdbc;
 
     public Config(Properties properties) {
-        confMap = new HashMap<String, Object>();
         time = System.currentTimeMillis();
 
-        setupDefaults(confMap);
+        final HashMap<String, Object> confMap = new HashMap<String, Object>();
+        confMap.put(CONNECTOR, connectorDefaults);
 
+        // deal with config file
         confFilePath = properties.getProperty(PROP_CONFIG_FILE);
         if (confFilePath != null) {
             handleConfFile(confFilePath, confMap);
         }
 
         handleSystemProperties(properties, confMap);
-        setupCores();
+        setupCores(confMap);
+
+        connector = (Map<String, Object>) confMap.get(CONNECTOR);
+        jdbc = (Map<String, Object>) confMap.get(JDBC);
     }
 
     public String getConfigFileContent() throws IOException {
@@ -124,14 +129,6 @@ public class Config {
         }
     }
 
-    private void setupDefaults(HashMap<String, Object> confMap) {
-        final HashMap<String, Object> connectorDefaults = new HashMap<String, Object>() {{
-            put(CONNECTOR_PORT, CONNECTOR_PORT_DEFAULT);
-        }};
-
-        confMap.put(CONNECTOR, connectorDefaults);
-    }
-
     private void handleConfFile(String confFilePath, HashMap<String, Object> confMap) {
         final File file = new File(confFilePath);
         if (!file.exists() || !file.canRead()) {
@@ -155,20 +152,19 @@ public class Config {
         confMap.putAll(hashMap);
     }
 
-    public void configConnector(SelectChannelConnector connector) {
-        final Object o = confMap.get(CONNECTOR);
-        if (o == null || !(o instanceof Map)) {
+    public void configConnector(SelectChannelConnector channelConnector) {
+        if (connector == null || !(connector instanceof Map)) {
             return;
         }
 
-        if (!((Map) o).containsKey(CONNECTOR_ACCEPTORS)) {
-            ((Map) o).put(CONNECTOR_ACCEPTORS, 2 * Runtime.getRuntime().availableProcessors());
+        if (!((Map) connector).containsKey(CONNECTOR_ACCEPTORS)) {
+            ((Map) connector).put(CONNECTOR_ACCEPTORS, 2 * Runtime.getRuntime().availableProcessors());
         }
 
         try {
-            BeanUtils.populate(connector, (Map) o);
+            BeanUtils.populate(channelConnector, (Map) connector);
         } catch (Exception e) {
-            String error = "Could not configure connector";
+            String error = "Could not configure channelConnector";
             log.log(Level.SEVERE, error, e);
             throw new RuntimeException(error, e);
         }
@@ -181,7 +177,7 @@ public class Config {
     /////////////////////////////////////////////////////////////////
     // cores
     /////////////////////////////////////////////////////////////////
-    private void setupCores() {
+    private void setupCores(HashMap<String, Object> confMap) {
         final String err = "Invalid core configuration";
         final Object rawCoreConfig = confMap.get(CORES);
 
@@ -229,7 +225,7 @@ public class Config {
     // jdbc stuff
     /////////////////////////////////////////////////////////////////
     public boolean hasJdbc() {
-        return confMap.containsKey(JDBC);
+        return jdbc != null;
     }
 
     public Connection getJdbcConnection() {
@@ -239,13 +235,13 @@ public class Config {
         }
 
         try {
-            final Map<String, Object> jdbcInfo = (Map<String, Object>) confMap.get(JDBC);
-            jdbcInfo.put(JDBC_COLUMN_STRING, jdbcInfo.get(JDBC_COLUMN_STRING));
+            final Map<String, Object> jdbc = this.jdbc;
+            jdbc.put(JDBC_COLUMN_STRING, jdbc.get(JDBC_COLUMN_STRING));
 
             final Properties properties = new Properties();
-            properties.putAll(jdbcInfo);
+            properties.putAll(jdbc);
 
-            return DriverManager.getConnection((String) jdbcInfo.get(JDBC_URL), properties);
+            return DriverManager.getConnection((String) jdbc.get(JDBC_URL), properties);
         } catch (Exception e) {
             final String error = "Could not create JDBC connection";
             log.log(Level.SEVERE, error, e);
@@ -255,15 +251,15 @@ public class Config {
     }
 
     public String getyJdbcTable() {
-        return (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_TABLE);
+        return (String) jdbc.get(JDBC_TABLE);
     }
 
     public String getyJdbcStringColumn() {
-        return (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_STRING);
+        return (String) jdbc.get(JDBC_COLUMN_STRING);
     }
 
     public String getyJdbcOrderColumn() {
-        String s = (String) ((Map<String, Object>) confMap.get(JDBC)).get(JDBC_COLUMN_ORDER);
+        String s = (String) jdbc.get(JDBC_COLUMN_ORDER);
         return (s != null)
                 ? s
                 : getyJdbcStringColumn();

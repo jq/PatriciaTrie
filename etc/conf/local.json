@@ -13,14 +13,14 @@
         "movies" : {
             "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
         }
-    }
+    },
 
-//    "jdbc": {
-//        "url": "jdbc:mysql://localhost:3306/patricia",
-//        "table": "movies",
-//        "s": "name",
-//        "order": "name",
-//        "user": "root",
-//        "password": ""
-//    },
+    "jdbc": {
+        "url": "jdbc:mysql://localhost:3306/patricia",
+        "table": "movies",
+        "s": "name",
+        "order": "name",
+        "user": "root",
+        "password": ""
+    }
 }
