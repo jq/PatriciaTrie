@@ -10,8 +10,8 @@ import zlib
 pp = args.args()
 res = {}
 
-for k in pp.keys:
-    req = urllib2.Request(pp.host, urllib.urlencode({"s": k}))
+for s in pp.strings:
+    req = urllib2.Request(pp.url, urllib.urlencode({"s": s}))
     response = urllib2.urlopen(req)
     data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS))
     res.update(data)

@@ -16,7 +16,7 @@ for line in sys.stdin:
     if not bool(s):
         continue
 
-    req = urllib2.Request(pp.host, urllib.urlencode({"s": s}))
+    req = urllib2.Request(pp.url, urllib.urlencode({"s": s}))
     response = urllib2.urlopen(req)
     data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS))
     print data

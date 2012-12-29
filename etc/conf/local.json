@@ -12,6 +12,9 @@
     "cores" : {
         "movies" : {
             "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
+        },
+        "games" : {
+            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
         }
     },
 

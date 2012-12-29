@@ -10,18 +10,34 @@ def args():
         type=str,
         help="Machine's hostname",
         dest='host',
-        default="http://localhost:8666",
+        default="localhost",
         required=False)
 
-    parser.add_argument("keys",
+    parser.add_argument("-port",
+        type=int,
+        help="Machine's port",
+        dest='port',
+        default=8666,
+        required=False)
+
+    parser.add_argument("-core",
         type=str,
-        help="Keys to add",
+        help="Core's name",
+        dest='core',
+        default=None,
+        required=False)
+
+    parser.add_argument("strings",
+        type=str,
+        help="Strings to add",
         nargs='*')
 
     pp = parser.parse_args(sys.argv[1:])
-    if not pp.host.startswith("http://") and not pp.host.startswith("https://"):
-        pp.host = "http://%s" % pp.host
 
-    pp.host = "%s/api/" % pp.host
+    core_path = "/"
+    if pp.core:
+        core_path = "/%s/" % pp.core
+
+    pp.url = "http://%s:%s%sapi/" % (pp.host, pp.port, core_path)
 
     return pp

@@ -4,6 +4,11 @@
     <title>Hello</title>
     <style>
         <#include "style.css">
+        li {
+            list-style: disc;
+            color: white;
+            border: 0px !important;
+        }
     </style>
 </head>
 

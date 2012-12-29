@@ -10,7 +10,7 @@ import zlib
 pp = args.args()
 res = []
 
-url = "%s?%s" % (pp.host, urllib.urlencode({"s": " ".join(pp.keys)}))
+url = "%s?%s" % (pp.url, urllib.urlencode({"s": " ".join(pp.strings)}))
 req = urllib2.Request(url)
 response = urllib2.urlopen(req)
 data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS), encoding="UTF-8")

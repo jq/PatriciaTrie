@@ -69,13 +69,7 @@ code div {
     left: 0;
 }
 
-li {
-    list-style: disc;
-    color: white;
-    border: 0px !important;
-}
-
-li a,
+li.juicy a,
 #footer a {
     margin: 0 10px;
     color: #5f91e8;
