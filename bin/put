@@ -5,15 +5,18 @@ import pprint
 import urllib
 import urllib2
 import args
-import zlib
 
 pp = args.args()
 res = {}
 
 for s in pp.strings:
-    req = urllib2.Request(pp.url, urllib.urlencode({"s": s}))
-    response = urllib2.urlopen(req)
-    data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS))
-    res.update(data)
+    try:
+        req = urllib2.Request(pp.url, urllib.urlencode({"s": s}))
+        response = urllib2.urlopen(req)
+        data = json.loads(response.read())
+        res.update(data)
+    except urllib2.HTTPError, he:
+        print he
+        print he.headers
 
 pprint.pprint(res)

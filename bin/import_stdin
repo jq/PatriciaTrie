@@ -6,7 +6,6 @@ import urllib2
 import urllib
 import args
 import json
-import zlib
 
 pp = args.args()
 
@@ -18,5 +17,5 @@ for line in sys.stdin:
 
     req = urllib2.Request(pp.url, urllib.urlencode({"s": s}))
     response = urllib2.urlopen(req)
-    data = json.loads(zlib.decompress(response.read(), 16+zlib.MAX_WBITS))
+    data = json.loads(response.read())
     print data

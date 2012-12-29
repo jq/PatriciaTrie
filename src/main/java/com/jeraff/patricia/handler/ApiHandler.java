@@ -15,6 +15,10 @@ import java.util.*;
 
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
+    public static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
+    public static final String HEADER_CONTENT_TYPE_JSON = "application/json";
+    public static final String GZIP = "gzip";
+    public static final String UTF_8 = "UTF-8";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
@@ -51,33 +55,31 @@ public class ApiHandler extends BaseHandler {
         response.setHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
     }
 
-    private void write(HttpServletResponse response, ApiMethodResult methodResult) throws IOException {
-        write(response, methodResult.headers, methodResult.result);
+    private void write(HttpServletRequest request, HttpServletResponse response, Object o) throws IOException {
+        write(request, response, null, o);
     }
 
-    private void write(HttpServletResponse response, Object o) throws IOException {
-        write(response, null, o);
-    }
-
-    private void write(HttpServletResponse response, HashMap<String, Object> headers, Object o) throws IOException {
-        final GZIPResponseWrapper wrapper = new GZIPResponseWrapper(response);
+    private void write(HttpServletRequest request, HttpServletResponse response, HashMap<String, Object> headers, Object o) throws IOException {
+        HttpServletResponse resp = (request.getHeader(HEADER_ACCEPT_ENCODING).contains(GZIP))
+                ? new GZIPResponseWrapper(response)
+                : response;
 
         if (o != null) {
             final Gson gson = new Gson();
             final String json = gson.toJson(o);
-            wrapper.setContentLength(json.getBytes().length);
-            wrapper.getWriter().write(json);
+            resp.setContentLength(json.getBytes().length);
+            resp.getWriter().write(json);
         }
 
         if (headers != null) {
             for (Map.Entry<String, Object> header : headers.entrySet()) {
-                wrapper.addHeader(header.getKey(), header.getValue().toString());
+                resp.addHeader(header.getKey(), header.getValue().toString());
             }
         }
 
-        wrapper.setContentType("application/json");
-        wrapper.setCharacterEncoding("UTF-8");
-        wrapper.getWriter().close();
+        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
+        resp.setCharacterEncoding(UTF_8);
+        resp.getWriter().close();
     }
 
     @Override
@@ -88,32 +90,34 @@ public class ApiHandler extends BaseHandler {
         try {
             params.validate(method);
         } catch (ParamValidationError validationError) {
-            handleValidationError(validationError, response);
+            handleValidationError(httpServletRequest, validationError, response);
             baseRequest.setHandled(true);
             return;
         }
 
         switch (method) {
             case GET:
-                write(response, get(params, httpServletRequest, response));
+                write(httpServletRequest, response, get(params, httpServletRequest, response));
                 break;
             case DELETE:
-                write(response, delete(params, httpServletRequest, response));
+                write(httpServletRequest, response, delete(params, httpServletRequest, response));
                 break;
             case HEAD:
                 head(params, httpServletRequest, response);
                 break;
+            case POST:
+            case PUT:
             default:
-                write(response, putPost(params, httpServletRequest, response));
+                write(httpServletRequest, response, putPost(params, httpServletRequest, response).getResult());
                 break;
         }
 
         baseRequest.setHandled(true);
     }
 
-    public void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {
+    public void handleValidationError(HttpServletRequest httpServletRequest, ParamValidationError validationError, HttpServletResponse response) throws IOException {
         response.setStatus(validationError.code);
-        write(response, validationError.getErrorMap());
+        write(httpServletRequest, response, validationError.getErrorMap());
     }
 
 }
