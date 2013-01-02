@@ -18,32 +18,37 @@ public class ApiHandler extends BaseHandler {
     public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
     public static final String GZIP = "gzip";
     public static final String UTF_8 = "UTF-8";
+    public static final String QUEUED = "queued";
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
     }
 
-    public ApiMethodResult get(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult get(Params params) throws IOException {
         final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
         return new ApiMethodResult(new HashMap<String, Object>(), prefixedBy);
     }
 
-    public ApiMethodResult post(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult post(Params params) throws IOException {
         final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getStrings());
         return new ApiMethodResult(result);
     }
 
-    public ApiMethodResult put(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult put(Params params) throws IOException {
         final String[] strings = params.getStrings();
-        patriciaTrieOps.queuePut(strings);
-        return new ApiMethodResult(strings.length);
+        patriciaTrieOps.enqueue(strings);
+
+        final HashMap<String, Integer> result = new HashMap<String, Integer>();
+        result.put(QUEUED, strings.length);
+
+        return new ApiMethodResult(result);
     }
 
-    public ApiMethodResult delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult delete(Params params) throws IOException {
         return new ApiMethodResult(patriciaTrieOps.remove(params.getStrings()));
     }
 
-    public void head(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public void head(Params params, HttpServletResponse response) throws IOException {
         final String firstKey = params.getFirstKey();
         int count;
 
@@ -102,19 +107,19 @@ public class ApiHandler extends BaseHandler {
 
         switch (method) {
             case GET:
-                write(httpServletRequest, response, get(params, httpServletRequest, response));
+                write(httpServletRequest, response, get(params));
                 break;
             case DELETE:
-                write(httpServletRequest, response, delete(params, httpServletRequest, response));
+                write(httpServletRequest, response, delete(params));
                 break;
             case HEAD:
-                head(params, httpServletRequest, response);
+                head(params, response);
                 break;
             case POST:
-                write(httpServletRequest, response, post(params, httpServletRequest, response));
+                write(httpServletRequest, response, post(params));
                 break;
             case PUT:
-                write(httpServletRequest, response, put(params, httpServletRequest, response));
+                write(httpServletRequest, response, put(params));
                 break;
         }
 

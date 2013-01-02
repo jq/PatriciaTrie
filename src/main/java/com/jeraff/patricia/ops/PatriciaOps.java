@@ -48,16 +48,16 @@ public class PatriciaOps {
     }
 
     private void put(String string, HashMap<String, ArrayList<String>> result) {
-        final ArrayList<String> indexKeys = new ArrayList<String>();
+        final ArrayList<String> keys = new ArrayList<String>();
 
-        final Set<Map.Entry<String, String>> indexKeyValues = analyzer.getIndexEntry(string);
-        for (Map.Entry<String, String> indexKeyValue : indexKeyValues) {
-            patriciaTrie.put(indexKeyValue.getKey(), string);
-            indexKeys.add(indexKeyValue.getKey());
+        final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
+        for (Map.Entry<String, String> entry : indexEntries) {
+            patriciaTrie.put(entry.getKey(), string);
+            keys.add(entry.getKey());
         }
 
         if (result != null) {
-            result.put(string, indexKeys);
+            result.put(string, keys);
         }
     }
 
@@ -97,7 +97,7 @@ public class PatriciaOps {
         return result;
     }
 
-    public void queuePut(final String[] strings) {
+    public void enqueue(final String[] strings) {
         executor.submit(new Runnable() {
             @Override
             public void run() {
