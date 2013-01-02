@@ -2,6 +2,7 @@ package com.jeraff.patricia.conf;
 
 import com.google.gson.Gson;
 import com.google.gson.internal.StringMap;
+import com.jeraff.patricia.handler.Core;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -195,7 +196,7 @@ public class Config {
         for (Map.Entry<String, StringMap> entry : coreConfig.entrySet()) {
             try {
                 final Core core = new Core(entry.getKey(), entry.getValue());
-                cores.put(core.contextPath, core);
+                cores.put(core.getContextPath(), core);
             } catch (ClassNotFoundException e) {
                 log.log(Level.SEVERE, err);
                 throw new RuntimeException(err);

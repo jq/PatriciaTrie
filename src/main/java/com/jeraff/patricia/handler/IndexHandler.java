@@ -1,7 +1,6 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 

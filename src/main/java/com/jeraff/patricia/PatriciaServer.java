@@ -1,7 +1,7 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.handler.Core;
 import com.jeraff.patricia.handler.CoreHandler;
 import com.jeraff.patricia.handler.IndexHandler;import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
@@ -58,7 +58,7 @@ public class PatriciaServer {
         if (log.isLoggable(Level.INFO)) {
             for (int i = 0; i < handlers.length; i++) {
                 ContextHandler ch = handlers[i];
-                log.log(Level.INFO, "Handler: {0}", ch.getContextPath());
+                log.log(Level.INFO, "Handler configured at path: {0}", ch.getContextPath());
             }
         }
 

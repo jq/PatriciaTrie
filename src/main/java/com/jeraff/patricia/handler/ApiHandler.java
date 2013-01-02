@@ -2,7 +2,6 @@ package com.jeraff.patricia.handler;
 
 import com.google.gson.Gson;
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -16,7 +15,7 @@ import java.util.*;
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
     public static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
-    public static final String HEADER_CONTENT_TYPE_JSON = "application/json";
+    public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
     public static final String GZIP = "gzip";
     public static final String UTF_8 = "UTF-8";
 
@@ -29,9 +28,15 @@ public class ApiHandler extends BaseHandler {
         return new ApiMethodResult(new HashMap<String, Object>(), prefixedBy);
     }
 
-    public ApiMethodResult putPost(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public ApiMethodResult post(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
         final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getStrings());
         return new ApiMethodResult(result);
+    }
+
+    public ApiMethodResult put(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        final String[] strings = params.getStrings();
+        patriciaTrieOps.queuePut(strings);
+        return new ApiMethodResult(strings.length);
     }
 
     public ApiMethodResult delete(Params params, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -59,16 +64,18 @@ public class ApiHandler extends BaseHandler {
         write(request, response, null, o);
     }
 
-    private void write(HttpServletRequest request, HttpServletResponse response, HashMap<String, Object> headers, Object o) throws IOException {
-        HttpServletResponse resp = (request.getHeader(HEADER_ACCEPT_ENCODING).contains(GZIP))
+    private void write(HttpServletRequest request, HttpServletResponse response, HashMap<String, Object> headers, Object o)
+            throws IOException {
+        final String acceptEncodingHeader = request.getHeader(HEADER_ACCEPT_ENCODING);
+        final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(GZIP))
                 ? new GZIPResponseWrapper(response)
                 : response;
 
+        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
+        resp.setCharacterEncoding(UTF_8);
+
         if (o != null) {
-            final Gson gson = new Gson();
-            final String json = gson.toJson(o);
-            resp.setContentLength(json.getBytes().length);
-            resp.getWriter().write(json);
+            new Gson().toJson(o, resp.getWriter());
         }
 
         if (headers != null) {
@@ -77,8 +84,6 @@ public class ApiHandler extends BaseHandler {
             }
         }
 
-        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
-        resp.setCharacterEncoding(UTF_8);
         resp.getWriter().close();
     }
 
@@ -106,9 +111,10 @@ public class ApiHandler extends BaseHandler {
                 head(params, httpServletRequest, response);
                 break;
             case POST:
+                write(httpServletRequest, response, post(params, httpServletRequest, response));
+                break;
             case PUT:
-            default:
-                write(httpServletRequest, response, putPost(params, httpServletRequest, response).getResult());
+                write(httpServletRequest, response, put(params, httpServletRequest, response));
                 break;
         }
 

@@ -15,9 +15,9 @@ public class Params {
 
     public static final int DEFAULT_LIMIT = 25;
 
-    private static final String ERROR_MESSAGE_S_REQUIRED = "'s' is a required parameter";
-    private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single 's' parameter";
-    private static final String ERROR_MESSAGE_S_ZERO_ONE = "Method only accepts zero or one 's' parameter";
+    private static final String ERROR_MESSAGE_S_REQUIRED = "\"s\" is a required parameter";
+    private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single \"s\" parameter";
+    private static final String ERROR_MESSAGE_S_ZERO_ONE = "Method only accepts zero or one \"s\" parameter";
 
     private String[] strings;
     private int offset = 0;

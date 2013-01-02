@@ -5,18 +5,23 @@ import com.jeraff.patricia.analyzer.DistanceComparator;
 import org.limewire.collection.PatriciaTrie;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.util.logging.Logger;
 
 public class PatriciaOps {
     private static final Logger log = Logger.getLogger(PatriciaOps.class.getCanonicalName());
-    public static final int NUM_PREFIX_MATCHES = 10;
+    private static final int NUM_PREFIX_MATCHES = 10;
+    private static final int DEFAULT_THREADS = 20;
 
     private PatriciaTrie<String, String> patriciaTrie;
     private final PartialMatchAnalyzer analyzer;
+    private final ExecutorService executor;
 
     public PatriciaOps(PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
         this.analyzer = new PartialMatchAnalyzer();
+        this.executor = Executors.newFixedThreadPool(DEFAULT_THREADS);
     }
 
     public String firstKey() {
@@ -35,19 +40,25 @@ public class PatriciaOps {
         final int length = strings.length;
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
-        for (final String string : strings) {
-            final ArrayList<String> indexKeys = new ArrayList<String>();
-
-            final Set<Map.Entry<String, String>> indexKeyValues = analyzer.getIndexKeyValues(string);
-            for (Map.Entry<String, String> indexKeyValue : indexKeyValues) {
-                patriciaTrie.put(indexKeyValue.getKey(), string);
-                indexKeys.add(indexKeyValue.getKey());
-            }
-
-            result.put(string, indexKeys);
+        for (String string : strings) {
+            put(string, result);
         }
 
         return result;
+    }
+
+    private void put(String string, HashMap<String, ArrayList<String>> result) {
+        final ArrayList<String> indexKeys = new ArrayList<String>();
+
+        final Set<Map.Entry<String, String>> indexKeyValues = analyzer.getIndexEntry(string);
+        for (Map.Entry<String, String> indexKeyValue : indexKeyValues) {
+            patriciaTrie.put(indexKeyValue.getKey(), string);
+            indexKeys.add(indexKeyValue.getKey());
+        }
+
+        if (result != null) {
+            result.put(string, indexKeys);
+        }
     }
 
     public List<String> getPrefixedBy(String prefix) {
@@ -77,12 +88,23 @@ public class PatriciaOps {
         final HashMap<String, String> result = new HashMap<String, String>(length);
 
         for (String string : strings) {
-            final Set<Map.Entry<String, String>> entries = analyzer.getIndexKeyValues(string);
+            final Set<Map.Entry<String, String>> entries = analyzer.getIndexEntry(string);
             for (Map.Entry<String, String> entry : entries) {
                 result.put(string, patriciaTrie.remove(entry.getKey()));
             }
         }
 
         return result;
+    }
+
+    public void queuePut(final String[] strings) {
+        executor.submit(new Runnable() {
+            @Override
+            public void run() {
+                for (String string : strings) {
+                    put(string, null);
+                }
+            }
+        });
     }
 }

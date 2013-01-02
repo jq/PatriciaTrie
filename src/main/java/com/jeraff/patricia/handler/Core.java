@@ -1,4 +1,4 @@
-package com.jeraff.patricia.conf;
+package com.jeraff.patricia.handler;
 
 import com.google.gson.internal.StringMap;
 import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
@@ -6,16 +6,17 @@ import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.lang.StringUtils;
 
 public class Core {
-    String contextPath;
+    private String contextPath;
     @GsonIgnore
-    Class analyzerClass;
-    String analyzer;
+    private Class analyzerClass;
+    private String analyzer;
 
     private static final String KEY_ANALYZER = "analyzer";
 
     public Core(String contextPath) {
         analyzerClass = PartialMatchAnalyzer.class;
         analyzer = PartialMatchAnalyzer.class.getCanonicalName();
+
         setContextPath(contextPath);
     }
 
@@ -57,5 +58,9 @@ public class Core {
 
     public String getStatusUrl() {
         return makeUrl("status");
+    }
+
+    public String getAnalyzer() {
+        return analyzer;
     }
 }

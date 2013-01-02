@@ -5,7 +5,6 @@ import com.google.gson.FieldAttributes;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.GsonIgnore;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;

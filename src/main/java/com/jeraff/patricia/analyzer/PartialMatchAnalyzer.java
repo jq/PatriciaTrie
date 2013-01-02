@@ -7,7 +7,7 @@ import java.util.*;
 
 public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
     @Override
-    public Set<Map.Entry<String, String>> getIndexKeyValues(String s) {
+    public Set<Map.Entry<String, String>> getIndexEntry(String s) {
         final HashMap<String, String> rtn = new HashMap<String, String>();
 
         for (String gram : getGramsForPut(s)) {
