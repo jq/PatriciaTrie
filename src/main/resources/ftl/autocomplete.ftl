@@ -53,7 +53,7 @@
 
 <div class="center">
     <form method="GET" action="#" onsubmit="return addString(this)">
-        <label for="s">Test out the Auto-Complete</label>
+        <label for="s">Auto-Complete: ${core.contextPath}</label>
 
         <div>
             <input id="s" type="text" name="s" class="juicy"/>

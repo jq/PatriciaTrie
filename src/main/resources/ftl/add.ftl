@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Give Patricia a Spin</title>
+    <title>Add Stuff</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <style>
@@ -13,7 +13,7 @@
 
 <form method="POST" action="${core.addUrl}">
     <div class="center">
-        <label for="t">Add Some Stuff</label>
+        <label for="t">Add Some Stuff to ${core.contextPath}</label>
     </div>
 
     <div>
