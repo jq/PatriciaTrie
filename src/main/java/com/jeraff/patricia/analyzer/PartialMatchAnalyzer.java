@@ -10,7 +10,7 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
     public Set<Map.Entry<String, String>> getIndexEntry(String s) {
         final HashMap<String, String> rtn = new HashMap<String, String>();
 
-        for (String gram : getGramsForPut(s)) {
+        for (String gram : getPartialStrings(s)) {
             final String clean = (gram.indexOf("^") == 0) ? gram.toLowerCase() : clean(gram);
             final String key = generateKey(s, clean);
             rtn.put(key, s);
@@ -68,11 +68,11 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         return String.format("%s.%s", clean, suffix);
     }
 
-    private HashSet<String> getGramsForPut(String s) {
+    private HashSet<String> getPartialStrings(String s) {
         final HashSet<String> rtn = new HashSet<String>();
-        rtn.addAll(getGramsForCleanedString(clean(s, true)));
+        rtn.addAll(getPartialsForCleanedString(clean(s, true)));
 
-        final HashSet<String> cleansStopWordsInTact = getGramsForCleanedString(clean(s, false));
+        final HashSet<String> cleansStopWordsInTact = getPartialsForCleanedString(clean(s, false));
         rtn.addAll(cleansStopWordsInTact);
 
         if (startsWithStopWord(s)) {
@@ -114,7 +114,7 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         return String.format("^%s", s);
     }
 
-    private HashSet<String> getGramsForCleanedString(final String cleanedString) {
+    private HashSet<String> getPartialsForCleanedString(final String cleanedString) {
         final String[] st = StringUtils.split(cleanedString);
 
         if (st.length == 0) {
