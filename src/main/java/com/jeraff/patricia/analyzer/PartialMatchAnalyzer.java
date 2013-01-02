@@ -31,6 +31,18 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         return clean(String, true);
     }
 
+    @Override
+    public String getPreferred(String s0, String s1) {
+        final int i0 = numCaps(s0);
+        final int i1 = numCaps(s1);
+
+        if (i1 > i0) {
+            return s1;
+        }
+
+        return s0;
+    }
+
     ////////////////////////////////////////////////////////////////////////
     // helper methods & vars
     ////////////////////////////////////////////////////////////////////////
@@ -137,5 +149,15 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
             }
         }
         return false;
+    }
+
+    private int numCaps(String str) {
+        int num = 0;
+        for (int i = str.length() - 1; i >= 0; i--) {
+            if (Character.isUpperCase(str.charAt(i))) {
+                return num++;
+            }
+        }
+        return num;
     }
 }

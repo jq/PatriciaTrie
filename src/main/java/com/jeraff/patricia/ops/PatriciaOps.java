@@ -7,6 +7,7 @@ import org.limewire.collection.PatriciaTrie;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class PatriciaOps {
@@ -41,24 +42,20 @@ public class PatriciaOps {
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
         for (String string : strings) {
-            put(string, result);
+            final ArrayList<String> keys = new ArrayList<String>();
+
+            final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
+            for (Map.Entry<String, String> entry : indexEntries) {
+                patriciaTrie.put(entry.getKey(), string);
+                keys.add(entry.getKey());
+            }
+
+            if (result != null) {
+                result.put(string, keys);
+            }
         }
 
         return result;
-    }
-
-    private void put(String string, HashMap<String, ArrayList<String>> result) {
-        final ArrayList<String> keys = new ArrayList<String>();
-
-        final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
-        for (Map.Entry<String, String> entry : indexEntries) {
-            patriciaTrie.put(entry.getKey(), string);
-            keys.add(entry.getKey());
-        }
-
-        if (result != null) {
-            result.put(string, keys);
-        }
     }
 
     public List<String> getPrefixedBy(String prefix) {
@@ -102,7 +99,30 @@ public class PatriciaOps {
             @Override
             public void run() {
                 for (String string : strings) {
-                    put(string, null);
+                    final boolean infoLoggable = log.isLoggable(Level.INFO);
+
+                    if (infoLoggable) {
+                        log.log(Level.INFO, "Working on {0} strings", strings.length);
+                    }
+
+                    final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
+                    for (Map.Entry<String, String> entry : indexEntries) {
+                        final String key = entry.getKey();
+
+                        if (patriciaTrie.containsKey(key)) {
+                            if (log.isLoggable(Level.FINE)) {
+                                log.log(Level.FINE, "Key exists: {0}", key);
+                            }
+
+                            final String existing = patriciaTrie.get(key);
+                            final String winner = analyzer.getPreferred(existing, string);
+                            if (!winner.equals(existing)) {
+                                put(new String[]{winner});
+                            }
+                        } else {
+                            put(new String[]{string});
+                        }
+                    }
                 }
             }
         });
