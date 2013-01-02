@@ -107,7 +107,7 @@ public class ApiHandler extends BaseHandler {
 
         switch (method) {
             case GET:
-                write(httpServletRequest, response, get(params));
+                write(httpServletRequest, response, get(params).getResult());
                 break;
             case DELETE:
                 write(httpServletRequest, response, delete(params));

@@ -22,21 +22,37 @@
                             "Selected: " + ui.item.value :
                             "Nothing selected, input was " + this.value);
                 },
-                close: function( event, ui ) {
+                close: function (event, ui) {
                     $("#s").removeClass("autoOpen");
                 },
-                open: function( event, ui ) {
+                open: function (event, ui) {
                     $("#s").addClass("autoOpen");
                 }
             });
         });
+
+        function addString(frm) {
+            if (frm.s.value) {
+                $.ajax({
+                    type: "PUT",
+                    url: "${core.apiUrl}",
+                    data: {s: frm.s.value}
+                }).done(
+                    function (msg) {
+                        alert(frm.s.value + " queued for addition.");
+                    }
+                );
+            }
+
+            return false;
+        }
     </script>
 </head>
 
 <body>
 
 <div class="center">
-    <form method="GET" action="/api" onsubmit="return false">
+    <form method="GET" action="#" onsubmit="return addString(this)">
         <label for="s">Test out the Auto-Complete</label>
 
         <div>

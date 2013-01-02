@@ -99,9 +99,7 @@ public class PatriciaOps {
             @Override
             public void run() {
                 for (String string : strings) {
-                    final boolean infoLoggable = log.isLoggable(Level.INFO);
-
-                    if (infoLoggable) {
+                    if (log.isLoggable(Level.INFO)) {
                         log.log(Level.INFO, "Working on {0} strings", strings.length);
                     }
 
@@ -110,10 +108,6 @@ public class PatriciaOps {
                         final String key = entry.getKey();
 
                         if (patriciaTrie.containsKey(key)) {
-                            if (log.isLoggable(Level.FINE)) {
-                                log.log(Level.FINE, "Key exists: {0}", key);
-                            }
-
                             final String existing = patriciaTrie.get(key);
                             final String winner = analyzer.getPreferred(existing, string);
                             if (!winner.equals(existing)) {
