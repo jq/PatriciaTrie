@@ -1,5 +1,5 @@
 <div id="footer" class="center">
-<#if config.needsIndexHandler>
+<#if config.indexHandler>
     <a href="/">Cores</a>
 </#if>
     <a href="${core.path}">Test ${core.path}</a>

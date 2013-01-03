@@ -104,7 +104,7 @@ public class WebHandler extends BaseHandler {
         rootMap.put("upAgo", ago(dateUp));
         rootMap.put("upDate", sdf.format(dateUp));
         rootMap.put("configFile", config.getConfigFileContent());
-        rootMap.put("config", prettyMapper.writeValueAsString(config));
+        rootMap.put("configJson", prettyMapper.writeValueAsString(config));
 
         if (size != 0) {
             rootMap.put("firstKey", patriciaTrieOps.firstKey());

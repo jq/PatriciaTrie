@@ -50,7 +50,7 @@ public class PatriciaServer {
             contextHandlers.add(apiHandler);
         }
 
-        if (config.isNeedsIndexHandler()) {
+        if (config.isIndexHandler()) {
             final ContextHandler indexHandler = new ContextHandler("/");
             indexHandler.setResourceBase(".");
             indexHandler.setHandler(new IndexHandler(config));

@@ -83,7 +83,7 @@
                 </tr>
                 <tr>
                     <th>config:</th>
-                    <td><textarea rows="20" cols="60" readonly="true">${config}</textarea></td>
+                    <td><textarea rows="20" cols="60" readonly="true">${configJson}</textarea></td>
                 </tr>
                 </tbody>
             </table>

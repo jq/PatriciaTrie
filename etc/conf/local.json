@@ -7,25 +7,25 @@
         "acceptQueueSize": 100,
         "lowResourcesMaxIdleTime": 5000,
         "lowResourcesConnections": 100
-    },
-
-    "cores": [
-        {
-            "path": "/movies",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
-        },
-        {
-            "path": "/tv",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
-        }
-    ],
-
-    "jdbc": {
-        "url": "jdbc:mysql://localhost:3306/patricia",
-        "table": "movies",
-        "s": "name",
-        "order": "name",
-        "user": "root",
-        "password": ""
     }
+
+//    "cores": [
+//        {
+//            "path": "/movies",
+//            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
+//        },
+//        {
+//            "path": "/tv",
+//            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
+//        }
+//    ],
+//
+//    "jdbc": {
+//        "url": "jdbc:mysql://localhost:3306/patricia",
+//        "table": "movies",
+//        "s": "name",
+//        "order": "name",
+//        "user": "root",
+//        "password": ""
+//    }
 }

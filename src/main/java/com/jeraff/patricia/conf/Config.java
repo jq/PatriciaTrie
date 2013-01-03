@@ -3,6 +3,9 @@ package com.jeraff.patricia.conf;
 import org.apache.commons.beanutils.BeanMap;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.JsonParser;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
@@ -12,21 +15,20 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+@JsonAutoDetect
 public class Config {
     protected static final Logger log = Logger.getLogger(Config.class.getCanonicalName());
 
-    public static final String CONNECTOR = "connector";
-    public static final String CONNECTOR_ACCEPTORS = "acceptors";
-
     public static final String PATRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PATRICIA_PROP_PREFIX + "conf";
+    public static final String CONF_FILE = "confFile";
 
     private Connector connector;
     private List<Core> cores;
     private JDBC jdbc;
-    private long time;
-    private String confFilePath;
-    private boolean needsIndexHandler;
+    private long time = System.currentTimeMillis();
+    private String confFile;
+    private boolean indexHandler;
 
     public Config() {
     }
@@ -34,14 +36,16 @@ public class Config {
     public static Config instance(Properties properties) throws Exception {
         final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
         final HashMap<String, Object> conf = new HashMap<String, Object>();
+
         final ObjectMapper mapper = new ObjectMapper();
         mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-
-        conf.put("time", System.currentTimeMillis());
-        conf.put(confFilePath, confFilePath);
+        mapper.configure(JsonParser.Feature.ALLOW_COMMENTS, true);
+        mapper.configure(JsonParser.Feature.ALLOW_SINGLE_QUOTES, true);
+        mapper.configure(JsonParser.Feature.ALLOW_UNQUOTED_FIELD_NAMES, true);
 
         if (confFilePath != null) {
             final HashMap map = mapper.readValue(new File(confFilePath), HashMap.class);
+            conf.put(CONF_FILE, confFilePath);
             conf.putAll(map);
         }
 
@@ -53,6 +57,11 @@ public class Config {
     }
 
     private void setupCores() {
+        if (cores == null) {
+            cores = new ArrayList<Core>();
+            cores.add(new Core());
+        }
+
         Set<String> paths = new HashSet<String>(cores.size());
         for (Core core : cores) {
             final String path = core.getPath();
@@ -64,19 +73,20 @@ public class Config {
         }
 
         if (! paths.contains("/")) {
-            needsIndexHandler = true;
+            indexHandler = true;
         }
     }
 
+    @JsonIgnore
     public String getConfigFileContent() throws IOException {
-        if (confFilePath == null) {
+        if (confFile == null) {
             return null;
         }
 
         FileInputStream in = null;
 
         try {
-            in = new FileInputStream(new File(confFilePath));
+            in = new FileInputStream(new File(confFile));
             InputStreamReader inR = new InputStreamReader(in);
             BufferedReader buf = new BufferedReader(inR);
             List<String> lines = new ArrayList<String>();
@@ -179,19 +189,19 @@ public class Config {
         this.time = time;
     }
 
-    public String getConfFilePath() {
-        return confFilePath;
+    public String getConfFile() {
+        return confFile;
     }
 
-    public void setConfFilePath(String confFilePath) {
-        this.confFilePath = confFilePath;
+    public void setConfFile(String confFile) {
+        this.confFile = confFile;
     }
 
-    public boolean isNeedsIndexHandler() {
-        return needsIndexHandler;
+    public boolean isIndexHandler() {
+        return indexHandler;
     }
 
-    public void setNeedsIndexHandler(boolean needsIndexHandler) {
-        this.needsIndexHandler = needsIndexHandler;
+    public void setIndexHandler(boolean indexHandler) {
+        this.indexHandler = indexHandler;
     }
 }
