@@ -6,6 +6,7 @@ import com.jeraff.patricia.handler.Core;
 import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.io.*;
@@ -36,12 +37,19 @@ public class Config {
     public static final String PATRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PATRICIA_PROP_PREFIX + "conf";
 
+    @JsonProperty
     private long time;
+    @JsonProperty
     private HashMap<String, Core> cores = new HashMap<String, Core>();
+    @JsonProperty
     private String confFilePath;
+    @JsonProperty
     private boolean needsIndexHandler;
+    @JsonProperty
     private HashMap<Object, Object> systemProperties;
+    @JsonProperty
     private Map<String, Object> connector;
+    @JsonProperty
     private Map<String, Object> jdbc;
 
     public Config(Properties properties) {
@@ -65,7 +73,7 @@ public class Config {
 
     public String getConfigFileContent() throws IOException {
         if (confFilePath == null) {
-            return "";
+            return null;
         }
 
         FileInputStream in = null;

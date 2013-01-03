@@ -79,7 +79,7 @@
                 </tr>
                 <tr>
                     <th>config file:</th>
-                    <td><textarea rows="10" cols="60" readonly="true">${configFile}</textarea></td>
+                    <td><textarea rows="10" cols="60" readonly="true">${configFile!}</textarea></td>
                 </tr>
                 <tr>
                     <th>config:</th>

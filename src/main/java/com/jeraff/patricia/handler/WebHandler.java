@@ -20,7 +20,7 @@ import java.util.HashMap;
 public class WebHandler extends BaseHandler {
     private static final String ACTION_INDEX = "";
     private static final String ACTION_ADD = "add";
-    private String ACTION_STATUS = "status";
+    private static final String ACTION_STATUS = "status";
 
     public static final String TEMPLATE_AUTO_COMPLETE = "autocomplete.ftl";
     public static final String TEMPLATE_STATUS = "status.ftl";
