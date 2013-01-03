@@ -36,8 +36,8 @@ public abstract class BaseHandler extends AbstractHandler {
         this.patriciaTrieOps = new PatriciaOps(core, patriciaTrie);
 
         objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_GETTERS, true);
-        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, true);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_GETTERS, false);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, false);
         objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_FIELDS, true);
         objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
         objectMapper.configure(SerializationConfig.Feature.USE_ANNOTATIONS, true);

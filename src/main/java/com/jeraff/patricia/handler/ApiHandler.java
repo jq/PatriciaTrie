@@ -124,16 +124,16 @@ public class ApiHandler extends BaseHandler {
                 write(httpServletRequest, response, get(params).getResult());
                 break;
             case DELETE:
-                write(httpServletRequest, response, delete(params));
+                write(httpServletRequest, response, delete(params).getResult());
                 break;
             case HEAD:
                 head(params, response);
                 break;
             case POST:
-                write(httpServletRequest, response, post(params));
+                write(httpServletRequest, response, post(params).getResult());
                 break;
             case PUT:
-                write(httpServletRequest, response, put(params));
+                write(httpServletRequest, response, put(params).getResult());
                 break;
         }
 
