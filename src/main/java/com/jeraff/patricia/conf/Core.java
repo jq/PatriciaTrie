@@ -14,6 +14,7 @@ public class Core {
     private String path = "/";
     private Class analyzer = PartialMatchAnalyzer.class;
     private JDBC jdbc;
+    private DirectoryCat dirCat;
 
     public Core() {
     }
@@ -76,6 +77,14 @@ public class Core {
 
     public void setJdbc(JDBC jdbc) {
         this.jdbc = jdbc;
+    }
+
+    public DirectoryCat getDirCat() {
+        return dirCat;
+    }
+
+    public void setDirCat(DirectoryCat dirCat) {
+        this.dirCat = dirCat;
     }
 
     @Override

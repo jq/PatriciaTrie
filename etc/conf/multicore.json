@@ -13,18 +13,18 @@
         {
             "path": "/movies",
             "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
-            "jdbc": {
-                "url": "jdbc:mysql://localhost:3306/patricia",
-                "table": "movies",
-                "s": "name",
-                "order": "name",
-                "user": "root",
-                "password": ""
+            "dirCat": {
+                "pattern": "*.txt",
+                "directory": "/Users/arin/Dev/oss/PatriciaTrie/etc/data/movies"
             }
         },
         {
             "path": "/tv",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
+            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
+            "dirCat": {
+                "pattern": "*.txt",
+                "directory": "/Users/arin/Dev/oss/PatriciaTrie/etc/data/tv"
+            }
         }
     ]
 }
