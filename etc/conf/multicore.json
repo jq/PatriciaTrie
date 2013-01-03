@@ -24,15 +24,7 @@
         },
         {
             "path": "/tv",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
-            "jdbc": {
-                "url": "jdbc:mysql://localhost:3306/patricia",
-                "table": "tv",
-                "s": "name",
-                "order": "name",
-                "user": "root",
-                "password": ""
-            }
+            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer"
         }
     ]
 }

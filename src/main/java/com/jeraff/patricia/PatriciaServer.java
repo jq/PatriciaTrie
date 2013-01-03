@@ -5,7 +5,6 @@ import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.handler.CoreHandler;
 import com.jeraff.patricia.handler.IndexHandler;
 import org.eclipse.jetty.server.Connector;
-import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -13,6 +12,10 @@ import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.FutureTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -31,17 +34,29 @@ public class PatriciaServer {
         final Config config = Config.instance(System.getProperties());
         final SelectChannelConnector connector0 = new SelectChannelConnector();
 
-        config.configConnector(connector0);
-        server.setConnectors(new Connector[]{connector0});
-
+        final List<Future> bootstrapFutures = new ArrayList<Future>();
         final ContextHandlerCollection contexts = getContexts(config);
+        final ExecutorService pool = Executors.newFixedThreadPool(contexts.getHandlers().length);
+
         for (ContextHandler handler : (ContextHandler[]) contexts.getHandlers()) {
-            final Handler h = handler.getHandler();
-            if (h instanceof CoreHandler) {
-                // TODO: launch bootstraps here...
+            if (handler.getHandler() instanceof CoreHandler) {
+                final CoreHandler coreHandler = (CoreHandler) handler.getHandler();
+                final FutureTask bootstrapFuture = coreHandler.getBootstrapFuture();
+                if (bootstrapFuture != null) {
+                    final Future<?> future = pool.submit(bootstrapFuture);
+                    bootstrapFutures.add(future);
+                }
             }
         }
 
+        if (!bootstrapFutures.isEmpty()) {
+            for (Future future : bootstrapFutures) {
+                future.get();
+            }
+        }
+
+        config.configConnector(connector0);
+        server.setConnectors(new Connector[]{connector0});
         server.setHandler(contexts);
         server.start();
         server.join();

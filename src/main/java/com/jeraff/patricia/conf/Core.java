@@ -54,9 +54,8 @@ public class Core {
 
     @JsonIgnore
     public ObjectName getMBeanName() {
-        String s = String.format("%s:Core=%s", getClass().getPackage().getName(), path);
         try {
-            return new ObjectName(s);
+            return new ObjectName(toString());
         } catch (MalformedObjectNameException e) {
             return null;
         }
@@ -77,5 +76,10 @@ public class Core {
 
     public void setJdbc(JDBC jdbc) {
         this.jdbc = jdbc;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s:Core=%s", getClass().getCanonicalName(), path);
     }
 }

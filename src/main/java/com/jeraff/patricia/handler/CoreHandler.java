@@ -3,7 +3,6 @@ package com.jeraff.patricia.handler;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.ops.PatriciaOps;
-import org.apache.commons.beanutils.BeanMap;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.CharSequenceKeyAnalyzer;
@@ -15,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import java.util.Properties;
+import java.util.concurrent.Callable;
+import java.util.concurrent.FutureTask;
 import java.util.logging.Level;
 
 public class CoreHandler extends BaseHandler {
@@ -26,7 +27,7 @@ public class CoreHandler extends BaseHandler {
 
     public CoreHandler(Core core, Config config) {
         this.patriciaTrie = new PatriciaTrie<String, String>(new CharSequenceKeyAnalyzer());
-
+        this.core = core;
         this.web = new WebHandler(patriciaTrie, core, config);
         this.api = new ApiHandler(patriciaTrie, core, config);
     }
@@ -42,22 +43,32 @@ public class CoreHandler extends BaseHandler {
         }
     }
 
+    public FutureTask getBootstrapFuture() {
+        if (core.getJdbc() == null) {
+            return null;
+        }
+
+        return new FutureTask(new Callable() {
+            @Override
+            public Object call() throws Exception {
+                return new Bootstrap().run();
+            }
+        });
+    }
+
     private class Bootstrap {
         private static final int LIMIT = 250;
 
         public Connection getJdbcConnection() {
-            if (core.getJdbc() != null) {
+            if (core.getJdbc() == null) {
                 log.log(Level.WARNING, "No JDBC configuration available");
                 return null;
             }
 
             try {
-                final BeanMap map = new BeanMap(core.getJdbc());
                 final Properties properties = new Properties();
-
-                for (Object o : map.keySet()) {
-                    properties.put(o, map.get(o));
-                }
+                properties.put("user", core.getJdbc().getUser());
+                properties.put("password", core.getJdbc().getPassword());
 
                 return DriverManager.getConnection(core.getJdbc().getUrl(), properties);
             } catch (Exception e) {
@@ -68,16 +79,18 @@ public class CoreHandler extends BaseHandler {
             return null;
         }
 
-        public void run() throws Exception {
+        public boolean run() throws Exception {
             PatriciaOps ops = new PatriciaOps(core, patriciaTrie);
             Connection connection = null;
+            int numInserted = 0;
+
             try {
                 connection = getJdbcConnection();
                 if (connection == null) {
                     if (log.isLoggable(Level.INFO)) {
                         log.log(Level.INFO, "No JDBC connection established");
                     }
-                    return;
+                    return false;
                 }
 
                 // initial setup...
@@ -108,6 +121,7 @@ public class CoreHandler extends BaseHandler {
                 while (rs.next()) {
                     String string = rs.getString(columnIndex);
                     ops.put(new String[]{string});
+                    numInserted++;
 
                     if (log.isLoggable(Level.INFO)) {
                         log.log(Level.INFO, "Bootstrap: {0}", string);
@@ -125,16 +139,19 @@ public class CoreHandler extends BaseHandler {
                     }
                 }
             } catch (SQLException e) {
-                log.log(Level.WARNING, "Bootstrap error", e);
+                log.log(Level.SEVERE, "Bootstrap error", e);
             } finally {
                 if (connection != null) {
                     try {
                         connection.close();
                     } catch (SQLException e) {
-                        log.log(Level.INFO, "Error closing connection", e);
+                        log.log(Level.WARNING, "Error closing connection", e);
                     }
                 }
             }
+
+            log.log(Level.INFO, "Inserted {0} strings in {1}", new Object[]{numInserted, core});
+            return true;
         }
 
         private String createSelectQuery(String table, String stringColumn, String orderColumn, int offset) {
