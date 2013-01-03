@@ -1,9 +1,9 @@
 package com.jeraff.patricia.handler;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.util.Method;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -16,6 +16,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 
 public class WebHandler extends BaseHandler {
     private static final String ACTION_INDEX = "";
@@ -26,6 +27,16 @@ public class WebHandler extends BaseHandler {
     public static final String TEMPLATE_STATUS = "status.ftl";
     public static final String TEMPLATE_ADD = "add.ftl";
     public static final String TEMPLATE_INDEX = "index.ftl";
+
+    private static final ObjectMapper prettyMapper;
+    static {
+        prettyMapper = new ObjectMapper();
+        prettyMapper.configure(SerializationConfig.Feature.INDENT_OUTPUT, true);
+
+        for (Map.Entry<SerializationConfig.Feature, Boolean> entry : defaultMapperConfig.entrySet()) {
+            prettyMapper.configure(entry.getKey(), entry.getValue());
+        }
+    }
 
     public WebHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
@@ -58,9 +69,7 @@ public class WebHandler extends BaseHandler {
                 params.validate(Method.POST);
 
                 final HashMap<String, ArrayList<String>> put = patriciaTrieOps.put(params.getStrings());
-                final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-
-                rootMap.put("resultJson", gson.toJson(put));
+                rootMap.put("resultJson", prettyMapper.writeValueAsString(put));
                 rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {
                 rootMap.put("success", false);
@@ -94,7 +103,7 @@ public class WebHandler extends BaseHandler {
         rootMap.put("upAgo", ago(dateUp));
         rootMap.put("upDate", sdf.format(dateUp));
         rootMap.put("configFile", config.getConfigFileContent());
-        rootMap.put("config", objectMapper.writeValueAsString(config));
+        rootMap.put("config", prettyMapper.writeValueAsString(config));
 
         if (size != 0) {
             rootMap.put("firstKey", patriciaTrieOps.firstKey());

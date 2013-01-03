@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -23,27 +24,34 @@ public abstract class BaseHandler extends AbstractHandler {
     protected Core core;
     protected PatriciaOps patriciaTrieOps;
     protected static final Logger log = Logger.getLogger(BaseHandler.class.getCanonicalName());
-    protected ObjectMapper objectMapper;
+
+    protected static final HashMap<SerializationConfig.Feature, Boolean> defaultMapperConfig;
+    protected static final ObjectMapper objectMapper;
+
+    static {
+        defaultMapperConfig = new HashMap<SerializationConfig.Feature, Boolean>();
+        defaultMapperConfig.put(SerializationConfig.Feature.AUTO_DETECT_GETTERS, false);
+        defaultMapperConfig.put(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, false);
+        defaultMapperConfig.put(SerializationConfig.Feature.AUTO_DETECT_FIELDS, true);
+        defaultMapperConfig.put(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
+        defaultMapperConfig.put(SerializationConfig.Feature.USE_ANNOTATIONS, true);
+        defaultMapperConfig.put(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES, false);
+        defaultMapperConfig.put(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
+
+        objectMapper = new ObjectMapper();
+        for (Map.Entry<SerializationConfig.Feature, Boolean> entry : defaultMapperConfig.entrySet()) {
+            objectMapper.configure(entry.getKey(), entry.getValue());
+        }
+    }
 
     protected BaseHandler() {
     }
 
     public BaseHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super();
-
         this.core = core;
         this.config = config;
         this.patriciaTrieOps = new PatriciaOps(core, patriciaTrie);
-
-        objectMapper = new ObjectMapper();
-        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_GETTERS, false);
-        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, false);
-        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_FIELDS, true);
-        objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
-        objectMapper.configure(SerializationConfig.Feature.USE_ANNOTATIONS, true);
-        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES, false);
-        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
-
         setupFreemarker();
     }
 
