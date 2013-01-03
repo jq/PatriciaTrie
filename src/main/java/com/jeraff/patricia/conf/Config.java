@@ -7,6 +7,7 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.io.*;
@@ -151,6 +152,10 @@ public class Config {
             final StringWriter stringWriter = new StringWriter();
             IOUtils.copy(new FileInputStream(file), stringWriter);
             json = stringWriter.toString();
+
+            ObjectMapper m = new ObjectMapper();
+            final C c = m.readValue(file, C.class);
+            System.out.println(c);
         } catch (Exception e) {
             String error = "Can't read " + confFilePath;
             log.log(Level.SEVERE, error, e);
