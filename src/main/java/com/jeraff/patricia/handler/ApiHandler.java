@@ -1,12 +1,14 @@
 package com.jeraff.patricia.handler;
 
-import com.google.gson.Gson;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.util.Method;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
-import javax.management.*;
+import javax.management.MBeanServer;
+import javax.management.ObjectName;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -26,11 +28,22 @@ public class ApiHandler extends BaseHandler {
     public static final String UTF_8 = "UTF-8";
     public static final String QUEUED = "queued";
 
+    private ObjectMapper objectMapper;
+
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
-        final ObjectName name = core.getMBeanObjectName();
+
+        objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_GETTERS, true);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, true);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_FIELDS, true);
+        objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
+        objectMapper.configure(SerializationConfig.Feature.USE_ANNOTATIONS, true);
+        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES, false);
+        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
 
         try {
+            final ObjectName name = core.getMBeanObjectName();
             final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
             mbs.registerMBean(new CoreData(patriciaTrie, core), name);
         } catch (Exception e) {
@@ -94,7 +107,7 @@ public class ApiHandler extends BaseHandler {
         resp.setCharacterEncoding(UTF_8);
 
         if (o != null) {
-            new Gson().toJson(o, resp.getWriter());
+            objectMapper.writeValue(resp.getWriter(), o);
         }
 
         if (headers != null) {

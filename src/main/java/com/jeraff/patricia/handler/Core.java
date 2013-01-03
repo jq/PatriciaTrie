@@ -2,15 +2,15 @@ package com.jeraff.patricia.handler;
 
 import com.google.gson.internal.StringMap;
 import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
-import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 
 public class Core {
     private String contextPath;
-    @GsonIgnore
+    @JsonIgnore
     private Class analyzerClass;
     private String analyzer;
 
