@@ -27,10 +27,6 @@ public class WebHandler extends BaseHandler {
     public static final String TEMPLATE_ADD = "add.ftl";
     public static final String TEMPLATE_INDEX = "index.ftl";
 
-    protected WebHandler() {
-
-    }
-
     public WebHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
     }
@@ -42,11 +38,11 @@ public class WebHandler extends BaseHandler {
         final String action = getAction(target);
 
         if (ACTION_INDEX.equals(action)) {
-            handleIndex(request, response);
+            handleIndex(response);
         } else if (ACTION_ADD.equals(action)) {
             handleAdd(request, response);
         } else if (ACTION_STATUS.equals(action)) {
-            handleStatus(request, response);
+            handleStatus(response);
         } else {
             handle404(response);
         }
@@ -79,7 +75,7 @@ public class WebHandler extends BaseHandler {
         writer.close();
     }
 
-    private void handleIndex(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void handleIndex(HttpServletResponse response) throws IOException {
         final String out = renderTemplate(response, TEMPLATE_AUTO_COMPLETE, new HashMap<String, Object>());
         final PrintWriter writer = response.getWriter();
 
@@ -87,7 +83,7 @@ public class WebHandler extends BaseHandler {
         writer.close();
     }
 
-    private void handleStatus(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private void handleStatus(HttpServletResponse response) throws IOException {
         final HashMap<String, Object> rootMap = new HashMap<String, Object>();
         final int size = patriciaTrieOps.size();
         final SimpleDateFormat sdf = new SimpleDateFormat("EEE, d MMM yyyy HH:mm:ss Z");
