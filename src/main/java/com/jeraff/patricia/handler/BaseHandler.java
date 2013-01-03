@@ -30,7 +30,7 @@ public abstract class BaseHandler extends AbstractHandler {
 
         this.core = core;
         this.config = config;
-        this.patriciaTrieOps = new PatriciaOps(patriciaTrie);
+        this.patriciaTrieOps = new PatriciaOps(core, patriciaTrie);
 
         setupFreemarker();
     }

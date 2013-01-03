@@ -1,12 +1,14 @@
 package com.jeraff.patricia.ops;
 
-import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import com.jeraff.patricia.analyzer.DistanceComparator;
+import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
+import com.jeraff.patricia.handler.Core;
 import org.limewire.collection.PatriciaTrie;
 
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,12 +19,19 @@ public class PatriciaOps {
 
     private PatriciaTrie<String, String> patriciaTrie;
     private final PartialMatchAnalyzer analyzer;
-    private final ExecutorService executor;
+    private final ExecutorService putPool;
 
-    public PatriciaOps(PatriciaTrie<String, String> patriciaTrie) {
+    public PatriciaOps(final Core core, PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
         this.analyzer = new PartialMatchAnalyzer();
-        this.executor = Executors.newFixedThreadPool(DEFAULT_THREADS);
+
+        final String canonicalCoreName = core.canonicalName();
+        this.putPool = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
+            @Override
+            public Thread newThread(Runnable runnable) {
+                return new Thread(runnable, "PatriciaOps.PutPool." + canonicalCoreName);
+            }
+        });
     }
 
     public String firstKey() {
@@ -95,7 +104,7 @@ public class PatriciaOps {
     }
 
     public void enqueue(final String[] strings) {
-        executor.submit(new Runnable() {
+        putPool.submit(new Runnable() {
             @Override
             public void run() {
                 for (String string : strings) {

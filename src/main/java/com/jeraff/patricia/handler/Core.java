@@ -5,6 +5,9 @@ import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import com.jeraff.patricia.util.GsonIgnore;
 import org.apache.commons.lang.StringUtils;
 
+import javax.management.MalformedObjectNameException;
+import javax.management.ObjectName;
+
 public class Core {
     private String contextPath;
     @GsonIgnore
@@ -62,5 +65,18 @@ public class Core {
 
     public String getAnalyzer() {
         return analyzer;
+    }
+
+    public ObjectName getMBeanObjectName() {
+        String s = String.format("%s:type=Core %s", getClass().getPackage(), contextPath);
+        try {
+            return new ObjectName(s);
+        } catch (MalformedObjectNameException e) {
+            return null;
+        }
+    }
+
+    public String canonicalName() {
+        return contextPath.equals("/") ? "default" : StringUtils.strip(contextPath, "/");
     }
 }

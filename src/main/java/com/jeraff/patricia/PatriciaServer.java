@@ -3,7 +3,8 @@ package com.jeraff.patricia;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.handler.Core;
 import com.jeraff.patricia.handler.CoreHandler;
-import com.jeraff.patricia.handler.IndexHandler;import org.eclipse.jetty.server.Connector;
+import com.jeraff.patricia.handler.IndexHandler;
+import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -19,6 +20,13 @@ public class PatriciaServer {
     protected static final Logger log = Logger.getLogger(PatriciaServer.class.getCanonicalName());
 
     public static void main(String[] args) throws Exception {
+        Runtime.getRuntime().addShutdownHook(new Thread() {
+            @Override
+            public void run() {
+                log.severe("Shutting down now!");
+            }
+        });
+
         final Server server = new Server();
         final Config config = new Config(System.getProperties());
         final SelectChannelConnector connector0 = new SelectChannelConnector();

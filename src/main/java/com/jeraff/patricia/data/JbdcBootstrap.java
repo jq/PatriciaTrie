@@ -19,7 +19,8 @@ public class JbdcBootstrap {
 
     public JbdcBootstrap(PatriciaTrie<String, String> patriciaTrie, Config config) {
         this.config = config;
-        this.ops = new PatriciaOps(patriciaTrie);
+        // Todo: fix this shit
+        this.ops = new PatriciaOps(null, patriciaTrie);
     }
 
     public void run() {

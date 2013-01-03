@@ -6,11 +6,17 @@ import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
+import javax.management.*;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.*;
+import java.lang.management.ManagementFactory;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.logging.Level;
 
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
@@ -22,6 +28,14 @@ public class ApiHandler extends BaseHandler {
 
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
+        final ObjectName name = core.getMBeanObjectName();
+
+        try {
+            final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
+            mbs.registerMBean(new CoreData(patriciaTrie, core), name);
+        } catch (Exception e) {
+            log.log(Level.WARNING, "Couldn't register mbean for core: " + core.getContextPath(), e);
+        }
     }
 
     public ApiMethodResult get(Params params) throws IOException {
