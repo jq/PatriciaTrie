@@ -40,7 +40,7 @@ public class ApiHandler extends BaseHandler {
 
     public ApiMethodResult get(Params params) throws IOException {
         final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
-        return new ApiMethodResult(new HashMap<String, Object>(), prefixedBy);
+        return new ApiMethodResult(prefixedBy);
     }
 
     public ApiMethodResult post(Params params) throws IOException {
@@ -62,7 +62,8 @@ public class ApiHandler extends BaseHandler {
         return new ApiMethodResult(patriciaTrieOps.remove(params.getStrings()));
     }
 
-    public void head(Params params, HttpServletResponse response) throws IOException {
+    public ApiMethodResult head(Params params, HttpServletResponse response) throws IOException {
+        ApiMethodResult apiMethodResult = new ApiMethodResult();
         final String firstKey = params.getFirstKey();
         int count;
 
@@ -73,76 +74,72 @@ public class ApiHandler extends BaseHandler {
         }
 
         if (count == 0 && firstKey != null) {
-            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
 
-        response.setHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
-    }
-
-    private void write(HttpServletRequest request, HttpServletResponse response, Object o) throws IOException {
-        write(request, response, null, o);
-    }
-
-    private void write(HttpServletRequest request, HttpServletResponse response, HashMap<String, Object> headers, Object o)
-            throws IOException {
-        final String acceptEncodingHeader = request.getHeader(HEADER_ACCEPT_ENCODING);
-        final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(GZIP))
-                ? new GZIPResponseWrapper(response)
-                : response;
-
-        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
-        resp.setCharacterEncoding(UTF_8);
-
-        if (o != null) {
-            objectMapper.writeValue(resp.getWriter(), o);
-        }
-
-        if (headers != null) {
-            for (Map.Entry<String, Object> header : headers.entrySet()) {
-                resp.addHeader(header.getKey(), header.getValue().toString());
-            }
-        }
-
-        resp.getWriter().close();
+        apiMethodResult.addHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
+        return apiMethodResult;
     }
 
     @Override
-    public void handle(String target, Request baseRequest, HttpServletRequest httpServletRequest, HttpServletResponse response) throws IOException, ServletException {
-        final Params params = new Params(httpServletRequest);
+    public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+        final Params params = new Params(request);
         final Method method = Method.valueOf(baseRequest.getMethod());
 
         try {
             params.validate(method);
         } catch (ParamValidationError validationError) {
-            handleValidationError(httpServletRequest, validationError, response);
+            handleValidationError(validationError, response);
             baseRequest.setHandled(true);
             return;
         }
 
+        ApiMethodResult apiMethodResult = null;
         switch (method) {
             case GET:
-                write(httpServletRequest, response, get(params).getResult());
+                apiMethodResult = get(params);
                 break;
             case DELETE:
-                write(httpServletRequest, response, delete(params).getResult());
+                apiMethodResult = delete(params);
                 break;
             case HEAD:
-                head(params, response);
+                apiMethodResult = head(params, response);
                 break;
             case POST:
-                write(httpServletRequest, response, post(params).getResult());
+                apiMethodResult = post(params);
                 break;
             case PUT:
-                write(httpServletRequest, response, put(params).getResult());
+                apiMethodResult = put(params);
                 break;
         }
 
+        final String acceptEncodingHeader = request.getHeader(HEADER_ACCEPT_ENCODING);
+        final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(GZIP))
+                ? new GZIPResponseWrapper(response)
+                : response;
+
+        resp.setStatus(apiMethodResult.getStatus());
+        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
+        resp.setCharacterEncoding(UTF_8);
+
+        if (apiMethodResult.getHeaders() != null) {
+            for (Map.Entry<String, Object> header : apiMethodResult.getHeaders().entrySet()) {
+                resp.addHeader(header.getKey(), header.getValue().toString());
+            }
+        }
+
+        if (apiMethodResult.getBody() != null) {
+            objectMapper.writeValue(resp.getWriter(), apiMethodResult.getBody());
+        }
+
+        resp.getWriter().close();
         baseRequest.setHandled(true);
     }
 
-    public void handleValidationError(HttpServletRequest httpServletRequest, ParamValidationError validationError, HttpServletResponse response) throws IOException {
+    public void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {
         response.setStatus(validationError.code);
-        write(httpServletRequest, response, validationError.getErrorMap());
+        objectMapper.writeValue(response.getWriter(), validationError.getErrorMap());
     }
 
 }
