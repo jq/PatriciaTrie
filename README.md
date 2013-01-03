@@ -192,7 +192,7 @@ http://localhost:8666/status has some bare bones info; number of strings, first 
 Config
 ===
 
-On the command line you can specify a config file via system property named "conf"
+On the command line you can specify a config file via system property named "patricia.conf"
 
     java -Dpatricia.conf=~/xxxxxx/PatriciaTrie/etc/conf/local.json -jar /path/to/patricia.jar
 
