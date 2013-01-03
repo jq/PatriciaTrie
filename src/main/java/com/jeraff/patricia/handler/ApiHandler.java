@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -126,17 +127,21 @@ public class ApiHandler extends BaseHandler {
         resp.setContentType(HEADER_CONTENT_TYPE_JSON);
         resp.setCharacterEncoding(UTF_8);
 
-        if (apiMethodResult.getHeaders() != null) {
-            for (Map.Entry<String, Object> header : apiMethodResult.getHeaders().entrySet()) {
+        HashMap<String, Object> headers = apiMethodResult.getHeaders();
+        if (headers != null) {
+            for (Map.Entry<String, Object> header : headers.entrySet()) {
                 resp.addHeader(header.getKey(), header.getValue().toString());
             }
         }
 
-        if (apiMethodResult.getBody() != null) {
-            objectMapper.writeValue(resp.getWriter(), apiMethodResult.getBody());
+        PrintWriter writer = resp.getWriter();
+        Object body = apiMethodResult.getBody();
+
+        if (body != null) {
+            objectMapper.writeValue(writer, body);
         }
 
-        resp.getWriter().close();
+        writer.close();
         baseRequest.setHandled(true);
     }
 
