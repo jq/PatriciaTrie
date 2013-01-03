@@ -75,6 +75,7 @@ public abstract class BaseHandler extends AbstractHandler {
             final StringWriter sw = new StringWriter();
 
             rootMap.put("core", core);
+            rootMap.put("config", config);
             template = freemarkerConfig.getTemplate(templateName);
             template.process(rootMap, sw);
 

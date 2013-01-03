@@ -1,9 +1,8 @@
 <div id="footer" class="center">
-<#if core.path = "/">
-    <a href="/">Home</a>
-<#else>
-    <a href="${core.path}">Test AutoComplete</a>
+<#if config.needsIndexHandler>
+    <a href="/">Cores</a>
 </#if>
+    <a href="${core.path}">Test ${core.path}</a>
     <a href="${core.addUrl}">Add Stuff</a>
     <a href="${core.statusUrl}">Status</a>
     <a href="https://github.com/Jeraff/PatriciaTrie">Source Code</a>
