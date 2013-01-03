@@ -4,6 +4,8 @@ import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.ops.PatriciaOps;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.SerializationConfig;
 import org.eclipse.jetty.server.handler.AbstractHandler;
 import org.limewire.collection.PatriciaTrie;
 
@@ -21,6 +23,7 @@ public abstract class BaseHandler extends AbstractHandler {
     protected Core core;
     protected PatriciaOps patriciaTrieOps;
     protected static final Logger log = Logger.getLogger(BaseHandler.class.getCanonicalName());
+    protected ObjectMapper objectMapper;
 
     protected BaseHandler() {
     }
@@ -31,6 +34,15 @@ public abstract class BaseHandler extends AbstractHandler {
         this.core = core;
         this.config = config;
         this.patriciaTrieOps = new PatriciaOps(core, patriciaTrie);
+
+        objectMapper = new ObjectMapper();
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_GETTERS, true);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_IS_GETTERS, true);
+        objectMapper.configure(SerializationConfig.Feature.AUTO_DETECT_FIELDS, true);
+        objectMapper.configure(SerializationConfig.Feature.FAIL_ON_EMPTY_BEANS, false);
+        objectMapper.configure(SerializationConfig.Feature.USE_ANNOTATIONS, true);
+        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_MAP_VALUES, false);
+        objectMapper.configure(SerializationConfig.Feature.WRITE_NULL_PROPERTIES, false);
 
         setupFreemarker();
     }
