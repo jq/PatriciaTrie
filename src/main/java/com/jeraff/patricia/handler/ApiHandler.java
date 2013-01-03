@@ -40,7 +40,13 @@ public class ApiHandler extends BaseHandler {
 
     public ApiMethodResult get(Params params) throws IOException {
         final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
-        return new ApiMethodResult(prefixedBy);
+        final ApiMethodResult apiMethodResult = new ApiMethodResult(prefixedBy);
+
+        if (prefixedBy.isEmpty()) {
+            apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
+
+        return apiMethodResult;
     }
 
     public ApiMethodResult post(Params params) throws IOException {
@@ -62,16 +68,13 @@ public class ApiHandler extends BaseHandler {
         return new ApiMethodResult(patriciaTrieOps.remove(params.getStrings()));
     }
 
-    public ApiMethodResult head(Params params, HttpServletResponse response) throws IOException {
-        ApiMethodResult apiMethodResult = new ApiMethodResult();
+    public ApiMethodResult head(Params params) throws IOException {
+        final ApiMethodResult apiMethodResult = new ApiMethodResult();
         final String firstKey = params.getFirstKey();
-        int count;
 
-        if (firstKey == null) {
-            count = patriciaTrieOps.size();
-        } else {
-            count = patriciaTrieOps.getPrefixedByCount(firstKey);
-        }
+        int count = (firstKey == null)
+                ? patriciaTrieOps.size()
+                : patriciaTrieOps.getPrefixedByCount(firstKey);
 
         if (count == 0 && firstKey != null) {
             apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
@@ -104,7 +107,7 @@ public class ApiHandler extends BaseHandler {
                 apiMethodResult = delete(params);
                 break;
             case HEAD:
-                apiMethodResult = head(params, response);
+                apiMethodResult = head(params);
                 break;
             case POST:
                 apiMethodResult = post(params);
