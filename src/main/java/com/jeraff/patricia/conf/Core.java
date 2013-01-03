@@ -1,6 +1,5 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.conf;
 
-import com.google.gson.internal.StringMap;
 import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
@@ -12,28 +11,19 @@ import javax.management.ObjectName;
 
 @JsonAutoDetect
 public class Core {
-    private String contextPath;
-    private Class analyzer;
+    private String path = "/";
+    private Class analyzer = PartialMatchAnalyzer.class;
 
-    private static final String KEY_ANALYZER = "analyzer";
-
-    public Core(String contextPath) {
-        analyzer = PartialMatchAnalyzer.class;
-        setContextPath(contextPath);
+    public Core() {
     }
 
-    public Core(String contextPath, StringMap<String> map) throws ClassNotFoundException {
-        analyzer = Class.forName(map.get(KEY_ANALYZER));
-        setContextPath(contextPath);
+    private void setPath(String path) {
+        final String s = String.format("/%s", StringUtils.strip(path, "/"));
+        this.path = s;
     }
 
-    private void setContextPath(String contextPath) {
-        final String s = String.format("/%s", StringUtils.strip(contextPath, "/"));
-        this.contextPath = s;
-    }
-
-    public String getContextPath() {
-        return contextPath;
+    public String getPath() {
+        return path;
     }
 
     public Class getAnalyzer() {
@@ -41,7 +31,7 @@ public class Core {
     }
 
     private String makeUrl(String path) {
-        final String strip = StringUtils.strip(contextPath, "/");
+        final String strip = StringUtils.strip(this.path, "/");
         if (StringUtils.isBlank(strip)) {
             return String.format("/%s/", StringUtils.strip(path, "/"));
         } else {
@@ -63,7 +53,7 @@ public class Core {
 
     @JsonIgnore
     public ObjectName getMBeanName() {
-        String s = String.format("%s:Core=%s", getClass().getPackage().getName(), contextPath);
+        String s = String.format("%s:Core=%s", getClass().getPackage().getName(), path);
         try {
             return new ObjectName(s);
         } catch (MalformedObjectNameException e) {
@@ -77,6 +67,6 @@ public class Core {
     }
 
     public String canonicalName() {
-        return contextPath.equals("/") ? "default" : StringUtils.strip(contextPath, "/");
+        return path.equals("/") ? "default" : StringUtils.strip(path, "/");
     }
 }

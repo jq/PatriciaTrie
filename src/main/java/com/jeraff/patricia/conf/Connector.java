@@ -1,10 +1,10 @@
 package com.jeraff.patricia.conf;
 
-public class ConnectorConfig {
-    int port;
+public class Connector {
+    int port = 8666;
     int maxIdleTime;
     int requestHeaderSize;
-    int acceptors;
+    int acceptors = 2 * Runtime.getRuntime().availableProcessors();
     int acceptQueueSize;
     int lowResourcesMaxIdleTime;
     int lowResourcesConnections;

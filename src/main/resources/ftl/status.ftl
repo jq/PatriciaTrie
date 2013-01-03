@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>Status: ${core.contextPath}</title>
+    <title>Status: ${core.path}</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <style>
@@ -39,7 +39,7 @@
 
 <form method="POST" action="/add">
     <div class="center">
-        <label>Status: ${core.contextPath}</label>
+        <label>Status: ${core.path}</label>
 
         <div class="center" style="background-color: white">
             <table width="100%">

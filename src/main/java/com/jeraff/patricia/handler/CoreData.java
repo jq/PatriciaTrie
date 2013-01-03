@@ -1,5 +1,6 @@
 package com.jeraff.patricia.handler;
 
+import com.jeraff.patricia.conf.Core;
 import org.limewire.collection.PatriciaTrie;
 
 public class CoreData implements CoreDataMBean {
@@ -15,7 +16,7 @@ public class CoreData implements CoreDataMBean {
     }
 
     public String getContextPath() {
-        return core.getContextPath();
+        return core.getPath();
     }
 
     public String getAnalyzerClass() {

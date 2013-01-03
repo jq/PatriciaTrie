@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 
@@ -42,7 +43,7 @@ public class IndexHandler extends BaseHandler {
 
         if (cores.size() == 1) {
             if (!response.isCommitted()) {
-                response.sendRedirect(cores.get(0).getContextPath());
+                response.sendRedirect(cores.get(0).getPath());
             }
         } else {
             final HashMap<String, Object> rootMap = new HashMap<String, Object>() {{

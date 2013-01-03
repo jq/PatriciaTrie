@@ -25,7 +25,7 @@ public class JbdcBootstrap {
 
     public void run() {
         Connection connection = null;
-
+        /**
         try {
             connection = config.getJdbcConnection();
             if (connection == null) {
@@ -89,6 +89,7 @@ public class JbdcBootstrap {
                 }
             }
         }
+         **/
     }
 
     private String createSelectQuery(String table, String stringColumn, String orderColumn, int offset) {

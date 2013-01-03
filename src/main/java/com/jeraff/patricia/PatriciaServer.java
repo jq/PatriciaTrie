@@ -1,7 +1,7 @@
 package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.handler.Core;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.handler.CoreHandler;
 import com.jeraff.patricia.handler.IndexHandler;
 import org.eclipse.jetty.server.Connector;
@@ -11,7 +11,6 @@ import org.eclipse.jetty.server.handler.ContextHandlerCollection;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +27,7 @@ public class PatriciaServer {
         });
 
         final Server server = new Server();
-        final Config config = new Config(System.getProperties());
+        final Config config = Config.instance(System.getProperties());
         final SelectChannelConnector connector0 = new SelectChannelConnector();
 
         config.configConnector(connector0);
@@ -41,17 +40,17 @@ public class PatriciaServer {
 
     private static ContextHandlerCollection getContexts(Config config) {
         final List<ContextHandler> contextHandlers = new ArrayList<ContextHandler>();
-        final Collection<Core> cores = config.getCores();
+        final List<Core> cores = config.getCores();
 
         for (Core core : cores) {
-            final ContextHandler apiHandler = new ContextHandler(core.getContextPath());
+            final ContextHandler apiHandler = new ContextHandler(core.getPath());
             apiHandler.setResourceBase(".");
             apiHandler.setHandler(new CoreHandler(core, config));
             apiHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
             contextHandlers.add(apiHandler);
         }
 
-        if (config.needsIndexHandler()) {
+        if (config.isNeedsIndexHandler()) {
             final ContextHandler indexHandler = new ContextHandler("/");
             indexHandler.setResourceBase(".");
             indexHandler.setHandler(new IndexHandler(config));

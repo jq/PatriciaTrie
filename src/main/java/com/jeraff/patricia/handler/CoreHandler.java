@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.CharSequenceKeyAnalyzer;

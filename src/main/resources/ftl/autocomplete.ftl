@@ -1,7 +1,7 @@
 <html>
 
 <head>
-    <title>AutoComplete: ${core.contextPath}</title>
+    <title>AutoComplete: ${core.path}</title>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css"/>
     <style>
@@ -53,7 +53,7 @@
 
 <div class="center">
     <form method="GET" action="#" onsubmit="return addString(this)">
-        <label for="s">Auto-Complete: ${core.contextPath}</label>
+        <label for="s">Auto-Complete: ${core.path}</label>
 
         <div>
             <input id="s" type="text" name="s" class="juicy"/>

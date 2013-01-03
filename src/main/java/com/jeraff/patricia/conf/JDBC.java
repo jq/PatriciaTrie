@@ -1,6 +1,6 @@
 package com.jeraff.patricia.conf;
 
-public class JdbcConfig {
+public class JDBC {
      String url;
      String table;
      String s;

@@ -20,7 +20,7 @@
 
 <ul>
 <#list cores as core>
-    <li class="juicy"><a href="${core.contextPath}">${core.contextPath}</a></li>
+    <li class="juicy"><a href="${core.path}">${core.path}</a></li>
 </#list>
 </ul>
 

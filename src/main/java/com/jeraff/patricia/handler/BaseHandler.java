@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.ops.PatriciaOps;
 import freemarker.template.Configuration;
 import freemarker.template.Template;

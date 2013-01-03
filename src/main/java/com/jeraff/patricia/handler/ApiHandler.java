@@ -1,6 +1,7 @@
 package com.jeraff.patricia.handler;
 
 import com.jeraff.patricia.conf.Config;
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -35,7 +36,7 @@ public class ApiHandler extends BaseHandler {
             final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
             mbs.registerMBean(new CoreData(patriciaTrie, core), name);
         } catch (Exception e) {
-            log.log(Level.WARNING, "Couldn't register mbean for core: " + core.getContextPath(), e);
+            log.log(Level.WARNING, "Couldn't register mbean for core: " + core.getPath(), e);
         }
     }
 

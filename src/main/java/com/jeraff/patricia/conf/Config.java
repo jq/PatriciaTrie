@@ -1,18 +1,13 @@
 package com.jeraff.patricia.conf;
 
-import com.google.gson.Gson;
-import com.google.gson.internal.StringMap;
-import com.jeraff.patricia.handler.Core;
+import org.apache.commons.beanutils.BeanMap;
 import org.apache.commons.beanutils.BeanUtils;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
-import org.codehaus.jackson.annotate.JsonProperty;
+import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -23,53 +18,54 @@ public class Config {
     public static final String CONNECTOR = "connector";
     public static final String CONNECTOR_ACCEPTORS = "acceptors";
 
-    private static final HashMap<String, Object> connectorDefaults = new HashMap<String, Object>() {{
-        put("port", 8666);
-    }};
-
-    private static final String CORES = "cores";
-
-    public static final String JDBC = "jdbc";
-    public static final String JDBC_TABLE = "table";
-    public static final String JDBC_COLUMN_STRING = "s";
-    public static final String JDBC_COLUMN_ORDER = "orderby";
-    public static final String JDBC_URL = "url";
-
     public static final String PATRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PATRICIA_PROP_PREFIX + "conf";
 
-    @JsonProperty
+    private Connector connector;
+    private List<Core> cores;
+    private JDBC jdbc;
     private long time;
-    @JsonProperty
-    private HashMap<String, Core> cores = new HashMap<String, Core>();
-    @JsonProperty
     private String confFilePath;
-    @JsonProperty
     private boolean needsIndexHandler;
-    @JsonProperty
-    private HashMap<Object, Object> systemProperties;
-    @JsonProperty
-    private Map<String, Object> connector;
-    @JsonProperty
-    private Map<String, Object> jdbc;
 
-    public Config(Properties properties) {
-        time = System.currentTimeMillis();
+    public Config() {
+    }
 
-        final HashMap<String, Object> confMap = new HashMap<String, Object>();
-        confMap.put(CONNECTOR, connectorDefaults);
+    public static Config instance(Properties properties) throws Exception {
+        final String confFilePath = properties.getProperty(PROP_CONFIG_FILE);
+        final HashMap<String, Object> conf = new HashMap<String, Object>();
+        final ObjectMapper mapper = new ObjectMapper();
+        mapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 
-        // deal with config file
-        confFilePath = properties.getProperty(PROP_CONFIG_FILE);
+        conf.put("time", System.currentTimeMillis());
+        conf.put(confFilePath, confFilePath);
+
         if (confFilePath != null) {
-            handleConfFile(confFilePath, confMap);
+            final HashMap map = mapper.readValue(new File(confFilePath), HashMap.class);
+            conf.putAll(map);
         }
 
-        handleSystemProperties(properties, confMap);
-        setupCores(confMap);
+        handleSystemProperties(properties, conf);
+        final Config config = mapper.readValue(mapper.writeValueAsString(conf), Config.class);
+        config.setupCores();
 
-        connector = (Map<String, Object>) confMap.get(CONNECTOR);
-        jdbc = (Map<String, Object>) confMap.get(JDBC);
+        return config;
+    }
+
+    private void setupCores() {
+        Set<String> paths = new HashSet<String>(cores.size());
+        for (Core core : cores) {
+            final String path = core.getPath();
+            if (paths.contains(path)) {
+                throw new RuntimeException("Invalid core config. Following path is shared by 2 cores: " + path);
+            }
+
+            paths.add(path);
+        }
+
+        if (! paths.contains("/")) {
+            needsIndexHandler = true;
+        }
     }
 
     public String getConfigFileContent() throws IOException {
@@ -98,9 +94,7 @@ public class Config {
         }
     }
 
-    private void handleSystemProperties(Properties properties, HashMap<String, Object> confMap) {
-        systemProperties = new HashMap<Object, Object>();
-
+    private static void handleSystemProperties(Properties properties, HashMap<String, Object> confMap) {
         for (Map.Entry<Object, Object> entry : properties.entrySet()) {
             final Object key = entry.getKey();
             if (!(key instanceof String)) {
@@ -111,8 +105,6 @@ public class Config {
             if (!name.startsWith(PATRICIA_PROP_PREFIX)) {
                 continue;
             }
-
-            systemProperties.put(entry.getKey(), entry.getValue());
 
             final Object value = entry.getValue();
             final List<String> strings = new ArrayList<String>(Arrays.asList(name.split("\\.")));
@@ -139,44 +131,14 @@ public class Config {
         }
     }
 
-    private void handleConfFile(String confFilePath, HashMap<String, Object> confMap) {
-        final File file = new File(confFilePath);
-        if (!file.exists() || !file.canRead()) {
-            String s = confFilePath + " is not a readable file";
-            log.log(Level.SEVERE, s);
-            throw new RuntimeException(s);
-        }
-
-        String json;
-        try {
-            final StringWriter stringWriter = new StringWriter();
-            IOUtils.copy(new FileInputStream(file), stringWriter);
-            json = stringWriter.toString();
-
-            ObjectMapper m = new ObjectMapper();
-            final C c = m.readValue(file, C.class);
-            System.out.println(c);
-        } catch (Exception e) {
-            String error = "Can't read " + confFilePath;
-            log.log(Level.SEVERE, error, e);
-            throw new RuntimeException(error, e);
-        }
-
-        final HashMap hashMap = new Gson().fromJson(json, HashMap.class);
-        confMap.putAll(hashMap);
-    }
-
     public void configConnector(SelectChannelConnector channelConnector) {
-        if (connector == null || !(connector instanceof Map)) {
+        if (connector == null) {
             return;
         }
 
-        if (!((Map) connector).containsKey(CONNECTOR_ACCEPTORS)) {
-            ((Map) connector).put(CONNECTOR_ACCEPTORS, 2 * Runtime.getRuntime().availableProcessors());
-        }
-
         try {
-            BeanUtils.populate(channelConnector, (Map) connector);
+            BeanMap map = new BeanMap(connector);
+            BeanUtils.populate(channelConnector, map);
         } catch (Exception e) {
             String error = "Could not configure channelConnector";
             log.log(Level.SEVERE, error, e);
@@ -184,98 +146,52 @@ public class Config {
         }
     }
 
+
+    public Connector getConnector() {
+        return connector;
+    }
+
+    public void setConnector(Connector connector) {
+        this.connector = connector;
+    }
+
+    public List<Core> getCores() {
+        return cores;
+    }
+
+    public void setCores(List<Core> cores) {
+        this.cores = cores;
+    }
+
+    public JDBC getJdbc() {
+        return jdbc;
+    }
+
+    public void setJdbc(JDBC jdbc) {
+        this.jdbc = jdbc;
+    }
+
     public long getTime() {
         return time;
     }
 
-    /////////////////////////////////////////////////////////////////
-    // cores
-    /////////////////////////////////////////////////////////////////
-    private void setupCores(HashMap<String, Object> confMap) {
-        final String err = "Invalid core configuration";
-        final Object rawCoreConfig = confMap.get(CORES);
-
-        if (rawCoreConfig == null) {
-            final Core core = new Core("/");
-            cores.put(core.getContextPath(), core);
-            return;
-        } else if (!(rawCoreConfig instanceof StringMap)) {
-            log.log(Level.SEVERE, err);
-            throw new RuntimeException(err);
-        }
-
-        StringMap<StringMap> coreConfig = (StringMap<StringMap>) rawCoreConfig;
-
-        for (Map.Entry<String, StringMap> entry : coreConfig.entrySet()) {
-            try {
-                final Core core = new Core(entry.getKey(), entry.getValue());
-                cores.put(core.getContextPath(), core);
-            } catch (ClassNotFoundException e) {
-                log.log(Level.SEVERE, err);
-                throw new RuntimeException(err);
-            }
-        }
-
-        // if the user configured a single core at / then we don't need an index handler
-        needsIndexHandler = true;
-        if (cores.size() == 1) {
-            final ArrayList<Core> l = new ArrayList<Core>(cores.values());
-            final Core core = l.get(0);
-            if (core.getContextPath().equals("/")) {
-                needsIndexHandler = false;
-            }
-        }
+    public void setTime(long time) {
+        this.time = time;
     }
 
-    public boolean needsIndexHandler() {
+    public String getConfFilePath() {
+        return confFilePath;
+    }
+
+    public void setConfFilePath(String confFilePath) {
+        this.confFilePath = confFilePath;
+    }
+
+    public boolean isNeedsIndexHandler() {
         return needsIndexHandler;
     }
 
-    public List<Core> getCores() {
-        return new ArrayList<Core>(cores.values());
-    }
-
-    /////////////////////////////////////////////////////////////////
-    // jdbc stuff
-    /////////////////////////////////////////////////////////////////
-    public boolean hasJdbc() {
-        return jdbc != null;
-    }
-
-    public Connection getJdbcConnection() {
-        if (!hasJdbc()) {
-            log.log(Level.WARNING, "No JDBC configuration available");
-            return null;
-        }
-
-        try {
-            final Map<String, Object> jdbc = this.jdbc;
-            jdbc.put(JDBC_COLUMN_STRING, jdbc.get(JDBC_COLUMN_STRING));
-
-            final Properties properties = new Properties();
-            properties.putAll(jdbc);
-
-            return DriverManager.getConnection((String) jdbc.get(JDBC_URL), properties);
-        } catch (Exception e) {
-            final String error = "Could not create JDBC connection";
-            log.log(Level.SEVERE, error, e);
-        }
-
-        return null;
-    }
-
-    public String getyJdbcTable() {
-        return (String) jdbc.get(JDBC_TABLE);
-    }
-
-    public String getyJdbcStringColumn() {
-        return (String) jdbc.get(JDBC_COLUMN_STRING);
-    }
-
-    public String getyJdbcOrderColumn() {
-        String s = (String) jdbc.get(JDBC_COLUMN_ORDER);
-        return (s != null)
-                ? s
-                : getyJdbcStringColumn();
+    public void setNeedsIndexHandler(boolean needsIndexHandler) {
+        this.needsIndexHandler = needsIndexHandler;
     }
 }
