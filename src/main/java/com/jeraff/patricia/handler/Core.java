@@ -3,29 +3,27 @@ package com.jeraff.patricia.handler;
 import com.google.gson.internal.StringMap;
 import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
 import org.apache.commons.lang.StringUtils;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 import javax.management.MalformedObjectNameException;
 import javax.management.ObjectName;
 
+@JsonAutoDetect
 public class Core {
     private String contextPath;
-    @JsonIgnore
-    private Class analyzerClass;
-    private String analyzer;
+    private Class analyzer;
 
     private static final String KEY_ANALYZER = "analyzer";
 
     public Core(String contextPath) {
-        analyzerClass = PartialMatchAnalyzer.class;
-        analyzer = PartialMatchAnalyzer.class.getCanonicalName();
-
+        analyzer = PartialMatchAnalyzer.class;
         setContextPath(contextPath);
     }
 
     public Core(String contextPath, StringMap<String> map) throws ClassNotFoundException {
-        analyzerClass = Class.forName(map.get(KEY_ANALYZER));
-        analyzer = map.get(KEY_ANALYZER);
+        analyzer = Class.forName(map.get(KEY_ANALYZER));
         setContextPath(contextPath);
     }
 
@@ -38,8 +36,8 @@ public class Core {
         return contextPath;
     }
 
-    public Class getAnalyzerClass() {
-        return analyzerClass;
+    public Class getAnalyzer() {
+        return analyzer;
     }
 
     private String makeUrl(String path) {
@@ -63,17 +61,19 @@ public class Core {
         return makeUrl("status");
     }
 
-    public String getAnalyzer() {
-        return analyzer;
-    }
-
-    public ObjectName getMBeanObjectName() {
-        String s = String.format("%s:type=Core %s", getClass().getPackage(), contextPath);
+    @JsonIgnore
+    public ObjectName getMBeanName() {
+        String s = String.format("%s:Core=%s", getClass().getPackage().getName(), contextPath);
         try {
             return new ObjectName(s);
         } catch (MalformedObjectNameException e) {
             return null;
         }
+    }
+
+    @JsonProperty(value = "mBeanName")
+    public String _getMBeanObjectName() {
+        return getMBeanName().getCanonicalName();
     }
 
     public String canonicalName() {

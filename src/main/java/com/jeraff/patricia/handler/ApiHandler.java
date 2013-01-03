@@ -31,7 +31,7 @@ public class ApiHandler extends BaseHandler {
         super(patriciaTrie, core, config);
 
         try {
-            final ObjectName name = core.getMBeanObjectName();
+            final ObjectName name = core.getMBeanName();
             final MBeanServer mbs = ManagementFactory.getPlatformMBeanServer();
             mbs.registerMBean(new CoreData(patriciaTrie, core), name);
         } catch (Exception e) {

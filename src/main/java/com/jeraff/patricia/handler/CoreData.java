@@ -19,7 +19,7 @@ public class CoreData implements CoreDataMBean {
     }
 
     public String getAnalyzerClass() {
-        return core.getAnalyzerClass().getCanonicalName();
+        return core.getAnalyzer().getCanonicalName();
     }
 
     public int getTrieSize() {
