@@ -13,6 +13,7 @@ import javax.management.ObjectName;
 public class Core {
     private String path = "/";
     private Class analyzer = PartialMatchAnalyzer.class;
+    private JDBC jdbc;
 
     public Core() {
     }
@@ -68,5 +69,13 @@ public class Core {
 
     public String canonicalName() {
         return path.equals("/") ? "default" : StringUtils.strip(path, "/");
+    }
+
+    public JDBC getJdbc() {
+        return jdbc;
+    }
+
+    public void setJdbc(JDBC jdbc) {
+        this.jdbc = jdbc;
     }
 }
