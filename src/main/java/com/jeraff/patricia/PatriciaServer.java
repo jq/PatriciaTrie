@@ -5,6 +5,7 @@ import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.handler.CoreHandler;
 import com.jeraff.patricia.handler.IndexHandler;
 import org.eclipse.jetty.server.Connector;
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
@@ -31,9 +32,17 @@ public class PatriciaServer {
         final SelectChannelConnector connector0 = new SelectChannelConnector();
 
         config.configConnector(connector0);
-
         server.setConnectors(new Connector[]{connector0});
-        server.setHandler(getContexts(config));
+
+        final ContextHandlerCollection contexts = getContexts(config);
+        for (ContextHandler handler : (ContextHandler[]) contexts.getHandlers()) {
+            final Handler h = handler.getHandler();
+            if (h instanceof CoreHandler) {
+                // TODO: launch bootstraps here...
+            }
+        }
+
+        server.setHandler(contexts);
         server.start();
         server.join();
     }

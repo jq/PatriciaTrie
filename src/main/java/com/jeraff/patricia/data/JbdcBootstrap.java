@@ -1,17 +1,14 @@
 package com.jeraff.patricia.data;
 
 import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.ops.PatriciaOps;
 import org.limewire.collection.PatriciaTrie;
 
-import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class JbdcBootstrap {
     protected static final Logger log = Logger.getLogger(JbdcBootstrap.class.getCanonicalName());
 
-    private final PatriciaOps ops;
     private Config config;
 
     private int offset;
@@ -20,12 +17,12 @@ public class JbdcBootstrap {
     public JbdcBootstrap(PatriciaTrie<String, String> patriciaTrie, Config config) {
         this.config = config;
         // Todo: fix this shit
-        this.ops = new PatriciaOps(null, patriciaTrie);
     }
 
     public void run() {
-        Connection connection = null;
         /**
+        PatriciaOps ops = new PatriciaOps(null, patriciaTrie);
+        Connection connection = null;
         try {
             connection = config.getJdbcConnection();
             if (connection == null) {
