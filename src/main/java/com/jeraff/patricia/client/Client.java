@@ -1,5 +1,6 @@
 package com.jeraff.patricia.client;
 
+import com.jeraff.patricia.server.handler.ApiHandler;
 import com.jeraff.patricia.server.handler.Params;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.methods.HttpGet;
@@ -76,6 +77,8 @@ public class Client {
 
         try {
             httpget = new HttpGet(builder.build());
+            httpget.setHeader(ApiHandler.HEADER_ACCEPT_ENCODING, ApiHandler.GZIP);
+
             HttpResponse response = httpClient.execute(httpget);
             StringList strings = objectMapper.readValue(response.getEntity().getContent(), StringList.class);
             return strings;
