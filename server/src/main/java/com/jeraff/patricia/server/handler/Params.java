@@ -1,5 +1,6 @@
 package com.jeraff.patricia.server.handler;
 
+import com.jeraff.patricia.common.C;
 import com.jeraff.patricia.util.Method;
 import org.apache.commons.lang.StringUtils;
 
@@ -10,7 +11,6 @@ import java.util.Map;
 public class Params {
     public static final String PARAM_OFFSET = "offset";
     public static final String PARAM_LIMIT = "limit";
-    public static final String PARAM_S = "s";
     public static final String PARAM_T = "t";
 
     public static final int DEFAULT_LIMIT = 25;
@@ -31,8 +31,8 @@ public class Params {
             if (strings.length != 0) {
                 setStrings(StringUtils.split(strings[0], "\n"));
             }
-        } else if (parameterMap.containsKey(PARAM_S)) {
-            setStrings(parameterMap.get(PARAM_S));
+        } else if (parameterMap.containsKey(C.Params.S)) {
+            setStrings(parameterMap.get(C.Params.S));
         }
 
         final String[] offsets = parameterMap.get(PARAM_OFFSET);

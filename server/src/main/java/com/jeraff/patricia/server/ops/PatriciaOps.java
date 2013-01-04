@@ -2,7 +2,7 @@ package com.jeraff.patricia.server.ops;
 
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.config.Core;
 import org.limewire.collection.PatriciaTrie;
 
 import java.util.*;

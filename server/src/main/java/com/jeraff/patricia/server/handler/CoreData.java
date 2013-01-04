@@ -1,6 +1,6 @@
 package com.jeraff.patricia.server.handler;
 
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.config.Core;
 import org.limewire.collection.PatriciaTrie;
 
 public class CoreData implements CoreDataMBean {

@@ -1,7 +1,8 @@
 package com.jeraff.patricia.server.handler;
 
-import com.jeraff.patricia.conf.Config;
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.common.C;
+import com.jeraff.patricia.config.Config;
+import com.jeraff.patricia.config.Core;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -21,16 +22,6 @@ import java.util.Map;
 import java.util.logging.Level;
 
 public class ApiHandler extends BaseHandler {
-    public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
-    public static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
-    public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
-    public static final String HEADER_CONNECTION = "Connection";
-    public static final String HEADER_CONNECTION_KEEP_ALIVE = "Keep-Alive";
-
-    public static final String GZIP = "gzip";
-    public static final String UTF_8 = "UTF-8";
-    public static final String QUEUED = "queued";
-
     public ApiHandler(PatriciaTrie<String, String> patriciaTrie, Core core, Config config) {
         super(patriciaTrie, core, config);
 
@@ -67,7 +58,7 @@ public class ApiHandler extends BaseHandler {
         patriciaTrieOps.enqueue(strings);
 
         final HashMap<String, Integer> result = new HashMap<String, Integer>();
-        result.put(QUEUED, strings.length);
+        result.put(C.Strings.QUEUED, strings.length);
 
         return new ApiMethodResult(result);
     }
@@ -88,7 +79,7 @@ public class ApiHandler extends BaseHandler {
             apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
         }
 
-        apiMethodResult.addHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
+        apiMethodResult.addHeader(C.Headers.X_PREFIX_COUNT, String.valueOf(count));
         return apiMethodResult;
     }
 
@@ -131,18 +122,18 @@ public class ApiHandler extends BaseHandler {
 
     public void writeApiResponse(HttpServletRequest request, HttpServletResponse response, ApiMethodResult apiMethodResult) throws IOException {
         Object body = apiMethodResult.getBody();
-        final String acceptEncodingHeader = request.getHeader(HEADER_ACCEPT_ENCODING);
-        final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(GZIP))
+        final String acceptEncodingHeader = request.getHeader(C.Headers.ACCEPT_ENCODING);
+        final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(C.Strings.GZIP))
                 ? new GZIPResponseWrapper(response)
                 : response;
 
         resp.setStatus(apiMethodResult.getStatus());
-        resp.setContentType(HEADER_CONTENT_TYPE_JSON);
-        resp.setCharacterEncoding(UTF_8);
+        resp.setContentType(C.Headers.APPLICATION_JSON);
+        resp.setCharacterEncoding(C.Strings.UTF_8);
 
-        final String connectionHeader = request.getHeader(HEADER_CONNECTION);
-        if (connectionHeader != null && connectionHeader.equalsIgnoreCase(HEADER_CONNECTION_KEEP_ALIVE)) {
-            apiMethodResult.addHeader(HEADER_CONNECTION, HEADER_CONNECTION_KEEP_ALIVE);
+        final String connectionHeader = request.getHeader(C.Headers.CONNECTION);
+        if (connectionHeader != null && connectionHeader.equalsIgnoreCase(C.Headers.KEEP_ALIVE)) {
+            apiMethodResult.addHeader(C.Headers.CONNECTION, C.Headers.KEEP_ALIVE);
         }
 
         HashMap<String, Object> headers = apiMethodResult.getHeaders();

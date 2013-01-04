@@ -1,4 +1,4 @@
-package com.jeraff.patricia.conf;
+package com.jeraff.patricia.config;
 
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 

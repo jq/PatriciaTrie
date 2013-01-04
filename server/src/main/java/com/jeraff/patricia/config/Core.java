@@ -1,4 +1,4 @@
-package com.jeraff.patricia.conf;
+package com.jeraff.patricia.config;
 
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
 import org.apache.commons.lang.StringUtils;

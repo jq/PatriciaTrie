@@ -1,10 +1,11 @@
 package com.jeraff.patricia.client;
 
-import com.jeraff.patricia.conf.Connector;
+
+import com.jeraff.patricia.common.C;
 
 public class HostPort {
     private String host = "localhost";
-    private int port = Connector.DEFAULT_PORT;
+    private int port = C.Defaults.CONNECTOR_PORT;
 
     public HostPort() {
     }

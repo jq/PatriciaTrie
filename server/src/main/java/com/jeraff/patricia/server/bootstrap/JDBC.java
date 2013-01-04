@@ -1,6 +1,6 @@
 package com.jeraff.patricia.server.bootstrap;
 
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.config.Core;
 import com.jeraff.patricia.server.ops.PatriciaOps;
 
 import java.sql.*;

@@ -1,4 +1,4 @@
-package com.jeraff.patricia.conf;
+package com.jeraff.patricia.config;
 
 import org.apache.commons.beanutils.BeanMap;
 import org.apache.commons.beanutils.BeanUtils;

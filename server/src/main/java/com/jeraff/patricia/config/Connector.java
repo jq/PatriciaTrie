@@ -1,9 +1,9 @@
-package com.jeraff.patricia.conf;
+package com.jeraff.patricia.config;
+
+import com.jeraff.patricia.common.C;
 
 public class Connector {
-    public static final int DEFAULT_PORT = 8666;
-
-    int port = DEFAULT_PORT;
+    int port = C.Defaults.CONNECTOR_PORT;
     int maxIdleTime = 200000;
     int requestHeaderSize = 4096;
     int acceptors = 2 * Runtime.getRuntime().availableProcessors();

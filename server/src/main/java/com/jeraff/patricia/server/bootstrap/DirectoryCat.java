@@ -1,6 +1,6 @@
 package com.jeraff.patricia.server.bootstrap;
 
-import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.config.Core;
 import com.jeraff.patricia.server.ops.PatriciaOps;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
@@ -24,7 +24,7 @@ public class DirectoryCat implements Bootstrap {
 
     @Override
     public boolean bootstrap() throws Exception {
-        final com.jeraff.patricia.conf.DirectoryCat dirCat = core.getDirCat();
+        final com.jeraff.patricia.config.DirectoryCat dirCat = core.getDirCat();
         final File dir = new File(dirCat.getDirectory());
         final FileFilter fileFilter = new WildcardFileFilter(dirCat.getPattern());
         final File[] files = dir.listFiles(fileFilter);
