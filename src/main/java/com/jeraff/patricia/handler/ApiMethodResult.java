@@ -1,7 +1,5 @@
 package com.jeraff.patricia.handler;
 
-import com.jeraff.patricia.conf.Core;
-
 import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 
@@ -26,6 +24,10 @@ public class ApiMethodResult {
         return body;
     }
 
+    public void setBody(Object body) {
+        this.body = body;
+    }
+
     public int getStatus() {
         return status;
     }
@@ -36,9 +38,5 @@ public class ApiMethodResult {
 
     public void addHeader(String name, Object value) {
         headers.put(name, value);
-    }
-
-    public void setBody(Core body) {
-        this.body = body;
     }
 }

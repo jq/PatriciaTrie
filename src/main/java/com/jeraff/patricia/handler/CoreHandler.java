@@ -36,9 +36,7 @@ public class CoreHandler extends BaseHandler {
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        final String stripped = StringUtils.strip(target, "/");
-
-        if (stripped.equals(TARGET_API)) {
+        if (StringUtils.strip(target, "/").equals(TARGET_API)) {
             api.handle(target, baseRequest, request, response);
         } else {
             web.handle(target, baseRequest, request, response);
