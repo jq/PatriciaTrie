@@ -143,6 +143,7 @@ public class ApiHandler extends BaseHandler {
         final String connectionHeader = request.getHeader(HEADER_CONNECTION);
         if (connectionHeader != null && connectionHeader.equalsIgnoreCase(HEADER_CONNECTION_KEEP_ALIVE)) {
             apiMethodResult.addHeader(HEADER_CONNECTION, HEADER_CONNECTION_KEEP_ALIVE);
+            apiMethodResult.addHeader("x" + HEADER_CONNECTION, HEADER_CONNECTION_KEEP_ALIVE);
         }
 
         HashMap<String, Object> headers = apiMethodResult.getHeaders();
