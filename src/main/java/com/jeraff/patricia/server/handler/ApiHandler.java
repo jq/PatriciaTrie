@@ -24,6 +24,9 @@ public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
     public static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
     public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
+    public static final String HEADER_CONNECTION = "Connection";
+    public static final String HEADER_CONNECTION_KEEP_ALIVE = "Keep-Alive";
+
     public static final String GZIP = "gzip";
     public static final String UTF_8 = "UTF-8";
     public static final String QUEUED = "queued";
@@ -137,8 +140,13 @@ public class ApiHandler extends BaseHandler {
         resp.setContentType(HEADER_CONTENT_TYPE_JSON);
         resp.setCharacterEncoding(UTF_8);
 
+        final String connectionHeader = request.getHeader(HEADER_CONNECTION);
+        if (connectionHeader != null && connectionHeader.equalsIgnoreCase(HEADER_CONNECTION_KEEP_ALIVE)) {
+            apiMethodResult.addHeader(HEADER_CONNECTION, HEADER_CONNECTION_KEEP_ALIVE);
+        }
+
         HashMap<String, Object> headers = apiMethodResult.getHeaders();
-        if (headers != null) {
+        if (!headers.isEmpty()) {
             for (Map.Entry<String, Object> header : headers.entrySet()) {
                 resp.addHeader(header.getKey(), header.getValue().toString());
             }
