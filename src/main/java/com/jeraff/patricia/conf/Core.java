@@ -1,6 +1,6 @@
 package com.jeraff.patricia.conf;
 
-import com.jeraff.patricia.analyzer.PartialMatchAnalyzer;
+import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
 import org.apache.commons.lang.StringUtils;
 import org.codehaus.jackson.annotate.JsonAutoDetect;
 import org.codehaus.jackson.annotate.JsonIgnore;

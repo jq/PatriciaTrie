@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.server.handler;
 
 import com.jeraff.patricia.conf.Core;
 import org.limewire.collection.PatriciaTrie;

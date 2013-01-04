@@ -1,10 +1,10 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.server.handler;
 
-import com.jeraff.patricia.bootstrap.DirectoryCat;
-import com.jeraff.patricia.bootstrap.JDBC;
+import com.jeraff.patricia.server.bootstrap.DirectoryCat;
+import com.jeraff.patricia.server.bootstrap.JDBC;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
-import com.jeraff.patricia.ops.PatriciaOps;
+import com.jeraff.patricia.server.ops.PatriciaOps;
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.CharSequenceKeyAnalyzer;

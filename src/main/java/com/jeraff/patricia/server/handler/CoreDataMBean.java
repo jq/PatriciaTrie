@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.server.handler;
 
 public interface CoreDataMBean {
     public String getContextPath();

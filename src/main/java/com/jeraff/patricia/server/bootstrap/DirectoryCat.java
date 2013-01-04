@@ -1,7 +1,7 @@
-package com.jeraff.patricia.bootstrap;
+package com.jeraff.patricia.server.bootstrap;
 
 import com.jeraff.patricia.conf.Core;
-import com.jeraff.patricia.ops.PatriciaOps;
+import com.jeraff.patricia.server.ops.PatriciaOps;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.LineIterator;
 import org.apache.commons.io.filefilter.WildcardFileFilter;

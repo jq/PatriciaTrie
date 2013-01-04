@@ -1,4 +1,4 @@
-package com.jeraff.patricia.analyzer;
+package com.jeraff.patricia.server.analyzer;
 
 import org.apache.commons.lang.StringUtils;
 

@@ -1,4 +1,4 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.server.handler;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;

@@ -1,8 +1,8 @@
-package com.jeraff.patricia.handler;
+package com.jeraff.patricia.server.handler;
 
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
-import com.jeraff.patricia.ops.PatriciaOps;
+import com.jeraff.patricia.server.ops.PatriciaOps;
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import org.codehaus.jackson.map.ObjectMapper;

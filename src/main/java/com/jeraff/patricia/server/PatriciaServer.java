@@ -1,10 +1,10 @@
-package com.jeraff.patricia;
+package com.jeraff.patricia.server;
 
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
-import com.jeraff.patricia.handler.ConfigHandler;
-import com.jeraff.patricia.handler.CoreHandler;
-import com.jeraff.patricia.handler.IndexHandler;
+import com.jeraff.patricia.server.handler.ConfigHandler;
+import com.jeraff.patricia.server.handler.CoreHandler;
+import com.jeraff.patricia.server.handler.IndexHandler;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.ContextHandler;
