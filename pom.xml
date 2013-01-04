@@ -14,10 +14,6 @@
     </modules>
 
     <dependencies>
-        <!--<dependency>-->
-            <!--<groupId>PatriciaTrie</groupId>-->
-            <!--<artifactId>server</artifactId>-->
-            <!--<version>${version}</version>-->
-        <!--</dependency>-->
+
     </dependencies>
 </project>

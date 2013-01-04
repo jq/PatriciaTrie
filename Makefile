@@ -1,7 +1,5 @@
 run:
-	cd server
-	mvn exec:java -Dexec.mainClass="com.jeraff.patricia.PatriciaServer"
+	mvn -f server/pom.xml exec:java -Dexec.mainClass="com.jeraff.patricia.PatriciaServer"
 
 jar:
-	cd server
-	mvn clean compile assembly:single
+	mvn -f server/pom.xml clean compile assembly:single
