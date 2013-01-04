@@ -14,8 +14,4 @@
         <module>client</module>
         <module>common</module>
     </modules>
-
-    <dependencies>
-
-    </dependencies>
 </project>
