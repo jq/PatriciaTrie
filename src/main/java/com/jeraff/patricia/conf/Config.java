@@ -29,7 +29,7 @@ public class Config {
     private long time = System.currentTimeMillis();
     private String confFile;
     private boolean indexHandler;
-    private String configPath = "config";
+    private String configContextPath = "/config";
 
     public Config() {
     }
@@ -63,7 +63,9 @@ public class Config {
             cores.add(new Core());
         }
 
+
         Set<String> paths = new HashSet<String>(cores.size());
+        paths.add(getConfigContextPath());
         for (Core core : cores) {
             final String path = core.getPath();
             if (paths.contains(path)) {
@@ -206,11 +208,11 @@ public class Config {
         this.indexHandler = indexHandler;
     }
 
-    public String getConfigPath() {
-        return new Core(configPath).getPath();
+    public String getConfigContextPath() {
+        return new Core(configContextPath).getPath();
     }
 
-    public void setConfigPath(String configPath) {
-        this.configPath = configPath;
+    public void setConfigContextPath(String configContextPath) {
+        this.configContextPath = configContextPath;
     }
 }

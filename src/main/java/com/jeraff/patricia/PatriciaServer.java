@@ -77,7 +77,7 @@ public class PatriciaServer {
         }
 
         // handler for the config api
-        final ContextHandler configHandler = new ContextHandler(config.getConfigPath());
+        final ContextHandler configHandler = new ContextHandler(config.getConfigContextPath());
         configHandler.setResourceBase(".");
         configHandler.setHandler(new ConfigHandler(cores));
         configHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
