@@ -4,12 +4,12 @@ public class Connector {
     public static final int DEFAULT_PORT = 8666;
 
     int port = DEFAULT_PORT;
-    int maxIdleTime;
-    int requestHeaderSize;
+    int maxIdleTime = 200000;
+    int requestHeaderSize = 4096;
     int acceptors = 2 * Runtime.getRuntime().availableProcessors();
-    int acceptQueueSize;
-    int lowResourcesMaxIdleTime;
-    int lowResourcesConnections;
+    int acceptQueueSize = 0;
+    int lowResourcesMaxIdleTime = -1;
+    int lowResourcesConnections = 100;
 
     public int getPort() {
         return port;

@@ -146,7 +146,7 @@ public class Config {
 
     public void configConnector(SelectChannelConnector channelConnector) {
         if (connector == null) {
-            return;
+            connector = new Connector();
         }
 
         try {
