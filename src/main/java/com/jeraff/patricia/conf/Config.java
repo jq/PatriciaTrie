@@ -29,6 +29,7 @@ public class Config {
     private long time = System.currentTimeMillis();
     private String confFile;
     private boolean indexHandler;
+    private String configPath = "config";
 
     public Config() {
     }
@@ -203,5 +204,13 @@ public class Config {
 
     public void setIndexHandler(boolean indexHandler) {
         this.indexHandler = indexHandler;
+    }
+
+    public String getConfigPath() {
+        return new Core(configPath).getPath();
+    }
+
+    public void setConfigPath(String configPath) {
+        this.configPath = configPath;
     }
 }

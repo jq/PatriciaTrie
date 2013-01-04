@@ -19,6 +19,11 @@ public class Core {
     public Core() {
     }
 
+    public Core(String path) {
+        this();
+        setPath(path);
+    }
+
     private void setPath(String path) {
         final String s = String.format("/%s", StringUtils.strip(path, "/"));
         this.path = s;

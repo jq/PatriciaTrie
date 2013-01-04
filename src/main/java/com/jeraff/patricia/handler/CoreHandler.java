@@ -19,6 +19,7 @@ import java.util.concurrent.FutureTask;
 
 public class CoreHandler extends BaseHandler {
     public static final String TARGET_API = "api";
+    public static final String TARGET_API_CONFIG = "api/config";
 
     private final WebHandler web;
     private final ApiHandler api;
@@ -36,11 +37,17 @@ public class CoreHandler extends BaseHandler {
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
 
-        if (StringUtils.strip(target, "/").equals(TARGET_API)) {
+        final String stripped = StringUtils.strip(target, "/");
+
+        if (stripped.equals(TARGET_API)) {
             api.handle(target, baseRequest, request, response);
+        } else if (stripped.equals(TARGET_API_CONFIG)) {
+            api.writeApiResponse(request, response, new ApiMethodResult(core));
         } else {
             web.handle(target, baseRequest, request, response);
         }
+
+        baseRequest.setHandled(true);
     }
 
     public FutureTask getBootstrapFuture() {

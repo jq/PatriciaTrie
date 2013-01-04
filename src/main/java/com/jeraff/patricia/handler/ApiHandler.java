@@ -40,6 +40,9 @@ public class ApiHandler extends BaseHandler {
         }
     }
 
+    public ApiHandler() {
+    }
+
     public ApiMethodResult get(Params params) throws IOException {
         final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
         final ApiMethodResult apiMethodResult = new ApiMethodResult(prefixedBy);
@@ -119,6 +122,12 @@ public class ApiHandler extends BaseHandler {
                 break;
         }
 
+        writeApiResponse(request, response, apiMethodResult);
+        baseRequest.setHandled(true);
+    }
+
+    public void writeApiResponse(HttpServletRequest request, HttpServletResponse response, ApiMethodResult apiMethodResult) throws IOException {
+        Object body = apiMethodResult.getBody();
         final String acceptEncodingHeader = request.getHeader(HEADER_ACCEPT_ENCODING);
         final HttpServletResponse resp = (acceptEncodingHeader != null && acceptEncodingHeader.contains(GZIP))
                 ? new GZIPResponseWrapper(response)
@@ -136,14 +145,12 @@ public class ApiHandler extends BaseHandler {
         }
 
         PrintWriter writer = resp.getWriter();
-        Object body = apiMethodResult.getBody();
 
         if (body != null) {
             objectMapper.writeValue(writer, body);
         }
 
         writer.close();
-        baseRequest.setHandled(true);
     }
 
     public void handleValidationError(ParamValidationError validationError, HttpServletResponse response) throws IOException {

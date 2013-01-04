@@ -1,5 +1,8 @@
 package com.jeraff.patricia.conf;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
+@JsonAutoDetect
 public class DirectoryCat {
     private String pattern;
     private String directory;

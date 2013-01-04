@@ -2,6 +2,7 @@ package com.jeraff.patricia;
 
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.handler.ConfigHandler;
 import com.jeraff.patricia.handler.CoreHandler;
 import com.jeraff.patricia.handler.IndexHandler;
 import org.eclipse.jetty.server.Connector;
@@ -66,6 +67,7 @@ public class PatriciaServer {
         final List<ContextHandler> contextHandlers = new ArrayList<ContextHandler>();
         final List<Core> cores = config.getCores();
 
+        // handler for each core
         for (Core core : cores) {
             final ContextHandler apiHandler = new ContextHandler(core.getPath());
             apiHandler.setResourceBase(".");
@@ -74,6 +76,14 @@ public class PatriciaServer {
             contextHandlers.add(apiHandler);
         }
 
+        // handler for the config api
+        final ContextHandler configHandler = new ContextHandler(config.getConfigPath());
+        configHandler.setResourceBase(".");
+        configHandler.setHandler(new ConfigHandler(cores));
+        configHandler.setClassLoader(Thread.currentThread().getContextClassLoader());
+        contextHandlers.add(configHandler);
+
+        // we might need an index page too
         if (config.isIndexHandler()) {
             final ContextHandler indexHandler = new ContextHandler("/");
             indexHandler.setResourceBase(".");

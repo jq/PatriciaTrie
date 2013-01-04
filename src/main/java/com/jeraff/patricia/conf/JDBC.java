@@ -1,5 +1,8 @@
 package com.jeraff.patricia.conf;
 
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+
+@JsonAutoDetect
 public class JDBC {
      String url;
      String table;
