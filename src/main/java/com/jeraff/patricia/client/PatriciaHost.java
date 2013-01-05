@@ -2,6 +2,7 @@ package com.jeraff.patricia.client;
 
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Connector;
+import com.jeraff.patricia.conf.Core;
 import org.apache.http.client.utils.URIBuilder;
 
 import java.net.URI;
@@ -80,6 +81,20 @@ public class PatriciaHost {
 
         try {
             return builder.build();
+        } catch (URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public String getCoreApilUrl(Core core) {
+        URIBuilder builder = new URIBuilder()
+                .setScheme(scheme)
+                .setHost(host)
+                .setPort(port)
+                .setPath(core.getApiUrl());
+
+        try {
+            return builder.build().toString();
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         }
