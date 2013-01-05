@@ -22,6 +22,7 @@ public class Config {
     public static final String PATRICIA_PROP_PREFIX = "patricia.";
     public static final String PROP_CONFIG_FILE = PATRICIA_PROP_PREFIX + "conf";
     public static final String CONF_FILE = "confFile";
+    public static final String DEFAULT_CONFIG_CONTEXT_PATH = "/config";
 
     private Connector connector;
     private List<Core> cores;
@@ -29,7 +30,7 @@ public class Config {
     private long time = System.currentTimeMillis();
     private String confFile;
     private boolean indexHandler;
-    private String configContextPath = "/config";
+    private String configContextPath = DEFAULT_CONFIG_CONTEXT_PATH;
 
     public Config() {
     }

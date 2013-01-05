@@ -22,30 +22,34 @@ public class Client {
 
     private List<HostPort> servers;
     private AbstractHttpClient httpClient;
-    private final ObjectMapper objectMapper;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public Client() {
         servers.add(new HostPort());
-        this.objectMapper = new ObjectMapper();
+
         setupHttpClient();
+        discover();
     }
 
     public Client(List<HostPort> servers) {
         this.servers = servers;
-        this.objectMapper = new ObjectMapper();
+
         setupHttpClient();
+        discover();
     }
 
     public Client(List<HostPort> servers, AbstractHttpClient httpClient) {
         this.servers = servers;
         this.httpClient = httpClient;
-        this.objectMapper = new ObjectMapper();
+
+        discover();
     }
 
     public Client(List<HostPort> servers, ClientConnectionManager clientConnectionManager) {
         this.servers = servers;
         this.httpClient = new DefaultHttpClient(clientConnectionManager);
-        this.objectMapper = new ObjectMapper();
+
+        discover();
     }
 
     private void setupHttpClient() {
@@ -89,6 +93,10 @@ public class Client {
                 httpget.releaseConnection();
             }
         }
+    }
+
+    private void discover() {
+
     }
 
     private String getApiPathForCore(String core) {

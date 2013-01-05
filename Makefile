@@ -1,5 +1,11 @@
-run:
+clean:
+	mvn clean
+
+compile:
+	mvn compile
+
+run: clean compile
 	mvn exec:java -Dexec.mainClass="com.jeraff.patricia.PatriciaServer"
 
-jar:
-	mvn clean compile assembly:single
+jar: clean
+	mvn compile assembly:single
