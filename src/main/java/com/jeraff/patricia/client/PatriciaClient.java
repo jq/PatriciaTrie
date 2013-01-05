@@ -3,8 +3,10 @@ package com.jeraff.patricia.client;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.server.handler.ApiHandler;
 import com.jeraff.patricia.server.handler.Params;
+import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
+import org.apache.http.client.entity.GzipDecompressingEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.conn.ClientConnectionManager;
@@ -106,13 +108,17 @@ public class PatriciaClient {
             httpget = new HttpGet(builder.build());
             httpget.setHeader(ApiHandler.HEADER_ACCEPT_ENCODING, ApiHandler.GZIP);
 
-            HttpResponse response = httpClient.execute(httpget);
+            final HttpResponse response = httpClient.execute(httpget);
             if (response.getStatusLine().getStatusCode() == HttpStatus.SC_NOT_FOUND) {
                 return new ArrayList<String>();
             }
 
-            StringList strings = objectMapper.readValue(response.getEntity().getContent(), StringList.class);
-            return strings;
+            final Header ce = response.getFirstHeader(ApiHandler.HEADER_CONTENT_ENCODING);
+            if (ce != null && ce.getValue().equals(ApiHandler.GZIP)) {
+                response.setEntity(new GzipDecompressingEntity(response.getEntity()));
+            }
+
+            return objectMapper.readValue(response.getEntity().getContent(), StringList.class);
         } catch (Exception e) {
             return new StringList();
         } finally {

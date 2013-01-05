@@ -23,6 +23,7 @@ import java.util.logging.Level;
 public class ApiHandler extends BaseHandler {
     public static final String HEADER_PREFIX_COUNT = "X-Patricia-Prefix-Count";
     public static final String HEADER_ACCEPT_ENCODING = "Accept-Encoding";
+    public static final String HEADER_CONTENT_ENCODING = "Content-Encoding";
     public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
     public static final String HEADER_CONNECTION = "Connection";
     public static final String HEADER_CONNECTION_KEEP_ALIVE = "Keep-Alive";
