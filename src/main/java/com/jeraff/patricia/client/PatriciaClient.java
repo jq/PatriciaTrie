@@ -1,5 +1,6 @@
 package com.jeraff.patricia.client;
 
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.server.handler.ApiHandler;
 import com.jeraff.patricia.server.handler.Params;
 import org.apache.http.HttpResponse;
@@ -12,40 +13,50 @@ import org.apache.http.conn.scheme.SchemeRegistry;
 import org.apache.http.impl.client.AbstractHttpClient;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.impl.conn.PoolingClientConnectionManager;
+import org.codehaus.jackson.map.DeserializationConfig;
 import org.codehaus.jackson.map.ObjectMapper;
 
+import java.io.IOException;
+import java.net.URI;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-public class Client {
+public class PatriciaClient {
     public static final int CONNECTIONS_PER_HOST = 20;
     public static final String DEFAULT_CORE = "/";
 
-    private List<HostPort> servers;
+    private List<PatriciaHost> servers;
     private AbstractHttpClient httpClient;
-    private ObjectMapper objectMapper = new ObjectMapper();
 
-    public Client() {
-        servers.add(new HostPort());
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+    static {
+        objectMapper.configure(DeserializationConfig.Feature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+    }
+
+    public PatriciaClient() {
+        servers = new ArrayList<PatriciaHost>(1);
+        servers.add(new PatriciaHost());
 
         setupHttpClient();
         discover();
     }
 
-    public Client(List<HostPort> servers) {
+    public PatriciaClient(List<PatriciaHost> servers) {
         this.servers = servers;
 
         setupHttpClient();
         discover();
     }
 
-    public Client(List<HostPort> servers, AbstractHttpClient httpClient) {
+    public PatriciaClient(List<PatriciaHost> servers, AbstractHttpClient httpClient) {
         this.servers = servers;
         this.httpClient = httpClient;
 
         discover();
     }
 
-    public Client(List<HostPort> servers, ClientConnectionManager clientConnectionManager) {
+    public PatriciaClient(List<PatriciaHost> servers, ClientConnectionManager clientConnectionManager) {
         this.servers = servers;
         this.httpClient = new DefaultHttpClient(clientConnectionManager);
 
@@ -55,7 +66,7 @@ public class Client {
     private void setupHttpClient() {
         SchemeRegistry schemeRegistry = new SchemeRegistry();
 
-        for (HostPort server : servers) {
+        for (PatriciaHost server : servers) {
             schemeRegistry.register(new Scheme("http", server.getPort(), PlainSocketFactory.getSocketFactory()));
         }
 
@@ -96,7 +107,22 @@ public class Client {
     }
 
     private void discover() {
+        for (PatriciaHost server : servers) {
+            HashMap<String, Core> coreConfig = getCoreConfig(server);
+            System.out.println(coreConfig);
+        }
+    }
 
+    private CoreConfig getCoreConfig(PatriciaHost server) {
+        try {
+            final URI configUri = server.getConfigUri();
+            HttpGet get = new HttpGet(configUri);
+            final HttpResponse response = httpClient.execute(get);
+            final CoreConfig coreConfig = objectMapper.readValue(response.getEntity().getContent(), CoreConfig.class);
+            return coreConfig;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private String getApiPathForCore(String core) {
