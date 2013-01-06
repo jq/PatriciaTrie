@@ -139,6 +139,10 @@ public class PatriciaClient {
         }
     }
 
+    public boolean put(String string) {
+        return put(new String[]{string});
+    }
+
     public boolean put(String... strings) {
         return put(DEFAULT_CORE, strings);
     }
@@ -154,6 +158,10 @@ public class PatriciaClient {
         } catch (Exception e) {
             return false;
         }
+    }
+
+    public HashMap<String, List<String>> post(String string) {
+        return post(new String[]{string});
     }
 
     public HashMap<String, List<String>> post(String... strings) {
@@ -172,6 +180,10 @@ public class PatriciaClient {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
+    }
+
+    public HashMap<String, String> delete(String string) {
+        return delete(new String[]{string});
     }
 
     public HashMap<String, String> delete(String... strings) {
