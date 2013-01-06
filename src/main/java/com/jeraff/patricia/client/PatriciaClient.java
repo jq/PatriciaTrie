@@ -204,17 +204,17 @@ public class PatriciaClient {
         }
     }
 
-    public HashMap<String, String> head(String string) {
+    public HeadResponse head(String string) {
         return head(DEFAULT_CORE, string);
     }
 
-    public HashMap<String, String> head(String core, String string) {
+    public HeadResponse head(String core, String string) {
         HttpHead head = null;
         try {
             final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_S, string);
             final HttpResponse response = httpClient.execute(new HttpHead(builder.build()));
             final Header[] allHeaders = response.getAllHeaders();
-            final HashMap<String, String> headers = new HashMap<String, String>();
+            final HeadResponse headers = new HeadResponse();
 
             for (Header header : allHeaders) {
                 headers.put(header.getName(), header.getValue());
