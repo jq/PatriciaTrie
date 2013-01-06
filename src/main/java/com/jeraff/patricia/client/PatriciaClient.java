@@ -94,7 +94,7 @@ public class PatriciaClient {
         try {
             response = httpClient.execute(method);
         } catch (IOException e) {
-            e.printStackTrace();
+            throw new RuntimeException(e);
         } finally {
             method.releaseConnection();
         }
