@@ -73,6 +73,16 @@ public class PatriciaClientTest {
     }
 
     @Test
+    public void testDelete() {
+        String s = String.valueOf(System.currentTimeMillis()) + " string 1";
+        HashMap<String, List<String>> map = patriciaClient.post(s);
+        HashMap<String, String> delete = patriciaClient.delete(s);
+
+        Assert.assertTrue(delete.containsKey(s));
+        Assert.assertEquals(s, delete.get(s));
+    }
+
+    @Test
     public void testPostThenGetThenDelete() {
         String s = String.valueOf(System.currentTimeMillis()) + " string 1";
 
