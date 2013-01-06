@@ -29,6 +29,9 @@ public class WebHandler extends BaseHandler {
     public static final String TEMPLATE_ADD = "add.ftl";
     public static final String TEMPLATE_INDEX = "index.ftl";
 
+    public static final String HEADER_WEB_UI = "X-Patricia-WebUI";
+    public static final String ENABLED = "enabled";
+
     private static final ObjectMapper prettyMapper;
     static {
         prettyMapper = new ObjectMapper();
@@ -46,6 +49,10 @@ public class WebHandler extends BaseHandler {
     @Override
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
+        if (! isWebUIEnabled(request)) {
+            baseRequest.setHandled(true);
+            return;
+        }
 
         final String action = getAction(target);
 
@@ -58,6 +65,8 @@ public class WebHandler extends BaseHandler {
         } else {
             handle404(response);
         }
+
+        baseRequest.setHandled(true);
     }
 
     private void handleAdd(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -117,6 +126,15 @@ public class WebHandler extends BaseHandler {
 
         writer.print(out);
         writer.close();
+    }
+
+    private boolean isWebUIEnabled(HttpServletRequest request) {
+        final String header = request.getHeader(HEADER_WEB_UI);
+        if (header != null) {
+            return header.equalsIgnoreCase(ENABLED);
+        }
+
+        return true;
     }
 
     private void handle404(HttpServletResponse response) throws IOException {
