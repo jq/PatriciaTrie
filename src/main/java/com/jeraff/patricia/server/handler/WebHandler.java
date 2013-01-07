@@ -48,6 +48,7 @@ public class WebHandler extends BaseHandler {
             throws IOException, ServletException {
         if (! isWebUIEnabled(baseRequest)) {
             baseRequest.setHandled(true);
+            handle404(response);
             return;
         }
 
@@ -127,14 +128,6 @@ public class WebHandler extends BaseHandler {
 
     private boolean isWebUIEnabled(Request request) {
         final String header = request.getHeader(HEADER_WEB_UI);
-        final Enumeration<String> headerNames = request.getHeaderNames();
-        while (headerNames.hasMoreElements()) {
-            final String s = headerNames.nextElement();
-
-            System.err.println(s + ": " + request.getHeader(s));
-        }
-
-
         if (header != null) {
             return header.equalsIgnoreCase(ENABLED);
         }
