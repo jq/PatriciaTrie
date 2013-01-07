@@ -8,7 +8,7 @@ run: clean compile
 	mvn exec:java -Dexec.mainClass="com.jeraff.patricia.server.PatriciaServer"
 
 run-jar: jar
-	java -jar target/PatriciaTrie-0.5.0-jar-with-dependencies.jar
+	java -jar target/patricia*.jar
 
 jar: clean
 	mvn compile assembly:single
