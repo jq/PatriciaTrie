@@ -14,11 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.logging.Level;
+import java.util.*;
 
 public class WebHandler extends BaseHandler {
     private static final String ACTION_INDEX = "";
@@ -131,7 +127,14 @@ public class WebHandler extends BaseHandler {
 
     private boolean isWebUIEnabled(HttpServletRequest request) {
         final String header = request.getHeader(HEADER_WEB_UI);
-        log.log(Level.INFO, "webui enabled header: {0}", header);
+        final Enumeration<String> headerNames = request.getHeaderNames();
+        while (headerNames.hasMoreElements()) {
+            final String s = headerNames.nextElement();
+
+            System.err.println(s + ": " + request.getHeader(s));
+        }
+
+
         if (header != null) {
             return header.equalsIgnoreCase(ENABLED);
         }
