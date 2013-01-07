@@ -46,7 +46,7 @@ public class WebHandler extends BaseHandler {
     @Override
     public void handle(String target, Request baseRequest, HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        if (! isWebUIEnabled(request)) {
+        if (! isWebUIEnabled(baseRequest)) {
             baseRequest.setHandled(true);
             return;
         }
@@ -125,7 +125,7 @@ public class WebHandler extends BaseHandler {
         writer.close();
     }
 
-    private boolean isWebUIEnabled(HttpServletRequest request) {
+    private boolean isWebUIEnabled(Request request) {
         final String header = request.getHeader(HEADER_WEB_UI);
         final Enumeration<String> headerNames = request.getHeaderNames();
         while (headerNames.hasMoreElements()) {
