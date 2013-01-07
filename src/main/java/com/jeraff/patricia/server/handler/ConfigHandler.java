@@ -14,12 +14,17 @@ import java.util.List;
 public class ConfigHandler extends ApiHandler {
     private static final String TARGET_CORES = "cores";
 
-    private HashMap<String, Core> cores;
+    private HashMap<String, HashMap<String, String>> cores;
 
     public ConfigHandler(List<Core> cores) {
-        this.cores = new HashMap<String, Core>();
+        this.cores = new HashMap<String, HashMap<String, String>>();
         for (Core c : cores) {
-            this.cores.put(c.getPath(), c);
+            HashMap<String, String> map = new HashMap<String, String>();
+            map.put("path", c.getPath());
+            map.put("addUrl", c.getAddUrl());
+            map.put("apiUrl", c.getApiUrl());
+            map.put("statusUrl", c.getStatusUrl());
+            this.cores.put(c.getPath(), map);
         }
     }
 
