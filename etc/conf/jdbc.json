@@ -2,7 +2,7 @@
     "cores": [
         {
             "path": "/movies",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
+            "analyzer": "com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer",
             "jdbc": {
                 "url": "jdbc:mysql://localhost:3306/patricia",
                 "table": "movies",

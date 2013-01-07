@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
 
 public class WebHandler extends BaseHandler {
     private static final String ACTION_INDEX = "";
@@ -130,6 +131,7 @@ public class WebHandler extends BaseHandler {
 
     private boolean isWebUIEnabled(HttpServletRequest request) {
         final String header = request.getHeader(HEADER_WEB_UI);
+        log.log(Level.INFO, "webui enabled header: {0}", header);
         if (header != null) {
             return header.equalsIgnoreCase(ENABLED);
         }

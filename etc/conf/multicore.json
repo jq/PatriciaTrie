@@ -12,7 +12,7 @@
     "cores": [
         {
             "path": "/movies",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
+            "analyzer": "com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer",
             "dirCat": {
                 "pattern": "*.txt",
                 "directory": "/Users/arin/Dev/oss/PatriciaTrie/etc/data/movies"
@@ -20,7 +20,7 @@
         },
         {
             "path": "/tv",
-            "analyzer": "com.jeraff.patricia.analyzer.PartialMatchAnalyzer",
+            "analyzer": "com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer",
             "dirCat": {
                 "pattern": "*.txt",
                 "directory": "/Users/arin/Dev/oss/PatriciaTrie/etc/data/tv"
