@@ -8,4 +8,5 @@ public interface PatriciaStringAnalyzer {
     public String getPrefixSearchKey(String s);
     public String getComparable(String String);
     public String getPreferred(String s0, String s1);
+    public String getHash(String str);
 }

@@ -1,10 +1,12 @@
 package com.jeraff.patricia.server.ops;
 
+import com.jeraff.patricia.conf.JDBC;
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
 import com.jeraff.patricia.conf.Core;
 import org.limewire.collection.PatriciaTrie;
 
+import java.sql.*;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,9 +19,12 @@ public class PatriciaOps {
     private static final int NUM_PREFIX_MATCHES = 10;
     private static final int DEFAULT_THREADS = 20;
 
+    private JDBC jdbc;
     private PatriciaTrie<String, String> patriciaTrie;
-    private final PartialMatchAnalyzer analyzer;
-    private final ExecutorService putPool;
+    private PartialMatchAnalyzer analyzer;
+    private ExecutorService putPool;
+    private ExecutorService dbPool;
+    private Connection dbConnection;
 
     public PatriciaOps(final Core core, PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
@@ -32,6 +37,28 @@ public class PatriciaOps {
                 return new Thread(runnable, "PatriciaOps.PutPool." + canonicalCoreName);
             }
         });
+
+        if (core.getJdbc() != null) {
+            this.dbPool = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
+                @Override
+                public Thread newThread(Runnable runnable) {
+                    return new Thread(runnable, "PatriciaOps.DBPool." + canonicalCoreName);
+                }
+            });
+
+            final Properties properties = new Properties();
+            properties.put("user", core.getJdbc().getUser());
+            properties.put("password", core.getJdbc().getPassword());
+
+            try {
+                jdbc = core.getJdbc();
+                dbConnection = DriverManager.getConnection(jdbc.getUrl(), properties);
+                dbConnection.setAutoCommit(true);
+            } catch (SQLException e) {
+                log.log(Level.SEVERE, "Couldn't create DB connection", e);
+                throw new RuntimeException(e);
+            }
+        }
     }
 
     public String firstKey() {
@@ -46,7 +73,7 @@ public class PatriciaOps {
         return patriciaTrie.size();
     }
 
-    public HashMap<String, ArrayList<String>> put(String[] strings) {
+    public HashMap<String, ArrayList<String>> put(String[] strings, boolean persist) {
         final int length = strings.length;
         final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
 
@@ -61,10 +88,17 @@ public class PatriciaOps {
 
             if (result != null) {
                 result.put(string, keys);
+                if (persist) {
+                    persistString(string);
+                }
             }
         }
 
         return result;
+    }
+
+    public HashMap<String, ArrayList<String>> put(String[] strings) {
+        return put(strings, true);
     }
 
     public List<String> getPrefixedBy(String prefix) {
@@ -101,6 +135,27 @@ public class PatriciaOps {
         }
 
         return result;
+    }
+
+    public void persistString(final String str) {
+        dbPool.submit(new Runnable() {
+            private String insertString = String.format(
+                    "INSERT INTO %s(%s, %s) VALUES(?, ?) ON DUPLICATE KEY UPDATE %s=?",
+                    jdbc.getTable(), jdbc.getHash(), jdbc.getS(), jdbc.getS());
+
+            @Override
+            public void run() {
+                try {
+                    final PreparedStatement statement = dbConnection.prepareStatement(insertString);
+                    statement.setString(1, analyzer.getHash(str));
+                    statement.setString(2, str);
+                    statement.setString(3, str);
+                    statement.execute();
+                } catch (SQLException e) {
+                    log.log(Level.WARNING, "Couldn't execute query", e);
+                }
+            }
+        });
     }
 
     public void enqueue(final String[] strings) {

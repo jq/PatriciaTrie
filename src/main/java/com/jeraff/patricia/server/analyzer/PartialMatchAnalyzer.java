@@ -60,6 +60,11 @@ public class PartialMatchAnalyzer implements PatriciaStringAnalyzer {
         }
     }
 
+    @Override
+    public String getHash(String str) {
+        return DigestUtils.md5Hex(clean(str, true));
+    }
+
     private String generateKey(String string, String clean) {
         final String suffix = (string.length() < 32)
                 ? StringUtils.deleteWhitespace(clean(string, false))

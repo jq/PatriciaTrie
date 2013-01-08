@@ -4,12 +4,13 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 
 @JsonAutoDetect
 public class JDBC {
-     String url;
-     String table;
-     String s;
-     String order;
-     String user;
-     String password;
+    String url;
+    String table;
+    String s = "s";
+    String order = "s";
+    String user = "root";
+    String password = "";
+    String hash = "hash";
 
     public String getUrl() {
         return url;
@@ -57,5 +58,13 @@ public class JDBC {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getHash() {
+        return hash;
+    }
+
+    public void setHash(String hash) {
+        this.hash = hash;
     }
 }
