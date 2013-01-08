@@ -74,6 +74,8 @@ public class Config {
             final String path = core.getPath();
             if (paths.contains(path)) {
                 throw new RuntimeException("Invalid core config. Following path is shared by 2 cores: " + path);
+            } else if (core.getJdbc() != null && core.getDirCat() != null) {
+                throw new RuntimeException("Can't have both dirCat and JDBC bootstrap: " + path);
             }
 
             paths.add(path);
