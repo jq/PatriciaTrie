@@ -10,5 +10,5 @@ run: clean compile
 run-jar: jar
 	java -jar target/patricia*.jar
 
-jar: clean
-	mvn compile assembly:single
+jar:
+	mvn clean compile assembly:single
