@@ -1,12 +1,16 @@
 package com.jeraff.patricia.server.ops;
 
+import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.conf.JDBC;
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
-import com.jeraff.patricia.conf.Core;
+import com.mchange.v2.c3p0.ComboPooledDataSource;
 import org.limewire.collection.PatriciaTrie;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -22,10 +26,10 @@ public class PatriciaOps {
     private JDBC jdbc;
     private PatriciaTrie<String, String> patriciaTrie;
     private PartialMatchAnalyzer analyzer;
-    private ExecutorService putPool;
-    private ExecutorService dbPool;
-    private Connection dbConnection;
+    private ExecutorService putExector;
+    private ExecutorService dbExecutor;
     private Core core;
+    private ComboPooledDataSource dbPool;
 
     public PatriciaOps(final Core core, PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
@@ -33,7 +37,7 @@ public class PatriciaOps {
         this.core = core;
 
         final String canonicalCoreName = core.canonicalName();
-        this.putPool = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
+        this.putExector = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
             @Override
             public Thread newThread(Runnable runnable) {
                 return new Thread(runnable, "PatriciaOps.PutPool." + canonicalCoreName);
@@ -41,7 +45,7 @@ public class PatriciaOps {
         });
 
         if (core.getJdbc() != null) {
-            this.dbPool = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
+            this.dbExecutor = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
                 @Override
                 public Thread newThread(Runnable runnable) {
                     return new Thread(runnable, "PatriciaOps.DBPool." + canonicalCoreName);
@@ -50,8 +54,15 @@ public class PatriciaOps {
 
             try {
                 jdbc = core.getJdbc();
-                dbConnection = createDBConnection(core);
-            } catch (SQLException e) {
+
+                dbPool = new ComboPooledDataSource();
+                dbPool.setDriverClass("com.mysql.jdbc.Driver");
+                dbPool.setJdbcUrl(jdbc.getUrl());
+                dbPool.setUser(jdbc.getUser());
+                dbPool.setPassword(jdbc.getPassword());
+                dbPool.setAutoCommitOnClose(true);
+                dbPool.setMaxPoolSize(DEFAULT_THREADS);
+            } catch (Exception e) {
                 log.log(Level.SEVERE, "Couldn't create DB connection", e);
                 throw new RuntimeException(e);
             }
@@ -95,7 +106,7 @@ public class PatriciaOps {
 
             if (result != null) {
                 result.put(string, keys);
-                if (persist && dbConnection != null) {
+                if (persist && dbPool != null) {
                     persistString(string);
                 }
             }
@@ -145,37 +156,46 @@ public class PatriciaOps {
     }
 
     public void persistString(final String str) {
-        dbPool.submit(new Runnable() {
+        dbExecutor.submit(new Runnable() {
             private String insertString = String.format(
                     "INSERT INTO %s(%s, %s) VALUES(?, ?) ON DUPLICATE KEY UPDATE %s=?",
                     jdbc.getTable(), jdbc.getHash(), jdbc.getS(), jdbc.getS());
 
             @Override
             public void run() {
-                if (dbConnection == null) {
-                    log.log(Level.FINE, "No DB connection available.");
-                    return;
-                }
-
+                Connection connection = null;
                 try {
-                    if (dbConnection.isClosed()) {
-                        dbConnection = createDBConnection(core);
-                    }
+                    connection = dbPool.getConnection();
+                    final PreparedStatement statement = connection.prepareStatement(insertString);
 
-                    final PreparedStatement statement = dbConnection.prepareStatement(insertString);
                     statement.setString(1, analyzer.getHash(str));
                     statement.setString(2, str);
                     statement.setString(3, str);
                     statement.execute();
+
                 } catch (SQLException e) {
                     log.log(Level.WARNING, "Couldn't execute query", e);
+                } finally {
+                    if (connection != null) {
+                        try {
+                            connection.commit();
+                        } catch (SQLException e) {
+                            log.log(Level.FINE, "WTF", e);
+                        }
+
+                        try {
+                            connection.close();
+                        } catch (SQLException e) {
+                            log.log(Level.FINE, "WTF", e);
+                        }
+                    }
                 }
             }
         });
     }
 
     public void enqueue(final String[] strings) {
-        putPool.submit(new Runnable() {
+        putExector.submit(new Runnable() {
             @Override
             public void run() {
                 for (String string : strings) {
