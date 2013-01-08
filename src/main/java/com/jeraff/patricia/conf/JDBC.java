@@ -79,7 +79,7 @@ public class JDBC {
     }
 
     public String getCreateTableSQL() {
-        if (this.createTableSQL == null) {
+        if (createTableSQL == null) {
             createTableSQL = String.format("CREATE TABLE IF NOT EXISTS `%s` (\n" +
                                                    "  `%s` varchar(255) NOT NULL DEFAULT '',\n" +
                                                    "  `%s` varchar(32) NOT NULL DEFAULT '',\n" +
