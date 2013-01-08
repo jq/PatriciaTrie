@@ -25,10 +25,12 @@ public class PatriciaOps {
     private ExecutorService putPool;
     private ExecutorService dbPool;
     private Connection dbConnection;
+    private Core core;
 
     public PatriciaOps(final Core core, PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
         this.analyzer = new PartialMatchAnalyzer();
+        this.core = core;
 
         final String canonicalCoreName = core.canonicalName();
         this.putPool = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
@@ -46,19 +48,24 @@ public class PatriciaOps {
                 }
             });
 
-            final Properties properties = new Properties();
-            properties.put("user", core.getJdbc().getUser());
-            properties.put("password", core.getJdbc().getPassword());
-
             try {
                 jdbc = core.getJdbc();
-                dbConnection = DriverManager.getConnection(jdbc.getUrl(), properties);
-                dbConnection.setAutoCommit(true);
+                dbConnection = createDBConnection(core);
             } catch (SQLException e) {
                 log.log(Level.SEVERE, "Couldn't create DB connection", e);
                 throw new RuntimeException(e);
             }
         }
+    }
+
+    private Connection createDBConnection(Core core) throws SQLException {
+        final Properties properties = new Properties();
+        properties.put("user", core.getJdbc().getUser());
+        properties.put("password", core.getJdbc().getPassword());
+
+        Connection conn = DriverManager.getConnection(jdbc.getUrl(), properties);
+        conn.setAutoCommit(true);
+        return conn;
     }
 
     public String firstKey() {
@@ -88,7 +95,7 @@ public class PatriciaOps {
 
             if (result != null) {
                 result.put(string, keys);
-                if (persist) {
+                if (persist && dbConnection != null) {
                     persistString(string);
                 }
             }
@@ -145,7 +152,16 @@ public class PatriciaOps {
 
             @Override
             public void run() {
+                if (dbConnection == null) {
+                    log.log(Level.FINE, "No DB connection available.");
+                    return;
+                }
+
                 try {
+                    if (dbConnection.isClosed()) {
+                        dbConnection = createDBConnection(core);
+                    }
+
                     final PreparedStatement statement = dbConnection.prepareStatement(insertString);
                     statement.setString(1, analyzer.getHash(str));
                     statement.setString(2, str);
