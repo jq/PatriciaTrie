@@ -5,6 +5,7 @@ import com.jeraff.patricia.conf.JDBC;
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
+import org.apache.commons.lang.StringUtils;
 import org.limewire.collection.PatriciaTrie;
 
 import java.sql.Connection;
@@ -198,7 +199,8 @@ public class PatriciaOps {
             public void run() {
                 for (String string : strings) {
                     if (log.isLoggable(Level.INFO)) {
-                        log.log(Level.INFO, "Working on {0} strings", strings.length);
+                        final String join = StringUtils.join(strings, ", ");
+                        log.log(Level.INFO, "Working on {0} strings: {1}", new Object[]{strings.length, join});
                     }
 
                     final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
