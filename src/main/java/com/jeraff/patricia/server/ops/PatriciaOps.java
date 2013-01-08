@@ -114,7 +114,7 @@ public class PatriciaOps {
     }
 
     public HashMap<String, ArrayList<String>> put(String[] strings) {
-        return put(strings, true);
+        return put(strings, jdbc != null);
     }
 
     public List<String> getPrefixedBy(String prefix) {
