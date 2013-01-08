@@ -4,14 +4,15 @@ import org.codehaus.jackson.annotate.JsonAutoDetect;
 
 @JsonAutoDetect
 public class JDBC {
-    String url;
-    String table;
-    String s = "s";
-    String order = "s";
-    String user = "root";
-    String password = "";
-    String hash = "hash";
-    Class driver = com.mysql.jdbc.Driver.class;
+    private String url;
+    private String table;
+    private String s = "s";
+    private String order = "s";
+    private String user = "root";
+    private String password = "";
+    private String hash = "hash";
+    private Class driver = com.mysql.jdbc.Driver.class;
+    private String createTableSQL;
 
     public String getUrl() {
         return url;
@@ -75,5 +76,26 @@ public class JDBC {
 
     public void setDriver(Class driver) {
         this.driver = driver;
+    }
+
+    public String getCreateTableSQL() {
+        if (this.createTableSQL == null) {
+            createTableSQL = String.format("CREATE TABLE IF NOT EXISTS `%s` (\n" +
+                                                   "  `%s` varchar(255) NOT NULL DEFAULT '',\n" +
+                                                   "  `%s` varchar(32) NOT NULL DEFAULT '',\n" +
+                                                   "  PRIMARY KEY (`%s`)\n" +
+                                                   ") ENGINE=InnoDB DEFAULT CHARSET=utf8;",
+
+                                           table,
+                                           s,
+                                           hash,
+                                           hash);
+        }
+
+        return createTableSQL;
+    }
+
+    public void setCreateTableSQL(String createTableSQL) {
+        this.createTableSQL = createTableSQL;
     }
 }

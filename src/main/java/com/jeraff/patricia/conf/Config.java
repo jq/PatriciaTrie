@@ -11,6 +11,10 @@ import org.codehaus.jackson.map.ObjectMapper;
 import org.eclipse.jetty.server.nio.SelectChannelConnector;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -26,7 +30,6 @@ public class Config {
 
     private Connector connector;
     private List<Core> cores;
-    private JDBC jdbc;
     private long time = System.currentTimeMillis();
     private String confFile;
     private boolean indexHandler;
@@ -74,10 +77,46 @@ public class Config {
             }
 
             paths.add(path);
+            if (core.getJdbc() != null) {
+                ensureDB(core);
+            }
         }
 
-        if (! paths.contains("/")) {
+        if (!paths.contains("/")) {
             indexHandler = true;
+        }
+    }
+
+    private void ensureDB(Core core) {
+        Connection connection = null;
+        final JDBC jdbc = core.getJdbc();
+
+        try {
+            final Properties properties = new Properties();
+
+            properties.put("user", jdbc.getUser());
+            properties.put("password", jdbc.getPassword());
+
+            connection = DriverManager.getConnection(jdbc.getUrl(), properties);
+            connection.setAutoCommit(true);
+
+            final Statement statement = connection.createStatement();
+            statement.execute(core.getJdbc().getCreateTableSQL());
+            statement.close();
+        } catch (SQLException e) {
+            final String error = "Couldn't ensure table exists: " + jdbc.getTable();
+            log.log(Level.SEVERE, error, e);
+            throw new RuntimeException(error, e);
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.close();
+                } catch (SQLException e) {
+                    final String error = "Can't close connection: " + jdbc.getTable();
+                    log.log(Level.SEVERE, error, e);
+                    throw new RuntimeException(error, e);
+                }
+            }
         }
     }
 
@@ -175,14 +214,6 @@ public class Config {
 
     public void setCores(List<Core> cores) {
         this.cores = cores;
-    }
-
-    public JDBC getJdbc() {
-        return jdbc;
-    }
-
-    public void setJdbc(JDBC jdbc) {
-        this.jdbc = jdbc;
     }
 
     public long getTime() {
