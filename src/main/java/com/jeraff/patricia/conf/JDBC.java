@@ -11,6 +11,7 @@ public class JDBC {
     String user = "root";
     String password = "";
     String hash = "hash";
+    String driver = "com.mysql.jdbc.Driver";
 
     public String getUrl() {
         return url;
@@ -66,5 +67,13 @@ public class JDBC {
 
     public void setHash(String hash) {
         this.hash = hash;
+    }
+
+    public String getDriver() {
+        return driver;
+    }
+
+    public void setDriver(String driver) {
+        this.driver = driver;
     }
 }

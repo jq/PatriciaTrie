@@ -28,13 +28,11 @@ public class PatriciaOps {
     private PartialMatchAnalyzer analyzer;
     private ExecutorService putExector;
     private ExecutorService dbExecutor;
-    private Core core;
     private ComboPooledDataSource dbPool;
 
     public PatriciaOps(final Core core, PatriciaTrie<String, String> patriciaTrie) {
         this.patriciaTrie = patriciaTrie;
         this.analyzer = new PartialMatchAnalyzer();
-        this.core = core;
 
         final String canonicalCoreName = core.canonicalName();
         this.putExector = Executors.newFixedThreadPool(DEFAULT_THREADS, new ThreadFactory() {
@@ -56,7 +54,7 @@ public class PatriciaOps {
                 jdbc = core.getJdbc();
 
                 dbPool = new ComboPooledDataSource();
-                dbPool.setDriverClass("com.mysql.jdbc.Driver");
+                dbPool.setDriverClass(jdbc.getDriver());
                 dbPool.setJdbcUrl(jdbc.getUrl());
                 dbPool.setUser(jdbc.getUser());
                 dbPool.setPassword(jdbc.getPassword());
