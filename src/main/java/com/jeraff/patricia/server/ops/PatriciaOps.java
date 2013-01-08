@@ -54,7 +54,7 @@ public class PatriciaOps {
                 jdbc = core.getJdbc();
 
                 dbPool = new ComboPooledDataSource();
-                dbPool.setDriverClass(jdbc.getDriver());
+                dbPool.setDriverClass(jdbc.getDriver().getCanonicalName());
                 dbPool.setJdbcUrl(jdbc.getUrl());
                 dbPool.setUser(jdbc.getUser());
                 dbPool.setPassword(jdbc.getPassword());
