@@ -44,20 +44,20 @@ public class CoreHandler extends BaseHandler {
     }
 
     public FutureTask getBootstrapFuture() {
-        if (core.getJdbc() != null) {
-            return new FutureTask(new Callable() {
-                @Override
-                public Object call() throws Exception {
-                    return new JDBC(core, patriciaTrieOps).bootstrap();
-                }
-            });
-        }
-
         if (core.getDirCat() != null) {
             return new FutureTask(new Callable() {
                 @Override
                 public Object call() throws Exception {
                     return new DirectoryCat(core, patriciaTrieOps).bootstrap();
+                }
+            });
+        }
+
+        if (core.getJdbc() != null) {
+            return new FutureTask(new Callable() {
+                @Override
+                public Object call() throws Exception {
+                    return new JDBC(core, patriciaTrieOps).bootstrap();
                 }
             });
         }

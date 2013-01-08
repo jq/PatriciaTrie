@@ -34,7 +34,7 @@ public class DirectoryCat implements Bootstrap {
             final LineIterator iterator = FileUtils.lineIterator(file, dirCat.getEncoding());
             while (iterator.hasNext()) {
                 final String string = iterator.next();
-                patriciaTrieOps.put(new String[]{string}, false);
+                patriciaTrieOps.put(new String[]{string}, core.getJdbc() != null);
                 i++;
 
                 if (log.isLoggable(Level.INFO)) {

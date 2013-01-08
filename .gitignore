@@ -4,3 +4,4 @@ target/*
 *.iml
 *.pyc
 etc/data/movies/all.dat
+etc/conf/arin.json
