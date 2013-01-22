@@ -1,5 +1,6 @@
 package com.jeraff.patricia.server.ops;
 
+import com.jeraff.patricia.client.IndexEntry;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.conf.JDBC;
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
@@ -90,9 +91,9 @@ public class PatriciaOps {
         return patriciaTrie.size();
     }
 
-    public HashMap<String, ArrayList<String>> put(String[] strings, boolean persist) {
+    public HashMap<String, IndexEntry> put(String[] strings, boolean persist) {
         final int length = strings.length;
-        final HashMap<String, ArrayList<String>> result = new HashMap<String, ArrayList<String>>(length);
+        final HashMap<String, IndexEntry> result = new HashMap<String, IndexEntry>(length);
 
         for (String string : strings) {
             final ArrayList<String> keys = new ArrayList<String>();
@@ -103,31 +104,35 @@ public class PatriciaOps {
                 keys.add(entry.getKey());
             }
 
-            if (result != null) {
-                result.put(string, keys);
-                if (persist && dbPool != null) {
-                    persistString(string);
-                }
+            result.put(string, new IndexEntry(string, analyzer.getHash(string), keys));
+            if (persist && dbPool != null) {
+                persistString(string);
             }
         }
 
         return result;
     }
 
-    public HashMap<String, ArrayList<String>> put(String[] strings) {
+    public HashMap<String, IndexEntry> put(String[] strings) {
         return put(strings, jdbc != null);
     }
 
-    public List<String> getPrefixedBy(String prefix) {
+    public List<Entry> getPrefixedBy(String prefix) {
         final SortedMap<String, String> prefixedBy = patriciaTrie.getPrefixedBy(analyzer.getPrefixSearchKey(prefix));
 
         if (prefixedBy.isEmpty()) {
-            return new ArrayList<String>();
+            return new ArrayList<Entry>();
         }
 
-        List<String> result = new ArrayList<String>(new TreeSet<String>(prefixedBy.values()));
-        final int total = result.size();
+        List<Entry> result = new ArrayList<Entry>();
+        if (!prefix.isEmpty()) {
+            for (Map.Entry<String, String> entry : prefixedBy.entrySet()) {
+                final String s = entry.getValue();
+                result.add(new Entry(s, analyzer.getHash(s)));
+            }
+        }
 
+        final int total = result.size();
         if (total > NUM_PREFIX_MATCHES) {
             result = result.subList(0, NUM_PREFIX_MATCHES);
         }

@@ -119,11 +119,11 @@ public class PatriciaClient {
         }
     }
 
-    public List<String> get(String prefix) {
+    public GetResponse get(String prefix) {
         return get(DEFAULT_CORE, prefix);
     }
 
-    public List<String> get(String core, String prefix) {
+    public GetResponse get(String core, String prefix) {
         if (!core.startsWith("/")) {
             core = String.format("/%s", core);
         }
@@ -131,9 +131,9 @@ public class PatriciaClient {
         try {
             final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_S, prefix);
             final HttpGet httpget = new HttpGet(builder.build());
-            return executeHttpMethod(httpget, StringList.class);
+            return executeHttpMethod(httpget, GetResponse.class);
         } catch (HttpNotFoundException e) {
-            return new StringList();
+            return new GetResponse();
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
@@ -160,15 +160,15 @@ public class PatriciaClient {
         }
     }
 
-    public HashMap<String, List<String>> post(String string) {
+    public PostResponseBody post(String string) {
         return post(new String[]{string});
     }
 
-    public HashMap<String, List<String>> post(String... strings) {
+    public PostResponseBody post(String... strings) {
         return post(DEFAULT_CORE, strings);
     }
 
-    public HashMap<String, List<String>> post(String core, String... strings) {
+    public PostResponseBody post(String core, String... strings) {
         try {
             URIBuilder builder = new URIBuilder(getApiUriForCore(core));
             for (String string : strings) {

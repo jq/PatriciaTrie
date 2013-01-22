@@ -1,12 +1,12 @@
 package com.jeraff.patricia.client;
 
+import com.jeraff.patricia.server.ops.Entry;
 import junit.framework.Assert;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.HashMap;
-import java.util.List;
 
 public class PatriciaClientTest {
     private static PatriciaClient patriciaClient;
@@ -19,25 +19,26 @@ public class PatriciaClientTest {
     @Test
     public void testNotFound() {
         final String md5 = DigestUtils.md5Hex(String.valueOf(System.currentTimeMillis()));
-        final List<String> strings = patriciaClient.get(md5);
+        final GetResponse strings = patriciaClient.get(md5);
 
         Assert.assertTrue(strings.isEmpty());
     }
 
     @Test
     public void testFound() {
-        final List<String> strings = patriciaClient.get("a");
+        patriciaClient.post("a");
+        final GetResponse strings = patriciaClient.get("a");
 
         Assert.assertFalse(strings.isEmpty());
-        for (String s : strings) {
-            Assert.assertTrue(s.toLowerCase().contains("a"));
+        for (Entry s : strings) {
+            Assert.assertTrue(s.getS().toLowerCase().contains("a"));
         }
     }
 
     @Test
     public void testPostResponseSingle() {
         String s = "arin was here";
-        HashMap<String, List<String>> map = patriciaClient.post(s);
+        PostResponseBody map = patriciaClient.post(s);
         Assert.assertTrue(map.containsKey(s));
     }
 
@@ -49,7 +50,7 @@ public class PatriciaClientTest {
                 "string 3"
         };
 
-        HashMap<String, List<String>> map = patriciaClient.post(s);
+        PostResponseBody map = patriciaClient.post(s);
 
         for (String s1 : s) {
             Assert.assertTrue(map.containsKey(s1));
@@ -66,16 +67,16 @@ public class PatriciaClientTest {
                 time + " string 3"
         };
 
-        HashMap<String, List<String>> map = patriciaClient.post(s);
-        List<String> stringList = patriciaClient.get(time);
+        PostResponseBody map = patriciaClient.post(s);
+        GetResponse getResponse = patriciaClient.get(time);
 
-        Assert.assertEquals(s.length, stringList.size());
+        Assert.assertEquals(s.length, getResponse.size());
     }
 
     @Test
     public void testDelete() {
         String s = String.valueOf(System.currentTimeMillis()) + " string 1";
-        HashMap<String, List<String>> map = patriciaClient.post(s);
+        PostResponseBody map = patriciaClient.post(s);
         HashMap<String, String> delete = patriciaClient.delete(s);
 
         Assert.assertTrue(delete.containsKey(s));
@@ -86,15 +87,15 @@ public class PatriciaClientTest {
     public void testPostThenGetThenDelete() {
         String s = String.valueOf(System.currentTimeMillis()) + " string 1";
 
-        HashMap<String, List<String>> map = patriciaClient.post(s);
-        List<String> stringList = patriciaClient.get(s);
+        PostResponseBody map = patriciaClient.post(s);
+        GetResponse getResponse = patriciaClient.get(s);
 
-        Assert.assertEquals(1, stringList.size());
-        Assert.assertEquals(s, stringList.get(0));
+        Assert.assertEquals(1, getResponse.size());
+        Assert.assertEquals(s, getResponse.get(0).getS());
 
         patriciaClient.delete(s);
-        stringList = patriciaClient.get(s);
-        Assert.assertEquals(0, stringList.size());
+        getResponse = patriciaClient.get(s);
+        Assert.assertEquals(0, getResponse.size());
     }
 
     @Test
@@ -107,7 +108,7 @@ public class PatriciaClientTest {
                 time + " string 3"
         };
 
-        HashMap<String, List<String>> map = patriciaClient.post(s);
+        PostResponseBody map = patriciaClient.post(s);
         HeadResponse head = patriciaClient.head(time);
 
         Assert.assertEquals(s.length, head.getCount());

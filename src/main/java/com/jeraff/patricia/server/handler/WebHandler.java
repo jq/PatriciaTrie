@@ -1,5 +1,6 @@
 package com.jeraff.patricia.server.handler;
 
+import com.jeraff.patricia.client.IndexEntry;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.util.Method;
@@ -76,7 +77,7 @@ public class WebHandler extends BaseHandler {
             try {
                 params.validate(Method.POST);
 
-                final HashMap<String, ArrayList<String>> put = patriciaTrieOps.put(params.getStrings());
+                final HashMap<String,IndexEntry> put = patriciaTrieOps.put(params.getStrings());
                 rootMap.put("resultJson", prettyMapper.writeValueAsString(put));
                 rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {

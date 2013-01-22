@@ -1,7 +1,9 @@
 package com.jeraff.patricia.server.handler;
 
+import com.jeraff.patricia.client.IndexEntry;
 import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
+import com.jeraff.patricia.server.ops.Entry;
 import com.jeraff.patricia.util.Method;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
@@ -14,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.management.ManagementFactory;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,7 +49,7 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult get(Params params) throws IOException {
-        final List<String> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
+        final List<Entry> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
         final ApiMethodResult apiMethodResult = new ApiMethodResult(prefixedBy);
 
         if (prefixedBy.isEmpty()) {
@@ -59,7 +60,7 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult post(Params params) throws IOException {
-        final HashMap<String, ArrayList<String>> result = patriciaTrieOps.put(params.getStrings());
+        final HashMap<String,IndexEntry> result = patriciaTrieOps.put(params.getStrings());
         return new ApiMethodResult(result);
     }
 

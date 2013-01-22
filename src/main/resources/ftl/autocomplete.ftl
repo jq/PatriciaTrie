@@ -19,7 +19,7 @@
                 minLength: 1,
                 select: function (event, ui) {
                     alert(ui.item ?
-                            "Selected: " + ui.item.value :
+                            ui.item.extra :
                             "Nothing selected, input was " + this.value);
                 },
                 close: function (event, ui) {
@@ -27,6 +27,20 @@
                 },
                 open: function (event, ui) {
                     $("#s").addClass("autoOpen");
+                },
+                response: function( event, ui ) {
+                    var content = ui.content;
+                    var num = content.length;
+
+                    if (num > 0) {
+                        for (var i = 0; i < num; i++) {
+                            ui.content[i].value = ui.content[i].label = ui.content[i].s;
+                            ui.content[i].extra = "string: " + ui.content[i].s;
+                            if (ui.content[i].h) {
+                                ui.content[i].extra += "\nhash: " + ui.content[i].h;
+                            }
+                        }
+                    }
                 }
             });
         });

@@ -1,5 +1,6 @@
 package com.jeraff.patricia.server.analyzer;
 
+import com.jeraff.patricia.server.ops.Entry;
 import org.apache.commons.lang.StringUtils;
 
 public class DistanceComparator extends ResultComparator {
@@ -8,9 +9,9 @@ public class DistanceComparator extends ResultComparator {
     }
 
     @Override
-    public int compare(String s0, String s1) {
-        s0 = analyzer.getComparable(s0);
-        s1 = analyzer.getComparable(s1);
+    public int compare(Entry e0, Entry e1) {
+        final String s0 = analyzer.getComparable(e0.getS());
+        final String s1 = analyzer.getComparable(e1.getS());
 
         final int i0 = s0.indexOf(input);
         final int i1 = s1.indexOf(input);
