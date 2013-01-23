@@ -28,7 +28,7 @@ public class ApiHandler extends BaseHandler {
     public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
     public static final String HEADER_CONNECTION = "Connection";
     public static final String HEADER_CONNECTION_KEEP_ALIVE = "Keep-Alive";
-    private static final String HEADER_HASH = "X-Patricia-HASH";
+    public static final String HEADER_HASH = "X-Patricia-HASH";
 
     public static final String GZIP = "gzip";
     public static final String UTF_8 = "UTF-8";

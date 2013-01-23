@@ -9,4 +9,8 @@ public class HeadResponse extends HashMap<String, String> {
     public int getCount() {
         return Integer.valueOf(get(ApiHandler.HEADER_PREFIX_COUNT));
     }
+
+    public String getHash() {
+        return get(ApiHandler.HEADER_HASH);
+    }
 }
