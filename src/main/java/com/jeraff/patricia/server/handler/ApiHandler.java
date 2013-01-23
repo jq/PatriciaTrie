@@ -28,6 +28,7 @@ public class ApiHandler extends BaseHandler {
     public static final String HEADER_CONTENT_TYPE_JSON = "application/json; charset=utf-8";
     public static final String HEADER_CONNECTION = "Connection";
     public static final String HEADER_CONNECTION_KEEP_ALIVE = "Keep-Alive";
+    private static final String HEADER_HASH = "X-Patricia-HASH";
 
     public static final String GZIP = "gzip";
     public static final String UTF_8 = "UTF-8";
@@ -81,13 +82,12 @@ public class ApiHandler extends BaseHandler {
     public ApiMethodResult head(Params params) throws IOException {
         final ApiMethodResult apiMethodResult = new ApiMethodResult();
         final String firstKey = params.getFirstKey();
-
-        int count = (firstKey == null)
-                ? patriciaTrieOps.size()
-                : patriciaTrieOps.getPrefixedByCount(firstKey);
+        final int count = patriciaTrieOps.getPrefixedByCount(firstKey);
 
         if (count == 0 && firstKey != null) {
             apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        } else {
+            apiMethodResult.addHeader(HEADER_HASH, patriciaTrieOps.getHash(firstKey));
         }
 
         apiMethodResult.addHeader(HEADER_PREFIX_COUNT, String.valueOf(count));

@@ -10,7 +10,6 @@ import org.apache.commons.lang.StringUtils;
 import org.limewire.collection.PatriciaTrie;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.*;
@@ -67,16 +66,6 @@ public class PatriciaOps {
                 throw new RuntimeException(e);
             }
         }
-    }
-
-    private Connection createDBConnection(Core core) throws SQLException {
-        final Properties properties = new Properties();
-        properties.put("user", core.getJdbc().getUser());
-        properties.put("password", core.getJdbc().getPassword());
-
-        Connection conn = DriverManager.getConnection(jdbc.getUrl(), properties);
-        conn.setAutoCommit(true);
-        return conn;
     }
 
     public String firstKey() {
@@ -225,5 +214,9 @@ public class PatriciaOps {
                 }
             }
         });
+    }
+
+    public String getHash(String s) {
+        return analyzer.getHash(s);
     }
 }

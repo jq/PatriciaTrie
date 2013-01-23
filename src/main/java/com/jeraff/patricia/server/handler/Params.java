@@ -17,7 +17,6 @@ public class Params {
 
     private static final String ERROR_MESSAGE_S_REQUIRED = "\"s\" is a required parameter";
     private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single \"s\" parameter";
-    private static final String ERROR_MESSAGE_S_ZERO_ONE = "Method only accepts zero or one \"s\" parameter";
 
     private String[] strings;
     private int offset = 0;
@@ -90,8 +89,8 @@ public class Params {
     }
 
     private void validateHead() throws ParamValidationError {
-        if (strings != null && strings.length > 1) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_ZERO_ONE);
+        if (strings != null && strings.length != 1) {
+            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
 

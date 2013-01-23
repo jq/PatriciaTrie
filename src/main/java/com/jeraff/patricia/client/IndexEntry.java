@@ -5,10 +5,10 @@ import org.codehaus.jackson.annotate.JsonProperty;
 import java.util.ArrayList;
 
 public class IndexEntry {
-    @JsonProperty
-    private String s;
-    @JsonProperty
-    private String h;
+    @JsonProperty(value = "s")
+    private String string;
+    @JsonProperty(value = "h")
+    private String hash;
     @JsonProperty
     private ArrayList<String> keys;
 
@@ -16,25 +16,25 @@ public class IndexEntry {
     }
 
     public IndexEntry(String s, String h, ArrayList<String> keys) {
-        this.s = s;
-        this.h = h;
+        this.string = s;
+        this.hash = h;
         this.keys = keys;
     }
 
-    public String getS() {
-        return s;
+    public String getString() {
+        return string;
     }
 
-    public void setS(String s) {
-        this.s = s;
+    public void setString(String string) {
+        this.string = string;
     }
 
-    public String getH() {
-        return h;
+    public String getHash() {
+        return hash;
     }
 
-    public void setH(String h) {
-        this.h = h;
+    public void setHash(String h) {
+        this.hash = h;
     }
 
     public ArrayList<String> getKeys() {
