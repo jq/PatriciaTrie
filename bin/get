@@ -9,7 +9,7 @@ import pprint
 pp = args.args()
 res = []
 
-url = "%s?%s" % (pp.url, urllib.urlencode({"s": " ".join(pp.strings)}))
+url = "%s?%s" % (pp.url, urllib.urlencode({"p": " ".join(pp.strings)}))
 req = urllib2.Request(url)
 
 try:

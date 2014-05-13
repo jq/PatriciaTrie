@@ -103,7 +103,7 @@ public class PatriciaOps {
             final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(name);
 
             for (Map.Entry<String, String> entry : indexEntries) {
-                patriciaTrie.put(entry.getKey(), name);
+                patriciaTrie.put(entry.getKey(), value);
                 keys.add(entry.getKey());
             }
 

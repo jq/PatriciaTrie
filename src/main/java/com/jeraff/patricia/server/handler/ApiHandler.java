@@ -52,7 +52,7 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult get(Params params) throws IOException {
-        final List<Entry> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getFirstKey());
+        final List<Entry> prefixedBy = patriciaTrieOps.getPrefixedBy(params.getPrefix());
         final ApiMethodResult apiMethodResult = new ApiMethodResult(prefixedBy);
 
         if (prefixedBy.isEmpty()) {
@@ -64,27 +64,17 @@ public class ApiHandler extends BaseHandler {
 
     public ApiMethodResult post(Params params) throws IOException {
         NameValuePair nvp = new BasicNameValuePair(params.getK(), params.getV());
-        final HashMap<String,IndexEntry> result = patriciaTrieOps.put(nvp);
+        final HashMap<String, IndexEntry> result = patriciaTrieOps.put(nvp);
         return new ApiMethodResult(result);
     }
 
     public ApiMethodResult delete(Params params) throws IOException {
-        return new ApiMethodResult(patriciaTrieOps.remove(params.getStrings()));
+        String[] strings = new String[]{params.getK()};
+        return new ApiMethodResult(patriciaTrieOps.remove(strings));
     }
 
     public ApiMethodResult head(Params params) throws IOException {
-        final ApiMethodResult apiMethodResult = new ApiMethodResult();
-        final String firstKey = params.getFirstKey();
-        final int count = patriciaTrieOps.getPrefixedByCount(firstKey);
-
-        if (count == 0 && firstKey != null) {
-            apiMethodResult.setStatus(HttpServletResponse.SC_NOT_FOUND);
-        } else {
-            apiMethodResult.addHeader(HEADER_HASH, patriciaTrieOps.getHash(firstKey));
-        }
-
-        apiMethodResult.addHeader(HEADER_PREFIX_COUNT, String.valueOf(count));
-        return apiMethodResult;
+        return get(params);
     }
 
     @Override

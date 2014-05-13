@@ -10,18 +10,16 @@ import java.util.Map;
 public class Params {
     public static final String PARAM_OFFSET = "offset";
     public static final String PARAM_LIMIT = "limit";
-    public static final String PARAM_S = "s";
-    public static final String PARAM_T = "t";
+    public static final String PARAM_P = "p";
     public static final String PARAM_K = "k";
     public static final String PARAM_V = "v";
 
     public static final int DEFAULT_LIMIT = 25;
 
     private static final String ERROR_MESSAGE_KV_REQUIRED = "\"k\" & \"v\" are required parameter";
-    private static final String ERROR_MESSAGE_S_REQUIRED = "\"s\" is a required parameter";
-    private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single \"s\" parameter";
+    private static final String ERROR_MESSAGE_P_REQUIRED = "\"p\" is a required parameter";
 
-    private String[] strings;
+    private String prefix;
     private int offset = 0;
     private int limit = DEFAULT_LIMIT;
     private String k;
@@ -30,13 +28,8 @@ public class Params {
     public Params(HttpServletRequest request) {
         final Map<String, String[]> parameterMap = request.getParameterMap();
 
-        if (parameterMap.containsKey(PARAM_T)) {
-            final String[] strings = request.getParameterValues(PARAM_T);
-            if (strings.length != 0) {
-                setStrings(StringUtils.split(strings[0], "\n"));
-            }
-        } else if (parameterMap.containsKey(PARAM_S)) {
-            setStrings(parameterMap.get(PARAM_S));
+        if (parameterMap.containsKey(PARAM_P)) {
+            setPrefix(parameterMap.get(PARAM_P));
         } else if (parameterMap.containsKey(PARAM_K)) {
             setKeyValue(parameterMap.get(PARAM_K), parameterMap.get(PARAM_V));
         }
@@ -79,53 +72,34 @@ public class Params {
         if (k != null || v != null) {
             if (k == null || v == null) {
                 throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_KV_REQUIRED);
-            } else {
-                return;
             }
-        }
-
-        if (strings == null || strings.length == 0) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
     }
 
     private void validateGet() throws ParamValidationError {
-        if (strings == null || strings.length == 0) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
-        } else if (strings.length != 1) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_SINGLE);
+        if (prefix == null) {
+            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_P_REQUIRED);
         }
     }
 
     private void validateDelete() throws ParamValidationError {
-        if (strings == null || strings.length == 0) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
+        if (k == null) {
+            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_P_REQUIRED);
         }
     }
 
     private void validateHead() throws ParamValidationError {
-        if (strings != null && strings.length != 1) {
-            throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
-        }
+        validateGet();
     }
 
-    public String[] getStrings() {
-        return strings;
-    }
-
-    public String getFirstKey() {
-        return (strings != null && strings.length != 0)
-                ? strings[0]
-                : null;
-    }
-
-    public void setStrings(String[] strings) {
+    public void setPrefix(String[] strings) {
         if (strings != null && strings.length != 0) {
-            this.strings = new String[strings.length];
-            for (int i = 0; i < strings.length; i++) {
-                this.strings[i] = StringUtils.trim(StringUtils.chomp(strings[i]));
-            }
+            prefix = StringUtils.trim(StringUtils.chomp(strings[0]));
         }
+    }
+
+    public String getPrefix() {
+        return prefix;
     }
 
     public int getOffset() {

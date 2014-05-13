@@ -129,7 +129,7 @@ public class PatriciaClient {
         }
 
         try {
-            final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_S, prefix);
+            final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_P, prefix);
             final HttpGet httpget = new HttpGet(builder.build());
             return executeHttpMethod(httpget, GetResponse.class);
         } catch (HttpNotFoundException e) {
@@ -151,7 +151,7 @@ public class PatriciaClient {
         try {
             final URIBuilder builder = new URIBuilder(getApiUriForCore(core));
             for (String string : strings) {
-                builder.addParameter(Params.PARAM_S, string);
+                builder.addParameter(Params.PARAM_P, string);
             }
             executeHttpMethod(new HttpPut(builder.build()), null);
             return true;
@@ -172,7 +172,7 @@ public class PatriciaClient {
         try {
             URIBuilder builder = new URIBuilder(getApiUriForCore(core));
             for (String string : strings) {
-                builder.addParameter(Params.PARAM_S, string);
+                builder.addParameter(Params.PARAM_P, string);
             }
 
             HttpPost post = new HttpPost(builder.build());
@@ -194,7 +194,7 @@ public class PatriciaClient {
         try {
             URIBuilder builder = new URIBuilder(getApiUriForCore(core));
             for (String string : strings) {
-                builder.addParameter(Params.PARAM_S, string);
+                builder.addParameter(Params.PARAM_P, string);
             }
 
             HttpDelete delete = new HttpDelete(builder.build());
@@ -211,7 +211,7 @@ public class PatriciaClient {
     public HeadResponse head(String core, String string) {
         HttpHead head = null;
         try {
-            final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_S, string);
+            final URIBuilder builder = new URIBuilder(getApiUriForCore(core)).setParameter(Params.PARAM_P, string);
             final HttpResponse response = httpClient.execute(new HttpHead(builder.build()));
             final Header[] allHeaders = response.getAllHeaders();
             final HeadResponse headers = new HeadResponse();
