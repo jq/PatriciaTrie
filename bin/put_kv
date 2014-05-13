@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+
+import json
+import pprint
+import urllib
+import urllib2
+import args
+import sys
+
+pp = args.args()
+res = {}
+
+try:
+    req = urllib2.Request(pp.url, urllib.urlencode({"k": pp.strings[0], "v": pp.strings[1]}))
+    response = urllib2.urlopen(req)
+    data = json.loads(response.read())
+    res.update(data)
+except urllib2.HTTPError, he:
+    print he
+    print he.headers
+
+pprint.pprint(res)

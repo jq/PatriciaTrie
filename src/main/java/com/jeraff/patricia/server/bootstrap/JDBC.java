@@ -79,7 +79,7 @@ public class JDBC implements Bootstrap {
 
             while (rs.next()) {
                 String string = rs.getString(columnIndex);
-                ops.put(new String[]{string}, false);
+//                ops.put(new String[]{string}, false);
                 numInserted++;
 
                 if (log.isLoggable(Level.INFO)) {

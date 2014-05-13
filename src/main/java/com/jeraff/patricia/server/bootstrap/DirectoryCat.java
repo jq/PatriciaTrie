@@ -2,8 +2,6 @@ package com.jeraff.patricia.server.bootstrap;
 
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.server.ops.PatriciaOps;
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.LineIterator;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
 
 import java.io.File;
@@ -30,18 +28,18 @@ public class DirectoryCat implements Bootstrap {
         final File[] files = dir.listFiles(fileFilter);
 
         int i = 0;
-        for (File file : files) {
-            final LineIterator iterator = FileUtils.lineIterator(file, dirCat.getEncoding());
-            while (iterator.hasNext()) {
-                final String string = iterator.next();
-                patriciaTrieOps.put(new String[]{string}, core.getJdbc() != null);
-                i++;
-
-                if (log.isLoggable(Level.INFO)) {
-                    log.log(Level.INFO, "Bootstrap: {0} in {1}", new Object[]{string, core});
-                }
-            }
-        }
+//        for (File file : files) {
+//            final LineIterator iterator = FileUtils.lineIterator(file, dirCat.getEncoding());
+//            while (iterator.hasNext()) {
+//                final String string = iterator.next();
+//                patriciaTrieOps.put(new String[]{string}, core.getJdbc() != null);
+//                i++;
+//
+//                if (log.isLoggable(Level.INFO)) {
+//                    log.log(Level.INFO, "Bootstrap: {0} in {1}", new Object[]{string, core});
+//                }
+//            }
+//        }
 
         log.log(Level.INFO, "Inserted {0} strings in {1}", new Object[]{i, core});
         return true;

@@ -12,15 +12,20 @@ public class Params {
     public static final String PARAM_LIMIT = "limit";
     public static final String PARAM_S = "s";
     public static final String PARAM_T = "t";
+    public static final String PARAM_K = "k";
+    public static final String PARAM_V = "v";
 
     public static final int DEFAULT_LIMIT = 25;
 
+    private static final String ERROR_MESSAGE_KV_REQUIRED = "\"k\" & \"v\" are required parameter";
     private static final String ERROR_MESSAGE_S_REQUIRED = "\"s\" is a required parameter";
     private static final String ERROR_MESSAGE_S_SINGLE = "Method only accepts a single \"s\" parameter";
 
     private String[] strings;
     private int offset = 0;
     private int limit = DEFAULT_LIMIT;
+    private String k;
+    private String v;
 
     public Params(HttpServletRequest request) {
         final Map<String, String[]> parameterMap = request.getParameterMap();
@@ -32,6 +37,8 @@ public class Params {
             }
         } else if (parameterMap.containsKey(PARAM_S)) {
             setStrings(parameterMap.get(PARAM_S));
+        } else if (parameterMap.containsKey(PARAM_K)) {
+            setKeyValue(parameterMap.get(PARAM_K), parameterMap.get(PARAM_V));
         }
 
         final String[] offsets = parameterMap.get(PARAM_OFFSET);
@@ -69,6 +76,14 @@ public class Params {
     }
 
     private void validatePutPost() throws ParamValidationError {
+        if (k != null || v != null) {
+            if (k == null || v == null) {
+                throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_KV_REQUIRED);
+            } else {
+                return;
+            }
+        }
+
         if (strings == null || strings.length == 0) {
             throw new ParamValidationError(HttpServletResponse.SC_BAD_REQUEST, ERROR_MESSAGE_S_REQUIRED);
         }
@@ -127,5 +142,24 @@ public class Params {
 
     public void setLimit(int limit) {
         this.limit = limit;
+    }
+
+    public void setKeyValue(String[] k, String[] v) {
+        if (k.length == 1 && v.length == 1) {
+            this.k = StringUtils.trim(StringUtils.chomp(k[0]));
+            this.v = StringUtils.trim(StringUtils.chomp(v[0]));
+        }
+    }
+
+    public String getK() {
+        return k;
+    }
+
+    public boolean isKeyValue() {
+        return k != null || v != null;
+    }
+
+    public String getV() {
+        return v;
     }
 }

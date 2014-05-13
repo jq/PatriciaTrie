@@ -5,6 +5,8 @@ import com.jeraff.patricia.conf.Config;
 import com.jeraff.patricia.conf.Core;
 import com.jeraff.patricia.server.ops.Entry;
 import com.jeraff.patricia.util.Method;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.eclipse.jetty.server.Request;
 import org.limewire.collection.PatriciaTrie;
 
@@ -61,17 +63,8 @@ public class ApiHandler extends BaseHandler {
     }
 
     public ApiMethodResult post(Params params) throws IOException {
-        final HashMap<String,IndexEntry> result = patriciaTrieOps.put(params.getStrings());
-        return new ApiMethodResult(result);
-    }
-
-    public ApiMethodResult put(Params params) throws IOException {
-        final String[] strings = params.getStrings();
-        patriciaTrieOps.enqueue(strings);
-
-        final HashMap<String, Integer> result = new HashMap<String, Integer>();
-        result.put(QUEUED, strings.length);
-
+        NameValuePair nvp = new BasicNameValuePair(params.getK(), params.getV());
+        final HashMap<String,IndexEntry> result = patriciaTrieOps.put(nvp);
         return new ApiMethodResult(result);
     }
 
@@ -121,9 +114,6 @@ public class ApiHandler extends BaseHandler {
                 break;
             case POST:
                 apiMethodResult = post(params);
-                break;
-            case PUT:
-                apiMethodResult = put(params);
                 break;
         }
 

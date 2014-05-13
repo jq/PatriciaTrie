@@ -77,7 +77,7 @@ public class WebHandler extends BaseHandler {
             try {
                 params.validate(Method.POST);
 
-                final HashMap<String,IndexEntry> put = patriciaTrieOps.put(params.getStrings());
+                final HashMap<String,IndexEntry> put = patriciaTrieOps.put(params.getK(), params.getV());
                 rootMap.put("resultJson", prettyMapper.writeValueAsString(put));
                 rootMap.put("success", true);
             } catch (ParamValidationError paramValidationError) {

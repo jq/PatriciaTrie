@@ -6,7 +6,8 @@ import com.jeraff.patricia.conf.JDBC;
 import com.jeraff.patricia.server.analyzer.DistanceComparator;
 import com.jeraff.patricia.server.analyzer.PartialMatchAnalyzer;
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import org.apache.commons.lang.StringUtils;
+import org.apache.http.NameValuePair;
+import org.apache.http.message.BasicNameValuePair;
 import org.limewire.collection.PatriciaTrie;
 
 import java.sql.Connection;
@@ -80,30 +81,36 @@ public class PatriciaOps {
         return patriciaTrie.size();
     }
 
-    public HashMap<String, IndexEntry> put(String[] strings, boolean persist) {
-        final int length = strings.length;
+    public HashMap<String, IndexEntry> put(String k, String v) {
+        return put(new BasicNameValuePair(k, v));
+    }
+
+    public HashMap<String, IndexEntry> put(NameValuePair nvp) {
+        ArrayList<NameValuePair> nvps = new ArrayList<NameValuePair>();
+        nvps.add(nvp);
+        return put(nvps);
+    }
+
+    public HashMap<String, IndexEntry> put(List<NameValuePair> nameValuePairs) {
+        final int length = nameValuePairs.size();
         final HashMap<String, IndexEntry> result = new HashMap<String, IndexEntry>(length);
 
-        for (String string : strings) {
-            final ArrayList<String> keys = new ArrayList<String>();
+        for (NameValuePair nvp : nameValuePairs) {
+            String name = nvp.getName();
+            String value = nvp.getValue();
 
-            final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
+            final ArrayList<String> keys = new ArrayList<String>();
+            final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(name);
+
             for (Map.Entry<String, String> entry : indexEntries) {
-                patriciaTrie.put(entry.getKey(), string);
+                patriciaTrie.put(entry.getKey(), name);
                 keys.add(entry.getKey());
             }
 
-            result.put(string, new IndexEntry(string, analyzer.getHash(string), keys));
-            if (persist && dbPool != null) {
-                persistString(string);
-            }
+            result.put(name, new IndexEntry(value, analyzer.getHash(name + value), keys));
         }
 
         return result;
-    }
-
-    public HashMap<String, IndexEntry> put(String[] strings) {
-        return put(strings, jdbc != null);
     }
 
     public List<Entry> getPrefixedBy(String prefix) {
@@ -180,35 +187,6 @@ public class PatriciaOps {
                             connection.close();
                         } catch (SQLException e) {
                             log.log(Level.FINE, "WTF", e);
-                        }
-                    }
-                }
-            }
-        });
-    }
-
-    public void enqueue(final String[] strings) {
-        putExector.submit(new Runnable() {
-            @Override
-            public void run() {
-                for (String string : strings) {
-                    if (log.isLoggable(Level.INFO)) {
-                        final String join = StringUtils.join(strings, ", ");
-                        log.log(Level.INFO, "Working on {0} strings: {1}", new Object[]{strings.length, join});
-                    }
-
-                    final Set<Map.Entry<String, String>> indexEntries = analyzer.getIndexEntry(string);
-                    for (Map.Entry<String, String> entry : indexEntries) {
-                        final String key = entry.getKey();
-
-                        if (patriciaTrie.containsKey(key)) {
-                            final String existing = patriciaTrie.get(key);
-                            final String winner = analyzer.getPreferred(existing, string);
-                            if (!winner.equals(existing)) {
-                                put(new String[]{winner});
-                            }
-                        } else {
-                            put(new String[]{string});
                         }
                     }
                 }
